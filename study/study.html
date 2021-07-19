@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>学习笔记</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<base href=''/>
+</head>
+<body>
+<h1>学习笔记</h1>
+<h3>1. SpringMVC设置编码和请求头</h3>
+<pre><code>    使用的是@RequestBody 和@RequestMapping这两个注解, 设置@RequestBody, 返回参数是json
+
+
+    使用@RequestMapping，这是 springMVC的写法，@RequestMapping(&quot;aa&quot;),这个aa就相当于servlet中的action， 在里面设置
+    produces=&quot;application/json;charset=utf-8&quot;可以把Content-Typeh设置成这个，解决前台拿数据 乱码问题
+</code></pre>
+
+<h3>2. maven项目clean或其他命令出错时，可能项目的名字是汉字导致的</h3>
+<h3>3. vue自定义验证规则之只能输入正整数</h3>
+<pre><code>1. 现在input输入框中绑定一个  值发生改变就出发的事件 @keyup.native = &quot;aa&quot;
+2.   
+
+        methods: {
+        //      验证只能输入正整数
+        aa(){
+            this.single_bet_min.value=this.single_bet_min.value.replace(/[^\.\d]/g,'');
+            this.single_bet_min.value=this.single_bet_min.value.replace('.','');
+        }
+</code></pre>
+
+<h3>4. springMVC处理跨域请求，在contorller类上加这个注解</h3>
+<pre><code>    @CrossOrigin(origins = &quot;*&quot;, maxAge = 3600)
+</code></pre>
+
+<h3>5.在idea上配置vue环境</h3>
+<ol>
+<li>
+首先安装 node.js
+<ul>
+<li>查看node版本号： <strong>node -v</strong></li>
+<li>查看node安装路径： <strong>where node</strong></li>
+</ul>
+</li>
+<li>
+<p>安装阿里镜像和vue-cli</p>
+<ul>
+<li>安装镜像： <strong>npm i -g cnpm --registry=https:</strong></li>
+<li>
+<p>安装cli： </p>
+<pre><code>npm i -g vue-cli  //这个是安装命令
+vue -V //测试是否安装成功：
+</code></pre>
+
+</li>
+</ul>
+</li>
+<li>然后安装webpack打包工具： <strong>cnpm install -g webpack</strong></li>
+<li>使用图形化界面创建vue-cli项目： <strong>在命令行输入：vue ui</strong></li>
+<li>
+在idea中配置
+<ul>
+<li>1.安装vue.js插件</li>
+<li>2.配置HTML支持.vue后缀的文件。</li>
+<li><img src="./img/1.png" /></li>
+<li>3.配置ECMAScript6</li>
+<li><img src="./img/2.png" /></li>
+<li><img src="./img/6.png" /></li>
+<li>然后点击+号，找到npm</li>
+<li><img src="./img/7.png" /></li>
+</ul>
+</li>
+</ol>
+<h3>6.vue图形化页面搭建vue-cli</h3>
+<ul>
+<li>1.打开命令行输入<strong>vue ui</strong></li>
+<li>2.这个是第一步要选择的 </li>
+<li><img src="./img/3.png" /></li>
+<li><img src="./img/4.png" /></li>
+<li>
+安装element-ui：插件 =&gt; 添加插件 =&gt; 搜索element-ui =&gt; 点击安装
+<ul>
+<li><img src="./img/5.png" /></li>
+</ul>
+</li>
+<li>安装axios： 依赖 =&gt; 添加依赖 =&gt; 搜索axios =&gt; 点击安装</li>
+</ul>
+<h3>7.vuex的简单使用</h3>
+<ul>
+<li>先安装vuex： <strong>npm i vuex -S</strong></li>
+<li>
+<p>在mian.js入口函数中引入</p>
+<pre><code>import Vuex from &quot;vuex&quot;
+Vue.use(Vuex)
+</code></pre>
+
+</li>
+<li>
+<p>然后建立一个仓库</p>
+<pre><code>var store = new Vuex.Store({
+    state: {    //用来存储数据
+        totalconunt: 1
+    },
+    mutations: {  //这里面的放啊是用来修改上面属性中的数据的
+        updateconunt(state, arg) {
+            state.totalcount = arg
+        }
+    }
+});
+</code></pre>
+
+</li>
+<li>
+<p>然后要在vue对象中绑定</p>
+<pre><code>var vue = new Vue({
+    el: '#app',
+    data: {},
+    store: store   //可以简写成store
+})
+</code></pre>
+
+</li>
+<li>可以通过<strong>this.$store.store.totalcount</strong>来使用state中的参数，通过<strong>this.$store.commit(&quot;updateconunt&quot;,参数一)</strong>来调用</li>
+</ul>
+<h3>8.ssm聚合工程(注解方式)</h3>
+<h4>1.先建好工程，建好模块，把每一个工程的pom都依赖好，导入jar包，然后开始编写controller层</h4>
+<h4>2.编写controller</h4>
+<ul>
+<li><img src="./img/8.png" /></li>
+<li>1.在controller工程中建包：con.hnguigu.web和com.hnguigu.config</li>
+<li>
+<p>2.在web下建一个web工程的启动类MyServletInitializer，相当于disparcatchServlet</p>
+<pre><code>//1.继承下面这个类，实现下面的三个方法
+public class MyServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+    @Override
+    protected Class&lt;?&gt;[] getRootConfigClasses() {
+        //这个相当于application.xml，是大容器
+        return new Class[]{MyRootConfig.class};
+    }
+
+    @Override
+    protected Class&lt;?&gt;[] getServletConfigClasses() {
+        //这个相当于springmvc.xml，是小容器，  
+        return new Class[]{MyServletConfig.class};
+    }
+
+    @Override
+    protected String[] getServletMappings() {
+        //这个就是拦截所有请求，相当于disparcatchServlet
+        return new String[]{&quot;/&quot;};
+    }
+}
+</code></pre>
+
+</li>
+</ul>
+<h4>3.编写MyRootConfig类(大容器)</h4>
+<ul>
+<li>
+<p>大容器需要的注解</p>
+<pre><code>@Configuration  //标名这是一个配置类 
+@ComponentScan(basePackages = &quot;com.hnguigu&quot;) //扫描这里的包
+@MapperScan(basePackages = &quot;com.hnguigu.mapper&quot;)//扫描mapper
+@PropertySource(value = &quot;classpath:jdbc.properties&quot;)//读jdbc配置文件
+@EnableTransactionManagement //事务相关
+</code></pre>
+
+</li>
+<li>
+<p>然后就是把数据源，MybatisSqlSessionFactoryBean， DataSourceTransactionManager加入ioc容器</p>
+<pre><code>@Bean
+public DataSource getDataSource() {
+    DruidDataSource dataSource = new DruidDataSource();
+    dataSource.setDriverClassName(driver);
+    dataSource.setUrl(url);
+    dataSource.setUsername(username);
+    dataSource.setPassword(password);
+    return  dataSource;
+}
+
+@Bean
+public MybatisSqlSessionFactoryBean getMybatisSqlSessionFactoryBean(DataSource dataSource) {
+    Resource resource = new ClassPathResource(&quot;myBatis-config.xml&quot;);
+    MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
+    factoryBean.setDataSource(dataSource);
+    factoryBean.setConfigLocation(resource);
+    return  factoryBean;
+}
+
+@Bean
+public DataSourceTransactionManager getDataSourceTransactionManager(DataSource dataSource) {
+    DataSourceTransactionManager transactionManager = new DataSourceTransactionManager();
+    transactionManager.setDataSource(dataSource);
+    return transactionManager;
+}
+</code></pre>
+
+</li>
+</ul>
+<h4>4.编写MyServletConfig类(小容器)</h4>
+<ul>
+<li>
+<p>小容器需要的注解</p>
+<pre><code>@Configuration
+@ComponentScan(basePackages = &quot;com.hnguigu.web.controller&quot;)
+@EnableWebMvc
+</code></pre>
+
+</li>
+<li>
+<p>配置视图解析器，静态资源过滤器，拦截器， 异常处理解析器，文件上传解析器</p>
+<pre><code>public class MyServletConfig extends WebMvcConfigurerAdapter {//先继承这个类
+//public class MyServletConfig implements WebMvcConfigurer {
+    //视图解析器
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        registry.jsp(&quot;/WEB-INF/pages&quot;, &quot;.jsp&quot;);
+    }
+
+    //静态资源过滤器
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler(&quot;/js/**&quot;).addResourceLocations(&quot;/js/&quot;);
+        registry.addResourceHandler(&quot;/css/**&quot;).addResourceLocations(&quot;/css/&quot;);
+    }
+
+    //拦截器
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new HandleInterceptor3())
+                .addPathPatterns(&quot;/**&quot;)
+                .excludePathPatterns(&quot;/Replydetail/*&quot;);
+    }
+
+    //异常处理解析器
+    @Override
+    public void configureHandlerExceptionResolvers(List&lt;HandlerExceptionResolver&gt; exceptionResolvers) {
+        exceptionResolvers.add(new CostomExceptionHandle());
+    }
+
+    //文件上传解析器
+    public CommonsMultipartResolver commonsMultipartResolver() {
+        CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
+
+        commonsMultipartResolver.setDefaultEncoding(&quot;utf-8&quot;);
+        commonsMultipartResolver.setMaxUploadSize(8388608);
+        commonsMultipartResolver.setMaxUploadSizePerFile(3145728);
+
+        return commonsMultipartResolver;
+    }                           
+}
+</code></pre>
+
+</li>
+</ul>
+<h3>9.SpringBoot项目热部署</h3>
+<h4>方法1(SpringBoot项目)</h4>
+<h4>1.ctrl + shift + s</h4>
+<ul>
+<li><img src="./img/9.png" /></li>
+</ul>
+<h4>2.ctrl + shift + alt + /，选择Registry</h4>
+<ul>
+<li><img src="./img/10.png" /></li>
+</ul>
+<h4>3.在pom文件中导入依赖即可</h4>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+    &lt;optional&gt;true&lt;/optional&gt;
+</code></pre>
+
+<h2>    </dependency></h2>
+<h4>方法2(聚合工程)</h4>
+<h3>1.在父工程的pom中引入</h3>
+<pre><code>&lt;plugins&gt;
+  &lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-site-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+      &lt;locales&gt;en,fr&lt;/locales&gt;
+    &lt;/configuration&gt;
+  &lt;/plugin&gt;
+&lt;/plugins&gt;
+</code></pre>
+
+<h3>2.子工程中引入</h3>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+    &lt;optional&gt;true&lt;/optional&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h3>3. ctrl + shift + s</h3>
+<ul>
+<li><img src="./img/19.png" /></li>
+</ul>
+<h3>4. ctrl + shift + alt + /, 选择Registry</h3>
+<ul>
+<li><img src="./img/20.png" /></li>
+</ul>
+<h3>10.@ControllerAdvice的应用场景</h3>
+<h4>1.全局异常处理</h4>
+<ul>
+<li>
+<p>使用 @ControllerAdvice 实现全局异常处理，只需要定义类，添加该注解即可定义方式如下：</p>
+<pre><code>@ControllerAdvice
+public class MyGlobalExceptionHandler {
+    @ExceptionHandler(Exception.class)
+    public ModelAndView customException(Exception e) {
+        ModelAndView mv = new ModelAndView();
+        mv.addObject(&quot;message&quot;, e.getMessage());
+        mv.setViewName(&quot;myerror&quot;);
+        return mv;
+    }
+}
+@ExceptionHandler 注解用来指明异常的处理类型，即如果这里指定为 NullpointerException，则数组越界异常就不会进到这个方法中来。
+</code></pre>
+
+</li>
+</ul>
+<h4>2.全局数据绑定</h4>
+<ul>
+<li>全局数据绑定功能可以用来做一些初始化的数据操作，我们可以将一些公共的数据定义在添加了 @ControllerAdvice 注解的类中，这样，在每一个 Controller 的接口中，就都能够访问导致这些数据。</li>
+<li>
+<p>使用步骤，首先定义全局数据，如下：</p>
+<pre><code>@ControllerAdvice
+public class MyGlobalExceptionHandler {
+    @ModelAttribute(name = &quot;md&quot;)
+    public Map&lt;String,Object&gt; mydata() {
+        HashMap&lt;String, Object&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;age&quot;, 99);
+        map.put(&quot;gender&quot;, &quot;男&quot;);
+        return map;
+    }
+}
+</code></pre>
+
+</li>
+<li>使用 @ModelAttribute 注解标记该方法的返回数据是一个全局数据，默认情况下，这个全局数据的 key 就是返回的变量名，value 就是方法返回值，当然开发者可以通过 @ModelAttribute 注解的 name 属性去重新指定 key。</li>
+<li>
+<p>定义完成后，在任何一个Controller 的接口中，都可以获取到这里定义的数据：</p>
+<pre><code>@RestController
+public class HelloController {
+    @GetMapping(&quot;/hello&quot;)
+    public String hello(Model model) {
+        Map&lt;String, Object&gt; map = model.asMap();
+        System.out.println(map);
+        int i = 1 / 0;
+        return &quot;hello controller advice&quot;;
+    }
+}
+</code></pre>
+
+</li>
+</ul>
+<h3>11.CentO6.5不能上网的情况</h3>
+<ul>
+<li>可能是因为本机服务没有开，</li>
+<li><img src="./img/11.png" /></li>
+</ul>
+<h3>vue-cli3项目打包</h3>
+<h4>在项目根目录下创建vue.config.js文件，加入如下配置，然后在cmd窗口cd到项目目录，然后npm run build即可</h4>
+<pre><code>const path = require('path')
+const debug = process.env.NODE_ENV !== 'production'
+
+module.exports = {
+  publicPath: process.env.NODE_ENV === 'production' ? './' : '/', // 根域上下文目录
+  outputDir: 'dist', // 构建输出目录
+  assetsDir: 'assets', // 静态资源目录 (js, css, img, fonts)
+  lintOnSave: false, // 是否开启eslint保存检测，有效值：ture | false | error
+  runtimeCompiler: true, // 运行时版本是否需要编译
+  transpileDependencies: [], // 默认babel-loader忽略mode_modules，这里可增加例外的依赖包名
+  productionSourceMap: false, // 是否在构建生产包时生成 sourceMap 文件，false将提高构建速度
+  configureWebpack: config =&gt; { // webpack配置，值位对象时会合并配置，为方法时会改写配置
+    if (debug) { // 开发环境配置
+      config.devtool = 'cheap-module-eval-source-map'
+    } else { // 生产环境配置
+    }
+  },
+  devServer: {
+    open: true, //自动启动浏览器
+    host: '0.0.0.0',
+    port: 8081,
+    https: false,
+    hotOnly: false, //webpack已经默认开启，这里false
+    proxy: { // 配置跨域
+      '/api': {
+        target: 'http://127.0.0.1:8080/renewal',  //打包后接口地址
+        ws: true,
+        changOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
+    before: app =&gt; {}
+  }
+}
+</code></pre>
+
+<h3>把打包好的vue项目在nginx上跑起来</h3>
+<ul>
+<li>安装nginx，直接解压，然后双击nginx.exe即可启动nginx，</li>
+<li>然后进入修改nginx的配置文件，/nginx/conf/nginx.conf</li>
+<li><img src="./img/12.png" /></li>
+<li>然后重启nginx，nginx.exe -s reload，最后访问127.0.0.1：端口即可访问项目</li>
+</ul>
+<h3>ssm+shiro+vue跨域问题</h3>
+<ul>
+<li>首先在vue项目中main.js中加一句axios.defaults.withCredentials = true，这句话的意思是允许前端携带cookie</li>
+<li>
+<p>然后再跨域过滤器中配置一段代码</p>
+<pre><code>HttpServletResponse  httpServletResponse = (HttpServletResponse) response;
+HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+
+httpServletResponse.setHeader(&quot;Access-control-Allow-Origin&quot;, httpServletRequest.getHeader(&quot;Origin&quot;)); //标识允许哪个域到请求，直接修改成请求头的域
+httpServletResponse.setHeader(&quot;Access-Control-Allow-Methods&quot;, &quot;GET,POST,OPTIONS,PUT,DELETE&quot;);//标识允许的请求方法
+// 响应首部 Access-Control-Allow-Headers 用于 preflight request （预检请求）中，列出了将会在正式请求的 Access-Control-Expose-Headers 字段中出现的首部信息。修改为请求首部
+httpServletResponse.setHeader(&quot;Access-Control-Allow-Headers&quot;, httpServletRequest.getHeader(&quot;Access-Control-Request-Headers&quot;));
+httpServletResponse.setContentType(&quot;application/json;charset=utf-8&quot;);
+//这句是允许接受跨域cookie设置，因为shiro是根据jsessionid作为用户的唯一标识
+httpServletResponse.setHeader(&quot;Access-Control-Allow-Credentials&quot;, &quot;true&quot;);
+
+chain.doFilter(request, httpServletResponse);
+</code></pre>
+
+</li>
+</ul>
+<h3>nginx反向代理跨域</h3>
+<ul>
+<li>
+<p>nginx配置文件</p>
+<pre><code>server {
+    listen       8082; //前端端口
+    server_name  localhost;
+    charset    utf-8; #设置编码为utf-8
+
+    location / {
+
+        add_header 'Access-Control-Allow-Origin' '*' always;
+        add_header 'Access-Control-Allow-Credentials' 'true' always;
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS' always;
+        add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type' always;
+
+        root   F:\idea-workspace\Shiro\ssm+shiro+vue\ssm+shiro_vue\shiro_vue\dist;
+        index  index.html index.htm;
+    }
+
+    location /user/ {
+
+        add_header 'Access-Control-Allow-Origin' '*' always;
+        add_header 'Access-Control-Allow-Credentials' 'true' always;
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS' always;
+        add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type' always;
+
+        proxy_pass   http://127.0.0.1:8080; # 后端接口 IP:port
+    }
+
+    error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+        root   html;
+    }
+}
+</code></pre>
+
+</li>
+</ul>
+<h3>linux查看某个端口是否使用：lsof -i ：6379</h3>
+<h3>linux升级内核</h3>
+<pre><code>1.导入key
+    rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org, 如果报SSL错误, 则需要更新网络安全服务  yum update nss
+2.安装elrepo的yum源
+    到该http://elrepo.org/tiki/tiki-index.php网址找到最新的包, 执行
+    rpm -Uvh https://www.elrepo.org/elrepo-release-6-8.el6.elrepo.noarch.rpm
+3.安装内核    
+    yum --enablerepo=elrepo-kernel  install  kernel-lt -y
+4. 最后修改引导文件,将默认引导改为0
+    vim /etc/grub.conf 将default改成0, 如果原来是0,则改成1. 
+5 最最后 reboot一下, 然后再用uname -a 查看一下内核版本就可以了!!!!!!!!!!!!!!!!!
+</code></pre>
+
+<h3>docker安装时出现Cannot retrieve metalink for repository: epel. Please verify its path and try again</h3>
+<pre><code>解决方法： 一句话：把/etc/yum.repos.d/epel.repo，文件第3行注释去掉，把第四行注释掉。具体如下：
+
+打开/etc/yum.repos.d/epel.repo，将
+
+[epel]
+name=Extra Packages for Enterprise Linux 6 - $basearch
+#baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch
+mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&amp;arch=$basearch
+修改为
+
+[epel]
+name=Extra Packages for Enterprise Linux 6 - $basearch
+baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch
+#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&amp;arch=$basearch
+再清理源，重新安装
+
+yum clean all
+yum install -y 需要的包
+</code></pre>
+
+<h3>centos6.5安装docker报错，docker 已死，但 pid 文件仍存</h3>
+<ul>
+<li>
+<p>输入命令，然后重启</p>
+<pre><code>命令：yum install device-mapper-event-libs
+
+重启：/etc/init.d/docker restart
+</code></pre>
+
+</li>
+</ul>
+<h3>解决低版本的MySQL客户端的“error 2059: Authentication plugin ‘caching_sha2_password’ cannot be loaded”错误</h3>
+<ul>
+<li>
+<p><img src="./img/13.png" /></p>
+<ol>
+<li>用高版本的 MySQL，或者进入该 Docker 容器，登录 MySQL 服务器</li>
+<li>
+<p>执行 MySQL shell 命令查看服务器的版本：</p>
+<pre><code>命令：select version();
+执行结果：
+| version() |
++-----------+
+| 8.0.16    |
++-----------+
+1 row in set (0.00 sec)
+</code></pre>
+
+</li>
+<li>
+<p>查看当前默认的密码认证插件：</p>
+<pre><code>命令： show variables like 'default_authentication_plugin';
+
+| Variable_name                 | Value                 |
++-------------------------------+-----------------------+
+| default_authentication_plugin | caching_sha2_password |
++-------------------------------+-----------------------+
+1 row in set (0.01 sec)
+</code></pre>
+
+</li>
+<li>
+<p>查看当前所有用户绑定的认证插件：</p>
+<pre><code>命令 select host,user,plugin from mysql.user;
+
++-----------+------------------+-----------------------+
+| host      | user             | plugin                |
++-----------+------------------+-----------------------+
+| %         | root             | caching_sha2_password |
+| localhost | healthchecker    | caching_sha2_password |
+| localhost | mysql.infoschema | caching_sha2_password |
+| localhost | mysql.session    | caching_sha2_password |
+| localhost | mysql.sys        | caching_sha2_password |
++-----------+------------------+-----------------------+
+5 rows in set (0.00 sec)
+</code></pre>
+
+</li>
+<li>
+<p>假如想更改 root 用户的认证方式</p>
+<pre><code># 修改加密规则
+&gt; ALTER USER 'root'@'%' IDENTIFIED BY 'root' PASSWORD EXPIRE NEVER;
+# 更新用户密码
+&gt; ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
+# 赋予 root 用户最高权限
+&gt; grant all privileges on *.* to root@'%' with grant option;
+# 刷新权限
+&gt; flush privileges;
+</code></pre>
+
+<p>注意：在这之后，将不再支持以下的权限授予语句：</p>
+<blockquote>
+<p>grant all privileges on <em>.</em> to root@'%' identified by '123456' with grant option;</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<h3>springboot根据sql脚本建表不成功</h3>
+<ul>
+<li>
+解决方法：
+<ul>
+<li>（1） 在application配置文件指定执行sql（静态资源）的地方加上initialization-mode:always即可</li>
+<li>
+（2）如果你配置文件没有指定执行文件的名称而是使用默认的schema.sql或者schema-all.sql的话就在配置文件中加上
+<blockquote>
+<p>spring.datasource.initialization-mode=always</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+原理：
+<ul>
+<li>因为SpringBoot在启动时，只有检测到spring.datasource.initialization-mode=ALWAYS配置，然后再检测spring.datasource.schema，且配置的sql角本命令不为空，才会去执行schema和spring.datasource.data。因此需要在scheme.sql中随便写一句sql语句。
+所以在application.properties/application.yml文件中必须配置spring.datasource.initialization-mode=ALWAYS</li>
+</ul>
+</li>
+</ul>
+<h3>vue前后端分离实现文件上传</h3>
+<ul>
+<li><img src="./img/15.png" /></li>
+</ul>
+<h3>idea将web项目打包成war包</h3>
+<ul>
+<li><img src="./img/16.png" /></li>
+</ul>
+<h3>在nginx上挂载本地文件和本地nginx.conf文件</h3>
+<ul>
+<li><a href="https://blog.csdn.net/qq_26614295/article/details/80505246">参考文章</a></li>
+<li>
+<p>主要命令</p>
+<pre><code>docker run  --name mynginx -d -p 80:80 
+-v /data/nginx/html:/usr/share/nginx/html 
+-v /data/nginx/conf/nginx.conf:/etc/nginx/nginx.conf 
+-v /data/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf  
+-v /data/nginx/logs:/var/log/nginx 
+nginx
+把本地的/data/nginx下的各个文件挂载到nginx上
+</code></pre>
+
+</li>
+</ul>
+<h3>springboot整合mybatis-plus和mybatis</h3>
+<pre><code>server:
+  port: 8001 #端口号
+
+spring:
+  application:
+    name: cloud-payment-service # 服务名称
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/guigu?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=GMT%2B8
+    password: root
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+整合mybatis(配置这个即可开始使用)
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.hnguigu.springcloud.domain # 实体类所在包名， 会用包名简单映射
+
+整合mybatis-plus()
+# mybatis-plus相关配置
+mybatis-plus:
+  # xml扫描，多个目录用逗号或者分号分隔（告诉 Mapper 所对应的 XML 文件位置）
+  mapper-locations: classpath:mapper/*.xml
+  # 以下配置均有默认值,可以不设置
+  global-config:
+    db-config:
+      #主键类型 AUTO:&quot;数据库ID自增&quot; INPUT:&quot;用户输入ID&quot;,ID_WORKER:&quot;全局唯一ID (数字类型唯一ID)&quot;, UUID:&quot;全局唯一ID UUID&quot;;
+      id-type: auto
+      #字段策略 IGNORED:&quot;忽略判断&quot;  NOT_NULL:&quot;非 NULL 判断&quot;)  NOT_EMPTY:&quot;非空判断&quot;
+      field-strategy: NOT_EMPTY
+      #数据库类型
+      db-type: MYSQL
+  configuration:
+    # 是否开启自动驼峰命名规则映射:从数据库列名到Java属性驼峰命名的类似映射
+    map-underscore-to-camel-case: true
+    # 如果查询结果中包含空值的列，则 MyBatis 在映射的时候，不会映射这个字段
+    call-setters-on-nulls: true
+    # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+</code></pre>
+
+<ol>
+<li>配置完yml文件后还需要在主启动类加个扫描注解</li>
+<li><img src="./img/17.png" /></li>
+<li>
+<p>编写配置类</p>
+<pre><code>@Configuration
+public class MybatisPlusConfig {
+
+    @Bean
+    public PaginationInterceptor paginationInterceptor() {
+        return new PaginationInterceptor();
+    }
+
+}
+</code></pre>
+
+</li>
+</ol>
+<h3>在日志中输出消息的方法</h3>
+<ul>
+<li><img src="./img/18.png" /></li>
+</ul>
+<h3>使用restTemplate进行远程调用</h3>
+<h4>1.导入spring相关依赖，</h4>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h4>2. 建立一个配置类</h4>
+<pre><code>@Configuration
+public class ApplicattionContextConfig {
+
+    @Bean
+    public RestTemplate getRestTemplate() {
+        return new RestTemplate();
+    }
+}
+</code></pre>
+
+<h4>3. 调用</h4>
+<pre><code>public static final String URL = &quot;http://localhost:8001&quot;;
+
+@Resource
+private RestTemplate restTemplate;
+
+@GetMapping(&quot;/payment/add&quot;)
+public CommonReault&lt;Payment&gt; add(Payment payment) {
+    // 三个参数分别是， 要远程调用的url地址， 第二个是参数， 第三个是返回值类型
+    return restTemplate.postForObject(URL + &quot;/payment/payment&quot;, payment, CommonReault.class);
+}
+</code></pre>
+
+<h3>centos7的ip是127.0.0.1解决</h3>
+<pre><code>vi /etc/sysconfig/network-scripts/ifcfg-ens33
+然后重启
+service network restart
+</code></pre>
+
+<h3>centos7.0 没有netstat 和 ifconfig, wget命令问题</h3>
+<blockquote>
+<p>yum install net-tools </p>
+<p>(wget没有的话执行以下命令)</p>
+<p>yum -y install wget</p>
+<p>yum -y install setup</p>
+<p>yum -y install perl</p>
+</blockquote>
+<h3>Centos7安装docker</h3>
+<h4>查看内核版本, 要大于3.10</h4>
+<blockquote>
+<p>uname -a</p>
+</blockquote>
+<h4>把yum包更新到最新</h4>
+<blockquote>
+<p>yum update</p>
+</blockquote>
+<h4>安装需要的软件包,yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的</h4>
+<blockquote>
+<p>yum install -y yum-utils device-mapper-persistent-data lvm2</p>
+</blockquote>
+<h4>设置yum源（选择其中一个）</h4>
+<blockquote>
+<p>yum-config-manager --add-repo http://download.docker.com/linux/centos/docker-ce.repo（中央仓库）</p>
+<p>yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo（阿里仓库）</p>
+</blockquote>
+<h4>查看所有仓库中所有docker版本</h4>
+<blockquote>
+<p>yum list docker-ce --showduplicates | sort -r</p>
+</blockquote>
+<h4>安装docker</h4>
+<blockquote>
+<p>yum install docker-ce-18.03.1.ce</p>
+</blockquote>
+<h4>启动docker</h4>
+<blockquote>
+<p>systemctl start docker</p>
+</blockquote>
+<h3>解决git push时出现Failed to connect to github.com port 443: Timed out</h3>
+<ul>
+<li>把C:\Windows\System32\drivers\etc下的host文件中关于github的都注释掉就可以了</li>
+</ul>
+<h3>安装ik分词器，<a href="https://github.com/medcl/elasticsearch-analysis-ik">git地址</a></h3>
+<pre><code>1. 下载好.zip后缀的文件后使用解压：
+unzip elasticsearch.zip -d ik
+2. 然后把ik文件夹传到容器内部
+docker cp ik 容器名:地址(例如: docker cp ik elasticsearch:/usr/share/elasticsearch/plugins)
+3. 重启elasticsearch容器，然后在kibana中测试，ik分词器中包括了ik_smart和ik_max_word两种
+GET _analyze
+{
+  &quot;analyzer&quot;: &quot;ik_smart&quot;,
+  &quot;text&quot;: &quot;这是一个对分词器的测试&quot;
+}
+区别：
+    ik_max_word：这是/一个/一/个/对分/分词器/分词/词/器/测试
+    ik_smart：这是/一个/分词器/测试
+    standard：这/是/一/个/对/分/词/器/的/测/试
+</code></pre>
+
+<h3>解决mybatis一级缓存导致数据不显示，前端显示ref问题</h3>
+<ul>
+<li><img src="./img/21.png" /></li>
+<li>
+<p>解决方法： </p>
+<pre><code>IPage&lt;InsuranceServiceApplyInfoVo&gt; insuranceServiceApplyInfoVoIPage = provider.selectPageVo(pageVo);
+insuranceServiceApplyInfoVoIPage.getRecords().stream().forEach(item -&gt; {
+    if (null != item.getInsuranceProductInfoVo()) {
+        item.setInsuranceProductInfoVo(new InsuranceProductInfoVo(item.getInsuranceProductInfoVo()));
+    }
+});
+return provider.selectPageVo(pageVo);
+把可能会出现重复对象的对象重新new一遍，就不会使它们的引用地址指向同一个对象了，然后再vo类中添加一个新的构造方法即可
+</code></pre>
+
+</li>
+</ul>
+<h3><a href="https://blog.csdn.net/qq_34395857/article/details/94635653?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control">安装jenkins离线问题</a></h3>
+<h3>Nginx配置下载服务器和图片服务器</h3>
+<h4>图片服务器</h4>
+<pre><code>location ~ .*\.(gif|jpg|jpeg|png)$ {  
+    expires 24h;  
+      root /home/hy/nginx_download/user/img;#指定图片存放路径  
+      access_log /home/hy/nginx_download/logs/images.log;#日志存放路径  
+      proxy_store on;  
+      proxy_store_access user:rw group:rw all:rw;  
+      proxy_temp_path     /home/hy/nginx_download/user/img;#图片访问路径  
+      proxy_redirect     off;  
+      proxy_set_header    Host 127.0.0.1;  
+      client_max_body_size  10m;  
+      client_body_buffer_size 1280k;  
+      proxy_connect_timeout  900;  
+      proxy_send_timeout   900;  
+      proxy_read_timeout   900;  
+      proxy_buffer_size    40k;  
+      proxy_buffers      40 320k;  
+      proxy_busy_buffers_size 640k;  
+      proxy_temp_file_write_size 640k;  
+      if ( !-e $request_filename)  
+      {  
+         proxy_pass http://127.0.0.1;#默认80端口  
+      }  
+  }
+</code></pre>
+
+<h4>下载服务器</h4>
+<pre><code>location /model {
+    charset  utf-8;
+    root /home/hy/nginx_download/user; #配置下载文件的路径
+    #alias /data/download/;
+
+    // 下载文件后缀为txt的
+    if ($request_filename ~* ^.*?\.(txt)$){
+        add_header Content-Disposition 'attachment';
+        add_header Content-Type: 'APPLICATION/OCTET-STREAM';
+    }
+
+    autoindex on; // 打开目录浏览功能，为on则会显示文件列表，为off就显示403
+    autoindex_exact_size   off; // 显示文件大小
+    autoindex_localtime    on; // 显示文件时间
+    // 记录日志的地方，main表示使用默认的日志模板，可以使用log_format自定义模板
+    access_log  /home/hy/nginx_download/logs/download.log  main; 
+}
+</code></pre>
+
+<ul>
+<li><img src="./img/22.png" /></li>
+</ul>
+<h3>Linux上安装jenkins</h3>
+<h4><a href="https://blog.csdn.net/qq_35868412/article/details/89475386">安装参考链接</a></h4>
+<h4><a href="https://blog.csdn.net/u014102846/article/details/83017859?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-6.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-6.control">配置环境变量链接</a></h4>
+<h4>1. 首先安装jenkins(参考链接)，配置清华大学的源，然后配置java，maven，git的环境变量。</h4>
+<h4>2. 配置git要生成秘钥(配置git路径时使用which git得到的结果)</h4>
+<blockquote>
+<p>ssh-keygen -t rsa &quot;邮箱&quot; //然后一直按回车就行</p>
+</blockquote>
+<pre><code>公钥内容在 ~/.ssh/id_rsa.pub
+私有内容在 ~/.ssh/id_rsa
+</code></pre>
+
+<h4>3. 拿到秘钥之后把公钥配置在github上，把私钥放在jenkins上</h4>
+<p><img src="./img/23.png" />
+<img src="./img/24.png" /></p>
+<h4>4.创建一个jenkins项目</h4>
+<ul>
+<li><a href="https://blog.csdn.net/weixin_44747933/article/details/107118059?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-10&amp;spm=1001.2101.3001.4242">参考链接1</a></li>
+<li><a href="https://blog.csdn.net/weixin_40400410/article/details/82148335">参考链接2</a>
+<img src="./img/25.png" /></li>
+</ul>
+<h4>5. 注意事项</h4>
+<ul>
+<li>选择的pom.xml中要包含整个项目中有的依赖</li>
+<li>
+<p>maven中最好指定一下jdk的版本(在setting中配置)</p>
+<pre><code>&lt;profile&gt;
+    &lt;id&gt;jdk-1.8&lt;/id&gt;
+    &lt;activation&gt;
+        &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+        &lt;jdk&gt;1.8&lt;/jdk&gt;
+    &lt;/activation&gt;
+    &lt;properties&gt;
+        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+        &lt;maven.compiler.compilerVersion&gt;1.8&lt;/maven.compiler.compilerVersion&gt;
+    &lt;/properties&gt;
+&lt;/profile&gt;
+</code></pre>
+
+</li>
+</ul>
+<h3>查找进程号命令</h3>
+<pre><code>ps -ef | grep Test1-1.0-SNAPSHOT.jar | grep -v grep | awk '{print $2}'
+
+ps -ef | grep Test1-1.0-SNAPSHOT.jar 
+grep -v grep: grep -v是反向查找，grep是查找包含指定字符串的行，结合起来就是查找不包含指定字符串的行，比如这个就是查找不包含grep的行
+awk '{print $2}'： 就是把字段文本根据空格或tab拆分，取第2段文本
+</code></pre>
+
+<h3>定时任务的几种方式</h3>
+<h4><a href="https://www.jianshu.com/p/ac3daf7a248f">参考链接</a></h4>
+<h4>使用延迟线程池ScheduledExecutorService</h4>
+<pre><code>public class ScheduledExecutorTimeTaskService {
+
+    private int a = 0;
+
+    private ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(3);
+
+    /**
+     * 延时2s开始执行
+     */
+    public void task1() {
+        scheduledExecutorService.schedule(() -&gt; {
+            log.info(&quot;task-start&quot;);
+            try {
+                TimeUnit.SECONDS.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            log.info(&quot;task-end&quot;);
+        },  3, TimeUnit.SECONDS);
+    }
+
+    /**
+     * 间隔多久执行方法
+     * @param a1 首次执行延迟多久
+     * @param a2 每次执行间隔多久
+     */
+    public void task2(int a1, int a2) {
+        scheduledExecutorService.scheduleAtFixedRate(() -&gt; {
+            log.info(&quot;task-start&quot;);
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            a++;
+            System.out.println(a);
+            if (a &gt; 5) {
+                scheduledExecutorService.shutdown();
+            }
+            log.info(&quot;task-end&quot;);
+        }, a1,a2, TimeUnit.SECONDS);
+    }
+
+    /**
+     * 间隔多久执行方法, 跟task2作用差不多
+     * 差别就是：
+     *      scheduleWithFixedDelay： 是以上一个任务执行完后才开始计算间隔时间
+     *      scheduleAtFixedRate： 是当上一个任务开始执行的时候就计算间隔时间，上一个任务完成后立即执行下一个任务，没有完成则等待
+     * @param a1 首次执行延迟多久
+     * @param a2 每次执行间隔多久
+     */
+    public void task3(int a1, int a2) {
+        scheduledExecutorService.scheduleWithFixedDelay(() -&gt; {
+            log.info(&quot;task-start&quot;);
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            log.info(&quot;task-end&quot;);
+        },  a1, a2, TimeUnit.SECONDS);
+    }
+}
+</code></pre>
+
+<h4>Spring的@Scheduled注解实现定时任务</h4>
+<h6>首先在启动类上添加@EnableScheduling注解</h6>
+<pre><code>@EnableScheduling
+@SpringBootApplication
+public class TestApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(TestApplication.class, args);
+    }
+}
+</code></pre>
+
+<h6>再到service类里的方法上加上@Scheduled注解</h6>
+<pre><code>public class ScheduledAnnotationTimeTaskService {
+
+    /**
+     * 每隔2s执行一次，如果上次任务超过2s则上次任务结束后马上下一次任务，
+     */
+    @Scheduled(initialDelay=5000, fixedRate = 4000)
+    public void task1() {
+        log.info(&quot;task-start1&quot;);
+        sleep(1);
+        log.info(&quot;task-end1&quot;);
+    }
+
+    /**
+     * initialDelay: 首次任务执行延迟的时间
+     * fixedRate： 它的间隔2s是以上一个任务开始执行开始计算，
+     * fixedDelay： 它的间隔2s是等上一次任务执行完了等2s再执行下一个任务
+     */
+    @Scheduled(initialDelay=5000, fixedDelay = 4000)
+    public void task2() {
+        log.info(&quot;task-start2&quot;);
+        sleep(1);
+        log.info(&quot;task-end2&quot;);
+    }
+
+    @Scheduled(cron = &quot;0/3 * * * * ?&quot;)
+    public void task3() {
+        log.info(&quot;task-start3&quot;);
+        sleep(1);
+        log.info(&quot;task-end3&quot;);
+    }
+
+    public static void sleep(int a) {
+        try {
+            TimeUnit.SECONDS.sleep(a);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+
+<h4>Quartz定时任务</h4>
+<h5>首先导依赖，然后启动类上也添加@EnableScheduling注解</h5>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-quartz&lt;/artifactId&gt;
+    &lt;version&gt;2.3.2.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h3>mysql索引相关</h3>
+<p><a href="https://www.cnblogs.com/bypp/p/7755307.html">参考链接</a></p>
+<h3>部署tomcat到linux上</h3>
+<h4>修改tomcat端口以及去掉war包前缀</h4>
+<h6><a href="https://blog.csdn.net/qq_43040108/article/details/113481484">修改端口参考链接</a></h6>
+<pre><code>修改&lt;Server port=&quot;8005&quot; shutdown=&quot;SHUTDOWN&quot;&gt;  关闭通信的端口
+&lt;Connector port=&quot;8009&quot; protocol=&quot;AJP/1.3&quot; redirectPort=&quot;8443&quot;/&gt;  与其他服务器通信的端口，如集群
+&lt;Connector connectionTimeout=&quot;20000&quot; port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot; redirectPort=&quot;8443&quot;/&gt; 用于监听浏览器发送的请求
+</code></pre>
+
+<h6><a href="https://blog.csdn.net/a624193873/article/details/103575732">去掉war包前缀参考链接</a></h6>
+<pre><code>把war包的名字改成ROOT.war即可
+</code></pre>
+
+<h3>mysql存储过程相关</h3>
+<h4>命令行创建存储过程(在navicat中用命令创建存储过程好像不行，只能创建一个空的存储过程)</h4>
+<pre><code>delimiter $$ -- 表示暂时用$$代替；，免得mysql命令行认为；是结束符号
+create procedure test1()
+begin
+    select * from book;
+end;
+</code></pre>
+
+<h4>调用存储过程</h4>
+<pre><code>call test1()
+</code></pre>
+
+<h4>在存储过程中使用变量</h4>
+<pre><code>create procedure test1()
+begin
+    declare username varchar(36) default 'asdf'; -- 声明变量username
+    set username '1111';    -- 给username 设置值 
+    select price into username from book where id = 7; 
+    select username; -- 查询username的值
+end
+</code></pre>
+
+<h4>删除存储过程</h4>
+<pre><code>drop procedure test1;
+</code></pre>
+
+<h4>存储过程参数</h4>
+<h5>入参（in）</h5>
+<pre><code>create procedure test2(bookId int)
+begin
+    declare username varchar(36) default 'asdf';
+    select book_name into username from book where id = bookId;
+    select username;
+end
+调用 
+call test2(3)
+</code></pre>
+
+<h5>出参（out）</h5>
+<pre><code>create procedure test3(in bookId int, out bookName varchar(36))
+begin
+    select book_name into bookName from book where id = bookId;
+end
+调用
+set @bookName = '';
+call test3(4, @bookName);
+select @bookName as bookName;
+</code></pre>
+
+<h5>出入参（inout）</h5>
+<pre><code>CREATE DEFINER=`root`@`localhost` PROCEDURE `test4`(inout bookId int, inout bookName varchar(36))
+BEGIN
+    #Routine body goes here...
+    set bookName = 'test1';
+    update book set book_name = 'asdf' where id = bookId;
+    select bookName;
+END
+调用
+set @bookId = '3';
+set @bookName = 'tes';
+call test4(@bookId, @bookName);
+select @bookName as bookName;
+</code></pre>
+
+<h4>存储过程条件语句</h4>
+<h5>基本结构</h5>
+<pre><code>if() then...else...end if;
+
+if() then...
+elseif() then...
+else...
+end if;
+</code></pre>
+
+<h5>实例</h5>
+<pre><code>CREATE DEFINER=`root`@`localhost` PROCEDURE `test5`(in bookId int)
+BEGIN
+    #Routine body goes here...
+    declare username varchar(36) default '';
+    if (bookId%2=0)
+    then
+        select id from book where id = bookId;
+    else
+        select book_name into username from book where id = bookId;
+        select username;
+    end if;
+END
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `test6`(in bookId int)
+BEGIN
+    #Routine body goes here...
+    if(bookId = 1)
+    then
+        select 'asdf1';
+    elseif(bookId = 2)
+    then
+        select 'asdf2';
+    else
+        select 'asdf3';
+    end if;
+END
+调用
+call test5(2)
+call test6(2)
+</code></pre>
+
+<h4>存储过程循环语句</h4>
+<h5>while语句</h5>
+<pre><code>while() do
+    ...
+end while;
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `whilecirc`()
+BEGIN
+    #Routine body goes here...
+    declare i int default 11;
+    begin
+        while(i&lt;20) do
+            set i = i+1;
+            insert into book values(i,'bookname','au',200 +i,'pe');
+        end while;
+    END;
+END
+</code></pre>
+
+<h5>repeat语句，它在执行操作后检查结果，而 while 则是执行前进行检查。</h5>
+<pre><code>repeat...until...end repeat;
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `repeatcirc`()
+BEGIN
+    #Routine body goes here...
+    declare i int default 0;
+    select count(*) into i from book;
+    repeat
+        begin
+            set i = i - 1;
+            delete from book where id = i;
+        end;
+        until i &lt; 20
+    end repeat;
+END
+</code></pre>
+
+<h4>mysql存储过程例子</h4>
+<pre><code>CREATE DEFINER=`pcspsit`@`%` PROCEDURE `statistic`()
+BEGIN
+    #Routine body goes here...
+    declare circulationTotal varchar(36) default '0'; -- 循环次数
+    declare exist int default 0; -- 是否存在
+    declare total varchar(36) default '0'; -- 总数
+    declare optionTotle varchar(36) default '0'; -- 总选择数
+    declare optionStopFlag int default 0; -- 选项循环的停止标识
+    declare questionStopFlag int default 0; -- 题目循环的停止标识
+
+    declare optionId varchar(36) default ''; -- 选项id
+    declare questionId varchar(36) default ''; -- 题目id
+
+        -- 创建一个游标，就是一个临时存储区，存在question_cur中
+        declare question_cur cursor for select id from pcsp_aeo_question_info where DELETED = 0 and INVALID = 0;
+        -- 当游标执行完后吧questionStopFlag设置成1
+        declare continue handler for not found set questionStopFlag = 1;
+        open question_cur; -- 打开游标
+        -- 让游标往下走一次，吧变量放在questionId中
+        fetch  question_cur into questionId;
+        tt:while (questionStopFlag = 0) do -- 循环游标结果集，设置循环的名字为tt
+        begin
+
+            declare option_cur cursor for select id from pcsp_sys_dictionary where DELETED = 0 and INVALID = 0 and DICTIONARY_SUBJECT_ID = '1341701547234778081';
+            declare continue handler for not found set optionStopFlag = 5;
+            open option_cur;
+            fetch  option_cur into optionId;
+            while (optionStopFlag &lt; 5) do
+            begin
+
+                -- 总数
+                SELECT
+                    count(1) into total
+                FROM
+                    pcsp_aeo_evaluate_record_info eri
+                    INNER JOIN pcsp_aeo_evaluate_result_detail_info rdi ON eri.id = rdi.EVALUATE_RECORD_ID 
+                WHERE
+                    eri.DELETED = 0 
+                    AND eri.INVALID = 0 
+                    AND rdi.OPTION_ID = optionId;
+
+                -- 选项总数
+                SELECT
+                    count(1) into optionTotle
+                FROM
+                    pcsp_aeo_evaluate_record_info eri
+                    INNER JOIN pcsp_aeo_evaluate_result_detail_info rdi ON eri.id = rdi.EVALUATE_RECORD_ID 
+                WHERE
+                    eri.DELETED = 0 
+                    AND eri.INVALID = 0 
+                    AND rdi.OPTION_ID = optionId 
+                    AND rdi.QUESTION_ID = questionId;
+
+                select ID into exist from pcsp_aeo_statistics_info where OPTION_ID = optionId and QUESTION_ID = questionId;
+
+                if (exist = 0)
+                then
+                    insert into pcsp_aeo_statistics_info values(null, total, optionTotle, optionId, questionId, concat(optionTotle/total * 100, '%'));
+                else
+
+                    update pcsp_aeo_statistics_info set TOTAL=total, CHOOSE_NUM=optionTotle, RATE=concat((truncate(optionTotle/total,2)) * 100, '%') where ID = exist;
+                end if;
+
+            fetch  option_cur into optionId;
+            set optionStopFlag = optionStopFlag + 1;    
+            end;
+            end while;
+            close option_cur;
+
+    set circulationTotal = circulationTotal + 1;
+    if (circulationTotal &lt; 6)
+    then
+        set optionStopFlag = 0; 
+    else 
+        LEAVE tt; -- 跳出循环
+    end if;
+
+    fetch  question_cur into questionId;
+    end;
+    end while;
+    close question_cur; -- 关闭游标
+
+END
+</code></pre>
+
+<h3>【Java异常】Throwable之getCause()方法</h3>
+<h4><a href="https://blog.csdn.net/u013416473/article/details/108654468">参考链接</a></h4>
+<h4>在执行exception.getCause()方法时报错NPE，查看源码后发现</h4>
+<pre><code>public synchronized Throwable getCause() {
+    return (cause==this ? null : cause);
+}
+当cause等于本身时就等于null否则才返回cause
+</code></pre>
+
+<h4>大意就是直接抛出运行时异常调用exception.getCause()，exception会为null，例如线程池抛出的异常，最外层是 ExecutionException，所以 getCause() 能够获取到里层 RuntimeException；直接捕获抛出的异常，调用 getCause() 则返回的 null；</h4>
+<pre><code>public class Throwable$getCauseTest {
+    public static void main(String[] args) {
+        getCause1();
+        getCause2();
+    }
+
+    public static void getCause1() {
+        try {
+            throw new RuntimeException(&quot;main error!&quot;);
+        } catch (Exception e) {
+            System.out.println(e.getCause() instanceof RuntimeException);
+            System.out.println(&quot;e：&quot; + e + &quot;; e.getCause()：&quot; + e.getCause());
+        }
+    }
+
+    public static void getCause2() {
+
+        Runnable r1 = () -&gt; {
+            throw new RuntimeException(&quot;Thread error!&quot;);
+        };
+
+        Future&lt;Integer&gt; task = Executors.newSingleThreadExecutor().submit(r1, 1);
+
+        try {
+            task.get();
+        } catch (Exception e) {
+            System.out.println(e.getCause() instanceof RuntimeException);
+            System.out.println(&quot;e：&quot; + e + &quot;; e.getCause()：&quot; + e.getCause());
+        }
+    }
+}
+
+// 输出结果
+false
+e：java.lang.RuntimeException: main error!; e.getCause()：null
+
+true
+e：java.util.concurrent.ExecutionException: java.lang.RuntimeException: Thread error!;
+e.getCause()：java.lang.RuntimeException: Thread error!
+</code></pre>
+
+<h3>centos7设置定时任务</h3>
+<h4>首先写一个shell脚本并且给权限</h4>
+<pre><code>#!/bin/bash
+echo &quot;hello&quot; &gt;&gt; a.txt
+
+chmod 777 test.sh
+</code></pre>
+
+<h4>然后执行命令</h4>
+<pre><code>crontab -e // 编辑定时任务，例如 */1 * * * * /root/test.sh,表示每分钟执行一次这个脚本
+</code></pre>
+
+<h4>然后刷新crontab就ok了</h4>
+<pre><code>systemctl restart crond.service 
+</code></pre>
+
+<h4>其他命令</h4>
+<pre><code>systemctl status crond.service // 查看crontab的状态
+systemctl stop crond.service // 停止crontab
+crontab -l // 查看定时任务列表
+</code></pre>
+
+<h3>关于mybatis-plus多租户问题解决办法</h3>
+<h4>在自定义动态sql的mapper类中的方法上加上</h4>
+<blockquote>
+<p>@SqlParser(filter-true)</p>
+</blockquote>
+<h4>如果版本在3.1.1以下的还需要在配置文件中加上</h4>
+<pre><code># 开启 SQL 解析缓存注解生效
+mybatis-plus:
+  global-config:
+    sql-parser-cache: true
+</code></pre>
+
+<h2>关于Tomcat</h2>
+<h3>Tomcat的结构</h3>
+<p><img src="./img/29.png" /></p>
+<h6>一个service中可以有多个connector，和一个container，container又包含Engine(引擎)，Host，Context， Wrapper。 Connector负责接收请求，主要是由ProtocolHandler来处理socket，然后用Processer转成request，然后使用Adapter交给具体的Container来处理，ProtocolHandler要处理socket所以使用的TCP/IP协议，Processor转换request使用的HTTP协议，tomcat可以根据不同的请求协议使用不同的请求处理器，比如Http11Protocol使用普通socket连接，Http11NioProtocol使用NioSocket连接。这些组件全部实现了一个接口就是Lifecycle，这个是一个顶层接口，用来控制组件的生命周期，最顶级的组件就是Server，因此启动了Server其他组件也会一起启动。</h6>
+<h3>Tomcat源码分析<a href="https://blog.csdn.net/linxdcn/category_9269033.html">参考链接</a></h3>
+<h4>Tomcat的初始化和启动。</h4>
+<h6>启动tomcat的时候使用start.sh脚本，就相当于调用tomcat中Bootstrap类的main方法且参数是start。首先新建一个Bootstrap对象，然后调用init()方法，这一步初始化了类加载器，还有通过反射创建Catalina对象。第二步因为传的参数是start。 然后调用load()方法，这里调用的load方法是Bootstrap的实质上是调用的Catalina对象的，主要做的就是加载server.xml文件。第三步调用start()方法，实质上也是调用Cataline的start()方法，启动Server组件，然后Server组件会带动其他组件一起启动，如service，connector，Engine，Host， Context，Wrapper组件，最后载调用Cataline的await()方法，循环等待接收shutdown命令。</h6>
+<h4>Tomcat的关闭流程</h4>
+<h6>关闭Tomcat的时候使用shutdown.sh脚本，相当于传的stop参数。这里也是创建一个Bootstrap对象，然后调用stopServer()方法，本质上也是调用Cataline的stopServer方法，主要是根据server.xml创建一个server对象，然后用地址跟端口连接之前启动的socket对象，发送shutdown指令来关闭。</h6>
+<h4>Tomcat中Container是怎么处理请求的</h4>
+<p><img src="./img/30.png" /></p>
+<h6>Container有四个组件，分别对应的BaseValve是StandardEngineValue、StandardHostValue、StandardContextValue、StandardWrapperValue。处理请求 的时候首先是由EnginePipeline来处理，然后EnginePipline执行到最后会执行StandardEngineValue，然后执行getNext().invoke(request, response);来调用StandardHostValue，以此类推，执行到StandardWrapperValue的时候，会创建一条过滤链(FilterChain)，并调用service()方法来处理请求。</h6>
+<h4>Tomcat中的设计模式</h4>
+<h5>1.模板方法模式：吧通用的骨架抽取到父类，再由子类实现某些特定步骤，比如LifecycleBase中的init()和start()方法，其中initInternal()和startInternal()是抽象方法，所有容器都直接或间接的继承了LifecycleBase，在初始化和启动的时候会调用init()和start()。</h5>
+<h5>2. 责任链模式：Tomcat中的ApplicationFilterChain实现了filter拦截和实际Servlet请求，典型的责任链模式。 还有就是pipline-valve机制，从Engine到Wrapper是通过一条链传递请求的，也是责任链模式。</h5>
+<h5>3. 观察者模式： Tomcat通过LifecycleListener监听组件的Lifecycle，组件的各种行为都会触发相应的时事件，在init和start的时候会出现大量的<code>fireLifecycleEvent(CONFIGURE_START_EVENT, null);</code>这就是对某一类型事件的触发。</h5>
+<p><img src="./img/26.png" /></p>
+<h4>Tomcat请求概述</h4>
+<h6></h6>
+<p><img src="./img/27.png" /></p>
+<h6>Tomcat文件解释</h6>
+<p><img src="./img/28.png" /></p>
+<h3>java中的位操作 &lt;&lt; 和 &gt;&gt; 和 &gt;&gt;&gt; 详细分析</h3>
+<h4>&lt;&lt; 符号,表示向左移位，不分正负数 低位补0</h4>
+<pre><code>正数：r = 20 &lt;&lt; 2
+    20的二进制补码： 0001 0100
+    向左移动两位后： 0101 0000
+        结果：r = 80 
+负数：r = -20 &lt;&lt; 2
+　　-20 的二进制原码 ：1001 0100
+　　-20 的二进制反码 ：1110 1011
+　　-20 的二进制补码 ：1110 1100
+　　左移两位后的补码：1011 0000
+　　　　　　　　反码：1010 1111
+　　　　　　　　原码：1101 0000
+　　　　　　　　结果：r = -80
+</code></pre>
+
+<h4>&gt;&gt; 符号，表示右移，如果该数为正，则高位补0，若为负数，则高位补1；</h4>
+<pre><code>正数：r = 20 &gt;&gt; 2
+　　20的二进制补码：0001 0100
+　　向右移动两位后：0000 0101
+　　　　　　　结果：r = 5
+负数：r = -20 &gt;&gt; 2
+　　-20 的二进制原码 ：1001 0100
+　　-20 的二进制反码 ：1110 1011
+　　-20 的二进制补码 ：1110 1100 
+　　右移两位后的补码：1111 1011 
+　　　　　　　　反码：1111 1010
+　　　　　　　　原码：1000 0101
+　　　　　　　　结果：r = -5
+</code></pre>
+
+<h4>&gt;&gt;&gt;表示无符号右移，也叫逻辑右移，即若该数为正，则高位补0，而若该数为负数，则右移后高位同样补0</h4>
+<pre><code>正数：　r = 20 &gt;&gt;&gt; 2
+　　　　的结果与 r = 20 &gt;&gt; 2 相同；
+负数：　r = -20 &gt;&gt;&gt; 2
+注：以下数据类型默认为int 32位
+　　-20:源码：10000000 00000000 00000000 00010100
+　　　　反码：11111111  11111111   11111111   11101011
+　　　　补码：11111111  11111111   11111111   11101100
+　　　　右移：00111111  11111111   11111111   11111011
+　　　　结果：r = 1073741819
+</code></pre>
+
+<h4>转化过程</h4>
+<pre><code>7的二进制就是111
+
+-7转化二进制的过程:
+(1)把-7转化成7，二进制是 111
+(2)Java中对于不满32位的int二进制自动补齐，所以变成了 (29个0)111
+(3)然后取反  (29个1)000
+(4)然后加1 (29个1)001
+</code></pre>
+
+<h3>Nginxhttp强转成https的方法</h3>
+<pre><code>在nginx中配置一个server拦截80请求，然后转换成443的https
+server {
+    listen 80;
+    server_name www.xxx.com
+    return 301 https://$host/$request_uri;
+}
+</code></pre>
+
+<h3>观察者模式代码实现</h3>
+<h4>发布者兼测试类（发布信息）</h4>
+<pre><code>/**
+ * 模拟公众号文章推送，观察目标是栈长我，观察者是你们大家，我发布一篇文章，你们都能接收到更新通知并能阅读。
+ *
+ * @author ksn
+ * @version 1.0
+ * @date 2021/4/15 9:13
+ */
+public class ObServerTest extends Observable {
+
+    public String name;
+
+    public void publish(String msg) {
+        // 发布文章
+        this.name = msg;
+        System.out.println(&quot;发布文章：&quot; + msg);
+        // 改变状态
+        this.setChanged();
+        // 通知观察者们
+        this.notifyObservers(&quot;hahahhaha&quot;);
+    }
+    public static void main(String[] args) {
+        ObServerTest obServerTest = new ObServerTest();
+        ReaderObserver readerObserver = new ReaderObserver();
+        // 加 到观察者列表
+        obServerTest.addObserver(readerObserver);
+        // 发布更新
+        obServerTest.publish(&quot;a文章&quot;);
+    }
+}
+</code></pre>
+
+<h4>观察者（接受消息）</h4>
+<pre><code>public class ReaderObserver implements Observer {
+
+    @Override
+    public void update(Observable o, Object arg) {
+        ObServerTest o1 = (ObServerTest) o;
+        System.out.println(&quot;Observable对象：&quot; + o1.name);
+        System.out.println(&quot;arg对象：&quot; + arg);
+
+        System.out.println(&quot;我是读者， 我已收到更新&quot;);
+    }
+}
+</code></pre>
+
+<h4>运行结果</h4>
+<pre><code>发布文章：a文章
+Observable对象：a文章
+arg对象：hahahhaha
+我是读者， 我已收到更新
+</code></pre>
+
+<h3>使用Redis消息队列实现秒杀过期订单处理</h3>
+<h4>redis的pub/sub模式</h4>
+<p><img src="./img/31.png" /></p>
+<h6>当redis中的key失效的时候会发送一些通知(这个通知是redis内部的事件处理机制)，可以通过订阅这个内部的主体来收到key过期的信息</h6>
+<ol>
+<li>开启事件通知(修改redis配置文件: <code>notify-keyspace-events Ex</code>)</li>
+<li>
+需要订阅的主体名称: <strong>keyevent@dbindex</strong>:expired
+<ol>
+<li>dbindex: redis有16个库，从0开始，这就是数据库的索引</li>
+<li>所以订阅的主体应该是： <code>__keyevent@0__:expired</code></li>
+</ol>
+</li>
+</ol>
+<h6></h6>
+<p><img src="./img/32.png" /></p>
+<h1>spring源码从ClassPathXmlApplicationContext入手，然后看refresh的12个方法。springmvc源码从DispatcherServlet的doDispatch开始入手</h1>
+<pre><code>public ClassPathXmlApplicationContext(
+        String[] configLocations, boolean refresh, @Nullable ApplicationContext parent)
+        throws BeansException {
+
+    super(parent);
+    setConfigLocations(configLocations);
+    if (refresh) {
+        refresh();
+    }
+}
+</code></pre>
+
+<h3>spring指定一个类在另一个类后面加载使用@DependsOn注解</h3>
+<pre><code>例如：
+    @Bean(&quot;BeanA&quot;)
+    @DependsOn(&quot;BeanC&quot;)
+    public void getBeanA() {
+        System.out.println(&quot;BeanA&quot;); 
+    }
+
+    @Bean(&quot;BeanB&quot;)
+    public void getBeanB() {
+        System.out.println(&quot;BeanB&quot;); 
+    }
+
+    @Bean(&quot;BeanC&quot;)
+    @DependsOn(&quot;BeanB&quot;)
+    public void getBeanC() {
+        System.out.println(&quot;BeanC&quot;); 
+    }
+输出结果为： 
+    BeanB
+    BeanC
+    BeanA
+</code></pre>
+
+<h3>springboot项目的打包方式</h3>
+<h4>Jar包</h4>
+<pre><code>&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;repackage&lt;/goal&gt;
+                    &lt;/goals&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;
+
+或者
+&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+            &lt;configuration&gt;
+                &lt;source&gt;1.8&lt;/source&gt;
+                &lt;target&gt;1.8&lt;/target&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;version&gt;2.2.2.RELEASE&lt;/version&gt;
+            &lt;configuration&gt;
+                &lt;!-- main方法的地址 只需要修改这个地址--&gt;
+                &lt;mainClass&gt;com.ksn.UserApp&lt;/mainClass&gt;
+            &lt;/configuration&gt;
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;repackage&lt;/goal&gt;
+                    &lt;/goals&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre>
+
+<h4>War包</h4>
+<pre><code>war包跟jar包有所不同，因为是springboot项目，所以打包的时候要在启动类上继承SpringBootServletInitializer这个类，然后实现configure方法。
+@SpringBootApplication
+@MapperScan(basePackages = &quot;com.ksn.dao&quot;)
+public class UserApp extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(UserApp.class);
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(UserApp.class, args);
+    }
+}
+
+在maven中配置
+&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;
+            &lt;version&gt;2.4&lt;/version&gt;
+            &lt;configuration&gt;
+                &lt;warName&gt;${artifactId}-${version}&lt;/warName&gt;
+                &lt;failOnMissingWebXml&gt;false&lt;/failOnMissingWebXml&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre>
+
+<h2>微信登录</h2>
+<p><img src="./img/33.png" /></p>
+<h4>具体实现分三步</h4>
+<pre><code>(第一次请求)跳转到扫码页面准备获取code
+https://open.weixin.qq.com/connect/qrconnect?
+appid=wxed9954c01bb89b47&amp; // 应用id
+redirect_uri=http://guli.shop/api/ucenter/wx/callback&amp; // 重定向地址
+response_type=code&amp; // 返回类型为code
+scope=snsapi_login&amp; // 固定写法
+state=STATE // 非必填
+
+(第二次请求) 使用拿到的code获取access_token
+https://api.weixin.qq.com/sns/oauth2/access_token?
+appid=wxed9954c01bb89b47&amp;
+secret=a7482517235173ddb4083788de60b90e&amp; // 应用的秘钥
+code=021GnY1w3Sc9fW29OP2w3UAotO1GnY1G&amp; // 上一步的code
+grant_type=authorization_code // 固定写法
+
+(第三次请求)用获取到的access_token拿到用户信息
+https://api.weixin.qq.com/sns/userinfo?
+access_token=38_zRS5Ou85gDb52ga8h7MuJnd94rw6poIWzpvC3uGvdbCjztDBIjXGyFQoR52yRt3SJb-_crjBbnUA88BSo3GvgEbpThW7_Qy9vzT8sha3Ryk&amp;
+openid=o3_SC5wODHnIOiptB658o0GdcUKY // 授权用户唯一标识
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

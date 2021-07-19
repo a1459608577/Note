@@ -1,0 +1,2705 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>项目笔记</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<base href=''/>
+</head>
+<body>
+<h2>启动docker中的mysql:</h2>
+<blockquote>
+<p>docker run -p 3306:3306 --name mysql57 -v /mydata/mysql/log:/var/log/mysql -v /mydata/&gt;mysql/data:/var/lib/mysql -v /mydata/mysql/conf:/etc/mysql -e MYSQL_ROOT_PASSWORD=root -d &gt;mysql:5.7</p>
+</blockquote>
+<h2>进入docker中的redis:</h2>
+<blockquote>
+<p>docker run --name redis -p 6379:6379 -v /mydata/redis/data:/data -v /mydata/redis/conf/&gt;redis.conf:/etc/redis/redis.conf -d redis redis-server /etc/redis/redis.conf</p>
+</blockquote>
+<h2>启动redis： docker exec -it redis redis-cli</h2>
+<h2>设置容器自启： docker update mysql --restart=always</h2>
+<h3>* OpenFeign远程调用步骤</h3>
+<h4>1. 导入pom</h4>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h4>2. 编写接口，接口里面写要调用的方法，然后加一个@FeignClient注解，然后在主启动类上加@EnableFeignClients注解，在controller中自动注入定义的接口，然后调用即可</h4>
+<h2>Nacos配置中心用法</h2>
+<h4>1.导入pom</h4>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-config&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h4>2. 然后新建一个bootstrap.properties文件</h4>
+<pre><code>spring.application.name=gulimail-coupon
+spring.cloud.nacos.config.server-addr=localhost:8848
+spring.cloud.nacos.config.namespace=55e39681-ea5b-4227-9bf9-8df6b974c0a7  //这个是设置去哪个命名空间中找配置文件
+#spring.cloud.nacos.config.group=default //这个是在命名空间下不同的组名
+
+#这个就是配置中心中命名空间中的配置文件，这个表示是第一个
+spring.cloud.nacos.config.ext-config[0].data-id=datasource.yml #配置配置集id
+spring.cloud.nacos.config.ext-config[0].group=dev  # 配置分组
+spring.cloud.nacos.config.ext-config[0].refresh=true # 配置是否自动刷新
+</code></pre>
+
+<h4>3. 然后在nacos配置管理里添加配置，DataID(配置集id)为应用名.properties，文件类型选properties。内容例如：</h4>
+<pre><code>coupon.user.name=ksn1111
+coupon.user.age=1000000
+</code></pre>
+
+<h4>4. 然后在调用配置文件的controller上加@@RefreshScope注解，用@Value注解获取到nacos配置中心的内容了</h4>
+<h2>配置网关</h2>
+<h4>1. 先导包</h4>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-gateway&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h4>2. 然后编写yml注册到nacos，然后在写bootstrap.properties配置网关，然后再配置gateway</h4>
+<pre><code>spring:
+    cloud: 
+        gateway:
+          routes:
+            - id: r1
+              uri: https://www.baidu.com
+              predicates:
+                - Query=url, baidu
+</code></pre>
+
+<h2>js数组的map和reduce方法</h2>
+<h4>1.map()是对数组中每个元素进行操作</h4>
+<pre><code>let arr = [&quot;2&quot;, &quot;5&quot;, &quot;-3&quot;, &quot;6&quot;]
+
+// arr = arr.map(item =&gt; item * 2)
+arr = arr.map(function (item) {
+    return item * 2
+})
+运行结果： [4, 10, -6, 12]
+</code></pre>
+
+<h4>2.reduce()是对数组中每个元素依次处理</h4>
+<pre><code>let a = arr.reduce((a,b) =&gt; {
+    return a + b
+})
+运行结果： 25-36， 不转成数字不能加减，是字符串的话只能拼接
+a就是上一次运行的结果，b就是数组中的下一个元素
+</code></pre>
+
+<h2>递归方式生成树形菜单</h2>
+<pre><code>@Override
+public List&lt;CategoryEntity&gt; listWithTree() {
+    // c查询所有分类
+    List&lt;CategoryEntity&gt; categoryEntities = baseMapper.selectList(null);
+    //组装成树形结构
+    //1 拿到所有一级菜单
+    List&lt;CategoryEntity&gt; collect = categoryEntities.stream().filter(categoryEntity -&gt;
+        categoryEntity.getParentCid() == 0
+    ).map((menu) -&gt;{
+        menu.setChildren(getChildren(menu, categoryEntities));
+        return menu;
+    }).sorted((menu1, menu2) -&gt; {
+        return (menu1.getSort()==null?0:menu1.getSort()) - (menu2.getSort()==null?0:menu2.getSort());
+    }).collect(Collectors.toList());
+    return collect;
+    // 使用过滤器返回的只能是boolean，true表示过滤出去传递到下一步，false表示不放行
+    .filter((menu1, menu2) -&gt; {
+        return true or false;
+    })
+
+}
+
+//递归所有菜单的子菜单
+private List&lt;CategoryEntity&gt; getChildren(CategoryEntity root, List&lt;CategoryEntity&gt; all) {
+    List&lt;CategoryEntity&gt; collect = all.stream().filter(categoryEntity -&gt; {
+        // 如果等于然后就递归
+        return root.getCatId() == categoryEntity.getParentCid();
+    }).map((categoryEntity) -&gt; {
+        // 吧拿到的二级菜单继续递归
+        categoryEntity.setChildren(getChildren(categoryEntity, all));
+        return categoryEntity;
+    }).sorted((menu1, menu2) -&gt; {
+        // 排序
+        return (menu1.getSort()==null?0:menu1.getSort()) - (menu2.getSort()==null?0:menu2.getSort());
+    }).collect(Collectors.toList());
+
+    return collect;
+}
+</code></pre>
+
+<h2>gateway网关配置跨域，配置类</h2>
+<pre><code>@Configuration
+public class GulimailCorsConfiguration {
+
+    @Bean
+    public CorsWebFilter getCorsWebFilter() {
+        //这个是CorsConfigurationSource的实现类
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();  
+
+        //1.配置跨域
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.addAllowedHeader(&quot;*&quot;);  //允许那些头进行跨域
+        corsConfiguration.addAllowedMethod(&quot;*&quot;);   // 允许所有方法发请求get post get put opteion。。。
+        corsConfiguration.addAllowedOrigin(&quot;*&quot;);    // 允许所有来源的请求
+        corsConfiguration.setAllowCredentials(true); //设置允许携带cookie
+        source.registerCorsConfiguration(&quot;/**&quot;, corsConfiguration); //过滤所有请求
+
+        return new CorsWebFilter(source);
+    }
+}
+</code></pre>
+
+<h2>使用OSS对象存储</h2>
+<h4>1. 先导包</h4>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alicloud-oss&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h4>2. 配置yml，配置钥匙和密码还有endpoint(访问域名)</h4>
+<pre><code>spring:
+  cloud:
+    alicloud:
+      access-key: LTAI4G6riVMuASb669tAAyrN
+      secret-key: pYCOLDgbEbfJ3QDFmueqZaQh1Q004b
+      oss:
+        endpoint: oss-cn-hangzhou.aliyuncs.com
+</code></pre>
+
+<h4>3. 直接注入OSSClient即可用</h4>
+<pre><code>@Autowired
+OSSClient ossClient;
+
+@Test
+public void test() throws FileNotFoundException {
+//使用原生的sdk作对象存储
+//        // Endpoint以杭州为例，其它Region请按实际情况填写。
+//        String endpoint = &quot;oss-cn-hangzhou.aliyuncs.com&quot;;
+//// 云账号AccessKey有所有API访问权限，建议遵循阿里云安全最佳实践，创建并使用RAM子账号进行API访问或日常运维，。
+//        String accessKeyId = &quot;LTAI4G6riVMuASb669tAAyrN&quot;;
+//        String accessKeySecret = &quot;pYCOLDgbEbfJ3QDFmueqZaQh1Q004b&quot;;
+//
+//// 创建OSSClient实例。
+//        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
+
+// 上传文件流。
+    InputStream inputStream = new FileInputStream(&quot;G:\\img\\Sample Pictures\\2.jpg&quot;);
+    ossClient.putObject(&quot;gulimail-hello223&quot;, &quot;2.jpg&quot;, inputStream);
+
+// 关闭OSSClient。
+    ossClient.shutdown();
+    System.out.println(&quot;上传完成&quot;);
+}
+</code></pre>
+
+<h2>数据校验JSR303</h2>
+<h4>先在bean对象要校验的属性名上加注解</h4>
+<pre><code>@NotBlank(message = &quot;品牌名不能为空&quot;)
+private String name;
+</code></pre>
+
+<h4>在要校验的方法里加注解@Valid，后面的BindingResult是校验结果</h4>
+<pre><code>@RequestMapping(&quot;/save&quot;)
+//    @RequiresPermissions(&quot;product:brand:save&quot;)
+public R save(@Valid @RequestBody BrandEntity brand, BindingResult result){
+    HashMap&lt;String, String&gt; map = new HashMap&lt;&gt;();
+    if (result.hasErrors()) { //判断是否校验失败
+        //获取校验的错误结果
+        result.getFieldErrors().forEach((item) -&gt; {
+            //获取错误提示
+            String message = item.getDefaultMessage();
+            //获取错误的属性名字
+            String name = item.getField();
+            map.put(name, message);
+        });
+
+        return R.error(400, &quot;提交的数据不合法&quot;).put(&quot;data&quot;, map);
+    } else {
+        brandService.save(brand);
+    }
+    return R.ok();
+}
+</code></pre>
+
+<h4>分组校验</h4>
+<pre><code>// groups表示这个是哪个组的
+@NotBlank(message = &quot;品牌名不能为空&quot;, groups = {AddGroup.class, UpdateGroup.class})
+private String name;
+
+
+//@Validated(value = {AddGroup.class}) // 表示只验证AddGroup这个组的
+没有标注groups的注解就不会被校验
+@RequestMapping(&quot;/save&quot;)
+public R save(@Validated(value = {AddGroup.class}) @RequestBody BrandEntity brand, BindingResult result){
+    brandService.save(brand);
+    return R.ok();
+}
+</code></pre>
+
+<h4>自定义校验</h4>
+<h5>编写自定义的校验注解</h5>
+<pre><code>新建这个ValidationMessages.properties文件，文件内容:,表示默认message的信息
+com.hnguigu.common.vaild.ListValue.message=必须提交指定的值
+
+@Documented
+@Constraint(validatedBy = { ListValueConstraintValidator.class }) //指定自定义校验器, 把校验器和自定义校验注解联系起来
+@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE }) //表示能在那些地方
+@Retention(RUNTIME)  // 表示运行时才发挥作用
+public @interface ListValue {
+
+    String message() default &quot;{com.hnguigu.common.vaild.ListValue.message}&quot;;
+
+    Class&lt;?&gt;[] groups() default { };
+
+    Class&lt;? extends Payload&gt;[] payload() default { };
+    // 以上三个都是成为校验注解的必须属性
+
+    int[] vals() default { }; //这个是自定义的属性，
+}
+
+Documented：注解表明这个注解是由 javadoc记录的，在默认情况下也有类似的记录工具。 如果一个类型声明被注解了文档化，它的注解成为公共API的一部分。
+</code></pre>
+
+<h5>编写自定义的校验器</h5>
+<pre><code>//泛型的第一个表示校验的注解是哪个，第二个表示校验的数据的类型
+public class ListValueConstraintValidator implements ConstraintValidator&lt;ListValue, Integer&gt; {
+    //整个方法就是判断输入的值是否在注解自定义的值里面，然后返回true或者false
+    private Set&lt;Integer&gt; set = new HashSet&lt;Integer&gt;();
+
+    //初始化方法，能获取注解的信息
+    @Override
+    public void initialize(ListValue constraintAnnotation) {
+        int[] vals = constraintAnnotation.vals();
+        for (int val : vals) {
+            set.add(val);
+        }
+    }
+
+    //是否校验成功
+    @Override // 这个value，就是传过来的值， context上下文环境信息
+    public boolean isValid(Integer value, ConstraintValidatorContext context) {
+        return set.contains(value); //是否包含这个值
+    }
+}
+</code></pre>
+
+<h5>关联校验注解和校验器</h5>
+<blockquote>
+<p>@Constraint(validatedBy = { ListValueConstraintValidator.class })</p>
+</blockquote>
+<h2>统一异常处理</h2>
+<h4>定义一个枚举类</h4>
+<pre><code>public enum BizCodeEnume {
+    UNKNOW_Exception(10000, &quot;系统未知异常&quot;),
+    VAILD_EXCEPTION(10001,&quot;参数格式检验失败&quot;);
+
+    private int code;
+    private String msg;
+    BizCodeEnume(int code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+    public int getCode() {
+        return code;
+    }
+    public String getMsg() {
+        return msg;
+    }
+}
+</code></pre>
+
+<h4>统一异常处理</h4>
+<pre><code>@Slf4j //日志注解
+@RestControllerAdvice(value = {&quot;com.hnguigu.gulimail.product.controller&quot;}) //表示接受这个包下的所有异常
+public class GulimailExceptionControllerAdvice {
+
+    @ExceptionHandler(value = MethodArgumentNotValidException.class) //这种异常由这个方法处理
+    public R handleVaildException(MethodArgumentNotValidException e) {
+        log.error(&quot;数据校验出现问题：{}， 错误类型{}&quot;, e.getMessage(), e.getCause());
+        BindingResult bindingResult = e.getBindingResult(); //获取错误信息
+        HashMap&lt;String, String&gt; map = new HashMap&lt;&gt;();
+        bindingResult.getFieldErrors().forEach((item) -&gt; { //遍历所有的错误信息
+            String name = item.getField(); //获取错误的名字
+            String message = item.getDefaultMessage(); //获取错误的信息
+            map.put(name, message);
+        });
+        //枚举
+        return R.error(BizCodeEnume.VAILD_EXCEPTION.getCode(), BizCodeEnume.VAILD_EXCEPTION.getMsg()).put(&quot;data&quot;, map); 
+    }
+
+    //接受所有异常
+    @ExceptionHandler(value = Throwable.class)
+    public R handleVaildException(Throwable e) {
+        return R.error(BizCodeEnume.UNKNOW_Exception.getCode(), BizCodeEnume.UNKNOW_Exception.getMsg());
+    }
+}
+</code></pre>
+
+<h2>子组件向父组件传递事件和值</h2>
+<h4>子组件</h4>
+<pre><code>// 子组件向父组件发送事件， 第一个是事件名，后面是参数，可以随便跟
+this.$emit(&quot;tree-node-click&quot;, data, node, component)
+</code></pre>
+
+<h4>父组件</h4>
+<pre><code>&lt;Category @tree-node-click=&quot;treeNodeClick&quot;&gt;&lt;/Category&gt;
+
+treeNodeClick (data, node, component) {
+  console.log('父组件打印',  data,data.catId)
+}
+</code></pre>
+
+<h2>BigDecimal比较值</h2>
+<pre><code>BigDecimal类型的对象.compareTo(new BigDecimal(&quot;0&quot;)) == 0
+他有一个compareTo()方法，然后new一个对象，传一个要比较的值，然后返回值有-1， 0， 1
+三个值，等于-1表示比传进去的数小，为0表示等于， 为1表示大于
+</code></pre>
+
+<h2>Docker安装elasticsearch</h2>
+<h4>1. 先拉取镜像</h4>
+<blockquote>
+<p>docker pull elasitsearch:7.4.2</p>
+<p>docker pull kibana:7.4..2</p>
+</blockquote>
+<h4>2. 给/mydata/elasticsearch/下的文件拥有全部权限</h4>
+<blockquote>
+<p>chmod -R 777 /mydata/elasticsearch/</p>
+</blockquote>
+<h4>3. 启动elasticsearch</h4>
+<pre><code>创建文件夹准备挂载
+mkdir -p /mydata/elasticsearch/data
+mkdir -p /mydata/elasticsearch/plugins
+mkdir -p /mydata/elasticsearch/config
+表示可以被任何机器远程使用，然后把这个写到elasticsearch.yml文件中
+echo &quot;http.host:0.0.0.0&quot; &gt;&gt; /mydata/elasticsearch/config/elasticsearch.yml
+
+启动elasticsearch, 9200是远程调用端口， 9300是集群端口 \表示换行
+docker run --name elasticsearch -p 9200:9200 -p 9300:9300\
+-e &quot;discovery.type=single-node&quot; \   //以单节点模式运行
+-e ES_JAVA_OPTS = &quot;-Xms64m -Xms128m&quot; \  //初始内存占用64m 最大128m
+-v /mydata/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \  //-v的都是挂载到宿主机
+-v /mydata/elasticsearch/data:/usr/share/elasticsearch/data \
+-v /mydata/elasticsearch/plugins:/usr/share/elasticsearch/plugins \
+-d elasticsearch:7.4.2
+
+docker run --name elasticsearch -p 9200:9200 -p 9300:9300 -e &quot;discovery.type=single-node&quot; -e ES_JAVA_OPTS=&quot;-Xms64m -Xmx128m&quot; -v /mydata/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml -v /mydata/elasticsearch/data:/usr/share/elasticsearch/data -v /mydata/elasticsearch/plugins:/usr/share/elasticsearch/plugins -d elasticsearch:7.4.2
+</code></pre>
+
+<h4>4. 访问ip地址：9200出现json数据就是启动成功了</h4>
+<h4>5. 安装Kibana</h4>
+<pre><code>docker run --name kibana -e ELASTICSEARCH_HOSTS=http://192.168.81.128:9200 -p 5601:5601 -d kibana:7.4.2
+</code></pre>
+
+<h2>ElasticSearch初步检索(索引：数据库，类型：数据表，文档：一条数据)</h2>
+<h3>1. _cat</h3>
+<pre><code>GET/_cat/nodes  查看所有节点
+GET/_cat/health  查看es的健康状态
+GET/_cat/master  查看主节点
+GET/_cat/indices  查看所有索引(show database)
+</code></pre>
+
+<h3>2. 索引一个文档(数据库中存一条数据)</h3>
+<blockquote>
+<p>(Put保存)192.168.81.128:9200/customer/external/1</p>
+</blockquote>
+<pre><code>customer: 索引(也就是哪个数据库)
+external: 类型(也就是哪张表)
+1: 指定的唯一标识
+必须带id，多次操作就是update操作，version版本是递增的，shards是分片信息
+</code></pre>
+
+<blockquote>
+<p>(Post保存)192.168.81.128:9200/customer/external/</p>
+</blockquote>
+<pre><code>不带id就是不断新增，生成唯一id，带id就是新增+修改
+</code></pre>
+
+<h3>3. 查询文档</h3>
+<blockquote>
+<p>(Get请求)192.168.81.128:9200/customer/external/1</p>
+</blockquote>
+<pre><code>    &quot;_index&quot;: &quot;customer&quot;,  // 哪个索引
+    &quot;_type&quot;: &quot;external&quot;,   // 哪个类型
+    &quot;_id&quot;: &quot;1&quot;,            // 唯一标识
+    &quot;_version&quot;: 1,         // 更新的版本次数
+    &quot;_seq_no&quot;: 0,          // 并发控制字段， 每次更新就会+1， 用来做乐观锁
+    &quot;_primary_term&quot;: 1,    // 同上，主分片重新分配， 如重启，就会变化
+    &quot;found&quot;: true,
+    &quot;_source&quot;: {           // 真正的数据
+        &quot;name&quot;: &quot;zhangsan&quot;
+    }
+</code></pre>
+
+<blockquote>
+<p>(乐观锁修改)192.168.81.128:9200/customer/external/1?if_seq_no=0&amp;if_primary_term=1(记得要带修改的json数据)</p>
+</blockquote>
+<h3>4. 更新文档</h3>
+<blockquote>
+<p>(Post带_update)192.168.81.128:9200/customer/external/1/_update</p>
+</blockquote>
+<pre><code>数据格式：
+{
+    &quot;doc&quot;： {
+        &quot;name&quot;: &quot;test&quot;
+    }
+}
+会与原数据进行比较，如果一致就并不会修改
+</code></pre>
+
+<blockquote>
+<p>(Put不带_update)192.168.81.128:9200/customer/external/1</p>
+</blockquote>
+<pre><code>数据格式：
+{
+    &quot;name&quot;: &quot;test&quot;
+}
+不会与原数据进行比较，如果一致就也会修改(post和put都可以进行添加数据更新)
+</code></pre>
+
+<h3>5. 删除文档&amp;索引</h3>
+<blockquote>
+<p>删除某个文档</p>
+<p>192.168.81.128:9200/customer/external/1</p>
+<p>删除索引</p>
+<p>192.168.81.128:9200/customer</p>
+</blockquote>
+<h3>6. _bulk批量api</h3>
+<pre><code>在kibana中的dev tools中执行
+POST /customer/external/_bulk
+{&quot;index&quot;:{&quot;_id&quot;:&quot;1&quot;}}  //index表示新增，新增id为1的数据，数据内容是{&quot;name&quot;: &quot;test1&quot;}
+{&quot;name&quot;: &quot;test1&quot;}
+{&quot;index&quot;:{&quot;_id&quot;:&quot;2&quot;}}
+{&quot;name&quot;: &quot;test2&quot;}
+</code></pre>
+
+<h2>ElasticSearch进阶检索</h2>
+<h3>1. 查询方式</h3>
+<blockquote>
+<p>(方法一)GET bank/_search?q=*&amp;sort=account_number:asc</p>
+</blockquote>
+<pre><code>方法二
+GET bank/_search
+{
+  &quot;query&quot;: {     //查询规则
+    &quot;match_all&quot;: {}
+  },
+  &quot;sort&quot;: [      // 排序规则
+    {
+      &quot;account_number&quot;: &quot;asc&quot;   // 根据account_number升序
+    },
+    {
+      &quot;balance&quot;: &quot;desc&quot;         // 根据balance降序
+    }
+  ]
+}
+</code></pre>
+
+<h3>1. 全文检索</h3>
+<pre><code>GET bank/_search   //按照评分进行分类，会对检索条件进行分词匹配
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;address&quot;: &quot;Mill&quot;
+    }
+  }
+}
+</code></pre>
+
+<h3>2. 返回结果</h3>
+<pre><code>GET bank/_search
+{
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;age&quot;: &quot;28&quot;
+    }
+  },
+  &quot;_source&quot;: [&quot;age&quot;, &quot;balance&quot;] //查询出来的数据只显示age和balance
+}
+</code></pre>
+
+<h3>3. match_phrase(短语匹配)</h3>
+<pre><code>GET bank/_search
+{
+  &quot;query&quot;: {
+    &quot;match_phrase&quot;: {
+      &quot;address&quot;: &quot;mill lane&quot;
+    }
+  }
+}
+</code></pre>
+
+<h3>4. multi_match(多字段匹配)</h3>
+<pre><code>GET bank/_search  //表示只要state，address字段中包含mill的就匹配
+{
+  &quot;query&quot;: {
+    &quot;multi_match&quot;: {
+      &quot;query&quot;: &quot;mill&quot;,
+      &quot;fields&quot;: [&quot;state&quot;, &quot;address&quot;]
+    }
+  }
+}
+</code></pre>
+
+<h3>5. bool(复合查询)</h3>
+<pre><code>GET bank/_search  //表示匹配满足must中条件的项
+{                 // must表示必须满足， must_not表示必须不满足， should表示可有可无
+  &quot;query&quot;: {
+    &quot;bool&quot;: {
+      &quot;must&quot;: [
+        {&quot;match&quot;: {&quot;gender&quot;: &quot;F&quot;}},
+        {&quot;match&quot;: {&quot;address&quot;: &quot;mill&quot;}}
+      ]，
+      &quot;must_not&quot;: [{&quot;match&quot;: {&quot;city&quot;: &quot;Urie&quot;}}],
+      &quot;should&quot;: [{&quot;match&quot;: {&quot;state&quot;: &quot;KY&quot;}}]
+    }
+  }
+}
+</code></pre>
+
+<h3>6. filter(结果过滤)</h3>
+<pre><code>GET bank/_search  //表示过滤出age在20到30之间的，但是不计算分数scope
+{
+  &quot;query&quot;: {
+    &quot;bool&quot;: {
+      &quot;filter&quot;: {&quot;range&quot;: {&quot;age&quot;: {
+            &quot;gte&quot;: 20,
+            &quot;lte&quot;: 30}}}}}
+}
+</code></pre>
+
+<h3>7. term</h3>
+<pre><code>GET bank/_search  //  使用term跟match一样，但是match用于全文检索，term检索数字字段
+{                 // &quot;address.keyword&quot;: &quot;28&quot;，等于就是全字匹配，类似match_phrase
+  &quot;query&quot;: {      // 加keyword表示匹配的这个字段的值只能是28，而match_phrase只要是包含28即可
+    &quot;term&quot;: {
+      &quot;age&quot;: &quot;28&quot;
+    }
+  }
+}
+</code></pre>
+
+<h3>8. aggregations(执行聚合，类似聚合函数)</h3>
+<h5>1.初级： 搜索address中包含mill的所有人的年龄分布及平均年龄</h5>
+<pre><code>GET bank/_search
+{
+  &quot;query&quot;: {&quot;match&quot;: {&quot;address&quot;: &quot;mill&quot;}}, //查出满足条件的结果
+  &quot;aggs&quot;: {
+    &quot;ageAgg&quot;: {&quot;terms&quot;: {&quot;field&quot;: &quot;age&quot;,&quot;size&quot;: 10}}, //列出10种不同可能
+    &quot;ageAvg&quot;: {&quot;avg&quot;: {&quot;field&quot;: &quot;age&quot;}},              // 求age的平均值
+    &quot;balanceAvg&quot;: {&quot;avg&quot;: {&quot;field&quot;: &quot;balance&quot;}}       // 求balance的平均值
+  },    
+  &quot;size&quot;: 0   //size为0表示不查出结果，只显示执行聚合后的结果
+}
+</code></pre>
+
+<h5>2.进阶1： 按照年龄聚合，并且请求这些年龄段的这些人的平均工资</h5>
+<pre><code>GET bank/_search
+{
+  &quot;query&quot;: {&quot;match_all&quot;: {}},
+  &quot;aggs&quot;: {
+    &quot;ageagg&quot;: {
+      &quot;terms&quot;: {
+        &quot;field&quot;: &quot;age&quot;,
+        &quot;size&quot;: 100
+      },
+      &quot;aggs&quot;: {  //子聚合，写在一个聚合里的另一个聚合
+        &quot;balance&quot;: {
+          &quot;avg&quot;: {
+            &quot;field&quot;: &quot;balance&quot;
+          }
+        }
+      }
+    }
+  },
+  &quot;size&quot;: 0
+}
+</code></pre>
+
+<h5>3.进阶2： 查出所有年龄分布，并且这些年龄段中M的平均工资和F的平均工资及这个年龄段的总体平均薪资</h5>
+<pre><code>GET bank/_search
+{
+  &quot;query&quot;: {&quot;match_all&quot;: {}},
+  &quot;aggs&quot;: {  //根据年龄分组
+    &quot;ageagg&quot;: {
+      &quot;terms&quot;: {
+        &quot;field&quot;: &quot;age&quot;,
+        &quot;size&quot;: 100
+      },
+      &quot;aggs&quot;: {  // 分组之后进行子聚合吧性别分组出来
+        &quot;genderagg&quot;: {
+          &quot;terms&quot;: {
+            &quot;field&quot;: &quot;gender.keyword&quot; //加keyword表示要精准搜索
+          },
+          &quot;aggs&quot;: {  //根据性别分组后求出两个性别的平均工资
+            &quot;genderAvg&quot;: {
+              &quot;avg&quot;: {
+                &quot;field&quot;: &quot;balance&quot;
+              }
+            }
+          }
+        },
+        &quot;sumBalanceagg&quot;: {  //根据年龄分组后求出每个组的平均工资
+          &quot;avg&quot;: {
+            &quot;field&quot;: &quot;balance&quot;
+          }
+        }
+      }
+    }
+  },
+  &quot;size&quot;: 0
+}
+</code></pre>
+
+<h3>9. Mappering(映射)</h3>
+<h5>1. 创建一个新的索引并指定映射</h5>
+<pre><code>PUT /my_index
+{
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;age&quot;: {&quot;type&quot;: &quot;integer&quot;},
+      &quot;email&quot;: {&quot;type&quot;: &quot;keyword&quot;},
+      &quot;name&quot;: {&quot;type&quot;: &quot;text&quot;}
+    }
+  }
+}
+</code></pre>
+
+<h5>2. 给一个索引添加新的字段映射</h5>
+<pre><code>PUT /my_index/_mapping 
+{
+  &quot;properties&quot;: {
+    &quot;employee-id&quot;: {
+      &quot;type&quot;: &quot;keyword&quot;,
+      &quot;index&quot;: false  //false表示不加入检索，全文检索的时候检索不到
+    }
+  }
+}
+</code></pre>
+
+<h5>3. 不能修改索引，只能进行数据迁移</h5>
+<ul>
+<li>
+<p>修改索引的方法就是新建一个索引，然后把数据迁移过去</p>
+<pre><code>//老版本的数据迁移(6.0之前，需要指定类型，新版直接把type去掉即可)
+POST _reindex
+{
+  &quot;source&quot;: {
+    &quot;index&quot;: &quot;bank&quot;,
+    &quot;type&quot;: &quot;account&quot;
+  },
+  &quot;dest&quot;: {
+    &quot;index&quot;: &quot;newbank&quot;
+  }
+}
+</code></pre>
+
+</li>
+</ul>
+<h3>10. 分词</h3>
+<h5>安装ik分词器，<a href="https://github.com/medcl/elasticsearch-analysis-ik">git地址</a></h5>
+<pre><code>1. 下载好.zip后缀的文件后使用解压：
+unzip elasticsearch.zip -d ik
+2. 然后把ik文件夹传到容器内部
+docker cp ik 容器名:地址(例如: docker cp ik elasticsearch:/usr/share/elasticsearch/plugins)
+3. 重启elasticsearch容器，然后在kibana中测试，ik分词器中包括了ik_smart和ik_max_word两种
+GET _analyze
+{
+  &quot;analyzer&quot;: &quot;ik_smart&quot;,
+  &quot;text&quot;: &quot;这是一个对分词器的测试&quot;
+}
+区别：
+    ik_max_word(最大单词组合)：这是/一个/一/个/对分/分词器/分词/词/器/测试
+    ik_smart(智能分词)：这是/一个/分词器/测试
+    standard：这/是/一/个/对/分/词/器/的/测/试
+</code></pre>
+
+<h5>自定义词库</h5>
+<pre><code>1. 先安装nginx，复制nginx的配置文件到宿主机的 /mydata/nginx文件夹
+docker container cp nginx:/etc/nginx /mydata/nginx
+2. 启动nginx
+docker run --name nginx -p 80:80 \
+-v /mydata/nginx/html:/usr/share/nginx/html \
+-v /mydata/nginx/logs:/var/log/nginx \
+-v /mydata/nginx/conf:/etc/nginx -d nginx
+3. 在nginx外部挂载的html文件夹中新建es文件夹，新建fenci.txt文件 内容是尚硅谷乔碧萝
+4. 然后在elasticsearch的plugins中的plugins/ik/config下找到IKAnalyzer.cfg.xml修改内容
+&lt;!--用户可以在这里配置远程扩展字典 --&gt;
+&lt;entry key=&quot;remote_ext_dict&quot;&gt;http://192.168.81.128/es/fenci.txt&lt;/entry&gt;
+5. 把下面这行的注释解开，然后填写上nginx中fenci.txt的地址
+6. 然后在去elasticsearch中测试即可
+</code></pre>
+
+<h2>使用java操作elasticsearch(ElasticSearch-Rest-Client)</h2>
+<h3>1. 9300 TCP</h3>
+<pre><code>使用spring-data-elasticsearch:transport-api.jar:
+由于springboot版本不同，transport-api.jar不同，不能适应es
+7.X已经不建议使用， 8以后就要废除
+</code></pre>
+
+<h3>2. 9200 HTTP <a href="https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html">Java High Level REST Client</a></h3>
+<pre><code>JestClient: 非官方，非常慢
+RestTemplate: 模拟远程调用，发http请求，es很多操作需要封装
+HttpClient： 同上
+ElasticSearch-Rest-Client: 官方RestClient，封装了ES操作，API层次分明
+</code></pre>
+
+<h4>3. 步骤</h4>
+<pre><code>1. 导入maven依赖，修改properties
+    &lt;properties&gt;
+        &lt;elasticsearch.version&gt;7.4.2&lt;/elasticsearch.version&gt;
+    &lt;/properties&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.elasticsearch.client&lt;/groupId&gt;
+        &lt;artifactId&gt;elasticsearch-rest-high-level-client&lt;/artifactId&gt;
+        &lt;version&gt;7.4.2&lt;/version&gt;
+    &lt;/dependency&gt;
+2. 编写配置，给容器中注入一个RestHighLevelClient
+    @Bean
+    public RestHighLevelClient  EsRestClient() {
+        RestHighLevelClient client = new RestHighLevelClient(
+                RestClient.builder(
+                    //new HttpHost(&quot;192.168.81.128&quot;, 9201, &quot;http&quot;),如果有集群，就在这里加即可
+                        new HttpHost(&quot;192.168.81.128&quot;, 9200, &quot;http&quot;)));
+        return client;
+    }
+3. java代码测试添加数据
+    @Test
+    void indexData() throws IOException {
+        IndexRequest request = new IndexRequest(&quot;users&quot;);  //设置索引
+        request.id(&quot;1&quot;);    
+        //request.source(&quot;name&quot;, &quot;zhangsan&quot;, &quot;age&quot;, 18, &quot;gender&quot;, &quot;男&quot;); // 第一种设置内容的方式
+        request.source(JSON.toJSONString(new User(&quot;zhangsna&quot;, 18, &quot;男&quot;)), XContentType.JSON);  //要保存的内容,指定格式
+
+        //执行保存操作
+        IndexResponse index = client.index(request, GulimailElasticSearchConfig.COMMON_OPTIONS);
+
+        System.out.println(index);
+    }
+</code></pre>
+
+<h4>4. 查询操作</h4>
+<pre><code>@Test
+void searchData() throws IOException {
+    // 1. 创建索引请求
+    SearchRequest searchRequest = new SearchRequest();
+    // 1.1 指定索引
+    searchRequest.indices(&quot;bank&quot;);
+    // 1.2 构建索引条件
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    //指定搜索条件
+    builder.query(QueryBuilders.matchQuery(&quot;address&quot;, &quot;mill&quot;));
+    System.out.println(&quot;检索条件&quot; + builder.toString());
+
+    //按照年龄进行聚合，
+    TermsAggregationBuilder ageagg = AggregationBuilders.terms(&quot;ageAgg&quot;).field(&quot;age&quot;).size(10);
+    builder.aggregation(ageagg);
+    //计算平均薪资
+    AvgAggregationBuilder balance = AggregationBuilders.avg(&quot;balanceAgg&quot;).field(&quot;balance&quot;);
+    builder.aggregation(balance);
+
+    searchRequest.source(builder);
+
+    // 2. 执行检索
+    SearchResponse search = client.search(searchRequest, GulimailElasticSearchConfig.COMMON_OPTIONS);
+
+    // 3. 分析结果
+    SearchHits hits = search.getHits();
+
+    TotalHits totalHits = hits.getTotalHits();
+
+    SearchHit[] hitsHits = hits.getHits();
+    for (SearchHit hitsHit : hitsHits) {
+        //得到json字符串
+        String source = hitsHit.getSourceAsString();
+        // 吧json字符串转换成对象
+        Source source1 = JSON.parseObject(source, Source.class);
+
+    }
+
+    //获取这次检索到的aggs信息
+    Aggregations aggregations = search.getAggregations();
+    Terms ageAgg = aggregations.get(&quot;ageAgg&quot;);
+    for (Terms.Bucket bucket : ageAgg.getBuckets()) {
+        System.out.println(bucket.getKeyAsString());
+    }
+    Avg balanceAgg = aggregations.get(&quot;balanceAgg&quot;);
+    System.out.println(&quot;平均工资&quot; + balanceAgg.getValue());
+}
+</code></pre>
+
+<h2>Feign的调用流程</h2>
+<h4>1. 构造请求数据，将对象转换成json</h4>
+<blockquote>
+<p>RestTemplate template = new BuildTemplateFromArgs.create(argv);</p>
+</blockquote>
+<h4>2. 发送请求进行执行，执行成功会解码响应数据</h4>
+<blockquote>
+<p>excuteAndDecode(template)</p>
+</blockquote>
+<h4>3. 执行请求会有重试机制</h4>
+<pre><code>while (true) {
+    try {
+        excuteAndDecode(template)
+    } catch (Exception e) {
+        try { retryer.contiunteOrPropagate(e); } catch (Exception ex) { throw ex; }
+        contiune;
+    }
+}
+</code></pre>
+
+<h2>使用nginx + 网关</h2>
+<h4>在C:\Windows\System32\drivers\etc下的host文件中加配置</h4>
+<pre><code>192.168.81.128 gulimail.com
+</code></pre>
+
+<h4>1. 配置nginx，在nginx.conf文件中</h4>
+<pre><code>upstream name {
+    server 192.168.184.1:10000;
+}
+</code></pre>
+
+<h4>2. 在conf.d文件夹下，cp一份default.conf,然后修改location的配置</h4>
+<pre><code>location / {
+    proxy_set_header Host $host; #表示不丢失host信息，host信息为现在的信息
+    proxy_pass http://name; #在nginx.conf中配置的
+}
+</code></pre>
+
+<h4>3. 然后配置网关</h4>
+<pre><code>- id: gulimail_host_reute
+  uri: lb://gulimail-product
+  predicates:
+    - Host=**.gulimail.org, gulimail.com //表示这个域名下的都转发到gulimail-product
+</code></pre>
+
+<h2>java自带的性能监控：jconsole和jvisualvm，直接在命令行输就可以了</h2>
+<h2>使用nginx实现动静分离</h2>
+<h4>1. 将所有的静态资源都放在nginx上</h4>
+<h4>2. 定义规则，/static/**的所有请求都有nginx返回</h4>
+<pre><code>location /static/ {  //gulimail.conf中配置，表示/static的请求都去/usr/share/nginx/html下找
+    root   /usr/share/nginx/html;
+} 
+</code></pre>
+
+<h2>使用redis做缓存时，当并发量过大时会产生堆外内存异常OutOfDirectMemoryException</h2>
+<h4>原因</h4>
+<ul>
+<li>springboot2.0以后默认使用lettuce来操作redis，它是使用netty进行网络通信的，因为lettuce的bug，导致netty堆外内存溢出， 如果没有指定堆外内存，就默认使用给的内存</li>
+</ul>
+<h4>解决方案</h4>
+<ul>
+<li>升级lettuce</li>
+<li>使用jedis客户端</li>
+</ul>
+<h2>缓存问题</h2>
+<h3>缓存击穿,请求缓存和数据库中都没有的数据，解决：第一次没有查到就设置空值</h3>
+<h3>缓存雪崩,大量的key在同一时间过期，然后就访问到数据库了，解决： 设置过期时间的时候加入随机值</h3>
+<h3>缓存穿透,当一个热点key过期，然后大量请求打到数据库上，解决: 加锁，第一次请求查询数据库然后存入</h3>
+<h2>redis分布式锁</h2>
+<h3>简单的代码实现</h3>
+<pre><code>//使用redis的分布式锁
+public Map&lt;String, List&lt;Catelog2Vo&gt;&gt; getCatelogJsonFormDBWithRedisLock() {
+    String uuid = UUID.randomUUID().toString();
+    // 分布式锁， 在redis中占. 设置lock的值要跟设置过期时间是原子性操作
+    Boolean lock = redisTemplate.opsForValue().setIfAbsent(&quot;lock&quot;, uuid, 30, TimeUnit.SECONDS);
+    if (lock) {
+        /**加锁成功...执行业务, 记得把锁删除，不然一直进不来,删除也不能随便删除
+         * 问题：
+         *      过期时间设置10s，程序代码执行了30s，等执行到10s时，锁就释放了，重新进来一个a1，重新设置锁1，又来执行代码
+         *      等执行到20s时，重新进来一个a2，重新设置锁2，又来执行代码
+         *      等执行到30s时，程序执行完，此时a1,a2的锁就被它删了
+         *
+         * 解决：
+         *      String lock1 = redisTemplate.opsForValue().get(&quot;lock&quot;);
+         *      if (uuid.equals(lock1)) {
+         *          redisTemplate.delete(&quot;lock&quot;);
+         *      }
+         *
+         * 以上方法不可取，当你删除的时候发请求去redis，然后redis查到uuid后返回的前几秒，是要删除的，
+         * 后几秒在redis中第二个线程把lock的值替换成新的uuid， 删除的还是别人的锁
+         * 1. 从redis中取出的值，跟存进去的值比较，2. 如果相等就说明是删除的自己的锁, 这两个也要是原子性操作 用lua脚本
+         *
+         * execute()方法有三个参数，redisScript脚本， list keys， ...args
+         * new DefaultRedisScript&lt;Integer&gt;(script, Integer.class)， integer是成功之后的返回类型
+         * Arrays.asList(&quot;lock&quot;) 要删除的key
+         * uuid，要删除的key的值
+         *
+         * redis分布式事务主要就是1. 设置锁跟设置过期时间是原子性操作 2. 从redis获取锁跟删除锁也要是原子性操作
+         * 加锁： SET resource-name anystring NX EX max-lock-time
+         * 解锁：
+         *      1. 不要设置固定的字符串，而是设置为随机的大字符串，可以称为token。
+         *      2. 通过脚步删除指定锁的key，而不是DEL命令。
+         */
+        Map&lt;String, List&lt;Catelog2Vo&gt;&gt; dataFormDB = null;
+        try {
+            dataFormDB = getDataFormDB();
+        } finally {
+          String script = &quot;if redis.call('get',KEYS[1]) == ARGV[1] then return redis.call('del',KEYS[1]) else return 0 end&quot;;
+            //成功返回1 失败返回0
+            //参数(script, Long.class), Arrays.asList(&quot;lock&quot;), uuid)
+            //script：要运行的脚本， 
+            //Long：是返回值的类型
+            //Arrays.asList(&quot;lock&quot;)： 传一个list，要比较和删除的值
+            // uuid： 前面的值跟这个uuid比较
+          Long lock1 = redisTemplate.execute(new DefaultRedisScript&lt;Long&gt;(script, Long.class), Arrays.asList(&quot;lock&quot;), uuid);
+        }
+        return dataFormDB;
+    } else {
+        //加锁失败...等待几秒然后重试,
+        return getCatelogJsonFormDBWithRedisLock();  //自旋
+    }
+}
+</code></pre>
+
+<h2>使用redisson来做分布式锁和分布式功能</h2>
+<h3>1. 导入依赖</h3>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.redisson&lt;/groupId&gt;
+    &lt;artifactId&gt;redisson&lt;/artifactId&gt;
+    &lt;version&gt;3.12.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h3>2. 编写配置文件MyRedissonConfig</h3>
+<pre><code>@Bean
+public RedissonClient getRedissonClient() {
+    // 1. 创建配置
+    Config config = new Config();
+    // 不加redis://会报错，加rediss://表示是安全连接
+    config.useSingleServer().setAddress(&quot;redis://192.168.81.128:6379&quot;);
+    //返回RedissonClient
+    return Redisson.create(config);
+}
+</code></pre>
+
+<h3>3. 简单测试</h3>
+<pre><code>@GetMapping(&quot;/hello&quot;)
+public String hello() {
+    // 1. 获取一把锁
+    RLock myLock = redisson.getLock(&quot;my_lock&quot;);
+
+    // 2. 加锁
+    myLock.lock(); //阻塞式等待，默认30秒
+    /**
+     * 解决了两个问题
+     *  1. 锁的自动续期，(redisson有看门狗机制)， 如果程序运行时间超长，运行期间会自动续到30s，
+     *  不用担心业务时间长， 锁被自动过期掉
+     *  2. 加锁业务只要运行完成，就不会给当前锁续机，即使不手动解锁，30s后也会自动删除
+     */
+    try {
+        Thread.sleep(30000);
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        System.out.println(&quot;释放锁了&quot;);
+        myLock.unlock();
+    }
+    return &quot;hello&quot;;
+}
+</code></pre>
+
+<h3>redisson的各种锁</h3>
+<pre><code>//读锁
+private String hello = &quot;hello&quot;;
+public String read () {
+    RReadWriteLock helloValue = redisson.getReadWriteLock(&quot;helloValue&quot;);
+    RLock rLock = helloValue.readLock();
+    rLock.lock();  //加读锁
+    String a = hello;
+    rLock.unlock();
+    return a;
+}
+//写锁
+public String write () {
+    RReadWriteLock helloValue = redisson.getReadWriteLock(&quot;helloValue&quot;);
+    RLock wLock = helloValue.writeLock();
+    wLock.lock();//加写锁
+    try {
+        Thread.sleep(5000);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    hello = UUID.randomUUID().toString();
+    wLock.unlock();
+    return hello;
+}
+
+/**
+ * 停车的例子
+ * 信号量，可以用来做分布式限流
+ * @return
+ */
+public String park() throws InterruptedException {
+    RSemaphore car = redisson.getSemaphore(&quot;car&quot;);
+//car.acquire(); //获取一个信号量，相当于占一个车位 是阻塞式的
+    //返回true表示获取信号量成功，false失败，但都会返回，不会阻塞
+    boolean b = car.tryAcquire();
+    return &quot;ok&quot;;
+}
+
+public String go() throws InterruptedException {
+    RSemaphore car = redisson.getSemaphore(&quot;car&quot;);
+    car.release(); //释放一个信号量，相当于开走一辆车
+    return &quot;ok&quot;;
+}
+
+/**
+ * 闭锁： 等待其他都完成了在执行
+ * 放假，锁门
+ * 1班没人了，等全部人走完就锁大门
+ * @return
+ */
+@GetMapping(&quot;/lockDoor&quot;)
+@ResponseBody
+public String lockDoor() {
+    RCountDownLatch door = redisson.getCountDownLatch(&quot;door&quot;);
+    door.trySetCount(5L); //表示等待5次，当redis中door的值变成0时才会执行
+    return &quot;放假了&quot;;
+}
+
+@GetMapping(&quot;/gogo/{id}&quot;)
+@ResponseBody
+public String gogo(@PathVariable Integer id) {
+    RCountDownLatch door = redisson.getCountDownLatch(&quot;door&quot;);
+    door.countDown(); //执行一次就把door的值减1，
+    return id + &quot;班走了&quot;;
+}
+</code></pre>
+
+<h2>双写一致性的问题</h2>
+<pre><code>/**
+ * 使用redisson的分布式锁
+ * 缓存跟数据的一致性(两种都会产生脏数据)
+ * 1. 双写模式： 先写数据库再写缓存
+ *      问题： 当线程1和线程2同时修改同一条数据，线程1比线程2慢，但是线程1先执行，线程1还没执行完，
+ *      线程2就把缓存值改成了2，然后线程1才把缓存值改成1，线程2后执行，缓存中的值应该为2，但是缓存中是1
+ * 2. 失效模式(推荐)： 更新数据库后直接把缓存删了，等下次查询在查数据库
+ *      问题： 请求1把数据库值改成1，然后删缓存，此时请求2修改数据库把值改成2， 存缓存之前卡顿了，
+ *      此时请求3查询缓存(没有), 然后查数据库(值未更新，为1)，然后存进缓存值还是1,数据库中为2
+ * 解决方案：
+ *      1. 存进缓存的数据不应该是实时性，一致性要求高的，所以价格过期时间，每天拿到最新的就行
+ *      2. 如果是用户的维度数据(订单数据等)，这种并发几率很低，因为不可能一秒有很多订单
+ *      3. 如果是菜单，商品介绍等数据，可以使用canal订阅binlog的方式
+ *            canal是阿里开源的中间件，他可以伪装成mysql的从库，只要mysql有任何改动，都能同步到缓存
+ *      4. 可以通过加锁保证并发读写，可以使用分布式的读写锁
+ * @return
+ */
+</code></pre>
+
+<h2>使用redis做缓存</h2>
+<h3>1. 导入依赖</h3>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-cache&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h3>2. 写配置</h3>
+<pre><code>CacheAutoConfiguration会导入RedisCacheConfiguration
+spring:                 #配置这个即可 
+    cache:
+        type: redis
+    redis:
+        host: 192.168.81.128
+        port: 6379
+</code></pre>
+
+<h3>3. 测试使用缓存</h3>
+<pre><code>@Cacheable: 触发将数据存到缓存的操作，当缓存中存在就不会调用方法
+@CacheEvict: 触发降数据从缓存中删除(缓存失效模式)
+@CachePut:  不影响方法执行更新缓存，不管缓存中有没有反正更新缓存(缓存双写模式)
+@Cacheing:  组合以上多个操作
+@CacheConfig: 在类级别共享缓存的相同配置
+
+1. 在主启动类上加@EnableCaching注解
+2. 使用注解
+</code></pre>
+
+<h5>1. 使用@CacheEvict删除多个缓存</h5>
+<pre><code>1. @Caching(evict = {
+        @CacheEvict(value = {&quot;category&quot;}, key = &quot;'getCatelogJson'&quot;),
+        @CacheEvict(value = {&quot;category&quot;}, key = &quot;'getLevel1Category'&quot;)
+})
+2. @CacheEvict(value = {&quot;category&quot;}, allEntries = true)
+</code></pre>
+
+<h3>4. @Cacheable的自定义写法</h3>
+<pre><code>1. 想使用自定义的key： @Cacheable(cacheNames = {&quot;category&quot;}, key = &quot;#root.getMethodName()&quot;)，支持spEl表达式
+2. 设置缓存的过期时间(默认是-1)，在配置文件中：spring.cache.redis.time-to-live=60000
+3. 将数据保存为json
+</code></pre>
+
+<h3>5. 自定义序列化器</h3>
+<h5>1. 配置文件</h5>
+<pre><code>spring:
+  cache:
+    type: redis
+    redis:
+      time-to-live: 60000
+      use-key-prefix: true
+      key-prefix: cache_
+      cache-null-values: true
+</code></pre>
+
+<h5>2. 新建一个配置类加到容器中</h5>
+<pre><code>@EnableCaching
+@Configuration
+@EnableConfigurationProperties(CacheProperties.class)
+public class MyCacheConfig {
+
+    @Bean
+    RedisCacheConfiguration getRedisCacheConfiguration(CacheProperties cacheProperties) {
+        RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig();
+
+        设置key和value的序列化器
+        config = config.serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(
+        new StringRedisSerializer()));
+        config = config.serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(
+        new GenericJackson2JsonRedisSerializer()));
+
+        //从配置文件中读取
+        CacheProperties.Redis redisProperties = cacheProperties.getRedis();
+        if (redisProperties.getTimeToLive() != null) {
+            config = config.entryTtl(redisProperties.getTimeToLive());
+        }
+        if (redisProperties.getKeyPrefix() != null) {
+            config = config.prefixKeysWith(redisProperties.getKeyPrefix());
+        }
+        if (!redisProperties.isCacheNullValues()) {
+            config = config.disableCachingNullValues();
+        }
+        if (!redisProperties.isUseKeyPrefix()) {
+            config = config.disableKeyPrefix();
+        }
+
+        return config;
+    }
+}
+</code></pre>
+
+<h2>初始化线程的四种方式</h2>
+<h4>1. 继承 thread类  异步的</h4>
+<pre><code>Thread thread = new Thread01();
+thread.start();
+</code></pre>
+
+<h4>2. 实现runable接口</h4>
+<pre><code>(同步)Runable01 runable01 = new Runable01();
+    runable01.run();
+(异步)Runable01 runable01 = new Runable01();
+    new Thread(runable01).start();
+</code></pre>
+
+<h4>3. 实现callable接口 + FuTureTask (可以拿到返回值，可以处理异常)</h4>
+<pre><code>callable01 callable01 = new callable01();
+FutureTask&lt;Integer&gt; integerFutureTask = new FutureTask&lt;&gt;(callable01);
+new Thread(integerFutureTask).start();
+integer i = integerFutureTask.get(); //阻塞等待线程执行完才可以使用get()方法获取返回的值
+</code></pre>
+
+<h4>4. 线程池</h4>
+<pre><code>1. (Executors工具类)给线程池直接提交任务即可，就会帮你创建线程
+//线程池只能有一个，要用线程就从这里面取，参数表示有10个线程空闲
+ExecutorService executorService = Executors.newFixedThreadPool(10);
+executorService.submit(new callable01()); //submit方法可以穿runable，callable类型的，并且有返回值i
+executorService.execute(new Runable01()); //execute方法只能传runable类型的，没有返回值
+
+2. (原生)new ThreadPoolExecutor();七大参数：
+    1. corePoolSize： 核心线程数量，初始化后就有这么多，就算空闲也不会少
+    2. maximumPoolSize： 线程池最大线程数，打个比方一千万的并发线程池只有200，也只会两百两百的跑
+    3. keepAliveTime： 存活时间，
+    4. unit： 存活时间单位
+    5. workQueue： 阻塞队列，当有1000个任务，但是线程池中只有200个线程时，其他800个会进入阻塞队列，当200个线程执行完，就去阻塞队列里取新任务
+    6. threadFactory： 线程的创建工厂
+    7. RejectedExecutionHandler handler：    如果队列满了，按照我们制定的策略拒绝执行任务
+3. 工作顺序
+    1. 线程池创建，准备好core的核心线程数，准备接受任务
+    1.1 core满了， 就往阻塞队列中放，空闲的core就会自动去阻塞队列取
+    1.2 阻塞队列满了，就重新开新线程执行，但是最大值不能超过maximumPoolSize
+    1.3 max满了，就用拒绝策略拒绝执行任务
+    1.4 max都执行完成，就有很多空闲的线程，在指定时间keepAliveTime后释放
+        new LinkedBlockingDeque&lt;&gt;()阻塞队列的最大值是integer的最大值
+    ThreadPoolExecutor executor = new ThreadPoolExecutor(
+            5,
+            200,
+            10,
+            TimeUnit.SECONDS,
+            new LinkedBlockingDeque&lt;&gt;(),
+            Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.AbortPolicy()
+    );
+
+    2.面试题：一个线程池中core：7， max: 20, queue:50， 此时进来100个并发怎么分配
+    答： 7 个执行，50个进入队列， 13个创建新线程执行， 剩下30个使用拒绝策略拒绝掉
+
+    3.常见的4个线程池
+    Executors.newCachedThreadPool(); //core=0,所有线程都可以回收
+    Executors.newFixedThreadPool(); // core=max， 固定大小都不可回收
+    Executors.newScheduledThreadPool(); //定时任务的线程池
+    Executors.newSingleThreadExecutor(); //单线程线程池，后台从队列获取，挨个执行
+</code></pre>
+
+<h4>区别：</h4>
+<pre><code>1 2 没有返回值，3有返回值
+1 2 3 都不能控制资源
+4 可以控制资源，性能稳定
+</code></pre>
+
+<h2>CompletableFuture异步编排</h2>
+<h4>1. 创建异步对象</h4>
+<pre><code>//都是异步没有返回值
+runAsync(Runnable runnable)   
+runAsync(Runnable runnable,Executor executor) //可以传自定义的连接池
+//都是异步有返回值
+supplyAsync(Supplier&lt;U&gt; supplier)
+supplyAsync(Supplier&lt;U&gt; supplier,Executor executor) //可以传自定义的连接池
+
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+    System.out.println(&quot;main---start&quot;);
+    //异步没有返回值
+    //CompletableFuture.runAsync(() -&gt; {
+        //System.out.println(&quot;当前线程id:&quot; + Thread.currentThread().getId());
+        //System.out.println(&quot;当前线程name:&quot; + Thread.currentThread().getName());
+    //  }, executorService);
+    //异步有返回值
+    CompletableFuture&lt;Integer&gt; futrue = CompletableFuture.supplyAsync(() -&gt; {
+        System.out.println(&quot;当前线程id:&quot; + Thread.currentThread().getId());
+        System.out.println(&quot;当前线程name:&quot; + Thread.currentThread().getName());
+        return 5;
+    }, executorService);
+    System.out.println(futrue.get());
+    System.out.println(&quot;main---end&quot;);
+}
+</code></pre>
+
+<h4>2. 计算完成时感知的回调方法</h4>
+<pre><code>// (同步)回调方法的入参是返回结果和异常信息
+whenComplete(BiConsumer&lt;? super T, ? super Throwable&gt; action)
+// (异步)同上
+whenCompleteAsync(BiConsumer&lt;? super T, ? super Throwable&gt; action)
+// (异步)， 可以指定线程池
+whenCompleteAsync(BiConsumer&lt;? super T, ? super Throwable&gt; action, Executor executor)
+// ()参数是异常对象，可以给默认返回值
+exceptionally(Function&lt;Throwable, ? extends T&gt; fn)
+</code></pre>
+
+<h4>3. 计算完成时处理的回调方法(handle方法)</h4>
+<pre><code>//handle方法接受res结果和exception异常两个参数，还可以修改返回值
+CompletableFuture&lt;Integer&gt; futrue = CompletableFuture.supplyAsync(() -&gt; {
+    System.out.println(&quot;当前线程id:&quot; + Thread.currentThread().getId());
+    System.out.println(&quot;当前线程name:&quot; + Thread.currentThread().getName());
+    int i = 10/2;
+    return i;
+}, executorService).handle((res, exception) -&gt; {
+    if (res != null) {
+        return res * 2;
+    } else {
+        return 0;
+    }
+});
+</code></pre>
+
+<h4>4. 线程串行化方法(带Async的都是异步操作)</h4>
+<pre><code>//当一个线程依赖另一个线程时，能拿到上一步的结果，并有返回值
+CompletableFuture&lt;U&gt; thenApply(Function&lt;? super T,? extends U&gt; fn)
+CompletableFuture&lt;U&gt; thenApplyAsync(Function&lt;? super T,? extends U&gt; fn)
+CompletableFuture&lt;U&gt; thenApplyAsync(Function&lt;? super T,? extends U&gt; fn, Executor executor)
+
+//消费处理结果，接受任务的处理结果，并消费处理， 能接受上一步结果但没有返回值
+CompletableFuture&lt;Void&gt; thenAccept(Consumer&lt;? super T&gt; action)
+CompletableFuture&lt;Void&gt; thenAcceptAsync(Consumer&lt;? super T&gt; action)
+CompletableFuture&lt;Void&gt; thenAcceptAsync(Consumer&lt;? super T&gt; action,Executor executor)
+
+// 只要上面的任务执行完成，就开始执行thenRun，处理完任务后，thenRun有后续操作，不能获取上一步的执行结果
+CompletableFuture&lt;Void&gt; thenRun(Runnable action)
+CompletableFuture&lt;Void&gt; thenRunAsync(Runnable action)
+CompletableFuture&lt;Void&gt; thenRunAsync(Runnable action,Executor executor)
+
+例：
+CompletableFuture&lt;Integer&gt; future = CompletableFuture.supplyAsync(() -&gt; {
+    System.out.println(&quot;当前线程id:&quot; + Thread.currentThread().getId());
+    System.out.println(&quot;当前线程name:&quot; + Thread.currentThread().getName());
+    int i = 10 / 2;
+    return i;
+}, executorService).thenApplyAsync(res -&gt; {
+    System.out.println(res);
+    return 10;
+}, executorService);
+</code></pre>
+
+<h4>5. 两任务组合-都要完成</h4>
+<pre><code>CompletableFuture&lt;Integer&gt; future01 = CompletableFuture.supplyAsync(() -&gt; {
+    System.out.println(&quot;线程1开始&quot;);
+    System.out.println(&quot;线程1结束&quot;);
+    return 5;
+}, executorService);
+
+CompletableFuture&lt;String&gt; future02 = CompletableFuture.supplyAsync(() -&gt; {
+    System.out.println(&quot;线程2开始&quot;);
+    System.out.println(&quot;线程2结束&quot;);
+    return &quot;hello&quot;;
+}, executorService);
+
+/**
+ * 两个都执行完才执行，不能感知到上一步的结果
+ * future01.runAfterBothAsync(future02, () -&gt; {
+ *             System.out.println(&quot;线程3开始&quot;);
+ *         } ,executorService);
+ * 两个都执行完才执行，可以感知到上一步的结果
+ * future01.thenAcceptBothAsync(future02,(f1, f2) -&gt; {
+ *             System.out.println(&quot;线程3开始, f1:&quot; + f1 + &quot;----f2:&quot; + f2 );
+ *         },executorService);
+ * 两个都执行完才执行，可以感知到上一步的结果，且有返回值
+ * CompletableFuture&lt;String&gt; future = future01.thenCombineAsync(future02, (f1, f2) -&gt; {
+ *             return &quot;result&quot; + f1 + &quot;:&quot; + f2;
+ *         }, executorService);
+ *         System.out.println(future.get());
+ */
+</code></pre>
+
+<h4>6. 两任务组合-一个完成</h4>
+<pre><code>/**
+ * 两个任务，完成一个
+ * 不感知上一步的结果，也没有返回值
+ *future01.runAfterEitherAsync(future02, () -&gt; {
+ *             System.out.println(&quot;任务3开始&quot;);
+ *         },executorService);
+ * 感知上一步的结果，也没有返回值
+ * future01.acceptEitherAsync(future02, (res) -&gt; {
+ *             System.out.println(&quot;任务3开始&quot; + res);
+ *         },executorService);
+ *  感知上一步的结果，有返回值
+ *  CompletableFuture&lt;String&gt; future = future01.applyToEitherAsync(future02, (res) -&gt; {
+ *             return &quot;返回结果&quot; + res;
+ *         }, executorService);
+ *         System.out.println(future.get());
+ */
+</code></pre>
+
+<h4>7. 多任务组合</h4>
+<pre><code>// 全部完成才会执行
+CompletableFuture&lt;Void&gt; allof = CompletableFuture.allOf(future01, future02);
+allof.get();
+//完成一个就执行了
+CompletableFuture&lt;Object&gt; anyof = CompletableFuture.anyOf(future01, future02);
+System.out.println(anyof.get());
+</code></pre>
+
+<h2>yml或properties中的自定义配置</h2>
+<h4>1. 导包：作用就是在yml'或properties中使用自定义的配置时有提示</h4>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;
+    &lt;optional&gt;true&lt;/optional&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h4>2. 定义一个配置类，</h4>
+<pre><code>@ConfigurationProperties(prefix = &quot;gulimail.thread&quot;) //表示以gulimmail.thread开头
+@Component  //注册成组件
+@Data    // 生成get和set方法
+public class ThreadPoolConfigProperties {
+
+    private Integer coreSize;
+    private Integer maxSize;
+    private Integer keepAliveTime;
+}
+</code></pre>
+
+<h4>3. 在配置文件中配置自定义的配置</h4>
+<pre><code>gulimail:
+  thread:
+    core-size: 20
+    max-size: 200
+    keep-alive-time: 10
+</code></pre>
+
+<h4>4. 然后在需要用到这个配置的地方使用</h4>
+<pre><code>@Configuration
+public class MyThreadConfig {
+            //因为已经注入到spring容器中了，所有可以再入参的地方直接使用
+    @Bean
+    public ThreadPoolExecutor threadPoolExecutor(ThreadPoolConfigProperties pool) {
+        return new ThreadPoolExecutor(pool.getCoreSize(), pool.getMaxSize(), pool.getKeepAliveTime(), TimeUnit.SECONDS, 
+        new LinkedBlockingDeque&lt;&gt;(10000), Executors.defaultThreadFactory(),
+        new ThreadPoolExecutor.AbortPolicy());
+    }
+}
+</code></pre>
+
+<h2>使用阿里云的短信服务并抽取成一个组件</h2>
+<h4>1.导包(也可以不导)</h4>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;
+    &lt;optional&gt;true&lt;/optional&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h4>2. 编写组件</h4>
+<pre><code>@Data
+@Component
+@ConfigurationProperties(prefix = &quot;spring.cloud.alicloud.sms&quot;)
+public class SmsComponent {
+
+    private String smsHost;
+    private String smsPath;
+    private String smsSign;
+    private String smsSkin;
+    private String smsAppcode;
+
+    public void sendSms(String  // 【1】请求地址 支持http 和 https 及 WEBSOCKET
+        String path = smsPath; // 【2】后缀
+        String appcode = smsAppcode;  // 【3】开通服务后 买家中心-查看AppCode
+        String code = smsCode; // 【4】请求参数，详见文档描述
+        String phone = smsPhone; //  【4】请求参数，详见文档描述
+        String sign = smsSign; //  【4】请求参数，详见文档描述
+        String skin = smsSkin;  //  【4】请求参数，详见文档描述
+        String urlSend = host + path + &quot;?code=&quot; + code +&quot;&amp;phone=&quot;+phone +&quot;&amp;sign=&quot;+sign +&quot;&amp;skin=&quot;+skin;   // 【5】拼接请求链接
+        try {
+            URL url = new URL(urlSend);
+            HttpURLConnection httpURLCon = (HttpURLConnection) url.openConnection();
+            httpURLCon.setRequestProperty(&quot;Authorization&quot;, &quot;APPCODE &quot; + appcode);// 格式Authorization:APPCODE (中间是英文空格)
+            int httpCode = httpURLCon.getResponseCode();
+            if (httpCode == 200) {
+                String json = read(httpURLCon.getInputStream());
+                System.out.println(&quot;正常请求计费(其他均不计费)&quot;);
+                System.out.println(&quot;获取返回的json:&quot;);
+                System.out.print(json);
+            } else {
+                Map&lt;String, List&lt;String&gt;&gt; map = httpURLCon.getHeaderFields();
+                String error = map.get(&quot;X-Ca-Error-Message&quot;).get(0);
+                if (httpCode == 400 &amp;&amp; error.equals(&quot;Invalid AppCode `not exists`&quot;)) {
+                    System.out.println(&quot;AppCode错误 &quot;);
+                } else if (httpCode == 400 &amp;&amp; error.equals(&quot;Invalid Url&quot;)) {
+                    System.out.println(&quot;请求的 Method、Path 或者环境错误&quot;);
+                } else if (httpCode == 400 &amp;&amp; error.equals(&quot;Invalid Param Location&quot;)) {
+                    System.out.println(&quot;参数错误&quot;);
+                } else if (httpCode == 403 &amp;&amp; error.equals(&quot;Unauthorized&quot;)) {
+                    System.out.println(&quot;服务未被授权（或URL和Path不正确）&quot;);
+                } else if (httpCode == 403 &amp;&amp; error.equals(&quot;Quota Exhausted&quot;)) {
+                    System.out.println(&quot;套餐包次数用完 &quot;);
+                } else {
+                    System.out.println(&quot;参数名错误 或 其他错误&quot;);
+                    System.out.println(error);
+                }
+            }
+
+        } catch (MalformedURLException e) {
+            System.out.println(&quot;URL格式错误&quot;);
+        } catch (UnknownHostException e) {
+            System.out.println(&quot;URL地址错误&quot;);
+        } catch (Exception e) {
+            // 打开注释查看详细报错异常信息
+            // e.printStackTrace();
+        }
+    }
+
+    /*
+     * 读取返回结果
+     */
+    private static String read(InputStream is) throws IOException {
+        StringBuffer sb = new StringBuffer();
+        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+        String line = null;
+        while ((line = br.readLine()) != null) {
+            line = new String(line.getBytes(), &quot;utf-8&quot;);
+            sb.append(line);
+        }
+        br.close();
+        return sb.toString();
+    }
+}
+</code></pre>
+
+<h4>3. 在配置文件中配置smshost等参数</h4>
+<pre><code>spring:
+  cloud:
+    alicloud:
+      sms:
+        smsHost: https://smsmsgs.market.alicloudapi.com
+        smsPath: /sms/
+        smsSign: 1
+        smsSkin: 7
+        smsAppcode: 97f536cad0bd422883cf60da37432256
+</code></pre>
+
+<h2>使用自定义映射器时出现：Request method 'POST' not supported</h2>
+<h4>执行顺序： 用户注册-&gt; /register[post] -&gt; 然后转发到/reg.html -&gt;  使用的是映射器，默认是get请求，这就是原因</h4>
+<pre><code>return &quot;forward:/reg.html&quot;;
+registry.addViewController(&quot;/reg.html&quot;).setViewName(&quot;reg&quot;);
+</code></pre>
+
+<h2>解决session共享问题</h2>
+<h4>1. session复制: 利用Tomcat的配置，修改web.xml,使所有节点都有全量的session。不可取，太浪费内存资源。</h4>
+<h4>2. 将session存在客户端：每次请求带上此cookie，不安全，cookie只有4k，受cookie存储限制，不可取。</h4>
+<h4>3. ip_hash负载均衡。让同一个ip的请求发到固定的服务器，但是服务器水平扩展后，还是会有少量影响，就比如原来是2台服务器对2取余，现在加一台，就要对3取余了，导致原来的数据都对不上</h4>
+<h4>4. 将session统一存储到redis中： 缺点是增加了一次网络开销，但是服务器挂掉不会丢失数据</h4>
+<h4>5. 最终解决方案：spring session + redis： session都存在redis中，当服务器给浏览器指定cookie时，把作用域指定成父级域名，所有子域名就都能访问到了</h4>
+<h2>SpringBoot整合Spring session + Redis</h2>
+<h4>1. 导依赖</h4>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+    &lt;exclusions&gt;
+        &lt;exclusion&gt;
+            &lt;groupId&gt;io.lettuce&lt;/groupId&gt;
+            &lt;artifactId&gt;lettuce-core&lt;/artifactId&gt;
+        &lt;/exclusion&gt;
+    &lt;/exclusions&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;redis.clients&lt;/groupId&gt;
+    &lt;artifactId&gt;jedis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.session&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-session-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h4>2 - 3. 写配置 + 配置redis连接信息</h4>
+<blockquote>
+<ol>
+<li>
+<p>spring.session.store-type=redis</p>
+</li>
+<li>
+<p>spring.redis.host=192.168.255.128</p>
+<p>spring.redis.port=6379</p>
+</li>
+</ol>
+</blockquote>
+<h4>4. 在启动类上加@EnableRedisHttpSession注解，整合redis作为session存储，然后使用session进行存储即可</h4>
+<h4>5. 配置cookie的作用域</h4>
+<pre><code>@Configuration
+public class GulimailSessionConfig {
+
+    @Bean
+    public CookieSerializer cookieSerializer() {
+        DefaultCookieSerializer defaultCookieSerializer = new DefaultCookieSerializer();
+
+        defaultCookieSerializer.setDomainName(&quot;gulimail.com&quot;);
+        defaultCookieSerializer.setCookieName(&quot;GULISESSION&quot;);
+        return defaultCookieSerializer;
+    }
+
+    @Bean
+    public RedisSerializer&lt;Object&gt; springSessionDefaultRedisSerializer() {
+        return new GenericJackson2JsonRedisSerializer();
+    }
+}
+</code></pre>
+
+<h2>@EnableRedisHttpSession的原理</h2>
+<h4>核心原理：装饰者模式</h4>
+<pre><code>1). @EnableRedisHttpSession注解导入了RedisHttpSessionConfiguration配置
+    1. 给容器中添加了一个组件
+        1. 就是sessionrepository=&gt;RedisOperationSessionRepository=&gt;redis操作session的增删改查
+    2. SessionRepositoryFilter=&gt; Filter, 存储过滤器，每一个请求都要经过这个过滤器
+        1. 创建的时候就自动从容器中获取sessionrepository
+        2. 原始的request和response都被包装成wrappedRequest， wrappedResponse
+        3. 以后获取session就是wrappedRequest.getsession() =&gt; 从sessionrepository中获取
+
+2). 核心源码
+@Override
+protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+        throws ServletException, IOException {
+    request.setAttribute(SESSION_REPOSITORY_ATTR, this.sessionRepository);
+
+    //包装原始的 request
+    SessionRepositoryRequestWrapper wrappedRequest = new SessionRepositoryRequestWrapper(request, response);
+    //包装原始的 respoonse
+    SessionRepositoryResponseWrapper wrappedResponse = new SessionRepositoryResponseWrapper(wrappedRequest,
+            response);
+
+    try {
+        //以后整个执行链都是使用的包装后的req和resp
+        filterChain.doFilter(wrappedRequest, wrappedResponse);
+    }
+    finally {
+        wrappedRequest.commitSession();
+    }
+}
+</code></pre>
+
+<h2>打包从git上下载的源码： mvn clean package -Dmaven.skip.test=true</h2>
+<h2>单点登录</h2>
+<h4>核心：三个系统即使域名不一样想办法给三个系统同步同一个票据</h4>
+<pre><code>1. 中央认证服务器： ssoserver.com
+2. 其他系统，想要登录去ssoserver.com，登录成功后返回来
+3. 只要有一个登录了，其他都不用登录
+4. 全系统统一一个sso-sessionid， 所有系统可能域名不一样
+</code></pre>
+
+<h2>RedirectAttributes 的用法</h2>
+<h4>这个跟(Model model)用法一样，只是model是转发用的，这个是重定向用的，带数据转发</h4>
+<pre><code>1. RedirectAttributes.addAttribute(&quot;skuId&quot;, skuId);就是在重定向的地址后面加上参数skuId
+例如：return &quot;redirect:http://cart.gulimail.com/addToCartSuccess.html&quot;;
+地址栏就是: http://cart.gulimail.com/addToCartSuccess.html?skuId=5
+2. addFlashAttribute(&quot;skuId&quot;, skuId);这个就是重定向后再session中存一个skuId，可以再页面中使用，但是只能用一次
+</code></pre>
+
+<h2>SpringBoot整合RabbitMQ</h2>
+<h4>1. 导包</h4>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-amqp&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h4>2. 编写配置文件，然后在启动类上加@EableRabbit注解，就可以使用了</h4>
+<pre><code>@EableRabbit注解: 监听消息才用这个，只发送信息的话可以不加
+spring:
+  rabbitmq:
+    host: 192.168.255.128
+    port: 5672
+    virtual-host: /
+</code></pre>
+
+<h4>3. 配置类</h4>
+<pre><code>//发送对象的话加这段配置可以让他发过去的时候变成json串
+@Configuration
+public class MyRabbitConfig {
+    @Bean
+    public MessageConverter messageConverter() {
+        return new Jackson2JsonMessageConverter();
+    }
+}
+</code></pre>
+
+<h4>4. 使用</h4>
+<pre><code>1. 在RabbitAutoConfiguration这个类中，引入了几个组件,配置文件在RabbitProperties这个类里面
+    1. CachingConnectionFactory：创建连接的工厂
+    2. AmqpAdmin
+    3. RabbitTemplate
+    4. RabbitMessagingTemplate
+</code></pre>
+
+<h5>1. 使用AmqpAdmin创建交换机，队列，绑定</h5>
+<pre><code>@Test   //创建
+void createExchange() {
+    //参数： 交换机名， 是否持久化， 是否自动删除
+    DirectExchange exchange = new DirectExchange(&quot;hello.java.exchange&quot;, true, false);
+    amqpAdmin.declareExchange(exchange);
+    log.info(&quot;交换机创建好了&quot;);
+
+    //参数： 队列名， 是否持久化， 是否排他(这个队列被一个连接上了，别人就不能连接了)，是否自动删除
+    Queue queue = new Queue(&quot;hello.java.queue&quot;, true,false, false);
+    amqpAdmin.declareQueue(queue);
+    log.info(&quot;队列创建好了&quot;);
+
+    // 队列名， 队列类型(交换机or队列)， 交换机名， 路由键， 参数
+    Binding binding = new Binding(&quot;hello.java.queue&quot;, Binding.DestinationType.QUEUE,
+            &quot;hello.java.exchange&quot;, &quot;hello.java&quot;, null);
+    amqpAdmin.declareBinding(binding);
+    log.info(&quot;绑定创建好了&quot;);
+}
+</code></pre>
+
+<h5>2. 使用RabbitTemplate发送消息</h5>
+<pre><code>//发送消息
+@Test
+void sendMsg() {
+    User user = new User(1, &quot;zhangsan&quot;);
+    // 参数说明： 交换机名， 队列名， 要发送的消息，如果是对象就要实现序列化接口
+    rabbitTemplate.convertAndSend(&quot;hello.java.exchange&quot;, &quot;hello.java&quot;, user);
+    log.info(&quot;发消息了&quot;);
+}
+</code></pre>
+
+<h5>3. 使用RabbitListener接收消息，在方法上加@RabbitListener注解即可，启动类要加@EableRabbit</h5>
+<pre><code>@RabbitListener(queues = {&quot;hello.java.queue&quot;})
+public void recieveMsg(Message msg,   //原生的消息，全部信息都在里面
+                       OrderReturnReasonEntity entity, //发送时消息的类型，可以直接接收
+                       Channel channel) { // 当前传输数据的通道
+    System.out.println(&quot;消息&quot; + msg);
+    System.out.println(&quot;消息&quot; + entity);
+    System.out.println(&quot;消息&quot; + channel);
+}
+
+Queue: 可以很多人监听，但是只有一个人能收到，只要队列收到消息就删除消息
+场景：
+    1. 启动多个服务，同一个消息，只能被一个客户端接收到
+    2. 只有等一个消息处理完(打个比方线程等待几秒下一个消息就是几秒后发送)，方法运行结束，才开始接收下一个信息
+</code></pre>
+
+<h5>4. @RabbitListener 和 @RabbitHandler</h5>
+<pre><code>@RabbitListener： 可以标在类 + 方法 上
+@RabbitHandler： 只能标在方法上
+场景： 当发出来的消息有两种类型user和student时，
+在类上标注要监听的队列@RabbitListener(queues = {&quot;hello.java.queue&quot;})，然后在方法上加上@RabbitHandler，例如：
+
+@RabbitListener
+public void recieveMsg1(User entity) {
+
+@RabbitListener
+public void recieveMsg1(Student entity) {
+这样两种类型都可以接受到，就不用从message全部信息中取了
+</code></pre>
+
+<h2>RabbitMQ消息确认机制-可靠投递</h2>
+<h4>1. 发送端确认消息发送流程</h4>
+<pre><code>消息生产者(P) ==&gt; Borker|Exchange ==&gt; Queue ==&gt; 消息消费者(C)
+
+    过程1：p-&gt;Borker: ConfirmCallback: 发送端确认消息发送的回调
+    过程2：Exchange -&gt; Queue: ReturnCallback //
+    过程3：Queue -&gt; C: ack  //
+</code></pre>
+
+<h4>过程1: 设置发送端确认发送的回调</h4>
+<pre><code>1. 在配置文件中添加
+    spring:
+        rabbitmq:
+            publisher-confirm-type: correlated
+2. 然后在配置类中消息确认的回调
+    @PostConstruct //表示MyRabbitConfig对象创建完成后才才执行这个方法
+    public void initRabbitTemplate () {
+        rabbitTemplate.setConfirmCallback(new RabbitTemplate.ConfirmCallback() {
+            @Override
+            public void confirm(CorrelationData correlationData, boolean ack, String cause) {
+                System.out.println(&quot;参数1&quot; + correlationData); //这个是消息的唯一id
+                System.out.println(&quot;参数2&quot; + ack);               //消息是否成功收到   
+                System.out.println(&quot;参数3&quot; + cause);             //失败的原因
+            }
+        });
+    }
+</code></pre>
+
+<h4>过程2:设置消息是否正确抵达队列的回调</h4>
+<pre><code>1. 在配置文件中添加
+    spring:
+        rabbitmq:
+            publisher-returns: true #设置发送端确认消息的回调 交换机到队列
+            template:
+              mandatory: true #这个是设置消息抵达后，优先异步回调returnCallBack
+2. 然后在配置类中消息确认的回调
+    @PostConstruct //表示MyRabbitConfig对象创建完成后才才执行这个方法
+    public void initRabbitTemplate () {
+        //这个是消息从交换机到队列失败的回调
+        rabbitTemplate.setReturnCallback(new RabbitTemplate.ReturnCallback() {
+            @Override
+            public void returnedMessage(Message message, int replyCode, String replyText,
+                                        String exchange, String routingKey) {
+                System.out.println(&quot;参数1&quot; + message); // 失败的消息
+                System.out.println(&quot;参数2&quot; + replyCode); // 回复的状态码
+                System.out.println(&quot;参数3&quot; + replyText); // 回复的文本内容
+                System.out.println(&quot;参数4&quot; + exchange);   // 当时这个消息发送给那个交换机
+                System.out.println(&quot;参数5&quot; + routingKey); // 当时消息发送用的那个路由键
+            }
+        });
+    }
+
+rabbitTemplate.convertAndSend(&quot;hello.java.exchange&quot;, &quot;hello.java&quot;,
+            entity, new CorrelationData(UUID.randomUUID().toString()));
+发消息的时候加上最后一个参数，如果消息发送失败，就会在message中有这个id，可以当做唯一id
+</code></pre>
+
+<h4>2. 消费端确认消息消费(Ack消息确认机制)</h4>
+<pre><code>1. 默认是自动确认的，只要收到消息， 客户端自动确认，服务端就把数据删除
+    问题： 我们收到很多消息，自动回复给服务器，但是只成功了一个，其他全部没有成功就会发生消息丢失
+    解决： 使用消费者手动确认模式，只要没有回复给服务端消息确认消息，不管宕机还是什么原因消息都不会丢失，只是从unacked变成ready
+    spring：
+       rabbitmq：
+           listener:
+              simple:
+                acknowledge-mode: manual #把ack消息确认机制变成手动， 默认是自动
+2. 如何告诉服务端消息签收
+    //获取deliveryTag，这个是在通道内按顺序递增的
+    long deliveryTag = msg.getMessageProperties().getDeliveryTag();
+    try {
+        //告诉服务端确认消息消费了，第二个参数表示是否批量确认 false表示只处理当前的
+        channel.basicAck(deliveryTag, false);  签收
+        // 前两个参数同上， 第三个表示是否重新入队列，不重入的话就丢失
+        // channel.basicNack(deliveryTag, false, true); //拒签
+    } catch (IOException e) {
+        //网络中断才报异常
+        e.printStackTrace();
+    }
+</code></pre>
+
+<h4>3. 延时队列(实现定时任务)</h4>
+<pre><code>TTL： 消息的TTL就是消息的存活时间，过期后加入死信路由
+DLX:死信路由， 加入死信路由的条件
+    1. 被消费者拒收了，且reject方法里requeue是false， 就表示不重新加到队列中
+    2. TTL过期了
+    3. 队列长度限制满了，排在前面的信息会被丢弃或扔到死信路由上
+</code></pre>
+
+<h4>4.延时队列用法</h4>
+<pre><code>@Configuration
+public class MyMQConfig {
+
+    @RabbitListener(queues = &quot;order.release.order.queue&quot;)
+    public void listener(OrderEntity entity, Channel channel, Message message) throws IOException {
+        System.out.println(&quot;asdf&quot; + entity);
+        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+    }
+
+    /***
+     * 加了@Bean后，容器中的Queue，Exchange，Binding会在rabbitmq中自动创建，如果里面没有的话
+     * 属性发生改变也不会覆盖
+     * @return
+     */
+    @Bean
+    public Queue orderDelayQueue() {
+        /**
+         * String name,  队列名字
+         * boolean durable, 是否持久化
+         * boolean exclusive,  是否排他
+         * boolean autoDelete, 是否自动删除
+         * @Nullable Map&lt;String, Object&gt; arguments 参数
+         */
+        HashMap&lt;String, Object&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;x-dead-letter-exchange&quot;, &quot;order-event-exchange&quot;);
+        map.put(&quot;x-dead-letter-routing-key&quot;, &quot;order.release.order&quot;);
+        map.put(&quot;x-message-ttl&quot;, 60000);
+        Queue queue = new Queue(&quot;order.delay.queue&quot;, true, false, false, map);
+        return queue;
+    }
+
+    @Bean
+    public Queue orderReleaseOrderQueue() {
+        Queue queue = new Queue(&quot;order.release.order.queue&quot;, true, false, false);
+        return queue;
+    }
+
+    @Bean
+    public Exchange orderEventExchange() {
+        /**
+         * String name, boolean durable, boolean autoDelete, Map&lt;String, Object&gt; arguments
+         */
+        TopicExchange exchange = new TopicExchange(&quot;order.event.exchange&quot;, true, false);
+        return exchange;
+    }
+
+    @Bean
+    public Binding orderCreateOrderBinding() {
+        /**
+         * String destination, 目的地，要绑定的地方
+         * DestinationType destinationType, 要绑定的类型队列或交换机
+         * String exchange, 要跟别的绑定的交换机
+         * String routingKey,   路由键
+         * @Nullable Map&lt;String, Object&gt; arguments 参数
+         */
+        Binding binding = new Binding(&quot;order.delay.queue&quot;, Binding.DestinationType.QUEUE,
+                &quot;order.event.exchange&quot;, &quot;order.create.order&quot;, null );
+        return binding;
+    }
+
+    @Bean
+    public Binding orderReleaseOrderBinding() {
+        Binding binding = new Binding(&quot;order.release.order.queue&quot;, Binding.DestinationType.QUEUE,
+                &quot;order.event.exchange&quot;, &quot;order.release.order&quot;, null );
+        return binding;
+    }
+}
+</code></pre>
+
+<h2>Feign远程调用丢失请求头</h2>
+<h4>问题： 远程调用是丢失了请求头</h4>
+<pre><code>浏览器  -------------------&gt; order服务 ----正常情况-------&gt; cart服务
+                                ↓                           ↑
+浏览器发送请求头             feign远程调用          没有请求头cart认为没有登录
+自动带了cookie                   ↓                           ↑
+                                ↓                           ↑
+                                ↓---创建一个新的request请求---&gt;
+                                      这个请求没有任何请求头
+</code></pre>
+
+<h4>解决方案：自定义request的请求拦截器</h4>
+<pre><code>@Configuration
+public class GulimailFeignConfig {
+
+    @Bean(&quot;requestInterceptor&quot;)
+    public RequestInterceptor requestInterceptor() {
+        return new RequestInterceptor() {
+            @Override
+            public void apply(RequestTemplate requestTemplate) {
+                //1. 获取请求
+                ServletRequestAttributes requestAttributes = 
+                            (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+                HttpServletRequest request = requestAttributes.getRequest();
+                // 设置cookie
+                String cookie = request.getHeader(&quot;Cookie&quot;);
+                requestTemplate.header(&quot;Cookie&quot;, cookie);
+            }
+        };
+    }
+}
+</code></pre>
+
+<h2>Feign异步远程调用丢失上下文</h2>
+<h4>问题： 异步编排两个远程调用时，拿不到request的数据</h4>
+<pre><code>------------------------------ ThreadLocal在整个过程都可以拿到 ------------------------
+老请求 ------------&gt; order服务 ---------&gt; orderService --------&gt; address -------&gt; cart
+
+------------------------------- ThreadLocal在72线程才可以拿到 -------------------------
+老请求 ------------&gt; order服务 ---------&gt; orderService ------------72----------------&gt;
+                                                ↓
+                                                ↓
+                                                ↓ --101线程--&gt; interceptor ---&gt; address
+                                                ↓
+                                                ↓ --102线程--&gt; interceptor ---&gt; cart
+</code></pre>
+
+<h4>解决方式：在异步编排之前就拿到request，然后在异步任务中给每个ThreadLocal设置</h4>
+<pre><code>代码片段
+@Override
+public OrderConfirmVo confirmOrder() throws ExecutionException, InterruptedException {
+    MemberResponseVo memberResponseVo = UserLoginInterceptor.local.get();
+    OrderConfirmVo vo = new OrderConfirmVo();
+    //新增代码----获取之前的请求
+    RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+
+    CompletableFuture&lt;Void&gt; addressFuture = CompletableFuture.runAsync(() -&gt; {
+        //新增代码----每个线程都获取之前的请求
+        RequestContextHolder.setRequestAttributes(requestAttributes);
+        //1. 远程调用获取收货地址
+        List&lt;MemberAddressVo&gt; address = memberFeignService.getAddress(memberResponseVo.getId());
+        vo.setAddress(address);
+    }, executor);
+</code></pre>
+
+<h2>接口幂等性</h2>
+<h4>什么是幂等性:就是用户对同一操作发起一次或者多次请求的结果都是一样的，比如提交订单，点击一次跟十次都一样</h4>
+<h4>那些情况需要防止</h4>
+<ul>
+<li>用户多次点击按钮</li>
+<li>用户页面回退再提交</li>
+<li>微服务之间互相调用，由于网络问题，导致请求失败，feign触发重试机制</li>
+</ul>
+<h4>幂等性的解决方案</h4>
+<h5>1. token机制</h5>
+<pre><code>问题1： 后删token
+    快速连点两次按钮导致有两次请求，第一次进来的时候还没删，第二次就进来了。
+问题2： 先删除token
+    当前端传token过来，获取到，然后进行比较，然后在删除token，这三个操作要是原子性的
+    如果不一样可能会导致获取到同样的数据，判断都成功然后继续操作
+</code></pre>
+
+<h5>2. 各种锁机制</h5>
+<pre><code>1. 数据库悲观锁: select *from xxxx where id = 1 for update;
+    这个for update就是加锁
+2. 数据库乐观锁: update book set count = count + 1, version = version + 1 where bookId = 1 and version = 1
+    这里的version = version + 1就是版本号机制，然后带上version = 1条件
+3. 业务层分布式锁: 
+</code></pre>
+
+<h5>3. 各种唯一约束</h5>
+<pre><code>1. 数据库唯一约束
+    插入数据按照唯一索引插入，这样就不会插入重复数据
+2. redis set防重
+    先计算数据的md5，然后放入redis的set，每次处理数据先查redis看这个MD5是否存在，存在就不处理
+</code></pre>
+
+<h5>4. 防重表</h5>
+<h5>5. 全局请求唯一id</h5>
+<pre><code>调用接口时，生成一个唯一id，redis将数据保存到去重集合中，存在即处理过，可以使用nginx设置每个请求的唯一id， 这样当feign重复提交时带的id都不一样
+</code></pre>
+
+<h2>订单创建思路</h2>
+<h4>1. 验证令牌的正确性</h4>
+<h4>2. 构造订单数据</h4>
+<h4>3. 订单验价</h4>
+<h4>4. 保存订单数据</h4>
+<h4>5. 锁定库存，只要有异常就回滚</h4>
+<h2>分布式事务</h2>
+<h4>问题1： 远程服务假失败,网络请求其实成功了，但是网络故障没有返回数据，导致订单回滚， 库存却减少了</h4>
+<h4>问题2： 远程服务执行成功， 下面的其他方法出现异常，导致已经执行的远程请求肯定不能回滚</h4>
+<h4>本地事务</h4>
+<pre><code>1. @Transactional注解的一些属性
+    1. isolation：设置数据库的默认隔离级别，例：isolation = Isolation.READ_COMMITTED
+        1. ISOLATION_DEFAULT： 默认的
+        2. ISOLATION_READ_UNCOMMITTED： 读未提交
+        3. ISOLATION_READ_COMMITTED： 读已提交
+        4. ISOLATION_REPEATABLE_READ： 可重复度
+        5. ISOLATION_SERIALIZABLE： 串行化
+    2. propagation： 事务的传播行为，例如：propagation = Propagation.REQUIRED
+        1. PROPAGATION_REQUIRED： 表示共用同一个事务
+        2. PROPAGATION_REQUIRES_NEW： 表示单独使用自己的事务
+
+        @Transactional
+        public void a() {
+            //bService.b(); //回滚， 且他设置的timeout = 2不生效，一切遵循a方法的设置 
+            //cService.c(); //不回滚, 使用自己独立的配置
+            b();
+            c();  //这样a，b，c方法都在同一个类中，b，c方法的配置都不会生效
+            int i = 10/0;
+        }
+        @Transactional(propagation = Propagation.REQUIRED, timeout = 2)
+        public void b() {}
+        @Transactional(propagation = Propagation.REQUIRES_NEW, timeout = 20)
+        public void c() {}
+2. 本地事务失效解决方法
+    1. 原因: 同一个对象内事务方法互调默认失效，绕过了代理对象事务使用代理对象来控制的
+    2. 解决： 使用代理对象来调用事务方法
+        1. 引入aop模块， 引入了aspectj
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-starter-aop&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+        2. 在主启动类上加@EnableAspectJAutoProxy(exposeProxy = true)注解，开启aspectj动态代理功能，exposeProxy=true表示暴露代理对象
+        3. 用代理对象来本类互调
+        @Transactional
+        public void a() {
+            AService aService = AopContext.currentProxy();
+            aService.b();
+            aService.c();  //使用的是代理对象来调用的，所以b，c方法的配置都会生效，
+            int i = 10/0;
+        }
+</code></pre>
+
+<h4>分布式事务</h4>
+<h5>1.数据库支持的2PC模式(2 phase commit)，二阶提交，是刚性事务</h5>
+<ol>
+<li>第一阶段：事务协调器要求每个涉及到事务的数据库预提交此操作，并反映是否可以提交</li>
+<li>第二阶段： 事务协调器要求每个数据库提交数据，其中如果两次提交中有一次否决了，则回滚</li>
+</ol>
+<h5>2.TCC事务补偿型方案，是柔性事务</h5>
+<pre><code>刚性事务： 遵循ACID原理，强一致性
+柔性事务： 遵循的BASE原理， 最终一致性
+</code></pre>
+
+<ol>
+<li>一阶段 prepare 行为：在本地事务中，一并提交业务数据更新和相应回滚日志记录。</li>
+<li>二阶段 commit 行为：马上成功结束，自动 异步批量清理回滚日志。</li>
+<li>二阶段 rollback 行为：通过回滚日志，自动 生成补偿操作，完成数据回滚。</li>
+</ol>
+<h5>3.最大努力通知方案，柔性事务</h5>
+<pre><code>不保证数据一定能通知成功，但会提供可查询操作接口进行核对，
+案例： 调用支付宝支付功能后的结果通知就是用的这种
+</code></pre>
+
+<h5>4.可靠消息 + 最终一致性方案(异步确保型)， 柔性事务</h5>
+<pre><code>当大的事务失败后，发个消息到消息队列，然后另外两个微服务订阅，当失败时，服务a回滚，服务b也回滚
+</code></pre>
+
+<h4>使用seata步骤</h4>
+<ol>
+<li>在数据库生成UNDO_LOG表</li>
+<li>下载seata-server服务器， <a href="https://github.com/seata/seata/releases">地址</a></li>
+<li>
+<p>整合seata</p>
+<pre><code>1. 导入依赖， 版本是seata-all0.7.1
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-cloud-starter-alibaba-seata&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+2. 解压并启动seata-server
+    1. register.conf: 注册中心配置， 修改register， type=nacos
+    2. file.conf:   配置文件配置的内容，可以选择放在nacos的配置中心里， 也可以放file.conf中
+3. 所有要用到分布式事务的微服务要使用seata的代理数据源，DataSourceProxy代理自己的数据源
+    @Configuration
+    public class MySeataConfig {
+        @Autowired
+        DataSourceProperties dataSourceProperties;
+
+        @Bean
+        public DataSource dataSource(DataSourceProperties properties) {
+            HikariDataSource dataSource =
+             dataSourceProperties.initializeDataSourceBuilder().type(HikariDataSource.class).build();
+            if (StringUtils.hasText(properties.getName())) {
+                dataSource.setPoolName(properties.getName());
+            }
+            return new DataSourceProxy(dataSource);
+        }
+    }
+4. 每个微服务想用seata都要引入
+    1. register.conf
+    2. file.conf: 要改成vgroup_mapping.${spring.application.name}-fescar-service-group
+5. 给分布式大事务的入口加上@GlobalTransactional注解， 远程的服务用@Transactional标注
+6. 启动测试
+</code></pre>
+
+</li>
+</ol>
+<h2>RabbitMq中防止信息丢失</h2>
+<h4>1. 消息丢失，解决方案</h4>
+<pre><code>1. 做好消息确认机制(pulisher, consumer)[手动ack]
+2. 每个发送的消息都在数据库做好记录定期将发送失败的数据在发送一遍
+</code></pre>
+
+<h4>2. 消息重复</h4>
+<pre><code>1. 消息消费成功，事务已经提交， ack时，机器宕机，导致ack没有成功，Broker的消息重新有unack变成ready并发送给其他消费者
+2. 消息消费失败，由于重试机制， 自动又将消息发送出去
+3. 成功消费ack宕机，消息重新有unack变成ready并发送给其他消费者
+</code></pre>
+
+<ul>
+<li>
+解决方案
+<ul>
+<li>消费者的业务消费接口应该设计成幂等性的，比如扣库存有工作单的状态标志</li>
+<li>使用防重表(redis/mysql)，发送消息每一个都有一个业务的唯一标识，处理过就不用处理</li>
+<li>rabbitmq每个消息都有redelivered字段，可以获取是否是重新投递过来的，而不是第一次投递过来的</li>
+</ul>
+</li>
+</ul>
+<h4>消息积压</h4>
+<pre><code>1. 消费者宕机积压
+2. 消费者能力不足时积压
+3. 发送者流量太大积压
+</code></pre>
+
+<ul>
+<li>
+解决方案
+<ul>
+<li>上线更多消费者，进行正常消费</li>
+<li>上线专门的队列消费服务，先将消息批量取出来，记录数据库，离线慢慢处理</li>
+</ul>
+</li>
+</ul>
+<h2>使用支付宝支付</h2>
+<h4>导入依赖</h4>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alipay.sdk&lt;/groupId&gt;
+    &lt;artifactId&gt;alipay-easysdk&lt;/artifactId&gt;
+    &lt;version&gt;2.0.2&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.alipay.sdk&lt;/groupId&gt;
+    &lt;artifactId&gt;alipay-sdk-java&lt;/artifactId&gt;
+    &lt;version&gt;4.9.28.ALL&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h4>然后使用封装好的alipayTemplate</h4>
+<pre><code>在html页面发的请求
+&lt;a th:href=&quot;'http://order.gulimail.com/payOrder?orderSn='+${submitOrderResp.order.orderSn}&quot;&gt;支付宝&lt;/a&gt;
+
+后端controller
+@ResponseBody
+@GetMapping(value = &quot;/payOrder&quot;, produces = &quot;text/html&quot;)
+public String payOrder(@RequestParam(&quot;orderSn&quot;) String orderSn) throws AlipayApiException {
+    PayVo payVo = orderService.getPayOrder(orderSn);
+    String pay = alipayTemplate.pay(payVo);
+    System.out.println(pay);
+    return pay; // 因为返回的是html代码，设置produces = &quot;text/html&quot;表示直接使用返回的页面
+}
+</code></pre>
+
+<h2>定时任务</h2>
+<h4>1.cron表达式</h4>
+<ul>
+<li>语法： 秒(0-59) 分(0-59) 时(0-23) 日(1-31) 月(1-12) 周(1-7) 年(1970-2099)(spring不支持)</li>
+<li><strong>，：</strong>(cron=1，2， 5， * * * * ?)表示任意时刻的1 2 3 秒都启动这个任务</li>
+<li><strong>- ：</strong>(cron=1-5， * * * * ?)表示任意时刻的1-5秒都启动这个任务</li>
+<li><em><strong>：</strong>(cron=</em>， * * * * ?)表示任意时刻都启动这个任务</li>
+<li><strong>/ ：</strong>(cron=1/5， * * * * ?)表示第一秒启动，然后5秒执行一次</li>
+</ul>
+<h4>springboot整合cron表达式</h4>
+<pre><code>1. 在类上加上@EnableScheduling注解和@Component表示开启定时任务
+2. 在方法上加上@Scheduled(cron = &quot;* * * * * ?&quot;)表示开启一个定时任务
+区别：
+    1. spring中由6位组成， 不允许第七位的年
+    2. 在周几的位置， 1-7表示周一到周日， MON-SUN
+    3. 定时任务不应该阻塞， 默认是阻塞的
+        1. 可以让业务以异步编排的方式，让他自己提交到线程池
+        2. 支持定时任务线程池， 设置(在有些版本可能不适用)
+            spring.task.scheduling.pool.size = 5
+        3. 让定时任务异步执行
+            1. 在类上标注@EnableAsync //开启异步执行任务
+            2. 在方法上标上@Async //开启一个异步执行任务
+定时任务：自动配置类：TaskSchedulingAutoConfiguration，配置属性类：TaskSchedulingProperties
+异步任务： 自动配置类：TaskExecutionAutoConfiguration，配置属性类：TaskExecutionProperties
+
+使用异步+ 定时任务完成来完成定时任务不阻塞
+@Slf4j
+@Component
+@EnableScheduling //开启定时任务
+public class HelloSchedule {
+
+    @Scheduled(cron = &quot;* * * * * ?&quot;)
+    public void hello() {
+        log.info(&quot;hello . . . &quot;);
+    }
+}
+</code></pre>
+
+<h2>SpringBoot整合Sentinel</h2>
+<h3>1. 流量控制</h3>
+<h4>1. 导入依赖</h4>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-sentinel&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h4>2. 下载Sentinel的jar包，注意jar包的默认端口是8080使用java -jar启动时要注意</h4>
+<blockquote>
+<p>java -jar -sentinel.jar --server.port = 8333</p>
+</blockquote>
+<h4>3. 配置yml</h4>
+<pre><code>spring:
+  clould:
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:8333
+</code></pre>
+
+<h4>4. 在Sentinel的DashBoard中显示图表(把Endponit信息暴露出去)</h4>
+<h6>先导依赖</h6>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h6>配置yml</h6>
+<blockquote>
+<p>management.endpoints.web.exposure.include=*</p>
+</blockquote>
+<h4>5. 自定义流控响应</h4>
+<pre><code>@Configuration
+public class SeckillSentinelConfig {
+
+    public SeckillSentinelConfig() {
+        WebCallbackManager.setUrlBlockHandler(new UrlBlockHandler() {
+            @Override
+            public void blocked(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
+                                BlockException e) throws IOException {
+                R error = R.error(BizCodeEnume.TOO_MANY_REQUEST.getCode(), BizCodeEnume.TOO_MANY_REQUEST.getMsg());
+                httpServletResponse.setCharacterEncoding(&quot;UTF-8&quot;);
+                httpServletResponse.setContentType(&quot;application/json&quot;);
+                httpServletResponse.getWriter().write(JSON.toJSONString(error));
+            }
+        });
+    }
+}
+</code></pre>
+
+<h3>2. 熔断降级(保护远程调用)</h3>
+<h4>一` Sentinel适配Feign</h4>
+<h6>1. 导入依赖</h6>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-sentinel&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h6>2. 配置文件配置文件打开 Sentinel 对 Feign 的支持：</h6>
+<blockquote>
+<p>feign.sentinel.enabled=true</p>
+</blockquote>
+<h4>调用方的熔断保护</h4>
+<pre><code>//先新建一个fallback类作为熔断后的处理
+@Component
+public class SeckillFeignServiceFallback implements SeckillFeignService {
+
+    @Override
+    public R getSeckillSkuInfo(Long skuId) {
+        return R.error(BizCodeEnume.TOO_MANY_REQUEST.getCode(), BizCodeEnume.TOO_MANY_REQUEST.getMsg());
+    }
+}   
+
+在注解上标识fallback是由哪个类来处理
+@FeignClient(name=&quot;gulimail-seckill&quot;, fallback = SeckillFeignServiceFallback.class)
+public interface SeckillFeignService {
+
+    @GetMapping(&quot;/sku/seckill/{skuId}&quot;)
+    R getSeckillSkuInfo(@PathVariable(&quot;skuId&quot;) Long skuId);
+}
+</code></pre>
+
+<h4>调用方手动指定远程服务的降级策略，远程方法被降级处理，触发我们的熔断回调</h4>
+<h4>超大流量的时候，必须牺牲一些远程服务，在服务提供方(远程服务)指定降级策略，提供方是在运行，但不是运行自己的，返回的是默认的降级数据(限流的数据)</h4>
+<h4>二` 自定义受保护的资源</h4>
+<h6>1. 使用代码，然后在控制台给这个资源定义规则</h6>
+<pre><code>try(Entry entry = SphU.entry(&quot;资源名称&quot;)) {
+    //保护的业务逻辑
+} catch(BlockException e) {
+    //处理方案
+}
+</code></pre>
+
+<h6>2. 使用注解</h6>
+<pre><code>// 原本的业务方法.
+@SentinelResource(value =&quot;getUserById&quot;, blockHandler = &quot;blockHandlerForGetUser&quot;)
+public User getUserById(String id) {
+    throw new RuntimeException(&quot;getUserById command failed&quot;);
+}
+
+// blockHandler 函数，原方法调用被限流/降级/系统保护的时候调用
+public User blockHandlerForGetUser(String id, BlockException ex) {
+    return new User(&quot;admin&quot;);
+}
+</code></pre>
+
+<h4>三` 网关流控</h4>
+<h6>1. 导入sentinel依赖和下面这个</h6>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-alibaba-sentinel-gateway&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h6>2. 配置流控生效后返回的数据</h6>
+<blockquote>
+<p>spring.cloud.sentinel.scg.fallback.response-status=400</p>
+</blockquote>
+<h6>网关自定义返回数据</h6>
+<pre><code>@Configuration
+public class SentinelGatewayConfig {
+
+    public SentinelGatewayConfig() {
+        GatewayCallbackManager.setBlockHandler(new BlockRequestHandler() {
+            @Override
+            public Mono&lt;ServerResponse&gt; handleRequest(ServerWebExchange serverWebExchange, Throwable throwable) {
+                R error = R.error(BizCodeEnume.TOO_MANY_REQUEST.getCode(), BizCodeEnume.TOO_MANY_REQUEST.getMsg());
+                String s = JSON.toJSONString(error);
+
+                Mono&lt;ServerResponse&gt; body = ServerResponse.ok().body(Mono.just(s), String.class);
+                return body;
+            }
+        });
+    }
+
+}
+</code></pre>
+
+<h2>链路追踪</h2>
+<h4>每个微服务都导入依赖</h4>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-sleuth&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h4>开启debug日志，上线后就关了</h4>
+<pre><code>logging:
+  level:
+    org.springframework.cloud.openfeign: debug
+    org.springframework.cloud: debug
+</code></pre>
+
+<h4>整合zipkin可视化观察</h4>
+<h6>1. docker安装zipkin</h6>
+<blockquote>
+<p>docker run -d -p 9411:9411 openzipkin/zipkin</p>
+</blockquote>
+<h6>2. 导入依赖，引入了这个就不用引入上面那个了</h6>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-zipkin&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h6>3. 添加zipkin相关配置</h6>
+<pre><code>spring:
+    cloud:
+      zipkin:
+        base-url: http://192.168.255.128:9411/ #zipkin服务器地址
+        discovery-client-enabled: false #关闭服务发现，否则cloud会把zipkin的url当成服务名称
+        sender:
+          type: web #以http的方式传输数据
+      sleuth:
+        sampler:
+          probability: 0.1 # 表示获取数据的10%
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

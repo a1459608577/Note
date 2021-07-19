@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>redis</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<base href=''/>
+</head>
+<body>
+<h1>Redis笔记</h1>
+<h2>简介</h2>
+<h3>概述</h3>
+<ul>
+<li>Redis(REmote DIctionary Server):远程字典服务器</li>
+<li>使用C语言编写，遵守BSD协议</li>
+<li>是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的Nosql数据库，也成为数据结构服务器</li>
+<li><a href="https://redis.io/">redis官网</a></li>
+</ul>
+<h3>安装（没有gcc就要先装gcc）</h3>
+<h6>1.检查虚拟机中是否已经安装了gcc</h6>
+<blockquote>
+<p>gcc -v
+<img src="./img/41.png" />
+否则就安装gcc：yum install gcc</p>
+</blockquote>
+<h6>2.下载redis.tar.gz放到/usr/下然后解压</h6>
+<blockquote>
+<p>tar -zxvf redis.tar.gz</p>
+<p>cd redis</p>
+<p>make如果执行的是make &amp;&amp; make install，redis就会默认安装在/usr/local/redis</p>
+<p>make PREFIX=/usr/test install 就是安装在/usr/test下</p>
+<p>vi /usr/redis/redis.conf</p>
+<ul>
+<li>修改端口：port 6380</li>
+<li>修改是否以守护进程启动： daemonize yes</li>
+<li>将IP绑定注释掉：#bind 127.0.0.1</li>
+<li>将保护模式关闭：protected-mode no</li>
+<li>配置密码： requirepess 123456</li>
+<li>修改pidfile： pidfile /var/run/redis_6380.pid</li>
+</ul>
+<p>pidfile的作用就是防止启动多个进程副本，pidfile里只有一行，记录了该进程的id。进程运行后会给pidfile加上文件锁，只有获得该锁的进程才有写入权限(F_WRLOCK),把自身的pid写入该文件中，其他视图获得该锁的进程会自动退出。</p>
+<p>指定配置文件启动redis： ./redis-server /usr/redis-master-slave/6380/redis-4.0.6/redis.conf</p>
+<ul>
+<li>启动： <strong>redis-server /redis.conf路径</strong>，然后再<strong>redis-cli -p 6379</strong></li>
+<li>hello-world： 输入set k1 hello， 然后输入get k1，输出结果是hello</li>
+<li>关闭： shutdown</li>
+</ul>
+</blockquote>
+<h3>杂项知识</h3>
+<ul>
+<li>单进程</li>
+<li>默认16个数据库，索引都是从0开始，默认使用0号库</li>
+<li><strong>select 索引：</strong>切换库</li>
+<li><strong>Dbsize：</strong>查看当前库中key的数量</li>
+<li><strong>FLUSHDB：</strong>清除当前库中所有key，<strong>FLUSHALL：</strong>清除所有库中的key</li>
+<li>16个库的密码都一样，密码统一管理， 默认端口是6379</li>
+</ul>
+<h2>redis的数据类型</h2>
+<h3><a href="http://redisdoc.com/">redis的命令手册</a></h3>
+<h3>redis的五大数据类型</h3>
+<h4>String(字符串)：单值单value</h4>
+<ul>
+<li><img src="./img/1.png" /></li>
+<li><img src="./img/7.png" /></li>
+<li><strong>set/get/del/append/strlen</strong>(设置值/获取值/删除key/追加值/值的长度)，例如：strlen k1</li>
+<li><strong>Incr/decr/incrby/decrby</strong>(一定要是数字才能加减)：+1/-1/+给定值/-给定值，例如incr k1,incrby k1 3</li>
+<li>
+<strong>getrange/setrange</strong>
+<ul>
+<li>getrange:获取其指定区间的值，类似between...and...,从0到-1表示获取全部,例如：<strong>getrange k1 0 5</strong></li>
+<li>setrange:设置指定区间的值，例如<strong>SETRANGE k1 1 aaa</strong>，从索引为1开始设置，把2，3，4替换成aaa</li>
+</ul>
+</li>
+<li>
+<strong>setex(set with expire)键秒值/setnx(set if not exist)</strong>
+<ul>
+<li>setex: 设置 key的过期时间和值，例如：<strong>setex k1 10 v1</strong>，十秒后k1过期</li>
+<li>setnx: 如果key不存在或者为nil，就设置值，例如：<strong>setnx k5 v5</strong></li>
+</ul>
+</li>
+<li>
+<strong>mset/mget/msetnx</strong>
+<ul>
+<li>mset： 批量设置值，例如： <strong>mset k1 v1 k2 v2</strong></li>
+<li>mget： 批量获取值，例如： <strong>mget k1 k2</strong></li>
+<li>msetnx： 当key不存在或为nil时批量设置值，例如： <strong>msetnx k1 v1 k2 v2</strong>，其中有一个存在就不能设置</li>
+</ul>
+</li>
+<li><strong>getset(先get再set)</strong></li>
+</ul>
+<h4>Hash(哈希，类似java里的map)：KV模式不变，但V是键值对</h4>
+<ul>
+<li><img src="./img/2.png" /></li>
+<li><img src="./img/13.png" /></li>
+<li>
+<strong>hset/hget/hmset/hmget/hgetall/hdel</strong>
+<ul>
+<li><img src="./img/14.png" /></li>
+</ul>
+</li>
+<li><strong>hlen key:</strong>获取hash里键的个数</li>
+<li><strong>hexists key 某个值：</strong>判断这个key里有没有这个值</li>
+<li><strong>hkeys/hvals key：</strong>获取这个key里的所有键/获取这个key里的所有值</li>
+<li>
+<p><strong>HINCRBY/HINCRBYFLOAT</strong></p>
+<pre><code>127.0.0.1:6379&gt; HINCRBY user age 2
+(integer) 101
+127.0.0.1:6379&gt; HINCRBYFLOAT user age 0.5
+&quot;101.5&quot;
+</code></pre>
+
+</li>
+<li>
+<p><strong>HSETNX：</strong>如果不存在才插进去</p>
+<pre><code>127.0.0.1:6379&gt; HSETNX user age 22
+(integer) 0
+127.0.0.1:6379&gt; HSETNX user sex 1
+(integer) 1
+</code></pre>
+
+</li>
+</ul>
+<h4>List(列表)：单值多value</h4>
+<ul>
+<li><img src="./img/3.png" /></li>
+<li><img src="./img/8.png" /></li>
+<li>
+<strong>LPUSH/rpush/lrange:</strong>从左边开始添加/从右边开始添加，例如：<strong>Lpush mylist 0 1 2</strong>
+<ul>
+<li>lrange： 查看list的值，例如： <strong>lrange mylist01 0 2</strong>，0到-1表示查看全部</li>
+</ul>
+</li>
+<li><strong>lpop/rpop：</strong>把最外层的值移出list/把最里层的值移出list</li>
+<li><strong>lindex：</strong>按照索引获得元素(从上到下)，例如：<strong>LINDEX mylist01 1</strong></li>
+<li><strong>llen：</strong>获得list的长度</li>
+<li><strong>lrem key(list remove的意思)：</strong>删除 N个value，例如：<strong>lrem mylist03 1 3</strong>的意思是，再list中删除1个3</li>
+<li><strong>ltrim 要截取的list 开始index 结束index：</strong>截取开始到结束key的值赋值给要截取的list</li>
+<li><strong>rpoplpush：</strong>源列表，目的列表，例如：<strong>rpoplpush list01 list02</strong>，就是把list01最下面的值放到list02的第一个值</li>
+<li><strong>lset key index value：</strong>再指定key的指定索引用指定值替换</li>
+<li><strong>linsert key before/after list中的值 要插入的值：</strong>再指定list中指定值的前或者后插入一个值</li>
+<li><img src="./img/9.png" /></li>
+</ul>
+<h4>Set(集合)：单值多value</h4>
+<ul>
+<li><img src="./img/4.png" /></li>
+<li><img src="./img/10.png" /></li>
+<li>
+<strong>sadd/smembers/sismember</strong>
+<ul>
+<li><img src="./img/11.png" /></li>
+</ul>
+</li>
+<li><strong>scard：</strong>获取set里有几个值</li>
+<li><strong>srem key value：</strong>删除set中指定的值</li>
+<li><strong>SRANDMEMBER key i：</strong>随机从key中抽取i个值</li>
+<li><strong>spop key：</strong>随机出栈</li>
+<li><strong>SMOVE key1 key2 在key1中的某个值：</strong>把在可以key1中的某个值赋给key2</li>
+<li><img src="./img/12.png" /></li>
+</ul>
+<h4>Zset(sorted set)(有序集合)</h4>
+<ul>
+<li><img src="./img/5.png" /></li>
+<li><img src="./img/15.png" /></li>
+<li>
+<strong>sorted set：</strong>
+<ul>
+<li><img src="./img/16.png" /></li>
+</ul>
+</li>
+<li>
+<strong>zadd/zrange/</strong>
+<ul>
+<li><img src="./img/17.png" /></li>
+</ul>
+</li>
+<li>
+<strong>ZRANGEBYSCORE key s1 s2:</strong>
+<ul>
+<li><img src="./img/18.png" /></li>
+</ul>
+</li>
+<li><strong>zrem key key中某个score对应的值：</strong>删除，例如：<strong>zrem zset01 v5</strong></li>
+<li>
+<strong>ZCARD/ZCOUNT/ZRANK/ZSCORE</strong>
+<ul>
+<li><img src="./img/19.png" /></li>
+</ul>
+</li>
+<li><strong>ZREVRANK key 值：</strong>反向获取这个值的索引，例如：<strong>ZREVRANK zset01 v4</strong>，zrank获取到v4的索引是3，这边反向获取的就是0</li>
+<li>
+<strong>ZREVRANGE：</strong>反向获取所有的值
+<ul>
+<li><img src="./img/20.png" /></li>
+</ul>
+</li>
+</ul>
+<h3>redis中的key</h3>
+<ul>
+<li>keys *：显示库中所有的key的名称</li>
+<li><strong>EXISTS 某个key的名称：</strong>判断库中有没有这个key</li>
+<li><strong>MOVE key名 库名：</strong>把当前库中的一个key移动到另一个库中，例如MOVE k1 2</li>
+<li><strong>expire key 秒钟数：</strong>为给定的 key设置过期时间</li>
+<li><strong>ttl key：</strong>查看这个key还有多久过期，-1表示永不过期，-2表示已经过期</li>
+<li><strong>type key：</strong>查看这个key是什么类型的</li>
+<li><img src="./img/6.png" /></li>
+</ul>
+<h2>redis的配置文件redis.conf</h2>
+<h3>配置文件路径：/opt/redis/redis.conf</h3>
+<h3>Units单位</h3>
+<ul>
+<li><img src="./img/21.png" /></li>
+</ul>
+<h3>INCLUDES包含</h3>
+<ul>
+<li><img src="./img/22.png" /></li>
+</ul>
+<h3>GENERAL通用</h3>
+<h3>SNAPSHOTTING快照</h3>
+<ul>
+<li>
+<strong>save</strong>
+<ul>
+<li>默认是<strong>一分钟修改一万次，五分钟十万次，十五分钟一次</strong></li>
+<li>命令： <strong>save 秒钟 写操作次数</strong></li>
+<li>禁用： 想禁用rdb持久化策略，只要不设置任何save指令就可以，或者save &quot;&quot;，传一个空字符串</li>
+<li>即时备份操作：直接<strong>save</strong>即可</li>
+</ul>
+</li>
+<li><strong>stop-writes-on-bgsave-error</strong>：默认是yes，表示后台出错前台停止备份，配置成no表示不在乎数据不一致</li>
+<li><strong>rdbcompression</strong>：设置成yes表示开启LZF算法进行压缩，默认开启</li>
+<li><strong>rdbchecksum</strong>：设置成yes表示存储快照后让redis使用CRC64算法来做数据检验，但是会增加10%性能消耗</li>
+<li><strong>dbfilename</strong>：设置备份文件的名字</li>
+<li><strong>dir</strong>：获得当前执行命令的目录</li>
+</ul>
+<h3>REPLICATION复制</h3>
+<h3>SECURITY安全</h3>
+<ul>
+<li>获取redis密码： <strong>config get requirepass</strong></li>
+<li>设置密码： <strong>config set requirepass &quot;123456&quot;</strong></li>
+<li>要运行其他命令就要先输入密码： <strong>auth 密码</strong></li>
+</ul>
+<h3>LIMITS限制</h3>
+<ul>
+<li>maxclients 10000：连接数</li>
+<li>maxmemory <bytes>：最大可用物理内存</li>
+<li>
+maxmemory-policy noeviction:当内训数据达到maxmemory时，会根据这个来清除缓存
+<ul>
+<li>1，noeviction：不执行任何淘汰策略，当达到内存限制的时候客户端执行命令会报错。</li>
+<li>2，allkeys-lru：从所有数据范围内查找到最近最少使用的数据进行淘汰，直到有足够的内存来存放新数据。</li>
+<li>3，volatile-lru：从所有的最近最少访问数据范围内查找设置到过期时间的数据进行淘汰，如果查找不到数据，则回退到noeviction。</li>
+<li>4，allkeys-random：从所有数据范围内随机选择key进行删除。</li>
+<li>5，volatile-random：从设置了过期时间的数据范围内随机选择key进行删除。</li>
+<li>6，volatile-ttl：从设置了过期时间的数据范围内优先选择设置了TTL的key进行删除。</li>
+</ul>
+</li>
+<li>maxmemory-samples 5:</li>
+</ul>
+<h3>APPEND ONLY MODE追加</h3>
+<ul>
+<li>appendonly：默认no，不打开状态</li>
+<li>appendfilename：生成文件的名字</li>
+<li>
+appendfsync：
+<ul>
+<li>Always：同步持久化每次发生数据变更会立即记录到磁盘，性能较差但是数据完整性比较好</li>
+<li>Everysec：出厂默认推荐，异步操作，每秒记录，一秒内宕机有数据丢失</li>
+<li>No</li>
+</ul>
+</li>
+<li>no-appendfsync-on-rewrite：重写时是否可以运用appendfsync，用默认配置即可，保证数据安全性</li>
+<li>auto-aof-rewrite-percentage：设置重写的基准值，100%，就是一倍，默认为100</li>
+<li>auto-aof-rewrite-min-size： 64M，默认为64mb</li>
+</ul>
+<h3>常见配置介绍</h3>
+<p><img src="./img/23.png" /></p>
+<h2>redis的持久化</h2>
+<h3>RDB(redis database)</h3>
+<ul>
+<li>
+介绍
+<ul>
+<li><img src="./img/24.png" /></li>
+</ul>
+</li>
+<li>
+Fork：
+<ul>
+<li><img src="./img/25.png" /></li>
+</ul>
+</li>
+<li>rdb保存的是dump.rdb文件</li>
+<li>配置位置：对应上面的SNAPSHOTTING快照</li>
+<li>如何触发rdb快照:使用save或者bgsave快速备份，save相当于同步，bgsave相当于异步</li>
+<li>如何恢复：把备份文件(dump.rdb)放到redis安装目录即可</li>
+<li>如何停止：动态停止所有RDB保存规则的方法：<strong>redis-cli config set save &quot;&quot;</strong></li>
+<li><img src="./img/26.png" /></li>
+</ul>
+<h3>AOF(append only file)</h3>
+<ul>
+<li>
+介绍
+<ul>
+<li><img src="./img/27.png" /></li>
+</ul>
+</li>
+<li>AOF保存的是appendonly.aof文件</li>
+<li>配置位置：对应上面的APPEND ONLY MODE追加</li>
+<li>AOF启动/修复/恢复:<strong>把appendonly改成yes/修复就是redis-check-aof --fix 文件路径</strong></li>
+<li>
+Rewrite
+<ul>
+<li>是什么</li>
+<li><img src="./img/28.png" /></li>
+<li>重写原理：</li>
+<li><img src="./img/29.png" /></li>
+<li>触发机制：Redis会记录上次重写时AOF的大小，默认配置是当AOF文件大小是上次rewrite后大小的一倍且文件大于64M时触发</li>
+</ul>
+</li>
+<li><img src="./img/30.png" /></li>
+</ul>
+<h2>redis的事务</h2>
+<h3>是什么</h3>
+<ul>
+<li><img src="./img/31.png" /></li>
+</ul>
+<h3>能干嘛：一个队列中，一次性，顺序性，排他性的执行一系列命令</h3>
+<h3>怎么用</h3>
+<ul>
+<li>正常执行：<strong>MULTI...EXEC</strong></li>
+<li>放弃事务：<strong>MULTI...DISCARD</strong></li>
+<li>全体连坐：<strong>MULTI...EXEC</strong>，如果其中一个报错，就都不会执行，</li>
+<li>冤头债主：<strong>MULTI...EXEC</strong>，如果运行的时候没报错，exec的时候才报错那么其他没报错的正常运行</li>
+<li>
+watch监控：
+<ul>
+<li>乐观锁:类似mysql里的行锁，并发性高，策略是提交版本必须高于当前版本</li>
+<li>悲观锁：类似mysql里的表锁，并发性弱，安全性高</li>
+<li>CAS(check and set)：</li>
+<li>
+案例
+<ul>
+<li>初始化信用卡可用余额和欠额</li>
+<li>无加塞篡改，先监控在multi，保证两笔交易在同一个事务里面</li>
+<li>有加塞篡改(在我修改的时候有别人修改)</li>
+<li>unwatch(使用unwatch取消监控，在重新watch)</li>
+<li>一旦执行exec之前的监控锁都会被取消</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3>常用命令</h3>
+<p><img src="./img/32.png" /></p>
+<h3>3阶段</h3>
+<p><img src="./img/33.png" /></p>
+<h3>3特性</h3>
+<p><img src="./img/34.png" /></p>
+<h2>redis的发布和订阅</h2>
+<h3>是什么：</h3>
+<ul>
+<li>进程中的一种消息通信模式：发送者(pub)发送消息，订阅者(sub)收到消息</li>
+</ul>
+<h3>命令</h3>
+<p><img src="./img/35.png" /></p>
+<h3>案例</h3>
+<p><img src="./img/36.png" /></p>
+<h2>redis的复制(Master/Slave)</h2>
+<h3>是什么</h3>
+<ul>
+<li>是我们所说的主从复制，主机数据更新后根据配置和策略，自动同步到备机的master/slave机制，master以写为主，slave以读为主</li>
+</ul>
+<h3>能干嘛</h3>
+<ul>
+<li>读写分离</li>
+<li>容灾回复</li>
+</ul>
+<h3>怎么用</h3>
+<ol>
+<li>配从库不配主库</li>
+<li>
+从库配置： <strong>slaveof 主库ip 主库端口</strong>
+<ul>
+<li>每次和master断开后都要重新连接，除非配置进redis.conf文件</li>
+<li>Info replication</li>
+</ul>
+</li>
+<li>
+修改配置文件细节操作
+<ul>
+<li>拷贝多个redis.conf文件</li>
+<li>开启daemonize yes</li>
+<li>Pid文件名字</li>
+<li>指定端口</li>
+<li>Log文件名字</li>
+<li>Dump.rdb名字</li>
+</ul>
+</li>
+<li>
+常用3招
+<ul>
+<li>
+一主二仆
+<ul>
+<li>Init</li>
+<li>一个Master两个Slave</li>
+<li>日志查看</li>
+<li>主从问题演示，使用<strong>info replication</strong>查看当前库的身份</li>
+</ul>
+</li>
+<li>
+薪火相传
+<ul>
+<li><img src="./img/37.png" /></li>
+</ul>
+</li>
+<li>反客为主： <strong>SLAVEOF no one：</strong>是当前库停止与其他库的同步，转变成主库master</li>
+</ul>
+</li>
+</ol>
+<h3>复制原理</h3>
+<p><img src="./img/38.png" /></p>
+<h3>哨兵模式(sintinel)</h3>
+<ul>
+<li>是什么：反客为主的自动版，监控后台主机是否故障，故障了就根据投票数把一个从库变成主库</li>
+<li>
+怎么用(使用步骤)
+<ul>
+<li><img src="./img/39.png" /></li>
+</ul>
+</li>
+<li>一组sintinel能监控多个master</li>
+</ul>
+<h3>复制的缺点</h3>
+<p><img src="./img/40.png" /></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
