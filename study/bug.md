@@ -12,3 +12,110 @@
 
 ​	![image-20210831112913710](./img/image-20210831112913710.png)
 
+## 5.SecurityContextHolder.getContext().getAuthentication()获取用户信息有时候为空
+
+#### [原理解析](https://blog.csdn.net/yanyundi/article/details/111984303)
+
+首先是在rabbitmq的监听器中新增订单数据失败，然后发现是mybatis-plus自动填充属性获取当前用户为null，(`SecurityContextHolder.getContext().getAuthentication()`获取不到用户登录信息),.然后就想通过`((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse()`去获取request中的token信息，然后获取不到，[原因](https://blog.csdn.net/zzy7075/article/details/53559902/）是从threadLocal中获取的，但是rabbitmq监听到消息这个线程是获取不到request的，只能在主线程中获取
+
+## 6.Feign远程调用鉴权失败
+
+原因是feign远程调用会重新构造一个request对象导致请求头信息丢失，解决方法只需要创建一个feign的拦截器，在里面设置请求头信息即可
+
+```java
+@Component
+public class FeignInterceptor implements RequestInterceptor {
+
+    @Override
+    public void apply(RequestTemplate requestTemplate) {
+        HttpServletRequest request = WebUtils.getRequest();
+        if (request != null) {
+            String header = request.getHeader("Authorization");
+            requestTemplate.header("Authorization", header);
+        }
+    }
+}
+```
+
+## 7.Springboot + Seata出现的问题
+
+1. #### 控制台一直输出nacos的心跳日志
+
+   解决方案：
+
+   1. 去除配置文件中的`namespace：public`配置，如果是public则不需要配置
+
+   2. 调整nacos依赖的version，改成2.1.0
+
+      ```xml
+      <dependency>
+          <groupId>com.alibaba.cloud</groupId>
+          <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+          <version>2.1.0.RELEASE</version>
+      </dependency>
+      <!--服务的配置中心依赖-->
+      <dependency>
+          <groupId>com.alibaba.cloud</groupId>
+          <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+          <version>2.1.0.RELEASE</version>
+      </dependency>
+      ```
+
+2. #### 在控制台一直输出找不到合适的默认的服务no available service 'default' found, please make sure registry config correct
+
+   [参考链接](https://blog.csdn.net/w1054993544/article/details/107793501)
+
+   查看源码发现seata从nacos上拉取配置的时候，源码中写死了seata服务名和默认的group，两者分别为serverAddr和DEFAULT_GROUP，然后在registry.conf文件中配置的application为seata-server和SEATA_GROUP，所以找不到相应的配置就报错了。
+
+   ​	解决方案：修改registry.conf的application和group即可==（另外: 在application.yml中配置这两项似乎不管用）==，如图：
+
+   ​		![image-20211001162803886](../deploy/img/image-20211001162803886.png) 
+
+   ​		![image-20211001162554789](../deploy/img/image-20211001162554789.png) 
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

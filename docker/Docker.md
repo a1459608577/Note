@@ -18,7 +18,7 @@
 
 * 启动docker： **service docker start/stop/restart**
 
-  ![](./img/1.png)
+  ![](./img/1.png) 
 
   ## 2.配置阿里云镜像加速器
 
@@ -51,7 +51,7 @@
 
 * 运行**docker run hello-world**
 
-* ![](./img/2.png)
+* ![](./img/2.png) 
 
 * ![](./img/3.png)
 
@@ -228,7 +228,7 @@
 #### 用命令添加
 * 命令： **docker run -it -v /宿主机绝对路径目录:/容器内目录 镜像名**
 * 查看数据卷是否挂载成功，使用inspect命令如下即绑定成功
-* ![](./img/7.png)
+* ![](./img/7.png) 
 * 容器和宿主机之间的数据共享，两边修改文件会直接同步
 * 容器停止退出后，主机修改数据是否同步，容器停止后主机做的修改，容器依旧同步
 * 命令(带权限)： **docker run -it -v /宿主机绝对目录:/容器目录:ro 镜像名**(readonly,只读)
@@ -301,7 +301,7 @@
 	* 注意： dockerfile中可以有多个CMD命令，但是只有最后一个生效，CMD会被docker run之后的参数替换
 * **ENTRYPOINT:** 和CMD作用一样，都是在指定容器启动程序和参数
 * **ONBUILD:** 当构建一个被继承的Dockerfile时运行命令，父镜像在被子镜像继承后父镜像的onbuild被触发
-* ![](./img/9.png)
+* ![](./img/9.png) 
 
 ### 案例
 #### Base镜像(scratch)
@@ -312,7 +312,7 @@
 1. 编写
 	* Hub默认的centos镜像时什么情况(WORKDIR是/，没有vim，ifconfig等命令)
 	* 准备编写Dockerfile文件
-	* ![](./img/10.png)
+	* ![](./img/10.png) 
 	* mycentos内容DockerFile
 2. 构建: **docker build -f DockerFile路径 -t 镜像名称:版本号 .**
 3. 运行: **docker run -it 新镜像名字:版本号**
@@ -324,9 +324,9 @@
 * CMD命令是会覆盖的 ，只执行最后一个，带参数的话就会执行参数;ENTRYPOINT是追加，不会覆盖
 * ![](./img/11.png)
 * CMD方式
-* ![](./img/13.png)
+* ![](./img/13.png) 
 * ENTRYPOINT方式
-* ![](./img/12.png)
+* ![](./img/12.png) 
 
 #### 自定义tomcat9
 
@@ -410,7 +410,7 @@ rm /usr/local/docker-compose/docker-compose
 
 可以使用`docker-compose -h` 查看
 
-![](./img/17.png)
+![](./img/17.png) 
 
 #### 命令模板：`docker-compose [-f <arg>...] [options] [COMMAND] [ARGS...]`
 
