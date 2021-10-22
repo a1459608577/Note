@@ -277,6 +277,10 @@
 
 ## Synchronized底层原理，[参考链接](https://www.cnblogs.com/aspirant/p/11470858.html)
 
+#### Java反编译过程
+
+> 通过 JDK 自带的 `javap` 命令查看 `SynchronizedDemo` 类的相关字节码信息：首先切换到类的对应目录执行 `javac SynchronizedDemo.java` 命令生成编译后的 .class 文件，然后执行`javap -c -s -v -l SynchronizedDemo.class`。
+
 #### 监视器（Monitor）
 
 * 任何一个对象都有Monitor与之关联，且当Monitor被持有后将处于锁定状态，==Synchronized在JVM中的实现都是基于进入和退出====Monitor对象来实现方法同步和代码块同步，====而监视器锁本质又是依赖于底层的操作系统的Mutex Lock(互斥锁)来实现的。操作系统线程之间切换需要从用户态转换到内核态，这个成本非常高，这就是Synchronized效率低的原因==。所有Java对象都是天生的Monitor，因为每个java对象创建的时候就带了一把看不见的锁，叫做**内部锁或者Monitor锁**，Monitor对象存在于每个Java对象的对象头Mark Word中。
@@ -354,13 +358,22 @@ public class SynchronizedMethod {
 
 ##### 是比Synchronized关键字更轻量级的同步锁。用来将变量的更新操作通知到其他线程，不会缓存被volatile修饰的变量，每次拿到的都是最新值。有两个特性，变量可见性，禁止重排序。变量可见性就是保证这个变量对所有的线程可见，还有当一个线程修改了值，其他线程也可以立即获得这个新值。禁止重排序就是禁止了指令重排。
 
-## ThreadLocal 作用（线程本地变量）
+## ThreadLocal 作用（线程隔离）
 
-##### 它的作用是提供线程内的局部变量，这种变量在线程的生命周期内起作用，减少同一个线程内多个函数之间一些公共变量传递的复杂程度。它里面有一个内部类ThreadLocalMap， Map里面使用key存储线程本地对象（ThreadLocal）和线程的变量副本（value）。然后在这个线程执行的各个地方都可以通过ThreadLocal.get()方法来获取存进去的值
+##### 内部结构：早起的版本是每个ThreadLocal都有一个map，map的key为线程，value为要保存的值。现在的ThreadLocal是每个线程都维护一个ThreadLocalMap，ThreaLocal对象为key，要保存的值为value。**ThreadLocalMap** 是ThreadLocal的静态内部类，里面用来存数据的Entry也是自己实现的不是继承map的。entry的key只能是ThreadLocal，还继承了**WeakReference**，表示key是弱引用。
 
-##### ThreadLocalMap解决Hash冲突的方法：他的结构非常简单，没有next引用，它解决hash冲突的问题就不是链表的方式而是线性探测。在插入过程中根据ThreadLocal对象的hash值，定位到table中的位置i，如果当前位置为null就初始化一个对象插进入，如果当前位置不为null但是key相同就覆盖value，如果位置不为null且key不同就寻找下一个位置。
+![image-20211019193357730](../img/image-20211019193357730.png) 
 
-##### ThreadLocal导致的内存泄露：ThreadLocalMap的key是弱引用，value是强引用。在没有外部对象强引用时发生GC，key就会被回收，value不会回收，就会内存泄漏
+##### 弱引用和内存泄漏：
+
+![image-20211020153952597](../img/image-20211020153952597.png) 
+
+首先始终有两条引用链引用着entry。不管上面那条是强引用还是弱引用，都存在引用链，entry都不会被回收，因为这个map是属于这个线程的，跟线程的生命周期一致。所以解决方法就是：
+
+* 手动remove，吧entry回收掉
+* 让线程结束运行，对象也会被回收。
+
+为什么使用弱引用：因为在源码中只要调用set(),get(), remove()方法，如果key为null，都会把value回收掉，相当于多一层保障。
 
 ## Synchronized和ReentrantLock的异同
 
@@ -410,9 +423,9 @@ public @interface EnableAuth {
 #### 场景
 
 * string： 通常用于保存单个字符串或json字符串数据，因为他是二进制安全的，所以可以吧图片文件的内容当成字符串存储，还可以做计数器(常规k-v缓存应用，常规计数，微博数，粉丝数)。
-* hash：常用于存储一个对象
+* hash：常用于存储一个对象信息或商品信息。
 * list： 对数据量大的集合进行删减，可以做为任务队列。
-* set： 常用于对集合进行交集，并集，差集运算
+* set： 常用于对集合进行交集，并集，差集运算，实现共同好友等功能
 * zset：一般用于做排行榜，积分排行什么的还有销量排行
 
 ##### 结构
@@ -437,15 +450,15 @@ typedef struct redisObject{
  }robj
 ```
 
-##### string底层用的是SDS(简单动态字符串)实现的。它有三个属性，free， len， buf。free是剩余空间，len是目前字符串的长度， buf是一个list存放真正的字符串数据
+###### string底层用的是SDS(简单动态字符串)实现的。它有三个属性，free， len， buf。free是剩余空间，len是目前字符串的长度， buf是一个list存放真正的字符串数据
 
-##### list底层使用的是链表结构。有三个属性，head指向链表的头部，tail指向链表的尾部，len是链表的长度。redis是c语言写的，但是c语言没有内置这个数据结构。redis自己构建的。	一个listNode包含前置节点，后置节点，节点的值。然后多个listNode就能组成一个链表
+###### list底层使用的是链表结构。有三个属性，head指向链表的头部，tail指向链表的尾部，len是链表的长度。redis是c语言写的，但是c语言没有内置这个数据结构。redis自己构建的双向链表。	一个listNode包含前置节点，后置节点，节点的值。然后多个listNode就能组成一个链表
 
-##### hash对象底层使用的hash表，采用的链地址法解决的hash冲突。
+###### hash结构底层类似JDK1.8之前的HashMap，内部实现也差不多(数组+链表)，使用的hash表，采用的链地址法解决的hash冲突。
 
-##### set底层使用的是一个叫整数集合的东西(intset)。intset有三个属性，encoding记录数据的类型，int16，int32等，length记录集合的长度，content存着具体的数据
+###### set底层使用的是一个叫整数集合的东西(intset)。intset有三个属性，encoding记录数据的类型，int16，int32等，length记录集合的长度，content存着具体的数据
 
-##### zset底层是跳跃表实现的。跳跃表由很多层构成，每一层都是一个有序链表，最底层的链表包含所有元素，如果一个元素出现在level x上，那它在level x链表之下也会出现，每个节点包含两个指针，一个指向链表的下一个元素，一个指向下一层元素。
+###### zset底层是跳跃表实现的。跳跃表由很多层构成，每一层都是一个有序链表，最底层的链表包含所有元素，如果一个元素出现在level x上，那它在level x链表之下也会出现，每个节点包含两个指针，一个指向链表的下一个元素，一个指向下一层元素。
 
 	level 3  -1 ============> 21 =======> 37 ====================> 1
 			  ↓				  ↓			  ↓
@@ -466,12 +479,17 @@ typedef struct redisObject{
 
 ## Redis 有哪几种数据淘汰策略？
 
-#### **volatile-lru:**从设置了过期时间的数据集中，选择最近最久未使用的数据释放；
+#### **volatile-lru:** 从设置了过期时间的数据集中，选择最近最久未使用的数据释放；
 #### **allkeys-lru:**从数据集中(包括设置过期时间以及未设置过期时间的数据集中)，选择最近最久未使用的数据释放；
 #### **volatile-random:**从设置了过期时间的数据集中，随机选择一个数据进行释放；
 #### **allkeys-random:**从数据集中(包括了设置过期时间以及未设置过期时间)随机选择一个数据进行入释放；
 #### **volatile-ttl：**从设置了过期时间的数据集中，选择马上就要过期的数据进行释放操作；
 #### **noeviction：**不删除任意数据(但redis还会根据引用计数器进行释放),这时如果内存不够时，会直接返回错误。
+
+#### **volatile-lfu：**从已经设置过期时间的数据中挑选最不经常使用的数据 淘汰
+
+#### **allkeys-lfu：**从全部key中挑选最不经常使用的数据 淘汰
+
 ## 布隆过滤器
 
 ##### 是一个bit数组和一系列的hash算法。优点就是比一般的算法效率更高，缺点是有一定的误识别率和删除困难。带过滤器的布隆过滤器有remove()可以删除。如果两个元素的hash值在同一个位置，name计数器会+1，当remove()时，计数器-1，当计数器为0时才把这个位置的值1改成0。它的原理就是它初始化的时候是一个全为0的bit数组，还有n个hash算法，如果有集合元素x1, x2，然后x1，x2经过这3个hash算法就得到一个部分为1， 部分为2的bit数组。
@@ -715,10 +733,10 @@ from-where-groupby-having-select-orderby-limit
 
 #### 线程池的四种拒绝策略
 
-1. AbortPolicy中止策略：这个是默认的拒绝策略，饱和时会抛RejectedExecutionException异常
-2. DiscardPolicy抛弃策略： 当队列饱和了后续的任务直接抛弃
-3. DiscardOldestPolicy抛弃旧任务策略： 先将队列的头元素抛弃，如果队列使用PriorityBlockingQueue优先级队列，会把优先级最高的任务抛弃，不建议组合使用
-4. CallerRunsPolicy调用者运行： 这个策略不会抛弃也不会抛出异常，它会把饱和的任务退回给调用者运行，在执行任务的时候，主线程无法提交新任务，从而线程池中的工作线程就有时间吧任务处理完成
+1. ##### AbortPolicy中止策略：这个是默认的拒绝策略，饱和时会抛RejectedExecutionException异常
+2. ##### DiscardPolicy抛弃策略： 当队列饱和了后续的任务直接抛弃
+3. ##### DiscardOldestPolicy抛弃旧任务策略： 抛弃最早未处理的任务，如果队列使用PriorityBlockingQueue优先级队列，会把优先级最高的任务抛弃，不建议组合使用
+4. ##### CallerRunsPolicy调用者运行： 这个策略不会抛弃也不会抛出异常，它会把饱和的任务退回给调用者运行，在执行任务的时候，主线程无法提交新任务，从而线程池中的工作线程就有时间吧任务处理完成
 
 #### Executors创建的四种队列
 
@@ -758,7 +776,7 @@ from-where-groupby-having-select-orderby-limit
 		          new DelayedWorkQueue(), threadFactory);
 		}
 
-##### ThreadPoolExecutor创建线程
+#### ThreadPoolExecutor创建线程
 
 ###### 面试题：一个线程池中core：7， max: 20, queue:50， 此时进来100个并发怎么分配
 
@@ -780,6 +798,53 @@ new ThreadPoolExecutor(pool.getCoreSize(),
 						new LinkedBlockingDeque<>(10000), Executors.defaultThreadFactory(),
               			new ThreadPoolExecutor.AbortPolicy());
 ```
+
+#### 线程池原理	
+
+```java
+// 存放线程池的运行状态 (runState) 和线程池内有效线程的数量 (workerCount)
+private final AtomicInteger ctl = new AtomicInteger(ctlOf(RUNNING, 0));
+
+private static int workerCountOf(int c) {
+    return c & CAPACITY;
+}
+
+private final BlockingQueue<Runnable> workQueue;
+
+public void execute(Runnable command) {
+    // 如果任务为null，则抛出异常。
+    if (command == null)
+        throw new NullPointerException();
+    // ctl 中保存的线程池当前的一些状态信息
+    int c = ctl.get();
+
+    //  下面会涉及到 3 步 操作
+    // 1.首先判断当前线程池中执行的任务数量是否小于 corePoolSize
+    // 如果小于的话，通过addWorker(command, true)新建一个线程，并将任务(command)添加到该线程中；然后，启动该线程从而执行任务。
+    if (workerCountOf(c) < corePoolSize) {
+        if (addWorker(command, true))
+            return;
+        c = ctl.get();
+    }
+    // 2.如果当前执行的任务数量大于等于 corePoolSize 的时候就会走到这里
+    // 通过 isRunning 方法判断线程池状态，线程池处于 RUNNING 状态才会被并且队列可以加入任务，该任务才会被加入进去
+    if (isRunning(c) && workQueue.offer(command)) {
+        int recheck = ctl.get();
+        // 再次获取线程池状态，如果线程池状态不是 RUNNING 状态就需要从任务队列中移除任务，并尝试判断线程是否全部执行完毕。同时执行拒绝策略。
+        if (!isRunning(recheck) && remove(command))
+            reject(command);
+            // 如果当前线程池为空就新创建一个线程并执行。
+        else if (workerCountOf(recheck) == 0)
+            addWorker(null, false);
+    }
+    //3. 通过addWorker(command, false)新建一个线程，并将任务(command)添加到该线程中；然后，启动该线程从而执行任务。
+    //如果addWorker(command, false)执行失败，则通过reject()执行相应的拒绝策略的内容。
+    else if (!addWorker(command, false))
+        reject(command);
+}
+```
+
+![image-20211020104704858](../img/image-20211020104704858.png) 
 
 ## 死锁
 
@@ -1368,6 +1433,48 @@ B的构造器
 
 ##### 运行时限制：字符串的长度不能超过2^31-1，占用的内存数不能超过虚拟机能够提供的最大值。因为String的长度是数组的长度，能显示最大的数就是2^31-1
 
+## Java类加载过程
+
+#### 类的声明周期： 加载 –> 连接 –> 初始化 –> 使用 –> 卸载
+
+![image-20211021101349606](../img/image-20211021101349606.png) 
+
+##### 加载：
+
+* ###### 通过类的全类名获取定义这个类的二进制字节流，将字节流所代表的的静态存储结构转换成方法区的运行时数据结构，在内存中生成该类的Class对象。
+
+##### 连接
+
+* ###### 验证：校验文件格式，元数据，字节码等
+
+* ###### 准备：分配内存并给静态变量设置初始值
+
+* ###### 解析：是虚拟机将常量池内的符号引用替换为直接引用的过程
+
+##### 初始化
+
+* ###### 执行初始化方法，开始加载字节码文件
+
+##### 卸载
+
+* ###### 就是被GC回收，需要满足三个条件
+
+  * ###### 堆中不存在该类的实例对象
+
+  * ###### 该类在其他地方没有被引用
+
+  * ###### 该类的类加载器实例已经被GC
+
+## Java类加载器
+
+* #### BootstrapClassLoader(启动类加载器)：最顶层的类加载器，C++实现负责加载基础核心jar包
+
+* #### ExtensionClassLoader(扩展类加载器)：主要负责加载系统变量所指定路径下的jar包
+
+* #### AppClassLoader(应用程序类加载器)：加载当前应用classpath下的所有jar包和类
+
+* ![image-20211021112540096](../img/image-20211021112540096.png) 
+
 ## Java创建对象的过程
 
 ##### Step1： 类加载检查
@@ -1522,6 +1629,103 @@ bgsave执行完后吧rdb文件发给从库，从库丢弃之前的数据开始�
 ##### 判断方法： 可以使用show slave status命令查看主从延迟
 
 ##### 解决方法;mysql5.6以后提供了并行复制方式，通过把sql线程转换为多个work线程来重放。
+
+## Mysql可重复读的实现(mvcc和锁),[参考链接](https://zhuanlan.zhihu.com/p/118658549)
+
+#### 事务的行锁
+
+* **共享锁**：也叫读锁，允许事务读取一行记录。`Select … lock in share mode`语句能够获得共享锁
+* **排它锁**：也叫写锁，允许事务更新或删除一行记录。`Select … for update`(特殊的select，用mysql简单实现分布式锁经常用它）、Update、delete语句能够获得排它锁
+
+#### 多版本并发控制MVCC
+
+上面说的加锁是悲观锁方式，mvcc是乐观锁方式，可以提高性能。所谓多版本就是一行记录在数据库中存储了多个版本，每个版本以事务ID作为版本号。每个事务都有一个唯一的事务ID，是事务开始时向事务系统申请的，并且按照顺序严格递增，如果一行记录被多个事务修改，就会产生多个版本的记录。
+
+![image-20211022105247956](../img/image-20211022105247956.png) 
+
+经过两次事务的操作，value从22变成了19，同时保留了三个事务id，15,25,30.。在记录多版本的基础上，需要用一致性视图来做版本的可见性判断。
+
+#### 一致性视图逻辑
+
+读未提交没有一致性视图，串行化使用锁来保证并发。读未提交是**在每个SQL开始执行的时候**创建一致性视图。可重复读是**在事务开始的时候**创建一致性视图的
+
+* 当一个事务开启的时候，会向系统申请一个新事务id，此时可能还有多个正在进行的其他事务没有提交，因此在那一瞬间是有多个活跃的未提交事务id
+* 将这些未提交的事务id组成一个数组，数组里最小的事务id记录为**低水位**，当前系统创建多的事务id的最大值+1记录为**高水位**，这个事务id数组和高水位就组成了**一致性视图**
+
+当前事务中，读取其他某一行的记录，对其中版本号的可见性判断有五种情况
+
+![image-20211022111537564](../img/image-20211022111537564.png) 
+
+* 如果版本号小于**低水位**， 说明事务已经提交，可见。
+
+* 如果版本号大于**高水位**， 说明这行数据的事务id版本是在快照后产生的，不可见。
+
+* 如果事务id大于**低水位**，小于**高水位**，分两种情况：
+
+  * 如果包含在事务id数组中，表示这个版本在事务启动的时候还没提交，不可见。
+  * 如果不在数组汇总，表示这个版本在事务启动时已经提交，可见。
+
+  > 例子：
+  >
+  > 系统创建过的事务id： 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+  >
+  > 事务A启动，拍个快照。此时未提交的事务id有：7， 8， 9
+  >
+  > 一致性视图就是：数组：[7,8,9]，低水位：1， 高水位： 16（15 + 1）
+
+  * 对于任意数据的可见性判断如下：
+    * 小于7的说明已经提交，可见。
+    * 大于16的，说明是快照后产生的，不可见
+    * 10-15，不在数组中，说明已经提交了，可见
+    * 7， 8， 9在数组汇总，没有提交，不可见
+
+##### 并发insert案例
+
+* ![image-20211022113805144](../img/image-20211022113805144.png) 
+* 在不同隔离级别下Time5、Time7、Time9事务A查询到的值
+  * 读未提交： 2， 2， 2
+  * 读已提交： 1， 2， 2
+  * 可重复读： 1， 1， 2
+  * 可串行化： 1， 1， 2（事务A提交前会有行锁锁住数据，所以得事务A先提交，后续事务才能提交）
+
+##### 并发update案例
+
+* ![image-20211022114927871](../img/image-20211022114927871.png) 
+* 事务A读取到的值为1，事务B读取到的值为3
+* 原因：事务C首先锁住这一行+1后，事务B再锁这行+1，所以值为3。 即使是可重复读级别，事务**更新数据**的时候只能用**当前读**，不然update就出现数据不一致了。如果当前记录的行锁被其他事务占用，就需要进入锁等待。读已提交和可重复读逻辑类似，最主要的区别是创建一致性视图的时机，可重复读是在事务开始时，之后事务里的其他查询都用这个视图，读已提交是执行SQL的时候创建新的一致性视图。
+
+## Mysql Join底层实现
+
+mysql底层join实现只支持一种算法： 嵌套循环连接（**Nested-Loop Join**），**Nested-Loop Join**有三种变种：
+
+* **Simple Nested-Loop Join：**简单嵌套循环连接
+* **Index Nested-Loop Join：**索引嵌套循环连接
+* **Block Nested-Loop Join：**块索引嵌套连接
+
+#### Simple Nested-Loop Join（简单嵌套）
+
+* A为驱动表，B为非驱动表。从A中取出数据1，遍历B，将匹配到的数据放到result，以此类推，每条A表的数据都会轮询B。
+
+![image-20211022141842627](../img/image-20211022141842627.png) 
+
+#### Index Nested-Loop Join（索引嵌套）
+
+* 需要查询时，关联非驱动表的索引，通过索引来减少比较，加速查询。在查询时驱动表会根据关联字段的索引到非驱动表查找数据，找到对应的值，此时分两种情况：
+  * 索引不是主键索引，需要回表查询(根据索引携带的主键信息查询数据)，先关联索引再根据主键ID查询，性能慢很多
+  * 如果关联字段是主键索引，速度会非常快，直接就能定位到数据
+
+![image-20211022142035332](../img/image-20211022142035332.png) 
+
+#### Block Nested-Loop Join（块嵌套）
+
+* 如果是非驱动表的索引会走嵌套索引，但是join的列不是索引，就会采用`Block Nested-Loop Join`。首先将驱动表的结果放入集中所有与join相关的列都先缓存到join buffer中(当查找完后，就可以将匹配的记录从内存与非驱动表放到result返回)，然后批量与非驱动表进行匹配，将第一种中的多次比较合并为一次，降低了非驱动表的访问频率。默认情况下join_buffer_size=256k（可以通过
+
+  `show variables like 'join_%'`查看大小）
+
+![image-20211022142940837](../img/image-20211022142940837.png) 
+
+BNL 算法：将外层循环的行/结果集存入join buffer, 内层循环的每一行与整个buffer中的记录做比较，从而减少内层循环的次数.
+举例来说，外层循环的结果集是100行，使用NLJ 算法需要扫描内部表100次，如果使用BNL算法，先把对Outer Loop表(外部表)每次读取的10行记录放到join buffer,然后在InnerLoop表(内部表)中直接匹配这10行数据，内存循环就可以一次与这10行进行比较, 这样只需要比较10次，对内部表的扫描减少了9/10。所以BNL算法就能够显著减少内层循环表扫描的次数。
 
 ## Spring bean的生命周期
 
