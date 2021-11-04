@@ -711,10 +711,6 @@ from-where-groupby-having-select-orderby-limit
 
 ##### 类似于监听器，本质就是观察者模式的应用。应用场景用Zookeeper实现发布订阅功能。原理就是zk 客户端把watcher注册到zk 服务器中，然后把watcher添加到watchermanager中，watcher一旦监听到zk服务器中的节点发生变化，此时zk服务器就会通知watchermanager调用回调方法。
 
-## Feign远程调用原理
-
-##### 首先feign会找加了@FeignClient注解的接口。然后根据jdk自带的动态代理生成这个类的proxy对象，然后交给ioc容器管理，发请求使用到的就是这个代理对象。然后通过Bean信息和request Template创建出request模板发请求，然后请求没有发送成功还有一个内置的重试器，会有一个最大尝试次数发送请求。然后feign发http请求性能很差，因为每次发送请求的时候都会创建新的HttpURLConnection连接，但是可以使用httpclient， okhttp3等来替换。用到了两种设计模式，代理模式模板方法模式。
-
 ## 线程池
 
 #### 排队策略
@@ -1612,7 +1608,7 @@ bgsave执行完后吧rdb文件发给从库，从库丢弃之前的数据开始�
 			选主完成后想slave发送salveof命令同步数据
 ```
 
-## Mysql主从复制原理
+## MySql主从复制原理
 
 ```
 1. 主线程会把写操作记录二进制binlog日志，
@@ -1735,12 +1731,13 @@ BNL 算法：将外层循环的行/结果集存入join buffer, 内层循环的�
 
 ```
 首先读取配置文件实例化bean
-然后设置对象的属性
+然后设置bean对象的属性
 检查有没有实现了*Aware接口，实现了就调用对应的方法 比如实现了BeanNameAware就调用setBeanName()方法，传入Bean的名字
 如果有BeanPostProcessor对象，就执行里面的before方法
 如果实现了InitializingBean接口， 就调用afeterPropertiesSet()方法
 然后在执行init-method指定的方法
 再执行BeanPostProcessor的after方法
+就可以使用了
 然后要销毁的时候实现了DisposableBean，就执行destroy()方法
 如果配置了destroy-method属性，就执行对象的方法，bean就销毁了
 ```
