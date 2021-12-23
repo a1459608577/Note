@@ -306,6 +306,7 @@ img {
 <a href="./springsecurity/springsecurity.html">springsecurity笔记</a><br/>
 <a href="./jenkins/Jenkins.html">Jenkins笔记</a><br/>
 <a href="./study/bug.html">Bug记录</a><br/>
+<a href="./structures/structures.html">数据结构与算法</a><br/>
 <h2>源码</h2>
 <a href="./sourceCode/Spring/spring.html">Spring源码</a><br/>
 <a href="./sourceCode/SpringMVC/springmvc.html">SpringMVC源码</a><br/>
@@ -320,6 +321,32 @@ img {
 <a href="https://gitee.com/">我的gitee</a><br/>
 <a href="./interview/interview.html">面试题</a><br/>
 <a href="https://snailclimb.gitee.io/javaguide/#/?id=java">JavaGuide</a><br/>
+<h2>加密</h2>
+<input value="" id="encrypt"/>
+<button id="btn" onclick="encrypt()">加密</button>
+<span id="span1"></span>
+<br/>
+<input value="" id="decrypt"/>
+<button id="btn" onclick="decrypt()">解密</button>
+<span id="span2"></span>
 </body>
+<script type="text/javascript">
+  // 加密
+  function encrypt() {  
+    var str = document.getElementById("encrypt").value
+    var encStr = encodeURIComponent(str);
+    encStr = btoa(encStr)
+    document.getElementById("span1").innerText = encStr
+  }
+
+  // 解密
+  function decrypt() {
+    var str = document.getElementById("decrypt").value
+    var decStr = atob(str);
+    decStr = decodeURIComponent(decStr);
+    document.getElementById("span2").innerText = decStr
+  }
+
+</script>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
