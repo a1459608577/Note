@@ -1,11 +1,4 @@
-# 学习笔记
-
-## SpringMVC设置编码和请求头
-
-	使用的是@RequestBody 和@RequestMapping这两个注解, 设置@RequestBody, 返回参数是json
-
-​		使用@RequestMapping，这是 springMVC的写法，@RequestMapping("aa"),这个aa就相当于servlet中的action， 在里面设置
-​		produces="application/json;charset=utf-8"可以把Content-Typeh设置成这个，解决前台拿数据 乱码问题
+学习笔记
 
 ## vue自定义验证规则之只能输入正整数
 
@@ -52,7 +45,7 @@ methods: {
    * ![](img/1-1632814598215.png)
    * 3.配置ECMAScript6
    * ![](img/2-1632814598214.png)
-   * ![](img/6-1632814598215.png)
+   * ![](img/6-1632814598215.png) 
    * 然后点击+号，找到npm
    * ![](img/7-1632814598215.png)
 
@@ -62,9 +55,9 @@ methods: {
 * 2.这个是第一步要选择的 
 * ![](img/3-1632814598215.png) 
 * ![](img/4-1632814598215.png)
-* 安装element-ui：插件 => 添加插件 => 搜索element-ui => 点击安装
+* 安装element-ui：插件 => 添加插件 => 搜索element-ui => 点击安装 
 
-  * ![](img/5-1632814598215.png)
+* ![](img/5-1632814598215.png) 
 * 安装axios： 依赖 => 添加依赖 => 搜索axios => 点击安装
 
 ## vuex的简单使用
@@ -349,9 +342,9 @@ methods: {
 ## CentO6.5不能上网的情况
 
 * 可能是因为本机服务没有开，
-* ![](img/11-1632814598215.png)
+* ![](img/11-1632814598215.png) 
 
-### vue-cli3项目打包
+## vue-cli3项目打包
 
 #### 在项目根目录下创建vue.config.js文件，加入如下配置，然后在cmd窗口cd到项目目录，然后npm run build即可
 
@@ -422,7 +415,7 @@ module.exports = {
   chain.doFilter(request, httpServletResponse);
   ```
 
-  ###nginx反向代理跨域
+## nginx反向代理跨域
 
 * nginx配置文件
 
@@ -456,23 +449,21 @@ module.exports = {
   }
   ```
 
-  ## linux查看某个端口是否使用：lsof -i ：6379
+## linux查看某个端口是否使用：lsof -i ：6379
 
-  ## linux升级内核
+## linux升级内核
 
-  ```
-  1. 导入key
-  rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org, 如果报SSL错误, 则需要更新网络安全服务  yum update nss
-       
-  2.安装elrepo的yum源到http://elrepo.org/tiki/tiki-index.php网址找到最新的包, 执行
-  rpm -Uvh https://www.elrepo.org/elrepo-release-6-8.el6.elrepo.noarch.rpm
-  3.安装内核    
-  yum --enablerepo=elrepo-kernel  install  kernel-lt -y
-  4. 最后修改引导文件,将默认引导改为0, vim /etc/grub.conf 将default改成0, 如果原来是0,则改成1. 
-  5. 最后 reboot一下, 然后再用uname -a 查看一下内核版本就可以了!!!!!!!!!!!!!!!!!
-  ```
-
-  
+```
+1. 导入key
+rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org, 如果报SSL错误, 则需要更新网络安全服务  yum update nss
+     
+2.安装elrepo的yum源到http://elrepo.org/tiki/tiki-index.php网址找到最新的包, 执行
+rpm -Uvh https://www.elrepo.org/elrepo-release-6-8.el6.elrepo.noarch.rpm
+3.安装内核    
+yum --enablerepo=elrepo-kernel  install  kernel-lt -y
+4. 最后修改引导文件,将默认引导改为0, vim /etc/grub.conf 将default改成0, 如果原来是0,则改成1. 
+5. 最后 reboot一下, 然后再用uname -a 查看一下内核版本就可以了!!!!!!!!!!!!!!!!!
+```
 
 ## Docker安装时出现Cannot retrieve metalink for repository: epel. Please verify its path and try again
 
@@ -531,34 +522,36 @@ yum install -y 需要的包
 
   4. 查看当前所有用户绑定的认证插件：
 
-    命令 select host,user,plugin from mysql.user;
-
-    +-----------+------------------+-----------------------+
-    | host      | user             | plugin                |
-    +-----------+------------------+-----------------------+
-    | %         | root             | caching_sha2_password |
-    | localhost | healthchecker    | caching_sha2_password |
-    | localhost | mysql.infoschema | caching_sha2_password |
-    | localhost | mysql.session    | caching_sha2_password |
-    | localhost | mysql.sys        | caching_sha2_password |
-    +-----------+------------------+-----------------------+
-  5 rows in set (0.00 sec)
+     ```
+   命令 select host,user,plugin from mysql.user;
+     
+       +-----------+------------------+-----------------------+
+       | host      | user             | plugin                |
+       +-----------+------------------+-----------------------+
+       | %         | root             | caching_sha2_password |
+       | localhost | healthchecker    | caching_sha2_password |
+       | localhost | mysql.infoschema | caching_sha2_password |
+       | localhost | mysql.session    | caching_sha2_password |
+       | localhost | mysql.sys        | caching_sha2_password |
+       +-----------+------------------+-----------------------+
+   5 rows in set (0.00 sec)
+     ```
 
   5. 假如想更改 root 用户的认证方式
-
+  
      	# 修改加密规则
      	> ALTER USER 'root'@'%' IDENTIFIED BY 'root' PASSWORD EXPIRE NEVER;
      	# 更新用户密码
-     	> ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
-     	# 赋予 root 用户最高权限
-
+  
+   	> ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
+   	# 赋予 root 用户最高权限
    	> grant all privileges on *.* to root@'%' with grant option;
    	# 刷新权限
    	> flush privileges;
 
-   注意：在这之后，将不再支持以下的权限授予语句：
-
-     >grant all privileges on *.* to root@'%' identified by '123456' with grant option;
+ 	注意：在这之后，将不再支持以下的权限授予语句：
+ 	
+ 	  >grant all privileges on *.* to root@'%' identified by '123456' with grant option;
 
 ## Springboot根据sql脚本建表不成功
 
@@ -597,7 +590,7 @@ yum install -y 需要的包
   	nginx
   	把本地的/data/nginx下的各个文件挂载到nginx上
 
-## springboot整合mybatis-plus和mybatis
+## Springboot整合mybatis-plus和mybatis
 
 ```yaml
 server:
@@ -641,60 +634,60 @@ mybatis-plus:
 	log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
 ```
 
-
-
-2. 配置完yml文件后还需要在主启动类加个扫描注解
+1. 配置完yml文件后还需要在主启动类加个扫描注解
 
 * ![](img/17-1632814598215.png)  
 
-3. 编写配置类
-
-   	@Configuration
-   	public class MybatisPlusConfig {
-   	
-   	    @Bean
-   	    public PaginationInterceptor paginationInterceptor() {
-   	        return new PaginationInterceptor();
-   	    }
-   	    
-   	}
-
-## 使用restTemplate进行远程调用
-
-#### 1.导入spring相关依赖，
+2. 编写配置类
 
 ```
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-web</artifactId>
-</dependency>
-```
-
-#### 2.建立一个配置类
-
-```java
 @Configuration
-public class ApplicattionContextConfig {
+public class MybatisPlusConfig {
+	
+	// 分页插件
     @Bean
-    public RestTemplate getRestTemplate() {
-        return new RestTemplate();
+    public PaginationInterceptor paginationInterceptor() {
+        return new PaginationInterceptor();
     }
+    
 }
 ```
+## 使用restTemplate进行远程调用
 
-#### 3. 调用
+ 1. 导入spring相关依赖，
 
-```
-public static final String URL = "http://localhost:8001";
-  @Resource
-  private RestTemplate restTemplate;
+    ```
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    ```
 
-  @GetMapping("/payment/add")
-  public CommonReault<Payment> add(Payment payment) {
-      // 三个参数分别是， 要远程调用的url地址， 第二个是参数， 第三个是返回值类型
-      return restTemplate.postForObject(URL + "/payment/payment", payment, CommonReault.class);
-  }
-```
+ 2. 建立一个配置类
+
+    ```
+    @Configuration
+    public class ApplicattionContextConfig {
+        @Bean
+        public RestTemplate getRestTemplate() {
+            return new RestTemplate();
+        }
+    }	
+    ```
+
+ 3. 调用
+
+    ```
+    public static final String URL = "http://localhost:8001";
+          @Resource
+          private RestTemplate restTemplate;
+    
+          @GetMapping("/payment/add")
+          public CommonReault<Payment> add(Payment payment) {
+              // 三个参数分别是， 要远程调用的url地址， 第二个是参数， 第三个是返回值类型
+              return restTemplate.postForObject(URL + "/payment/payment", payment, CommonReault.class);
+      }
+    ```
 
 ## Centos7.0 没有netstat 和 ifconfig, wget命令问题
 
@@ -742,7 +735,8 @@ systemctl start docker
 2. 然后把ik文件夹传到容器内部
 
   ```
-  docker cp ik 容器名:地址(例如: docker cp ik elasticsearch:/usr/share/elasticsearch/plugins)
+  docker cp ik 容器名:地址(例如: docker cp ik 
+  elasticsearch:/usr/share/elasticsearch/plugins)
   ```
 
 3. 重启elasticsearch容器，然后在kibana中测试，ik分词器中包括了ik_smart和ik_max_word两种
@@ -809,7 +803,6 @@ location /model {
 
 * ![](img/22-1632814598215.png) 
 
-  ###    
 
 ## 查找进程号命令
 
@@ -818,8 +811,8 @@ ps -ef | grep Test1-1.0-SNAPSHOT.jar | grep -v grep | awk '{print $2}'
 ````
 
 * ps -ef | grep Test1-1.0-SNAPSHOT.jar 
-  grep -v grep: grep -v是反向查找，grep是查找包含指定字符串的行，结合起来就是查找不包含指定字符串的行，比如这个就是查找不包含grep的行
-  awk '{print $2}'： 就是把字段文本根据空格或tab拆分，取第2段文本
+* grep -v grep: grep -v是反向查找，grep是查找包含指定字符串的行，结合起来就是查找不包含指定字符串的行，比如这个就是查找不包含grep的行
+* awk '{print $2}'： 就是把字段文本根据空格或tab拆分，取第2段文本
 
 ## 定时任务的几种方式
 
@@ -2472,51 +2465,824 @@ bf.exists ksn 135486457  // 判断布隆过滤器中是否包含这个元素  �
 
 4. 然后在方法上添加`@GlobalTransactional`注解即可
 
+## 远程Debug
+
+1. 首先在idea中配置如下： 
+
+![image-20211126122542796](../img/image-20211126122542796.png) 
+
+#### 参数说明：
+
+* -Xrunjdwp是通知JVM使用(java debug wire protocol)来运行调试环境。该参数同时了一系列的调试选项：
+  * transport指定了调试数据的传送方式，
+  * dt_socket是指用SOCKET模式，另有dt_shmem指用共享内存方式，其中，dt_shmem只适用于Windows平台。
+* server参数是指是否支持在server模式的VM中.
+* suspend指明，是否在调试客户端建立起来后，再执行JVM。
+* address是监听端口
+
+2. 然后在服务器上启动，启动命令分 三种
+
+   * SpringBoot： 
+
+     > \## 注意新参数必须在 -jar 之前 
+     >
+     > java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8005 -jar test.jar
+
+   * Tomcat
+
+     > 在catalina.sh文件的第一行加上下面的命令
+     >
+     > CATALINA_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8005"
+
+然后在idea中打断点，然后点击右上角的调试，运行即可
+
+## 手写Feign
+
+#### 流程：
+
+* 首先定义一个注解`@EnableCustomFeignClients`,这个注解就是类似`@EnableFeignClients`，然后这个注解里使用了`@Import`注解，引入了一个类CustomFeignClientsRegistrar，在这个类里面就是扫描工程找到加了`@CustomFeignClient`注解的接口，然后使用动态代理生成接口的代理类放到spring的容器中，当注入接口，使用接口调用方法，就会调用容器中的代理类的invoke方法。这个方法里面就是获取token然后发送http请求别的服务。
+
+#### 代码：
+
+* `@EnableCustomFeignClients`注解
+
+  ```java
+  @Documented
+  @Retention(RetentionPolicy.RUNTIME)
+  @Target(ElementType.TYPE)
+  @Import(CustomFeignClientsRegistrar.class) // 启动的时候就会加载这个类
+  public @interface EnableCustomFeignClients {
+  	// 要扫描的包的路径
+      String[] basePackages();
+  }
+  ```
+
+* @CustomFeignClient注解
+
+  ```java
+  @Documented
+  @Target(ElementType.TYPE)
+  @Retention(RetentionPolicy.RUNTIME)
+  @Inherited
+  public @interface CustomFeignClient {
+  	// 获取host地址
+      String value() default "";
+  	// 用于获取redis中的token的key
+      ApiTokenTypeEnums enums();
+  	// 登录方式，作用同上
+      LoginFilterTypeEnums login();
+  }
+  ```
+
+* CustomFeignClientsRegistrar类（注册bean）
+
+  ```java
+  // 主要是实现了ImportBeanDefinitionRegistrar类，就会调用registerBeanDefinitions方法
+  public class CustomFeignClientsRegistrar implements ImportBeanDefinitionRegistrar, ResourceLoaderAware, EnvironmentAware {
+  
+      private ResourceLoader resourceLoader;
+  	// 可以用来解析注解中的sqel表达式，用于解析获取配置文件中值
+      private Environment environment;
+  
+      @Override
+      public void setEnvironment(Environment environment) {
+          this.environment = environment;
+      }
+  
+      @Override
+      public void setResourceLoader(ResourceLoader resourceLoader) {
+          this.resourceLoader = resourceLoader;
+      }
+  
+      @Override
+      public void registerBeanDefinitions(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
+          // 存放要注册的bean的对象
+          LinkedHashSet<BeanDefinition> candidateComponents = new LinkedHashSet<>();
+          // 获取EnableCustomFeignClients注解的所有值
+          Map<String, Object> map = metadata.getAnnotationAttributes(EnableCustomFeignClients.class.getName());
+          Assert.notNull(map, ApiResponse.Status.FEIGN_NOT_CONTAIN_ERROR.getStandardMessage());
+  
+          // 这里是创建一个扫描器，扫描路径下的加了CustomFeignClient注解的类
+          ClassPathScanningCandidateComponentProvider scanner = getScanner();
+          scanner.setResourceLoader(resourceLoader);
+          scanner.addIncludeFilter(new AnnotationTypeFilter(CustomFeignClient.class));
+          // 获取@EnableCustomFeignClients注解上标记的路径
+          Set<String> packages = getBasePackages(metadata);
+          // 根据路径查找对象
+          for (String s : packages) {
+              candidateComponents.addAll(scanner.findCandidateComponents(s));
+          }
+  
+          // 开始注册
+          for (BeanDefinition definition : candidateComponents) {
+              // 判断是否是ScannedGenericBeanDefinition
+              if (definition instanceof ScannedGenericBeanDefinition) {
+                  ScannedGenericBeanDefinition genericBeanDefinition = (ScannedGenericBeanDefinition) definition;
+                  // 获取类上所有注解信息
+                  AnnotationMetadata annotationMetadata = genericBeanDefinition.getMetadata();
+                  // 判断是否是接口
+                  Assert.isTrue(annotationMetadata.isInterface(), ApiResponse.Status.FEIGN_INTERFACE_ERROR.getStandardMessage());
+                  // 获取CustomFeignClient注解的所有值
+                  Map<String, Object> annotationAttributes = annotationMetadata.getAnnotationAttributes(CustomFeignClient.class.getCanonicalName());
+                  registerCustomFeignClient(annotationMetadata, registry, annotationAttributes);
+              }
+          }
+      }
+  	// 真正注册
+      private void registerCustomFeignClient(AnnotationMetadata metadata, BeanDefinitionRegistry registry, Map<String, Object> attributes) {
+          // 获取value属性的值
+          String value = (String) attributes.get("value");
+          ApiTokenTypeEnums enums = (ApiTokenTypeEnums) attributes.get("enums");
+          LoginFilterTypeEnums login = (LoginFilterTypeEnums) attributes.get("login");
+          // 把value属性的值解析，从配置文件中查找对应的
+          value = environment.resolvePlaceholders(value);
+          // 设置代理对象需要用到的值
+          String className = metadata.getClassName();
+          Class<?> clazz = ClassUtils.resolveClassName(className, null);
+          SingletonBeanRegistry singletonBeanRegistry = registry instanceof SingletonBeanRegistry ? (SingletonBeanRegistry) registry : null;
+          CustomFeignClientFactoryBean bean = new CustomFeignClientFactoryBean();
+          bean.setHost(value);
+          bean.setType(clazz);
+          bean.setBeanFactory((BeanFactory) registry);
+          bean.setEnums(enums);
+          bean.setLogin(login);
+          //调用bean.getObject()实际就是创建代理对象注册到容器中
+          singletonBeanRegistry.registerSingleton(className.substring(className.lastIndexOf(".") + 1), bean.getObject());
+      }
+  
+      private Set<String> getBasePackages(AnnotationMetadata metadata) {
+          Set<String> set = new LinkedHashSet<>();
+          Map<String, Object> map = metadata.getAnnotationAttributes(EnableCustomFeignClients.class.getName());
+          String[] packages = (String[]) map.get("basePackages");
+          if (ArrayUtil.isEmpty(packages)) {
+              set.add(ClassUtils.getPackageName(metadata.getClassName()));
+          } else {
+              for (String s : packages) {
+                  set.add(s);
+              }
+          }
+          return set;
+      }
+  
+      // 源码中的写法
+      protected ClassPathScanningCandidateComponentProvider getScanner() {
+          return new ClassPathScanningCandidateComponentProvider(false, this.environment) {
+              @Override
+              protected boolean isCandidateComponent(
+                      AnnotatedBeanDefinition beanDefinition) {
+                  boolean isCandidate = false;
+                  if (beanDefinition.getMetadata().isIndependent()) {
+                      if (!beanDefinition.getMetadata().isAnnotation()) {
+                          isCandidate = true;
+                      }
+                  }
+                  return isCandidate;
+              }
+          };
+      }
+  }
+  ```
+
+* CustomFeignClientFactoryBean类（工厂bean，被注入）
+
+  ```java
+  public class CustomFeignClientFactoryBean  implements FactoryBean<Object>, InitializingBean,
+          ApplicationContextAware, BeanFactoryAware {
+  
+      private BeanFactory beanFactory;
+  
+      private Class<?> type;
+  
+      private String host;
+  
+      private ApplicationContext applicationContext;
+  
+      private ApiTokenTypeEnums enums;
+  
+      private LoginFilterTypeEnums login;
+  
+      @Override
+      public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+          this.beanFactory = beanFactory;
+      }
+  
+      @Override
+      public Object getObject() {
+          // 其实就是返回一个接口的代理类，然后执行代理类的时候就会执行CustomFeignInvocationHandler类的invoke方法
+          return Proxy.newProxyInstance(type.getClassLoader(), new Class[]{type}, new CustomFeignInvocationHandler(host, enums, login, beanFactory));
+      }
+  
+      @Override
+      public Class<?> getObjectType() {
+          return type;
+      }
+  
+      @Override
+      public void afterPropertiesSet() throws Exception {
+          Assert.hasText(host, "url must be set");
+      }
+  
+      @Override
+      public void setApplicationContext(ApplicationContext context) throws BeansException {
+          applicationContext = context;
+          beanFactory = context;
+      }
+  
+      public Class<?> getType() {
+          return type;
+      }
+  
+      public void setType(Class<?> type) {
+          this.type = type;
+      }
+  
+      public void setHost(String host) {
+          this.host = host;
+      }
+  
+      public void setEnums(ApiTokenTypeEnums enums) {
+          this.enums = enums;
+      }
+  
+      public void setLogin(LoginFilterTypeEnums login) {
+          this.login = login;
+      }
+  
+  }
+  ```
+
+* CustomFeignInvocationHandler（动态代理执行类）
+
+  ```java
+  @Slf4j
+  public class CustomFeignInvocationHandler implements InvocationHandler {
+  
+      private String host;
+      private ApiTokenTypeEnums enums;
+      private LoginFilterTypeEnums login;
+      private BeanFactory beanFactory;
+      private Map<String, Object> map = new HashMap<>(2);
+  	// 设置属性
+      public CustomFeignInvocationHandler(String host, ApiTokenTypeEnums enums, LoginFilterTypeEnums login, BeanFactory beanFactory) {
+          this.host = host;
+          this.beanFactory = beanFactory;
+          this.enums = enums;
+          this.login = login;
+      }
+  
+      // 发送http请求
+      @Override
+      public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+          init(method, host);
+          String path = (String) map.get("path");
+          cn.hutool.http.Method req = (cn.hutool.http.Method) map.get("request");
+          log.info("自定义feign调用地址： {}", path);
+          HttpRequest request = HttpUtil.createRequest(req, path);
+          String language = ServletUtils.getRequest().getHeader("language");
+          request.header("language", language);
+          request.header("authorization", getToken());
+          if (ArrayUtil.isNotEmpty(args)) {
+              request.body(JSONUtil.toJsonStr(args[0]));
+          }
+          HttpResponse execute = request.execute();
+          try {
+              Map<String, Object> map = JsonUtils.jsonToMap(execute.body());
+              return map == null ? ApiResponse.ofError(ApiResponse.Status.FEIGN_INVOCATION_ERROR) :
+                      MapUtil.mapToObject(map, ApiResponse.class);
+          } catch (HttpException e) {
+              log.error("远程调用失败，返回结果：{}", e.getMessage());
+              return ApiResponse.ofError(ApiResponse.Status.FEIGN_INVOCATION_ERROR);
+          }
+      }
+  
+      // 获取token
+      private String getToken() {
+          StringRedisTemplate redisTemplate = (StringRedisTemplate) beanFactory.getBean("stringRedisTemplate");
+          CurrentUserUtil currentUserUtil = (CurrentUserUtil) beanFactory.getBean("currentUserUtil");
+          ICommonUserService userService = (ICommonUserService) beanFactory.getBean("commonUserServiceImpl");
+          CurrentUserDTO currentUser = currentUserUtil.getCurrentUser();
+          String key = currentUserUtil.tokenByUserIdKey(currentUser.getUserId().toString(), enums);
+          if (redisTemplate.hasKey(key)) {
+              return redisTemplate.opsForValue().get(key);
+          }
+          User user = userService.getOne(Wrappers.<User>lambdaQuery().eq(currentUser != null, User::getId, currentUser.getUserId()));
+          Assert.isTrue(user != null, ApiResponse.Status.USER_NOT_EXIST.getStandardMessage());
+          UserVo userVo = new UserVo();
+          userVo.setUsername(currentUser.getUserName());
+          userVo.setPassword(AesEncryptUtil.decrypt(user.getPassword()));
+          HttpRequest request = HttpUtil.createPost(host + login.getLoginUrl());
+          request.body(JSONUtil.toJsonStr(userVo));
+          String body = request.execute().body();
+          try {
+              Map<String, Object> map = JsonUtils.jsonToMap(body);
+              ApiResponse apiResponse = (ApiResponse)MapUtil.mapToObject(map, ApiResponse.class);
+              if (apiResponse.getCode() == ApiResponse.Status.SUCCESS.getCode()) {
+                  LoginSuccessVO data = JSON.parseObject(apiResponse.getData().toString(), LoginSuccessVO.class);
+                  return data.getToken();
+              }
+          } catch (Exception e) {
+              log.error("远程调用获取token失败：{}", e.getMessage());
+          }
+          return StrUtil.EMPTY;
+      }
+  
+      private void init(Method method, String host) {
+          PostMapping postMapping = method.getAnnotation(PostMapping.class);
+          GetMapping getMapping = method.getAnnotation(GetMapping.class);
+          String[] url;
+          cn.hutool.http.Method m = cn.hutool.http.Method.POST;
+          if (postMapping == null) {
+              url = getMapping.value();
+              m = cn.hutool.http.Method.GET;
+          } else {
+              url = postMapping.value();
+          }
+          map.put("path", host + url[0]);
+          map.put("request", m);
+      }
+  ```
+
+  ## 关于Spel中的RootObject有什么用
+
+  假设往解析器中设置一个对象person
+
+  ```
+  ctx.setVariable("p", person);
+  ```
+
+  一般获取方式，使用parser解析
+
+  ```
+  parser.parseExpression("#p.name").getValue(ctx)；//结果是 person.name
+  ```
+
+  设置ctx的RootObject后的获取方式，就不用`"#p.name"`这样了，直接获取name即可
+
+  ```
+  ctx.setRootObject(person)
+  parser.parseExpression("name").getValue(ctx)；//结果是 person.name，这种表示从ctx环境中找person对象然后找到person的name
+  or
+  parser.parseExpression("#root.name").getValue(person); // 这种是表示直接从对象中获取
+  ```
+
+  ![image-20220115123747557](../img/image-20220115123747557.png) 
+
+## 阿里开源TransmittableThreadLocal基本使用
+
+```java
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>transmittable-thread-local</artifactId>
+    <version>${ttl.version}</version>
+</dependency>
+```
+
+demo1：
+
+```java
+// 采用包装线程池来在线程池中使用threadlocal
+public static void main(String[] args) {
+        /**
+         * 当不使用ttl以及不包装线程池时线程二会出现读取到线程三的数据
+         **/
+        // InheritableThreadLocal<Object> local = new InheritableThreadLocal<>();
+        TransmittableThreadLocal<Object> local = new TransmittableThreadLocal<>();
+
+        ExecutorService pool = Executors.newFixedThreadPool(2);
+        Executor ttlExecutor = TtlExecutors.getTtlExecutor(pool);
+
+        Thread t1 = new Thread(() -> {
+            local.set("1");
+            System.out.println("t1:" + local.get());
 
 
+            Thread t2 = new Thread(() -> {
+                System.out.println("t2:" + local.get());
+            });
+            ttlExecutor.execute(t2);
+        });
+        Thread t3 = new Thread(() -> {
+            local.set("3");
+            System.out.println("t3:" + local.get());
+        });
+
+        for (int i = 0; i < 100; i++) {
+            ttlExecutor.execute(t1);
+            ttlExecutor.execute(t3);
+        }
+
+    }
+```
+
+demo1源码解析：
+
+![image-20220121180757956](../img/image-20220121180757956.png) 
+
+demo2：
+
+```java
+// 采用包装runable，callable方法来实现在线程池中使用threadlocal
+public static void main(String[] args) {
+        /**
+         * 当不使用ttl以及不包装线程池时线程二会出现读取到线程三的数据
+         **/
+        // InheritableThreadLocal<Object> local = new InheritableThreadLocal<>();
+        TransmittableThreadLocal<Object> local = new TransmittableThreadLocal<>();
+
+        ExecutorService pool = Executors.newFixedThreadPool(2);
+
+        TtlRunnable r1able = TtlRunnable.get(() -> {
+            local.set("1");
+            System.out.println("t1:" + local.get());
+
+            TtlRunnable r2able = TtlRunnable.get(() -> {
+                System.out.println("t2:" + local.get());
+            });
+            pool.execute(r2able);
+        });
+        TtlRunnable r3able = TtlRunnable.get(() -> {
+            local.set("3");
+            System.out.println("t3:" + local.get());
+        });
+
+        for (int i = 0; i < 100; i++) {
+            pool.execute(r1able);
+            pool.execute(r3able);
+        }
+
+    }
+```
+
+#### demo2源码解析：
+
+首先从get()方法着手看，最终还是会调用构造方法,返回该类的对象，算是简单的装饰器模式。 构造方法中又会调用capture()方法，这里将Snapshot对象存储在当前对象的capturedRef里（如图一）,Snapshot对象是TransmittableThreadLocal的内部类（如图二）用于保存父线程ttl中的数据，用于执行完后吧数据复原。到这里，TtlRunnable包装类的过程就结束了。然后就是把这个线程交给线程池执行，而线程池又会调用线程的run方法如图二下
+
+```java
+@Nullable
+public static TtlRunnable get(@Nullable Runnable runnable, boolean releaseTtlValueReferenceAfterRun, boolean idempotent) {
+    if (null == runnable) return null;
+
+    if (runnable instanceof TtlEnhanced) {
+        // avoid redundant decoration, and ensure idempotency
+        if (idempotent) return (TtlRunnable) runnable;
+        else throw new IllegalStateException("Already TtlRunnable!");
+    }
+    // 最终还是会调用构造方法
+    return new TtlRunnable(runnable, releaseTtlValueReferenceAfterRun);
+}
+TransmittableThreadLocal.holder
+// 构造方法中又会调用capture()方法
+private TtlRunnable(@NonNull Runnable runnable, boolean releaseTtlValueReferenceAfterRun) {
+    // 这里将Snapshot对象存储在当前对象的capturedRef里（如图一）,Snapshot对象是TransmittableThreadLocal的内部类（如图二）用于保存原来ttl中的数据，用于执行完后吧数据复原
+    this.capturedRef = new AtomicReference<Object>(capture());
+    this.runnable = runnable;
+    this.releaseTtlValueReferenceAfterRun = releaseTtlValueReferenceAfterRun;
+}
+```
+
+![image-20220121152638969](../img/image-20220121152638969.png)  
+
+![image-20220121152734812](../img/image-20220121152734812.png) 
+
+![image-20220121174257478](../img/image-20220121174257478.png) 
+
+```java
+// 这个方法是在run方法的前置方法，用于备份数据，就是上面从
+public static Object replay(@NonNull Object captured) {
+    final Snapshot capturedSnapshot = (Snapshot) captured;
+    return new Snapshot(replayTtlValues(capturedSnapshot.ttl2Value), replayThreadLocalValues(capturedSnapshot.threadLocal2Value));
+}
+
+@NonNull
+private static HashMap<TransmittableThreadLocal<Object>, Object> replayTtlValues(@NonNull HashMap<TransmittableThreadLocal<Object>, Object> captured) {
+    HashMap<TransmittableThreadLocal<Object>, Object> backup = new HashMap<TransmittableThreadLocal<Object>, Object>();
+
+    for (final Iterator<TransmittableThreadLocal<Object>> iterator = holder.get().keySet().iterator(); iterator.hasNext(); ) {
+        TransmittableThreadLocal<Object> threadLocal = iterator.next();
+        // 备份之前父线程来的数据
+        backup.put(threadLocal, threadLocal.get());
+        // 清除未捕获的TTL值
+        // 当运行任务时，避免额外的TTL值重放后，例如，ttl对象t1有一个值2，然后不清除，另一个子线程进来，这个子线程在当前主线程没有值，但是能获取到t1对象的2，造成数据错乱，captured是入参，就是备份的数据，然后跟当前线程比较，不在备份数据里的全部清除以保证数据不会错乱
+        if (!captured.containsKey(threadLocal)) {
+            iterator.remove();
+            threadLocal.superRemove();
+        }
+    }
+    // 把值设置进备份数据里
+    setTtlValuesTo(captured);
+    // beforeExecute回调
+    doExecuteCallback(true);
+    return backup;
+}
+
+private static HashMap<ThreadLocal<Object>, Object> replayThreadLocalValues(@NonNull HashMap<ThreadLocal<Object>, Object> captured) {
+    final HashMap<ThreadLocal<Object>, Object> backup = new HashMap<ThreadLocal<Object>, Object>();
+
+    for (Map.Entry<ThreadLocal<Object>, Object> entry : captured.entrySet()) {
+        final ThreadLocal<Object> threadLocal = entry.getKey();
+        backup.put(threadLocal, threadLocal.get());
+
+        final Object value = entry.getValue();
+        if (value == threadLocalClearMark) threadLocal.remove();
+        else threadLocal.set(value);
+    }
+    return backup;
+}
+```
+
+```java
+
+public static void restore(@NonNull Object backup) {
+    final Snapshot backupSnapshot = (Snapshot) backup;
+    // 重放ttl的数据
+    restoreTtlValues(backupSnapshot.ttl2Value);
+    // 重放ThreadLocal的数据
+    restoreThreadLocalValues(backupSnapshot.threadLocal2Value);
+}
+
+private static void restoreTtlValues(@NonNull HashMap<TransmittableThreadLocal<Object>, Object> backup) {
+    // call afterExecute callback
+    doExecuteCallback(false);
+
+    for (final Iterator<TransmittableThreadLocal<Object>> iterator = holder.get().keySet().iterator(); iterator.hasNext(); ) {
+        TransmittableThreadLocal<Object> threadLocal = iterator.next();
+
+        // 清除未捕获的TTL值
+        // 当运行任务时，避免额外的TTL值重放后，例如，ttl对象t1有一个值2，然后不清除，另一个子线程进来，这个子线程在当前主线程没有值，但是能获取到t1对象的2，造成数据错乱，captured是入参，就是备份的数据，然后跟当前线程比较，不在备份数据里的全部清除以保证数据不会错乱
+        if (!backup.containsKey(threadLocal)) {
+            iterator.remove();
+            threadLocal.superRemove();
+        }
+    }
+
+    // 恢复 TTL 的值
+    setTtlValuesTo(backup);
+}
+
+private static void setTtlValuesTo(@NonNull HashMap<TransmittableThreadLocal<Object>, Object> ttlValues) {
+    for (Map.Entry<TransmittableThreadLocal<Object>, Object> entry : ttlValues.entrySet()) {
+        TransmittableThreadLocal<Object> threadLocal = entry.getKey();
+        threadLocal.set(entry.getValue());
+    }
+}
+
+private static void restoreThreadLocalValues(@NonNull HashMap<ThreadLocal<Object>, Object> backup) {
+    for (Map.Entry<ThreadLocal<Object>, Object> entry : backup.entrySet()) {
+        final ThreadLocal<Object> threadLocal = entry.getKey();
+        threadLocal.set(entry.getValue());
+    }
+}
+```
+
+总结：
+
+* 使用Ttl有三种方式，第一种是使用agent，作为java启动参数的方式，在启动服务的时候就加载了，这样对代码没有侵入，正常使用即可，因为是跑的jar包，容易让代码变得不可控。第二种是使用Ttlrunable来作为被执行的任务，这个类实现了runable接口，重写了run方法，所以可以作为线程池的执行目标。源码从调用Ttlrunable的get()方法开始，这是一个简单的包装类，get方法里面最终会调用它的构造方法，而他的构造方法中又会给一个atomicRefence赋值，atomicRefence构造方法中执行的capture()方法的返回值是一个ttl类的内部类的对象Snapshot，这个对象有两个属性，分别用来存储父线程中Threadlocal和Ttl的值。然后等线程池提交任务的时候，线程池中的线程开始初始化，然后创建线程去执行这个任务。Ttlrunable重写了run方法，在他的run方法中，首先会从atomicRefence中获取存了父线程值的Snapshot对象，然后replay()方法对Threadlocal和Ttl中数据进行备份，然后执行run方法,执行完run方法后再使用备份对象对子线程的数据进行重放，把备份的数据跟现有的数据进行比较，然后再把备份数据中不存在的全部清除掉，就完成了对线程池线程数据的重放。三种是使用TtlExecutors来包装线程池，然后使用包装的线程池提交任务。这里也是使用的装饰器模式，实际上TtlExecutors调用方法的时候还是使用原生的线程池执行，只是里面执行的任务换成了Ttlrunable去执行。
+
+## 线程池原理
 
 
+```java
+public void execute(Runnable command) {
+    if (command == null)
+        throw new NullPointerException();
+    int c = ctl.get();
+    // 先看核心线程数是否够用，并且在addWorker()方法中检测线程池运行状态，不是RUNNING就返回false
+    if (workerCountOf(c) < corePoolSize) {
+        if (addWorker(command, true))
+            return;
+        c = ctl.get();
+    }
+    // 判断线程池运行状态和把任务插入队列成功返回true失败false
+    if (isRunning(c) && workQueue.offer(command)) {
+        // 然后重新检查
+        int recheck = ctl.get();
+        // 不在运行状态且在线程池中把该任务已经移除了就执行拒绝策略
+        if (! isRunning(recheck) && remove(command))
+            reject(command);
+        // 如果获取到的工作线程数为0
+        else if (workerCountOf(recheck) == 0)
+            // 为null是创建一个线程但是不启动，任务已经在判断条件中加入了队列，false表示使用最大线程数
+            addWorker(null, false);
+    }
+    //把任务加到队列中如果失败就执行拒绝策略
+    else if (!addWorker(command, false))
+        reject(command);
+}
+```
 
+```java
+// 这里是addWorker()方法的前半段
+private boolean addWorker(Runnable firstTask, boolean core) {
+    retry:
+    for (;;) {
+        int c = ctl.get();
+        int rs = runStateOf(c);
 
+        // 当线程池运行状态不是RUNNING 任务为null 队列为空就直接返回false
+        if (rs >= SHUTDOWN &&
+            ! (rs == SHUTDOWN &&
+               firstTask == null &&
+               ! workQueue.isEmpty()))
+            return false;
 
+        for (;;) {
+            // 获取线程数
+            int wc = workerCountOf(c);
+            // CAPACITY是线程池中线程的最大数量
+            if (wc >= CAPACITY ||
+                // core为true就使用核心线程数反则是最大线程数
+                wc >= (core ? corePoolSize : maximumPoolSize))
+                return false;
+            // 使用cas算法尝试增加线程数，如果成功就跳出第一个for循环
+            if (compareAndIncrementWorkerCount(c))
+                break retry;
+            c = ctl.get();  // Re-read ctl
+            // 如果对当前状态不等于rs了就说明状态已经改变了，重新执行第一层循环
+            if (runStateOf(c) != rs)
+                continue retry;
+            // else CAS failed due to workerCount change; retry inner loop
+        }
+    }
+```
 
+```java
+// 这里是addWorker()方法的后半段
+	boolean workerStarted = false; // 启动标识
+	boolean workerAdded = false; // 添加标识
+	Worker w = null;
+    try {
+        // 根据任务创建一个work对象
+        w = new Worker(firstTask);
+        final Thread t = w.thread;
+        if (t != null) {
+            // 获取重入锁
+            final ReentrantLock mainLock = this.mainLock;
+            mainLock.lock();
+            try {
+                // Recheck while holding lock.
+                // Back out on ThreadFactory failure or if
+                // shut down before lock acquired.
+                int rs = runStateOf(ctl.get());
+			   // rs < SHUTDOWN：线程池在RUNNING状态
+                // rs == SHUTDOWN && firstTask == null： 线程池在SHUTDOWN状态，不接受新的任务
+                if (rs < SHUTDOWN ||
+                    (rs == SHUTDOWN && firstTask == null)) {
+                    // 先检查线程是否活着
+                    if (t.isAlive()) // precheck that t is startable
+                        throw new IllegalThreadStateException();
+                    // workers是HashSet，把对象加进去
+                    workers.add(w);
+                    int s = workers.size();
+                    // 记录线程池出现过的最大线程数
+                    if (s > largestPoolSize)
+                        largestPoolSize = s;
+                    // 修改标识
+                    workerAdded = true;
+                }
+            } finally {
+                mainLock.unlock();
+            }
+            // 添加进去就开始是启动线程
+            if (workerAdded) {
+                t.start();
+                workerStarted = true;
+            }
+        }
+    } finally {
+        if (! workerStarted)
+            // 添加失败就从works中删除，然后工作线程数减一
+            addWorkerFailed(w);
+        }
+        return workerStarted;
+    }
+```
 
+```java
+// Worker类
+private final class Worker extends AbstractQueuedSynchronizer implements Runnable {
 
+    private static final long serialVersionUID = 6138294804551838833L;
 
+    // 构造方法创建的线程
+    final Thread thread;
+    // 传进来的任务
+    Runnable firstTask;
+    // 线程任务计数器
+    volatile long completedTasks;
 
+    // 使用线程工厂来创建线程，参数为this，worker也实现了Runable，所以当这个线程启动时会调用worker的run方法
+    Worker(Runnable firstTask) {
+        setState(-1); // inhibit interrupts until runWorker
+        this.firstTask = firstTask;
+        this.thread = getThreadFactory().newThread(this);
+    }
 
+    /** 利用runWorker()方法来执行任务  */
+    public void run() {
+        runWorker(this);
+    }
 
+    // Lock methods
+    //
+    // The value 0 represents the unlocked state.
+    // The value 1 represents the locked state.
 
+    protected boolean isHeldExclusively() {
+        return getState() != 0;
+    }
 
+    protected boolean tryAcquire(int unused) {
+        if (compareAndSetState(0, 1)) {
+            setExclusiveOwnerThread(Thread.currentThread());
+            return true;
+        }
+        return false;
+    }
 
+    protected boolean tryRelease(int unused) {
+        setExclusiveOwnerThread(null);
+        setState(0);
+        return true;
+    }
 
+    public void lock()        { acquire(1); }
+    public boolean tryLock()  { return tryAcquire(1); }
+    public void unlock()      { release(1); }
+    public boolean isLocked() { return isHeldExclusively(); }
 
+    void interruptIfStarted() {
+        Thread t;
+        if (getState() >= 0 && (t = thread) != null && !t.isInterrupted()) {
+            try {
+                t.interrupt();
+            } catch (SecurityException ignore) {
+            }
+        }
+    }
+} 
+```
 
+![image-20220124183058881](../img/image-20220124183058881.png) 
 
+```java
+// 核心代码
+final void runWorker(Worker w) {
+    Thread wt = Thread.currentThread();
+    // 获取第一个任务
+    Runnable task = w.firstTask;
+    w.firstTask = null;
+    // 将该线程设置成允许中断
+    w.unlock(); // allow interrupts
+    // 是否因为异常退出循环
+    boolean completedAbruptly = true;
+    try {
+        // 如果task为空则通过getTask()获取方法
+        while (task != null || (task = getTask()) != null) {
+            w.lock();
+             /**
+              * 如果线程池正在停止，那么要保证当前线程是中断状态；
+              * 如果不是的话，则要保证当前线程不是中断状态；
+              * 这里要考虑在执行该if语句期间可能也执行了shutdownNow方法，shutdownNow方法会把状态设置为STOP
+              *
+              * STOP状态要中断线程池中的所有线程，而这里使用Thread.interrupted()来判断是否中断是为了
+              * 确保在RUNNING或者SHUTDOWN状态时线程是非中断状态的，因为Thread.interrupted()方法会复位中断的状态。
+              */
+            if ((runStateAtLeast(ctl.get(), STOP) ||
+                 (Thread.interrupted() &&
+                  runStateAtLeast(ctl.get(), STOP))) &&
+                !wt.isInterrupted())
+                wt.interrupt();
+            try {
+                beforeExecute(wt, task);
+                Throwable thrown = null;
+                try {
+                    // 执行run方法
+                    task.run();
+                } catch (RuntimeException x) {
+                    thrown = x; throw x;
+                } catch (Error x) {
+                    thrown = x; throw x;
+                } catch (Throwable x) {
+                    thrown = x; throw new Error(x);
+                } finally {
+                    afterExecute(task, thrown);
+                }
+            } finally {
+                task = null;
+                w.completedTasks++;
+                w.unlock();
+            }
+        }
+        completedAbruptly = false;
+    } finally {
+        processWorkerExit(w, completedAbruptly);
+    }
+}
+```
 
+![image-20220125154445183](../img/image-20220125154445183.png) 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+(不在状态 停止继续)
 
 
 

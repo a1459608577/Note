@@ -1,6 +1,9 @@
-#Quartz笔记
-##[中文文档](https://www.w3cschool.cn/quartz_doc/quartz_doc-2put2clm.html)
-##quartz调度核心元素
+# Quartz笔记
+
+## [中文文档](https://www.w3cschool.cn/quartz_doc/quartz_doc-2put2clm.html)
+
+# quartz调度核心元素
+
 #### Scheduler： 任务调度器，是实际执行任务调度的控制器，在spring中通过SchedulerFactoryBean封装起来
 #### Trigger: 触发器，用于定义调度的时间规则。有SimpleTrigegr，CronTrigger，主要用第二种
 #### Calendar： 它是一些日历特点时间点的集合，一个Trigger可以有多个Calender，以便排除或包含某些时间点
@@ -14,24 +17,24 @@
 <summary><font color='#c7254e' size='3px'> view code</font></summary>
 
 	public static void main(String[] args) throws SchedulerException {
-        Scheduler defaultScheduler = StdSchedulerFactory.getDefaultScheduler();
-        defaultScheduler.getContext().put("skey", "sKey");
-
-        SimpleTrigger trigger = TriggerBuilder.newTrigger()
-                .withIdentity("trigger1", "group1")
-                .usingJobData("t1", "trigger1")
-                .withSchedule(SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(3).repeatForever()).build();
-        trigger.getJobDataMap().put("t2", "trigger2");
-
-        JobDetail job = JobBuilder.newJob(HelloJob.class)
-                .withIdentity("job1", "group1")
-                .usingJobData("j1", "job1")
-                .usingJobData("j2", "job2").build();
-
-        defaultScheduler.scheduleJob(job, trigger);
-        defaultScheduler.start();
-    }
-
+	    Scheduler defaultScheduler = StdSchedulerFactory.getDefaultScheduler();
+	    defaultScheduler.getContext().put("skey", "sKey");
+	
+	    SimpleTrigger trigger = TriggerBuilder.newTrigger()
+	            .withIdentity("trigger1", "group1")
+	            .usingJobData("t1", "trigger1")
+	            .withSchedule(SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(3).repeatForever()).build();
+	    trigger.getJobDataMap().put("t2", "trigger2");
+	
+	    JobDetail job = JobBuilder.newJob(HelloJob.class)
+	            .withIdentity("job1", "group1")
+	            .usingJobData("j1", "job1")
+	            .usingJobData("j2", "job2").build();
+	
+	    defaultScheduler.scheduleJob(job, trigger);
+	    defaultScheduler.start();
+	}
+	
 	@Slf4j
 	public class HelloJob implements Job {
 	
@@ -171,12 +174,12 @@
 
 	// 设置trigger的错过触发策略
 	SimpleTrigger trigger = TriggerBuilder.newTrigger()
-                .withIdentity("trigger1", "group1")
-                .withSchedule(SimpleScheduleBuilder.simpleSchedule()
-                        .withIntervalInSeconds(5)
-                        .repeatForever()
-                        .withMisfireHandlingInstructionNextWithExistingCount())
-                .build();
+	            .withIdentity("trigger1", "group1")
+	            .withSchedule(SimpleScheduleBuilder.simpleSchedule()
+	                    .withIntervalInSeconds(5)
+	                    .repeatForever()
+	                    .withMisfireHandlingInstructionNextWithExistingCount())
+	            .build();
 ###CronTrigger
 #####建立一个触发器，每隔一分钟，每天上午8点至下午5点之间：
     CronTrigger trigger = TriggerBuilder.newTrigger()
@@ -253,22 +256,22 @@
 ### 主配置调度器设置 ###
 	// 指定任务名称
 	org.quartz.scheduler.instanceName
-
+	
 	// 指定任务id必须唯一可以设置成AUTO表示自动生成，或者SYS_PROP，从系统获取
 	org.quartz.scheduler.instanceId
 ### Quartz配置ThreadPool设置 ###
 	// 是要使用的ThreadPool实现的名称，一般用这个org.quartz.simpl.SimpleThreadPool
 	org.quartz.threadPool.class
-
+	
 	// 配置可用于并发执行的线程数
 	org.quartz.threadPool.threadCount
-
+	
 	// 线程优先级，默认为5
 	org.quartz.threadPool.threadPriority
-
+	
 	// 设置是否是守护线程，默认为false
 	org.quartz.threadPool.makeThreadsDaemons
-
+	
 	// 在自定义线程池
 	org.quartz.threadPool.class = com.mycompany.goo.FooThreadPool
 	org.quartz.threadPool.somePropOfFooThreadPool = someValue
@@ -306,16 +309,16 @@
 	// 通过这个属性来设置JobStoreTX
 	org.quartz.jobStore.class = org.quartz.impl.jdbcjobstore.JobStoreTX
 	org.quartz.jobStore.class = org.quartz.impl.jdbcjobstore.JobStoreCMT
-
+	
 	// 代表不同数据库的方言，一般配置这个，用于完全符合JDBC的驱动程序
 	org.quartz.jobStore.driverDelegateClass = org.quartz.impl.jdbcjobstore.StdJDBCDelegate
 		
 	// 配置表前缀，
 	org.quartz.jobStore.tablePrefix
-
+	
 	// 设置quartz是否是集群
 	org.quartz.jobStore.isClustered
-
+	
 	/** 
 	* 必须是在“LOCKS”表中选择一行并在该行上放置一个锁的SQL字符串。如果未设置，
 	* 默认值为“SELECT * FROM {0} LOCKS WHERE SCHED_NAME = {1} AND LOCK_NAME =？FOR UPDATE“，
@@ -365,7 +368,7 @@
 	org.quartz.dataSource.myDS.password = quartz
 	org.quartz.dataSource.myDS.maxConnections = 5
 	org.quartz.dataSource.myDS.validationQuery=select 0 from dual
-	
+
 ##SpringBoot2.0整合Quartz并持久化
 ####启动类上添加@EnableScheduling注解，然后实现job类
 	public class SampleJob implements Job {

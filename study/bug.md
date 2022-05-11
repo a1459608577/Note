@@ -1,8 +1,8 @@
 ## 1. JWT无状态实现退出登录
 
-#### 描述：jwt本身是无状态的，只能设置过期时间，在过期时间这段时间中无法对jwt进行操作。
+描述：jwt本身是无状态的，只能设置过期时间，在过期时间这段时间中无法对jwt进行操作。
 
-#### 解决：把jwt生成的时候往redis中存一份，然后做校验的时候校验redis中的是否一致。或者退出登录的时候把jwt的secret改了，下次登录的时候生成的secret就不一致了，达到退出登录的效果。参考链接：[退出登录1](https://blog.csdn.net/weixin_42970433/article/details/103170301 )  [退出登录2](https://blog.csdn.net/weixin_42970433/article/details/102526722)
+解决：把jwt生成的时候往redis中存一份，然后做校验的时候校验redis中的是否一致。或者退出登录的时候把jwt的secret改了，下次登录的时候生成的secret就不一致了，达到退出登录的效果。参考链接：[退出登录1](https://blog.csdn.net/weixin_42970433/article/details/103170301 )  [退出登录2](https://blog.csdn.net/weixin_42970433/article/details/102526722)
 
 ## 2.动态数据源循环依赖问题
 
@@ -75,9 +75,58 @@ public class FeignInterceptor implements RequestInterceptor {
 
    
 
+## 8.Easy Excel导出文件在本地生效，在linux上以及Docker容器中失效
 
+* 原因: 在linux和Docker上没有字体
 
+* 解决方案：
 
+  * linux:
+
+    ```
+    安装字体包：yum -y install fontconfig
+    
+    刷新内存中的字体缓存：fc-cache	
+    
+    查看字体是否安装成功(有一种即可)：fc-list 
+    
+    重启项目（不必重启服务器）
+    ```
+
+  * Docker:
+
+    ```
+    在Dockfile中添加
+    RUN apk add --update font-adobe-100dpi ttf-dejavu fontconfig
+    ```
+
+## 9. 线程池中使用InheritableThreadLocal导致的问题
+
+[参考链接](https://www.cnblogs.com/sweetchildomine/p/6575666.html)	
+
+首先ThreadLocal和InheritableThreadLocal的区别就是，前者不能在子线程中使用，在子线程中获取不到threadLocalMap中的数据，使用后者则可以。因为后者是前者的子类，重写了前者的几个方法如下：
+
+```java
+public class InheritableThreadLocal<T> extends ThreadLocal<T> {
+
+    protected T childValue(T parentValue) {
+        return parentValue;
+    }
+
+    ThreadLocalMap getMap(Thread t) {
+       return t.inheritableThreadLocals;
+    }
+
+    void createMap(Thread t, T firstValue) {
+        t.inheritableThreadLocals = new ThreadLocalMap(this, firstValue);
+    }
+```
+
+重点是在Thread类中，Thread的构造方法调用init()方法，而init()方法中会判断父线程的inheritableThreadLocals是否为空，不为空就复制一份放到子线程的inheritableThreadLocals中，就完成了在子线程也可以访问父线程的threadLocalMap，实际是复制了一份。
+
+![image-20220120163338992](../img/image-20220120163338992.png) 
+
+在线程池中不可用的原因是因为线程池的复用机制，线程池中线程创建的时候就会复制父线程的inheritableThreadLocals，假设线程池长度为2，此时创建两个线程交给线程池提交执行，这两个线程主要是输出threadLocal的值，然后在创建一个线程修改threadLocals的值并交给线程池执行，把这个操作放到while循环中多执行几次会发现，之前的t1，t2线程中可能会出现修改后的值。是因为线程池回收掉一个线程后，留下的两个线程中有一个是修改后的线程，因为线程的复用，所以执行方法的线程是修改后的，就会输出修改后的值。
 
 
 

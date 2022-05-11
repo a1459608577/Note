@@ -53,19 +53,19 @@ pipeline {
 				script {
 					if (env.'是否构建ksn-auth服务' == "true") {
 						dir('/mydata/jenkins_build/ksn-auth/') {
-							sh "mvn clean package -P dev -Dmaven.test.skip=true"
+							sh "mvn clean package -U -P dev -Dmaven.test.skip=true"
 							sh "/mydata/script/build.sh auth"
 						}
 					}
 					if (env.'是否构建ksn-gateway服务' == "true") {
 						dir('/mydata/jenkins_build/ksn-gateway/') {
-							sh "mvn clean package -P dev -Dmaven.test.skip=true"
+							sh "mvn clean package -U -P dev -Dmaven.test.skip=true"
 							sh "/mydata/script/build.sh gateway"
 						}
 					}
 					if (env.'是否构建imgMerge-demo服务' == "true") {
 						dir('/mydata/jenkins_build/ksn-demo/imgMerge-demo/') {
-							sh "mvn clean package -P dev -Dmaven.test.skip=true"
+							sh "mvn clean package -U -P dev -Dmaven.test.skip=true"
 							sh "/mydata/script/build.sh imgMerge"
 						}
 					}
@@ -162,10 +162,34 @@ pipeline {
 ### Jenkins流水线执行shell脚本的时候会 吧衍生进程删除掉，就导致虽然发布成功但是java进程被删掉。
 
 1. 针对每个item：在execute shell输入框中加入BUILD_ID=DONTKILLME,即可防止jenkins杀死启动的tomcat进程
+
 2. 永久方案：启动jenkins 的时候禁止jenkins杀死衍生进程
    * 使用java -jar启动，-Dhudson.util.ProcessTree.disable=true -jar jenkins.war
    * 使用Tomcat启动，Linux系统修改catalina.sh，在环境变量的说明后，脚本开始前加上这句话`JAVA_OPTS="$JAVA_OPTS -Dhudson.util.ProcessTree.disable=true"；`修改好Tomcat的配置文件后重新启动Tomcat
+   
 3. 在启动jenkins 的时候禁止jenkins杀死衍生进程.修改/etc/sysconfig/jenkins配置，在JENKINS_JAVA_OPTIONS中加入-Dhudson.util.ProcessTree.disable=true。需要重启jenkins生效
+
+4. 如果是流水线的话，如下。在Pipeline中是通过设置JENKINS_NODE_COOKIE来让Jenkins不要kill掉Pipeline后台子进程
+
+   ```
+   stage('Deploy') {
+   	steps {
+   		withEnv(['JENKINS_NODE_COOKIE=dontkillme']){
+   			script {
+   				echo '开始部署！'
+   				if (env.'是否构建wallet-system-api' == "true") {
+   					dir('/data/code/wallet-system-api/target') {
+   						sh "nohup java -jar app.jar > app.log &"
+   					}
+   				}
+   				echo '部署完成！'
+   			}
+   		}
+   	}
+   }
+   ```
+
+   
 
 ### [安装jenkins离线问题](https://blog.csdn.net/qq_34395857/article/details/94635653?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control)
 

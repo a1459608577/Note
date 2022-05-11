@@ -261,13 +261,46 @@
 
    ```
    vi /etc/profile
-   在最后加入： export PATH=$PATH:/usr/local/maven/apache-maven-3.6.3/bin
+   export MAVEN_HOME=/usr/local/apache-maven-3.6.3
+   export PATH=$PATH:$MAVEN_HOME/bin
    刷新配置： source /etc/profile
    ```
 
 3. 查看是否安装好，执行`which mvn`出现如下图即安装成功
 
    ![image-20210928174715442](./img/image-20210928174715442.png) 
+
+## 安装Git
+
+1. 首先下载好，[下载链接](https://github.com/git/git/tags?after=v2.33.0-rc1)， 然后上传上服务器上并且解压
+
+   ```
+   tar -zxvf git-2.9.3.tar.gz -C /usr/local/
+   ```
+
+2. 安装前置依赖
+
+   ```
+   yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
+   yum -y remove git // 上面安装前置依赖的时候会重新下载git，所以需要卸载
+   ```
+
+3. 编译源码
+
+   ```shell
+   make all
+   make install
+   ```
+
+4. 配置环境变量并刷新
+
+   ```shell
+   vi /etc/profile
+   export PATH=$PATH:/usr/local/git-2.34.1/bin-wrappers
+   source /etc/profile
+   ```
+
+   ![image-20220428153306406](../img/image-20220428153306406.png) 
 
 ##  安装Nacos集群
 
@@ -277,15 +310,19 @@
     tar -zxvf nacos-server-2.0.3.tar.gz
     ```
 
- 2. 新建nacos_config数据库，导入nacos脚本
+ 2. nacos如果想要单机模式就要修改application.properties文件，默认是集群模式  （win10环境）
+
+    ![image-20220322181432922](../img/image-20220322181432922.png) 
+
+ 3. 新建nacos_config数据库，导入nacos脚本
 
     ![image-20210928195050121](./img/image-20210928195050121.png) 
 
- 3. 修改nacos数据源配置
+ 4. 修改nacos数据源配置
 
     ![image-20210928195220424](./img/image-20210928195220424.png) 
 
- 4. 修改集群文件
+ 5. 修改集群文件
 
     ```
     cp cluster.conf.example cluster.conf
@@ -295,9 +332,9 @@
     	192.168.2.128:8848
     ```
 
- 5. 每台nacos都做如上配置再开放端口（每台nacos的端口，以及nginx的端口）
+ 6. 每台nacos都做如上配置再开放端口（每台nacos的端口，以及nginx的端口）
 
- 6. 配置并启动nginx
+ 7. 配置并启动nginx
 
     ```nginx
         upstream nacos-cluster {
@@ -316,7 +353,7 @@
         }
     ```
 
- 7. springboot项目配置
+ 8. springboot项目配置
 
     ```yaml
     spring:
@@ -336,7 +373,7 @@
 
     
 
-##  安装单机Seata
+## 安装单机Seata
 
 1. 下载解压包
 
@@ -467,7 +504,43 @@
    -n：Server node。在多个 TC Server 时，需区分各自节点，用于生成不同区间的 transactionId 事务编号，以免冲突
    ```
 
-   
+## 安装Jenkins
+
+1. 安装之前首先安装好jdk，maven， git，还有下载jenkins：jenkins-2.174-1.1.noarch.rpm
+
+2. 解压安装包
+
+   ```
+   rpm -ivh jenkins-2.174-1.1.noarch.rpm
+   jenkins就安装到/usr/lib/jenkins下了
+   ```
+
+3. 启动jenkins
+
+   ```
+   cd /usr/lib/jenkins
+   service jenkins start
+   ```
+
+   访问ip:8080即可看到jenkins安装成功，默认8080端口，可以通过修改配置文件改变（位置：/etc/sysconfig/jenkins）
+
+4. 登录jenkins，获取初始化密码
+
+   ```
+   cd /var/lib/jenkins/secrets
+   cat initialAdminPassword
+   ```
+
+   ![image-20220428155250895](../img/image-20220428155250895.png) 
+
+5. 然后点左边的按钮安装插件，安装失败就跳过。然后创建用户。如果出现白屏则刷新jenkins`http://54.179.88.51:8080/restart`即可
+
+6. 插件安装失败，更换下载源。步骤：找到插件管理 => Advanced => 更换url为：`http://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json`，然后submit， 还要check now就能安装成功了
+
+7. 然后配置jdk，maven，git的环境。找到Global Tool Configuration，在这里面配置
+
+   ![image-20220428180859139](../img/image-20220428180859139.png) 
+
 
 
 
