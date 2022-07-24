@@ -1,6 +1,4 @@
-
-
-# 部署文档
+#  部署文档
 
 ## 安装Java
 
@@ -11,7 +9,7 @@
 1. 上传到linux上，解压压缩包
 
    ```
-   tar -zxvf jdk-8u171-linux-x64.tar.gz -C /usr/local/java/
+   tar -zxvf jdk-8u301-linux-x64.tar.gz -C /usr/local/java/
    ```
 
 2. 设置环境变量
@@ -41,6 +39,7 @@
    wget http://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
    rpm -ivh mysql80-community-release-el7-3.noarch.rpm
    yum install mysql-community-server
+   （安装错误可以执行如下语句：rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022）
    ```
 
 2. 重启Mysql并且设置密码
@@ -88,7 +87,112 @@
    FLUSH PRIVILEGES;
    ```
 
+
+## 安装Redis
+
+1. 首先查看gcc是否安装, 没有安装则执行：`yum -y install gcc`
+
+   ![image-20210928164130887](../img/image-20210928164130887.png)
+
+2. 下载并解压安装包
+
+   ```
+   wget http://download.redis.io/releases/redis-5.0.3.tar.gz
+   tar -zxvf redis-5.0.3.tar.gz -C /usr/local/redis
+   ```
+
+3. 切换到解压目录执行编译
+
+   ```
+   cd redis-5.0.3/
+   make
+   make install PREFIX=/usr/local/redis
+   ```
+
+4. 启动
+
+   ```
+   cd /usr/local/redis/bin
+   ```
+
+   * 前台启动：./redis-server
+   * 后台启动需要修改配置文件，no修改成yes。然后指定配置文件启动`./redis-server ../redis-5.0.3/redis.conf`
+     * ![image-20220711142406376](../img/image-20220711142406376.png) 
+
+5. 设置远程访问
+
+   * 修改配置文件，把bind注释掉
+
+     ![image-20220711143103889](../img/image-20220711143103889.png) 
+
+6. 设置密码
+
+   ![image-20220722182941522](../img/image-20220722182941522.png) 
+
+## 安装Minio
+
+1. 下载安装包(本地有下载，路径：F:\tool)
+
+   ```
+   wget https://dl.min.io/server/minio/release/linux-amd64/minio(慢)
+   ```
+
+2. 创建存储数据目录并赋予权限
+
+   ```
+   cd /usr/local/minio
+   mkdir data
+   chmod +x minio
+   ```
+
+3. 防火墙开放端口
+
+   ```
+   firewall-cmd --zone=public --add-port=9000/tcp --permanent
+   firewall-cmd --zone=public --add-port=9999/tcp --permanent(开放静态ip)
+   systemctl restart firewalld
+   ```
+
+4. 启动服务
+
+   ```
+   前台启动： ./minio server --console-address '0.0.0.0:9999' ./data/
+   后台服务启动： ./nohup  minio server --console-address '0.0.0.0:9999' ./data/  &
+   自定义端口启动：./nohup  minio server --console-address '0.0.0.0:9999' 节点ip:指定端口 ./data/  &
+   ```
+
+5. 然后根据启动提示访问即可
+
+6. 设置永久访问链接
+
+   * 下载客户端并赋予权限
+
+     ```
+     wget https://dl.minio.io/client/mc/release/linux-amd64/mc(下载很慢，可以在windows上下载好再上传)
+     chmod 777 mc
+     ```
+
+   * 添加server
+
+     ```
+     ./mc config host add minio http://192.168.2.3 minioadmin minioadmin --api s3v4
+     ```
+
+   * 设置需要开放下载的bucket, 注意需要带minio
+
+     ```
+     ./mc  policy set download  minio/test(test是桶的名字)
+     ```
+
+   * 发大水
+
    
+
+7. 阿斯蒂芬
+
+8. 发送到
+
+9. 
 
 ## 安装Nginx
 
@@ -106,9 +210,9 @@
 
    ```
    wget http://nginx.org/download/nginx-1.18.0.tar.gz
-   tar -zxvf  nginx-1.9.9.tar.gz -C usr/local/java
+   tar -zxvf  nginx-1.18.0.tar.gz -C /usr/local/nginx
    
-   cd /usr/local/java/nginx-1.9.9/
+   cd /usr/local/nginx/nginx-1.18.0/
    ./configure
    make && make install
    ```
@@ -123,7 +227,7 @@
 5. 配置文件
 
    ```nginx
-   #user  nobody;
+   61.144.34.226#user  nobody;
    worker_processes  1; #工作进程：数目。根据硬件调整，通常等于cpu数量或者2倍cpu数量。
     
    #错误日志存放路径
