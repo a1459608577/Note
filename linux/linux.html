@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Linux1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<base href=''/>
+</head>
+<body>
+<h1>linux笔记</h1>
+<h3></h3>
+<h2>1. 安装</h2>
+<ul>
+<li>先安装VMware软件，然后安装虚拟机</li>
+</ul>
+<h2>2. 命令</h2>
+<h3>1.关机命令(只能在root账号登陆的时候使用)</h3>
+<ul>
+<li><strong>init0</strong></li>
+<li><strong>halt</strong></li>
+<li><strong>shutdown -h now</strong></li>
+</ul>
+<h3>3.VM中的备份功能</h3>
+<ul>
+<li>
+<strong>快照：</strong>又称还原点，相当于游戏存档，一般用于频繁使用情况，处于开机状态使用
+<ul>
+<li>在VM的菜单栏中 -&gt; 虚拟机 -&gt; 快照</li>
+</ul>
+</li>
+<li>
+<strong>克隆：</strong>就是克隆一份一样的 ，一般用于偶尔使用情况，克隆是必须是关机状态
+<ul>
+<li>先关机 -&gt; 右键要克隆的虚拟机 -&gt; 管理 -&gt; 克隆(注意要克隆完整的文件而不是链接)</li>
+</ul>
+</li>
+</ul>
+<h2>3.Linux系统的文件</h2>
+<ul>
+<li><strong>Linux一切皆文件</strong></li>
+<li>
+比较重要的文件夹
+<img src="./img/1.png" />
+<ul>
+<li><strong>bin:</strong>全称是binary,含义是二级制，可以被运行</li>
+<li><strong>dev:</strong>一般用于存放外接设备，但是不能直接运行，要先挂载(类似windows的分配盘符)</li>
+<li><strong>etc:</strong>主要存储配置文件</li>
+<li><strong>home:</strong>这个是家目录，里面包含linux账户的信息，类似windows的user/用户目录</li>
+<li><strong>proc:</strong>process,表示的是进程的意思，里面包含的都是进程</li>
+<li><strong>root:</strong>是root用户的专用家目录</li>
+<li><strong>sbin:</strong>全称是super binary 也是存放二进制文件，但是需要super权限的用户才能使用</li>
+<li><strong>tmp:</strong>存放系统运行时产生的临时文件</li>
+<li><strong>usr:</strong>存放的是用户自己安装的软件</li>
+<li><strong>var:</strong>主要存放日志</li>
+<li><strong>mnt:</strong>当外部挂载的时候，就是访问的mnt文件夹</li>
+</ul>
+</li>
+</ul>
+<h2>4.Linux的基本指令</h2>
+<h3>1. 指令与选项</h3>
+<ul>
+<li>
+<p>一个完整的指令的标准格式</p>
+<pre><code>#指令主体[选项][操作对象]
+</code></pre>
+
+</li>
+<li>
+<h1><strong>linux命令手册： https://man.linuxde.net/date</strong></h1>
+</li>
+<li>
+<h1><strong>基本指令</strong></h1>
+<ol>
+<li>
+<p><strong>ls:</strong></p>
+<ul>
+<li>用法一：<strong>ls</strong> 列出当前目录下的所有文件，文件夹的名称</li>
+<li>
+用法二: <strong>ls 路径</strong>，表示打开指定路径下的所有文件，文件夹
+<ul>
+<li>
+相对路径：需要一个参照物(一般是当前工程)
+<ul>
+<li>路径写法： './'[当前目录], '../'[上一级目录]</li>
+</ul>
+</li>
+<li>绝对路径：从根目录开始找</li>
+</ul>
+</li>
+<li>
+用法三: <strong>ls 选项 路径</strong>， 表示在指定路径下寻找指定文件以指定的格式显示
+<ul>
+<li>
+常见语法： 
+<ul>
+<li><strong>ls -l 路径:</strong> 以列表的形式显示所有的文件/文件夹</li>
+<li><strong>ls -la路径:</strong> 显示所有的文件/文件(包括隐藏的文件/文件夹)
+<img src="./img/2.png" />  
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>红线框起来的第一列表示文件的类型，<strong>'-'表示是文件， 'd'表示是文件夹</strong>，linux中以.开头的都是隐藏文件</p>
+<ul>
+<li>用法四: <strong>ls -lh(-lah) 路径</strong>， 表示指定路径下的指定文件的大小以较高可读性显示 </li>
+<li><strong>补充：切换输入法，ctrl + 空格</strong> </li>
+</ul>
+</li>
+<li>
+<p><strong>pwd:</strong>(print working directory)，表示打印当前工作目录的绝对路径</p>
+</li>
+<li>
+<strong>cd:</strong>(change direectory, 改变目录)，
+<ul>
+<li>用法： <strong>cd 路径</strong>(只写路径代表绝对和相对路径都支持)</li>
+<li><strong>cd ~:</strong>这个命令直接切换到当前用户的家目录(root目录)</li>
+</ul>
+</li>
+<li>
+<strong>mkdir:</strong>(make directory, 创建目录)，
+<ul>
+<li>语法一：<strong>mkdir 路径</strong>(路径可以包含文件夹名称)</li>
+<li>
+<img src="./img/3.png" />
+<ul>
+<li>蓝色代表文件夹，黑色代表文件， 绿色代表所有权限都有</li>
+</ul>
+</li>
+<li>语法二: <strong>mkdir -p 路径:</strong>假如要在root目录下创建一个文件夹，mkdir /root/a/b/c,此时root中不包含a，b，c文件夹，使用<strong>mkdir 路径</strong>创建不了，加个-p就可以了，这个命令可以一次创建多个不存在的文件夹</li>
+</ul>
+</li>
+<li>
+<strong>touch:</strong>创建文件
+<ul>
+<li>语法： <strong>touch 文件路径  或者  touch 文件路径1 文件路径2</strong></li>
+</ul>
+</li>
+<li>
+<strong>cp:</strong>
+<ul>
+<li>语法: <strong>cp 被复制的文件路径 复制到的文件的路径</strong>, linux复制的时候可以改名，windows不可以(一般不推荐)</li>
+<li>
+使用cp命令复制文件夹的时候需要在后面加<strong>-r</strong>，否则，要复制的文件夹会被忽略， <strong>cp -r 路径 路径</strong>
+<ul>
+<li><strong>-r</strong>表示递归复制</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong>mv:</strong>(move，移动)相当于windows里的剪切
+<ul>
+<li>语法： <strong>mv 被剪切的文档路径 剪切到的文档路径</strong></li>
+</ul>
+</li>
+<li>
+<strong>rm：</strong>(删除文件或文件夹)
+<ul>
+<li>删除文件： <strong>rm -f 路径下的文件</strong>, 如果不想输入y，可以在后面加<strong>-f</strong>(force:强制)，强制删除</li>
+<li>删除文件夹： <strong>rm -rf 路径下的文件</strong>也是递归删除，可以删除文件夹且不需要确认</li>
+<li>
+删除多个文档： <strong>rm -rf 要删除的路径1 要删除的路径2</strong>
+<ul>
+<li>简写： <strong>rm -rf 路径/linux</strong>*： *表示通配符，删除路径下所有linux开头的文档</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong>vim:</strong>用来打开文件
+<ul>
+<li>语法： <strong>vim 文件路径</strong></li>
+<li>退出的方法： 在没有按其他键的情况下，<strong>shift+:</strong>， 然后输入 <strong>q 回车</strong></li>
+</ul>
+</li>
+<li>
+<strong>&gt; or &gt;&gt;(输出重定向)</strong> 例如： <strong>ls -ah &gt; 要输出到的路径</strong>，文件可以不存在，不存在则自动新建
+<ul>
+<li><strong>&gt;:</strong>这个是覆盖输出，就是会覆盖文件原来的内容</li>
+<li><strong>&gt;&gt;:</strong>这个是追加输出， 在文件内容的末尾继续添加</li>
+</ul>
+</li>
+<li>
+<strong>cat：</strong>
+<ul>
+<li>语法： <strong>cat 要打开的文件路径</strong> ，类似vim命令，会直接打开文件并退回到命令行</li>
+<li>作用二： 合并文件，<strong>cat 待合并路径1 待合并路径2 ...待合并路径n &gt; or &gt;&gt; 要合并的路径</strong>把两个文件和成一个文件</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<h1><strong>进阶指令</strong></h1>
+<ol>
+<li>
+<strong>df：</strong>查看磁盘分区
+<ul>
+<li>语法： <strong>df -h</strong></li>
+<li>
+<img src="./img/4.png" /> 
+<ul>
+<li>filesystem: 文件系统</li>
+<li>size： 大小</li>
+<li>used： 使用情况</li>
+<li>avail： 总共多大</li>
+<li>use%：使用百分比</li>
+<li>mounted on： 挂载在哪里</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong>free：</strong>查看磁盘使用情况
+<ul>
+<li>语法： <strong>free -m:</strong>(-m表示以m为单位计算大小，不写-m则默认是以kb来计算，也可以使用-g)</li>
+<li>
+<img src="./img/5.png" /> 
+<ul>
+<li>要看第二行，free是可用内存，真是可用内存为439</li>
+<li>swap是临时内存</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong>head:</strong>作用是查看某个文件的前n行 
+<ul>
+<li>语法： <strong>head -n 文件路径</strong>(-n中的n必须是数字)</li>
+</ul>
+</li>
+<li>
+<strong>tail:</strong>作用是查看某个文件的后n行 
+<ul>
+<li>语法1： <strong>tail -n 文件路径</strong>(-n中的n必须是数字)</li>
+<li>
+语法2： <strong>tail -f 文件路径</strong>
+<ul>
+<li>作用是实时监控文件的动态变化</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong>less：</strong>查看文件，以较少的内容进行输出，按下辅助功能键(数字+回车，空格键+上下左右方向键)查看更多
+<ul>
+<li>语法： less 文件路径</li>
+</ul>
+</li>
+<li>
+<strong>wc:</strong>用来统计(行数， 单词数， 字节数)
+<ul>
+<li>wc -l 要统计的文件路径(统计行数-l:lines)</li>
+<li>wc -w 要统计的文件路径(统计单词数-w:words)</li>
+<li>wc -c 要统计的文件路径(统计字节数-c:bytes)</li>
+<li>直接 wc 要统计的路径: aaa bbb ccc 路径名(aaa是行数，bbb是单词数， ccc是字节数)</li>
+</ul>
+</li>
+<li>
+<strong>date(重点)：</strong>用来读取或设置时间
+<ul>
+<li>
+获取当前时间
+<ul>
+<li>语法一： <strong>date</strong>--------------  输出： 2019年2月12日 星期六 20：12：12</li>
+<li>语法二: <strong>date +%F</strong>(一定要写+号，F必须大写，等价于<strong>date +%Y-%m-%d</strong>) ---------------输出： 20：12：12</li>
+<li>语法三： <strong>date &quot;+%F %T&quot;</strong>(等价于<strong>date &quot;+%Y-%m-%d %H:%M：%S&quot;</strong>)  输出结果： 2020-12-12 12：12：12</li>
+</ul>
+</li>
+<li>
+获取之前或者之后的时间点
+<ul>
+<li>语法四： <strong>date -d &quot;-1 day&quot; &quot;-%F&quot;</strong> 输出： 2020-02-05(当前日期为2020-02-06)数字为正就是往后几天</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong>cal：</strong>用来操作日历
+<ul>
+<li>语法一： <strong>cal</strong> 输出当前月份的日历</li>
+<li>语法二： <strong>cal -3</strong> 输出当前月份的前一个月份， 当前月份， 当前月份的后一个月份</li>
+<li>语法三： <strong>cal -y 2020</strong> 输出指定年份的全部日历</li>
+</ul>
+</li>
+<li><strong>clear or ctrl + L:</strong>清空终端(并不是真的清除)</li>
+<li>
+<strong>管道(重点):</strong>管道符：<strong>|<strong>, 管道符一般用于</strong>过滤</strong>，<strong>特殊</strong>， <strong>扩展处理</strong>
+<ul>
+<li>过滤案例： 输出根目录下带y的文档，<strong>ls /|grep y</strong>(grep是过滤指令)</li>
+<li>扩展案例： 使用wc指令统计根目录下有多少个文件， <strong>ls /| wc -l</strong></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<h1><strong>高级指令</strong></h1>
+<ol>
+<li>
+<strong>hostname:</strong>读取，设置主机名
+<ul>
+<li>语法一： <strong>hostname</strong> 输出的是完整的主机名</li>
+<li>语法二： <strong>hostname -f</strong> 输出的是主机名中的<strong>FQDN(全限定域名)</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>id：</strong></p>
+<ul>
+<li>语法一： <strong>id</strong> 输出  
+</li>
+</ul>
+<p><img src="./img/6.png" /> </p>
+<ul>
+<li>语法二： <strong>id 用户名</strong>，是输出指定用户名的信息  
+</li>
+</ul>
+<p><img src="./img/7.png" /></p>
+<ul>
+<li>uid是用户id， gid是用户组， 组就是附加组</li>
+<li>验证用户信息： /etc/passwd</li>
+<li>验证用户组信息： /etc/group</li>
+</ul>
+</li>
+<li>
+<strong>whoami:</strong>(“我是谁”指令),作用是显示当前登录的用户
+<ul>
+<li>语法一： <strong>whoami</strong> 输出结果： root</li>
+</ul>
+</li>
+<li>
+<strong>ps -ef:</strong>作用是查看服务器进程
+<ul>
+<li><strong>-e(等价于-A)代表是查看全部进程，-f是显示进程的全字段(就是显示所有列)</strong>
+<img src="./img/9.png" />
+<img src="./img/8.png" /></li>
+<li>案例：在结果中过滤要找的， <strong>命令：ps -ef|grep 进程名</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>top：</strong>作用是查看服务器进程占用的资源</p>
+<ul>
+<li>语法： <strong>top，按q键退出</strong></li>
+</ul>
+<p><img src="./img/11.png" />
+<img src="./img/10.png" /></p>
+<ul>
+<li>M:在top命令下按M键，根据MEM排序</li>
+<li>P:在top命令下按P键，根据%CPU排序</li>
+<li>1:默认显示一个cpu，按1显示所有cpu的使用情况</li>
+</ul>
+</li>
+<li>
+<strong>du -sh:</strong>作用是查看目录的真实大小
+<ul>
+<li>语法： <strong>du -sh 目录路径</strong></li>
+<li><strong>-s:是代表显示汇总的数量，-h：是代表以kb，mb，或者gb来统计</strong></li>
+</ul>
+</li>
+<li>
+<strong>find</strong>： 作用是查找
+<ul>
+<li>语法： <strong>find 查找范围路径 选项 选项的值</strong></li>
+<li>
+选项L: 
+<ul>
+<li><strong>-name：</strong>根据文档的名称来查(支持模糊查询)</li>
+<li><strong>-type：</strong>有两种类型- or d, -<strong>代表文件(在这里用f表示)，d代表文件夹</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong>service(重点)：</strong>作用是控制一些软件服务的启动/停止/重启
+<ul>
+<li>语法： <strong>service 服务名 start/stop/restart</strong></li>
+</ul>
+</li>
+<li>
+<strong>kill:</strong>杀死进程
+<ul>
+<li>语法一： <strong>kill 进程PID</strong></li>
+<li>语法二： <strong>killall 进程名</strong></li>
+</ul>
+</li>
+<li>
+<strong>ifconfig(重点)：</strong>获取网卡信息
+<ul>
+<li>语法： <strong>ifconfig</strong></li>
+</ul>
+</li>
+<li>
+<strong>reboot:</strong>重启计算机
+<ul>
+<li>语法一： <strong>reboot</strong></li>
+<li>语法二： <strong>reboot -w</strong>(模拟重启，但是不重启，在日志中 记录重启但是实际没有重启)</li>
+</ul>
+</li>
+<li>
+<strong>shutdown：</strong>关机 
+<ul>
+<li>语法一： <strong>showdown -h now &quot;关机提示语&quot; 或者 shutdown -h 21:26 &quot;关机提示语&quot;(在21:26将会关机，定时关机)</strong></li>
+<li>
+类似的关机命令
+<ul>
+<li>init0</li>
+<li>halt</li>
+<li>poweroff</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong>uptime：</strong>输出持续在线时间(从开启到现在有多久)
+<ul>
+<li>语法： <strong>uptime</strong></li>
+</ul>
+</li>
+<li>
+<strong>uname:</strong>获取计算机系统信息
+<ul>
+<li>语法一： <strong>uname</strong>  ，输出Linux，是获取操作系统的名称</li>
+<li>语法二： <strong>uname -a</strong> 输出的是操作系统的信息</li>
+</ul>
+</li>
+<li>
+<strong>netstat -tnlp：</strong>查看网络的来链接状态
+<ul>
+<li>语法： <strong>netstat -tnlp</strong></li>
+<li>
+选项： 
+<ul>
+<li>-t:只显示tcp协议的</li>
+<li>-n:把地址转换成ip地址+端口号</li>
+<li>-l:只显示listen状态的</li>
+<li>-p:显示PID和进程名</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong>man：</strong>(linux中所有命令的手册，全称是manual，手册的意思)
+<ul>
+<li>语法 <strong>man 命令名</strong>， 退出按q</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<h1><strong>练习</strong></h1>
+<ul>
+<li>重启虚拟机： reboot</li>
+<li>在命令行中快速删除光标前/后的内容： CTRL+u，ctrl+L</li>
+<li>删除tmp下以A开头的文件： rm -f /tmp/A*</li>
+<li>把/etc/passwd备份到/tmp下：cp /etc/passwd /tmp</li>
+<li>查看系统最后创建的三个用户：tail -3 /etc/passwd</li>
+<li>统计当前有多少账户：wc -l /etc/passwd</li>
+<li>创建/tmp/test.conf文件：touch /tmp/test.conf</li>
+<li>如何通过vim打开test.conf文件：vim test.conf</li>
+<li>如何查看/etc/passwd的前三行和后三行：head -3 /etc/passwd ，tail -3 /etc/passwd </li>
+<li>如何一次性创建目录/root/1/2/3：mkdir -p /root/1/2/3</li>
+<li>最快返回当前用户的家目录：cd ~</li>
+<li>如何查看/etc占用的磁盘空间：du -sh /etc</li>
+<li>删除/etc下所有的文件： rm -ef /etc/*</li>
+<li>启动apache服务：service httpd start</li>
+<li>杀死apache进程： kill httpd</li>
+</ul>
+</li>
+</ul>
+<h2>5.Vim编辑器</h2>
+<h1><strong>三种模式</strong></h1>
+<ul>
+<li>命令模式：只能按快捷键(打开默认进入这个)</li>
+<li>编辑模式：可以修改文件内容</li>
+<li>末行模式：输入命令来操作文件(搜索，替换，保存，退出，撤销，高亮)</li>
+<li>
+vim打开文件的4种方式
+<ul>
+<li><strong>vim 文件路径，作用：打开指定文件</strong></li>
+<li><strong>vim +数字 文件路径 作用：打开指定路径文件的第几行</strong></li>
+<li><strong>vim +/关键字 文件路径 作用：打开文件并高亮显示关键字</strong></li>
+<li><strong>vim 文件路径1 文件路径2 作用：打开多个文件</strong></li>
+</ul>
+</li>
+</ul>
+<h1><strong>1.命令模式</strong></h1>
+<ul>
+<li>
+移动光标
+<ul>
+<li>移动光标到第一行：<strong>gg(按键)</strong></li>
+<li>移动光标到最后一行：<strong>G(shirt + G)</strong></li>
+<li>移动光标到行首：<strong>ctrl + 6(不是小键盘上的6)</strong></li>
+<li>移动光标到行尾：<strong>ctrl + 4(不是小键盘上的4)</strong></li>
+<li>向上翻页：<strong>ctrl + b</strong></li>
+<li>向下翻页：<strong>ctrl + f</strong></li>
+</ul>
+</li>
+<li>
+复制粘贴
+<ul>
+<li>复制当前行:<strong>yy</strong></li>
+<li>往下复制指定行：<strong>数字yy</strong></li>
+<li>粘贴：<strong>p</strong></li>
+<li>自定义复制：<strong>ctrl + v，然后上下左右键选择复制内容</strong></li>
+</ul>
+</li>
+<li>
+剪切/删除
+<ul>
+<li>剪切后粘贴就是剪切，不粘贴就是删除： <strong>dd</strong></li>
+<li>往下剪切几行： <strong>数字dd</strong></li>
+<li>剪切一行不往上移动： <strong>D</strong></li>
+</ul>
+</li>
+<li>
+撤销/恢复
+<ul>
+<li>撤销： <strong>u</strong></li>
+<li>恢复： <strong>ctrl + r</strong></li>
+</ul>
+</li>
+<li>
+光标移动扩展： 
+<ul>
+<li>移动到第几行： <strong>数字G</strong></li>
+<li>向上/下移动指定行数： <strong>数字 + 方向上/下键</strong></li>
+<li>向左/右移动指定行数： <strong>数字 + 方向左/右键</strong></li>
+<li>末行模式中输入数字然后回车光标就到了指定的行数</li>
+</ul>
+</li>
+</ul>
+<h1><strong>2.模式之间的切换</strong></h1>
+<ul>
+<li><img src="./img/12.png" /></li>
+<li>
+命令模式-&gt;末行模式
+<ul>
+<li>进入：<strong>shift + ：</strong></li>
+<li>退出：<strong>按一下esc或者按两下或者删除末行中所有内容</strong></li>
+</ul>
+</li>
+</ul>
+<h1><strong>3.编辑模式</strong></h1>
+<ul>
+<li>
+进入方式：
+<ul>
+<li><img src="./img/14.png" /></li>
+<li>记住前两个<strong>i，a。退出是按esc</strong></li>
+</ul>
+</li>
+</ul>
+<h1><strong>4.末行模式</strong></h1>
+<ul>
+<li>
+保存
+<ul>
+<li>保存： <strong>:w</strong></li>
+<li>另存为： <strong>:w + 空格 + 路径</strong></li>
+<li>退出： <strong>q</strong></li>
+<li>保存并退出： <strong>：wq</strong></li>
+<li>强制退出： <strong>!</strong></li>
+<li>调用外部命令： <strong>! + 直接在末行模式中输入外部命令</strong></li>
+</ul>
+</li>
+<li>
+查找/搜索
+<ul>
+<li><strong>/ + 关键词</strong></li>
+<li>在查找结果中，光标在结果中上/下移动： <strong>N/n</strong></li>
+<li>取消高亮： <strong>nohl(no height light)</strong></li>
+</ul>
+</li>
+<li>
+替换
+<ul>
+<li>输入<strong>s/要替换的/新代替的</strong>(只会替换光标所在行符合条件的第一个)</li>
+<li>输入<strong>s/要替换的/新代替的/g</strong>(会替换光标所在行符合条件的所有选项)</li>
+<li>输入<strong>%s/要替换的/新代替的/</strong>(会替换整个文件符合条件的行的第一个)</li>
+<li>输入<strong>%s/要替换的/新代替的/g</strong>(会替换整个文件中所有符合条件的)</li>
+</ul>
+</li>
+<li>
+显示行号
+<ul>
+<li><strong>set nu(number)</strong></li>
+<li>不显示行号： <strong>set nonu</strong></li>
+</ul>
+</li>
+<li>
+扩展
+<ul>
+<li>
+查看使用vim打开的多个文件： <strong>files</strong>
+<ul>
+<li><img src="./img/13.png" /></li>
+<li><strong>%a表示当前打开的文件</strong></li>
+<li><strong>#表示上一次打开的文件</strong></li>
+</ul>
+</li>
+<li>
+切换文件
+<ol>
+<li>打开文件：<strong>open 同时打开的文件名</strong></li>
+<li>切换文件上一个：<strong>bp(back previous)</strong></li>
+<li>切换文件下一个：<strong>bn(back next)</strong></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h1><strong>5.实用功能</strong></h1>
+<ul>
+<li>
+控制代码着色
+<ul>
+<li>打开代码着色：<strong>syntzx(语法) on</strong>	</li>
+<li>关闭代码着色：<strong>syntzx(语法) off</strong>	</li>
+</ul>
+</li>
+<li>
+vim中计算器的使用
+<ul>
+<li><img src="./img/15.png" /></li>
+</ul>
+</li>
+</ul>
+<h1><strong>6.扩展</strong></h1>
+<ul>
+<li>
+vim的配置有三种
+<ul>
+<li>临时配置文件</li>
+<li>个人配置文件(~/.vimrc)</li>
+<li>全局配置文件(/etc/vimrc)</li>
+</ul>
+</li>
+<li>
+永久设置行数
+<ul>
+<li><strong>创建一个个人配置文件，用编辑模式输入set nu然后切换到末行模式，然后wq保存就可以了</strong></li>
+<li>优先级： <strong>个人配置文件&gt;全局配置文件</strong></li>
+</ul>
+</li>
+<li>
+解决异常退出
+<ul>
+<li>把交换(临时)文件(ls -a命令中以.开头以.swp结尾的文件就是临时文件)删除即可</li>
+</ul>
+</li>
+<li>
+别名机制：<strong>作用是给命令起别名，类似创建自己的命令</strong>
+<ul>
+<li><img src="./img/16.png" /></li>
+<li>先打开<strong>~/.bashrc目录</strong>，上面是格式，cls是自己写的别名，<strong>要生效的话必须重新登录或重启</strong></li>
+</ul>
+</li>
+<li>
+退出方式
+<ul>
+<li><strong>:x(小写)</strong>：融合了：q跟：wq的功能，也是保存退出</li>
+<li><strong>:X(大写)</strong>：大写是加密文件</li>
+</ul>
+</li>
+</ul>
+<h1>6.linux的自有模式</h1>
+<ul>
+<li>介绍： 就是不用安装软件就能使用的(内置的)服务</li>
+</ul>
+<h2><strong>1.运行模式(运行级别)</strong></h2>
+<ul>
+<li>
+<img src="./img/17.png" />
+<ul>
+<li>上图是/etc/inittab文件中的主要内容，在centos6.5中有7种隔离级别(需要root权限)</li>
+<li><strong>0：</strong>是关机级别(不要将默认运行级别设置成0)</li>
+<li><strong>1：</strong>是单用户模式</li>
+<li><strong>2：</strong>多用户模式，不带NFS(Network File System)</li>
+<li><strong>3：</strong>完整的多用户模式</li>
+<li><strong>4：</strong>没有被使用的模式(保留模式)</li>
+<li><strong>5：</strong>X11就是完整的图形化界面</li>
+<li><strong>6：</strong>表示重启级别(不要将默认运行级别设置成6)</li>
+<li>
+相关命令：
+<ul>
+<li><strong>init 0</strong>：表示关机</li>
+<li><strong>init 3</strong>：切换到不带桌面的模式(纯命令模式下)</li>
+<li><strong>init 5</strong>：表示切换到图形化界面</li>
+<li><strong>init 6</strong>：表示重启</li>
+</ul>
+</li>
+<li>其实都是调用init进程，然后传一个运行级别数字过去，然后执行</li>
+</ul>
+</li>
+<li>
+运行init 3指令进入纯命令模式(临时切换，重启后有恢复到图形化界面)
+<ul>
+<li><img src="./img/18.png" /></li>
+<li>退回到图形化界面就是<strong>init 5</strong></li>
+</ul>
+</li>
+<li>
+设置为永久命令行模式
+<ul>
+<li>就是把<strong>/etc/inittab</strong>中的init5改成init3即可</li>
+</ul>
+</li>
+</ul>
+<h2><strong>2.用户与用户组管理(重点)</strong></h2>
+<ul>
+<li>
+要实现的功能
+<ul>
+<li>用户账号的添加，删除，修改及用户密码的管理</li>
+<li>用户组的管理</li>
+</ul>
+</li>
+<li>
+三个要注意的文件
+<ul>
+<li><strong>/etc/passwd:</strong>存储用户的信息</li>
+<li><strong>/etc/group:</strong>存储用户组信息</li>
+<li><strong>/etc/shadow:</strong>存储用户密码信息</li>
+</ul>
+</li>
+<li>
+添加用户
+<ul>
+<li>语法： <strong>useradd 选项 用户名</strong></li>
+<li>
+常用选项： 
+<ul>
+<li><strong>-g:</strong>就是可以给用户指定用户主组，选项的值是用户组id或者用户组名</li>
+<li><strong>-G:</strong>就是可以给用户指定用户附加组，选项的值是用户组id或者用户组名</li>
+<li><strong>-u:</strong>就是uid(用户的标注)，用户的id</li>
+<li><strong>-c:</strong>添加注释</li>
+</ul>
+</li>
+<li>
+案例： 创建用户张三并检测是否创建成功
+<ul>
+<li><img src="./img/19.png" /></li>
+<li>第二种方式是查看是否存在家目录，<strong>ls /home/</strong>(因为用户创建好会在家目录创建一个同名的文件夹)</li>
+</ul>
+</li>
+<li>
+扩展：了解一下passwd文件内容
+<ul>
+<li>
+<img src="./img/20.png" />
+<ul>
+<li>zhangsan是用户名： 创建的新用户的名称，后期登录需要用到</li>
+<li>x是密码：表示密码的占位</li>
+<li>第一个501是用户id：用户的识别符</li>
+<li>第二个501是用户组id：该用户所属的主组</li>
+<li>：：是注释： 解释该用户是干嘛用的</li>
+<li>/home/zhangsan：这个家目录的路径</li>
+<li>/bin/bash是解释器 shell：收集用户的命令，传递给内核处理</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+案例： 创建一个用户组为501，用户id为666，用户附属组为500的名为lisi的用户
+<ul>
+<li><img src="./img/21.png" /></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+修改用户
+<ul>
+<li>语法： <strong>usermod 选项 用户名</strong></li>
+<li>
+常用选项：
+<ul>
+<li><strong>-g:</strong>就是可以给用户指定用户主组，选项的值是用户组id或者用户组名</li>
+<li><strong>-G:</strong>就是可以给用户指定用户附加组，选项的值是用户组id或者用户组名</li>
+<li><strong>-u:</strong>就是uid(用户的标注)，用户的id</li>
+<li><strong>-l：</strong>表示修改用户名</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+设置密码
+<ul>
+<li>语法： <strong>passwd 用户名</strong></li>
+<li>切换用户命令： <strong>su [用户名]</strong>(用户名不填就是默认切换到root用户)</li>
+</ul>
+</li>
+<li>
+删除用户
+<ul>
+<li>语法： <strong>userdel 选项 用户名</strong></li>
+<li>
+常用选项： 
+<ul>
+<li><strong>-r：</strong>表示在删除用户的时候同时将其家目录也删除</li>
+</ul>
+</li>
+<li>
+如何删除已经登录的用户
+<ul>
+<li>找到登录用户的进程，然后把父进程杀掉，<strong>kill 父进程id</strong>，然后在执行userdel</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+用户组管理
+<ul>
+<li>作用：用来集中管理用户，对用户组进行添加，修改，删除等操作</li>
+<li><img src="./img/22.png" /></li>
+<li>
+文件结构：
+<ul>
+<li>用户组名：密码占位符：用户组id： 组内用户(asdf)</li>
+</ul>
+</li>
+<li>
+添加用户组
+<ul>
+<li>语法： <strong>groupadd 选项 用户组名</strong></li>
+<li>常用选项：<strong>-g</strong>，用户组id，不指定就从500开始递增</li>
+</ul>
+</li>
+<li>
+修改用户组
+<ul>
+<li>语法： <strong>groupmod 选项 用户组名</strong></li>
+<li>
+常用选项： 
+<ul>
+<li><strong>-g：</strong>用户组id，不指定就从500开始递增</li>
+<li><strong>-n：</strong>用来设置用户组的名称</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+删除用户组
+<ul>
+<li>语法： <strong>groupdel 用户组名</strong></li>
+<li>细节： 当要删除的组中有用户，则不能删除，一定要删除就要先移除用户</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><strong>3.网络设置</strong></h2>
+<ul>
+<li>
+<img src="./img/23.png" />
+<ul>
+<li>上面是网卡配置文件的路径，这里面都是网卡，网卡的命名规范： <strong>ifcfg-网卡名</strong></li>
+<li><img src="./img/24.png" /></li>
+<li>
+扩展
+<ul>
+<li>
+重启网卡的两条命令(重启全部网卡)：
+<ol>
+<li><strong>service network restart</strong></li>
+<li><strong>/etc/init.d/network restart(通用性比较强，/etc/init.d下方的都是对服务的快捷方式)</strong></li>
+</ol>
+</li>
+<li>创建快捷方式的命令：<strong>ln -s 原始文件路径 快捷方式路径</strong>，然后就可以通过修改快捷方式来修改文件了</li>
+<li>
+重启单个网卡：
+<ul>
+<li>1. 停止某个网卡： <strong>ifdown</strong></li>
+<li>2. 启动某个网卡： <strong>ifup</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><strong>4.ssh服务</strong></h2>
+<ul>
+<li>
+ssh(secure shell，安全外壳协议)
+<ul>
+<li><strong>有两个作用，远程连接协议(主要作用)，远程文件上传协议</strong></li>
+<li><strong>协议使用端口默认是22</strong>，如需修改，则要修改ssh的配置文件(路径为：<strong>/etc/ssh/ssh_config</strong>)</li>
+<li>
+<img src="./img/25.png" />
+<ul>
+<li>上图中<strong>prot就是端口号</strong>，<strong>取值范围： 0-65535(两位十六进制的最大值)</strong></li>
+<li>端口的值不能占用别的服务已经占用的端口</li>
+</ul>
+</li>
+<li>
+服务的重启
+<ol>
+<li><strong>service shhd start/stop/restart</strong></li>
+<li><strong>/etc/init.d/sshd start/stop/restart</strong></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+远程终端
+<ul>
+<li>用来远程连接的常用软件有，Xshell,Putty,secureCRT,以putty为例</li>
+<li>1.先用<strong>ifconfig</strong>命令检查IP地址，然后顺手测试一下通不通   
+</li>
+<li><img src="./img/26.png" /></li>
+<li>2. 打开putty，输入相关的信息</li>
+<li><img src="./img/27.png" /></li>
+<li>
+<img src="./img/28.png" />
+<ul>
+<li>这里也是一样输入root，密码不会显示，输入后回车即可</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+ssh服务文件传输
+<ul>
+<li>1. 要安装的软件： <strong>FileZilla</strong></li>
+<li>步骤1：选择文件-&gt;站点管理器</li>
+<li><img src="./img/29.png" /></li>
+<li>步骤2： </li>
+<li><img src="./img/30.png" /></li>
+<li>连接成功截图</li>
+<li><img src="./img/31.png" /></li>
+<li>步骤三：从windows本低上传文件到linux中，直接在windows中把文拖拽到linux区域，也可以右键本地文件，然后点击上传，从linux下载也是一样，从linux推拽过来即可</li>
+<li>
+扩展：通过命令行传输文件
+<ul>
+<li>工具： <strong>PSCP(只能通过命令行打开)</strong>，为了 使用方便，加入到环境变量，成功截图如下</li>
+<li><img src="./img/32.png" /></li>
+<li>
+用法
+<ul>
+<li><strong>1. pscp 选项 用户名@ linux主机地址:资源路径 windows本地地址(下载到windows)</strong></li>
+<li><strong>2. pscp 选项 资源路径 用户名@linux主机地址：远程地址(上传到linux)</strong></li>
+<li><strong>3. pscp 选项 ls 用户名@linux主机地址(列出远程路径下结构)</strong></li>
+</ul>
+</li>
+<li>
+下载到本地windows(把linux中/etc下的所有文件下载到windows下的G：/tmp目录下)
+<ul>
+<li>命令：<em><em>pscp -r root@192.168.6.129:/etc/</em> G:\tmp</em>*</li>
+<li><img src="./img/33.png" /> </li>
+</ul>
+</li>
+<li>
+上传文件到linux(把G：/tmp上传到linux中root目录下)
+<ul>
+<li>命令： <strong>pscp -r G:\tmp root@192.168.6.129:/root</strong>，如果路径中包含空格，则需要用<strong>&quot;&quot;</strong>括起来</li>
+<li><img src="./img/34.png" /> </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><strong>5.设置主机名</strong></h2>
+<ul>
+<li>临时修改主机名的语法： <strong>hostname 要设置的主机名</strong></li>
+<li>
+永久设置主机名(需要重启)：
+<ul>
+<li>主机名的配置文件路径： <strong>/etc/sysconfig/network</strong> ，修改其中的hostname即可</li>
+<li>
+但是想让hostname -f命令生效还需要修改linux的hosts文件，让他指向本地(设置一个FQDN)，路径： <strong>etc/hosts</strong>
+<ul>
+<li><img src="./img/35.png" /> </li>
+<li>把设置的aaa加到里面</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>设置FQDN步骤总结： 先设置临时的-&gt; 在设置永久的 (改配置文件) -&gt; 添加一个只指向(修改/etc/hosts文件)</li>
+</ul>
+<h2><strong>6.chkconfig</strong></h2>
+<ul>
+<li>作用：用做开机启动项的管理</li>
+<li>
+1.查看开机启动项
+<ul>
+<li>语法： <strong>chkconfig --list</strong>，其中0-6代表运行级别，在哪个运行级别下是否启用(on)/关闭(off),为关闭则是开机不启动</li>
+<li><img src="./img/36.png" /> </li>
+</ul>
+</li>
+<li>
+2.删除服务
+<ul>
+<li>命令： <strong>chkconfig --del 服务名</strong>，以删除httpd为例子</li>
+<li><img src="./img/37.png" /> </li>
+</ul>
+</li>
+<li>
+<ol>
+<li>添加开机启动服务</li>
+<li>命令： <strong>chkconfig --add 服务名</strong></li>
+<li><img src="./img/38.png" /> </li>
+</ol>
+</li>
+<li>
+4.设置某个服务在某个运行级别下启动/关闭
+<ul>
+<li>命令： <strong>chkconfig --level(级别的意思) 35 服务名 on/off(启动/不启动)</strong>，35的意思是在运行级别3和5下启动服务</li>
+<li><img src="./img/39.png" /></li>
+</ul>
+</li>
+</ul>
+<h2><strong>7.ntp服务</strong></h2>
+<ul>
+<li>作用： 对计算机的时间进行同步管理</li>
+<li>
+一次性同步时间(手动同步时间): 
+<ul>
+<li>命令： <strong>ntpdate 上游服务器的 ip或域名</strong></li>
+<li>上游时间服务器的网址： <strong>http://ntp.org.cn/pool.php</strong></li>
+<li><img src="./img/40.png" /></li>
+</ul>
+</li>
+<li>
+自动设置时间同步(设置时间同步服务)
+<ul>
+<li>服务名： <strong>ntpd</strong></li>
+<li>启动服务： <strong>service ntpd start</strong>启动服务即可，然后设置成开机自启： <strong>chkconfig --level 35 ntpd on</strong></li>
+</ul>
+</li>
+</ul>
+<h2><strong>8. 防火墙服务</strong></h2>
+<ul>
+<li>作用： 防止网络攻击</li>
+<li>当前centos系统中防火墙名称： <strong>iptables</strong>(centos7.x版本中名为:<strong>firewalled</strong>)</li>
+<li>
+1.查看是否开机自启
+<ul>
+<li><img src="./img/41.png" /></li>
+</ul>
+</li>
+<li>
+2.对iptables进行启动/关闭操作
+<ul>
+<li>命令： <strong>service iptables start/stop/restart</strong></li>
+<li><img src="./img/42.png" /></li>
+</ul>
+</li>
+<li>
+3.查看iptables的状态(规则)
+<ul>
+<li>命令： <strong>service iptables status</strong></li>
+<li><img src="./img/43.png" />	</li>
+</ul>
+</li>
+<li>
+4.查看防火墙规则的命令
+<ul>
+<li><strong>iptables -L -n</strong></li>
+<li><strong>-L：</strong>表示列出规则</li>
+<li><strong>-n：</strong>表示把字母变成数字显示</li>
+</ul>
+</li>
+<li>
+5.简单设置防火墙规则
+<ul>
+<li>
+命令 ： <strong>iptables -I INPUT -p tcp --dport 80 -j ACCEPT</strong>
+<ul>
+<li><strong>iptables：</strong>主命令</li>
+<li><strong>-I：</strong>add，添加规则(如果使用的是-A，则会把规则添加到末尾，使用-I则会添加到行首)</li>
+<li><strong>input：</strong>进站请求，(出站请求ouput)</li>
+<li><strong>-p：</strong>protocol，指定协议(tcp/icmp/udp)</li>
+<li><strong>--dport：</strong>指定端口号</li>
+<li><strong>-j：</strong>指定行为结果，允许(accept)/禁止(reject)</li>
+</ul>
+</li>
+<li>执行后需要保存命令： <strong>/etc/init.d/itables save</strong></li>
+<li><img src="./img/44.png" />	</li>
+</ul>
+</li>
+</ul>
+<h2><strong>9.rpm管理</strong></h2>
+<ul>
+<li>作用： 对linux系统上的软件进行安装，卸载，查询</li>
+<li>
+1.查询
+<ul>
+<li>
+命令： <strong>rpm -qa(queryAll的缩写) | grep 关键词</strong>
+<ul>
+<li><strong>-q：</strong>表示查询</li>
+<li><strong>-a：</strong>表示全部</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+2.卸载
+<ul>
+<li><strong>rpm -e 软件名称</strong></li>
+<li>
+删除火狐是没有依赖关系，但是删除httpd(apache)的时候有依赖关系，忽略依赖关系直接删除
+<ul>
+<li><strong>rpm -e 软件名称 --nodeps</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+3.安装
+<ul>
+<li>查看块状设备的信息： <strong>lsblk(list block devices)</strong> </li>
+<li><img src="./img/45.png" /></li>
+<li>
+扩展： 光盘的挂载与解挂
+<ul>
+<li>
+解挂：
+<ul>
+<li>命令： <strong>umount</strong></li>
+<li>语法： <strong>umount 挂载路径</strong></li>
+<li><img src="./img/46.png" /></li>
+</ul>
+</li>
+<li>
+挂载： 
+<ul>
+<li>命令： <strong>mount</strong></li>
+<li>
+语法： <strong>mount 文件的原始路径 要挂载的位置</strong>
+<ul>
+<li>设备原始地址： <strong>/dev/sr0</strong></li>
+<li>挂载的地址(一般情况都是这个)：<strong>/mnt</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="./img/47.png" /></li>
+</ul>
+</li>
+<li>
+安装的命令： <strong>rpm -ivh 软件的完整名称</strong>
+<ul>
+<li><strong>-i:</strong>install，下载</li>
+<li><strong>-v:</strong>显示进度条</li>
+<li><strong>-h:</strong>表示以#代表进度条</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><strong>10.cron/crontab任务计划</strong></h2>
+<ul>
+<li>作用： 24小时值守</li>
+<li>
+命令： <strong>crontab 选项</strong>
+<ul>
+<li><strong>-l：</strong>list，列出指定用户的计划列表</li>
+<li><strong>-e：</strong>edit,修改指定用户的计划列表</li>
+<li><strong>-u：</strong>user，不指定用户就代表是当前用户</li>
+<li><strong>-r：</strong>remove，删除指定用户的计划列表</li>
+</ul>
+</li>
+<li>
+查询有无计划列表
+<ul>
+<li><img src="./img/48.png" /></li>
+</ul>
+</li>
+<li>
+修改计划列表(重点)
+<ul>
+<li>计划任务的规则语法格式： 以行为单位，一行就是一个计划</li>
+<li><strong>分 时 日 月 周 需要执行的命令</strong>(格式)</li>
+<li>例如：每天0点0分执行reboot命令就是： <strong>0 0 * * * reboot</strong>(没指定就是*)</li>
+<li>
+取值范围
+<ul>
+<li>分：0-59</li>
+<li>时：0-23</li>
+<li>日：1-31</li>
+<li>月：1-12</li>
+<li>周：0-6，0表示星期天</li>
+</ul>
+</li>
+<li>
+四个符号
+<ul>
+<li>*：表示全部，取值范围里的每一个数字</li>
+<li>-：做区间表达式，加入要表示1~7，就写成1-7</li>
+<li>/：表示每多少，例如1m/s，加入想十分钟执行一个命令，就在分的位置写*/10</li>
+<li>,：表示多个取值，假如想在2点，6点的时候执行命令，就可以在点的位置写2,6</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+案例： 
+<ol>
+<li>每月的1，10，22日的4：45重启network服务：45 4 1,10,22 * * service network restart</li>
+<li>每周六周日的1：10重启network服务： 10 1 * * 0,6 service network restart</li>
+<li>每天18：00到23：00之间每隔30分钟重启network服务： */30 18-23  * * * /etc/init.d/network</li>
+<li>每隔两天的上午8点到11点的第3和第15分钟重启network服务：3,15 8-11 */2 * * service network restart</li>
+<li>每5秒中往root家目录的RT.txt文件中输入当前时间信息，使用追加输出</li>
+</ol>
+</li>
+<li>
+crontab的权限问题
+<ul>
+<li>本身是任何用户都可以创建自己的计划任务，超级管理员可以设置不让某些用户创建计划任务</li>
+<li>配置文件路径： <strong>etc/cron.deny(黑名单)</strong> ，在里面写用户名，一行一个，写了就没有权限了</li>
+<li><img src="./img/50.png" /></li>
+<li><img src="./img/49.png" /></li>
+<li>另一个配置文件路径:<strong>/etc/allow(白名单)</strong>,（本身不存在，自己创建）</li>
+<li>优先级： <strong>白名单 &gt; 黑名单</strong></li>
+</ul>
+</li>
+</ul>
+<h2><strong>11.权限管理操作</strong></h2>
+<ul>
+<li>
+linux系统一般将文件可存/取/访问的身份分为三个类别： owner， group， others且三种身份各有read(读)，write(写)，execute(执行)等权限
+<ul>
+<li>
+读权限： 
+<ul>
+<li>对文件夹来说，读权限影响用户是否能够列出目录结构</li>
+<li>对文件来说，影响用户是否可以查看文件内容</li>
+</ul>
+</li>
+<li>
+写权限：
+<ul>
+<li>对文件夹来说，影响文件夹的创建/删除/移动/复制文档</li>
+<li>对文件来说，影响文件是否可以编辑</li>
+</ul>
+</li>
+<li>
+执行权限： 
+<ul>
+<li>一般都是对文件来说，特别是脚本文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+身份介绍
+<ul>
+<li>
+Owner身份(文件所有者，默认是文档的创建者)
+<ul>
+<li>除文件所有者外其他人无法查看</li>
+</ul>
+</li>
+<li>
+Group身份(与文件所有者同组的用户)
+<ul>
+<li>多个团队在同一台主机上 工作时，a组不能查看b组</li>
+</ul>
+</li>
+<li>
+Others身份(其他人)
+<ul>
+<li>例如： 大明有一套房子，里面住着大明(owner)和二明(group)，然后有个外人张三 ，张三(others)就是others身份</li>
+</ul>
+</li>
+<li>Root用户(超级管理员)</li>
+</ul>
+</li>
+<li>
+权限介绍
+<ul>
+<li><strong>ls -l(等价于ll)</strong></li>
+<li><img src="./img/51.png" /></li>
+<li><img src="./img/52.png" /></li>
+<li>
+十位字符的含义(都是rwx三个参数的组合，且顺序不变)
+<ul>
+<li>第一位表示文档类型，”-“表示文件，”d“表示文件夹，”l“表示软连接，”s“表示套接字</li>
+<li>
+<strong>2-4位表示文档所有者的权限情况(owner)</strong>
+<ol>
+<li>第二位表示读权限的情况，取值有<strong>r(可读)，-(没有权限)</strong></li>
+<li>第三位表示写权限的情况，取值有<strong>w(可修改)，-(没有权限)</strong></li>
+<li>第四位表示执行权限的情况，取值有<strong>x(可执行)，-(没有权限)</strong></li>
+</ol>
+</li>
+<li>
+<strong>5-7位表示与文件所有者同在一个组的权限情况(group)</strong>
+<ol>
+<li>第五位表示读权限的情况，取值有<strong>r(可读)，-(没有权限)</strong></li>
+<li>第六位表示写权限的情况，取值有<strong>w(可修改)，-(没有权限)</strong></li>
+<li>第七位表示执行权限的情况，取值有<strong>x(可执行)，-(没有权限)</strong></li>
+</ol>
+</li>
+<li>
+<strong>8-10位表示其他人的权限(others)</strong>
+<ol>
+<li>第八位表示读权限的情况，取值有<strong>r(可读)，-(没有权限)</strong></li>
+<li>第九位表示写权限的情况，取值有<strong>w(可修改)，-(没有权限)</strong></li>
+<li>第十位表示执行权限的情况，取值有<strong>x(可执行)，-(没有权限)</strong></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+权限设置
+<ul>
+<li><strong>chmod 选项 权限模式 文档</strong></li>
+<li>
+注意事项(字母形式)： 
+<ul>
+<li>常用选项： <strong>-R</strong>，表示递归设置权限</li>
+<li>权限模式： 就是该文件需要设置的文件信息</li>
+<li>文档： 可以是文件或文件夹</li>
+<li>注意点：如果要给文档设置权限，他必须是文档所有者 或者root用户</li>
+</ul>
+</li>
+<li>
+<img src="./img/53.png" />
+<ul>
+<li>
+给谁设置： 
+<ul>
+<li><strong>u：</strong>表示user，就是文件所有者(owner)</li>
+<li><strong>g:</strong>表示所有者的同组用户(group)</li>
+<li><strong>o:</strong>表示其他用户(others)</li>
+<li><strong>a:</strong>表示给所有用户设置权限，(设置权限时不指定用户则默认给所有用户设置)</li>
+</ul>
+</li>
+<li>
+权限分配方式：
+<ul>
+<li><strong>+：</strong>表示给用户新增权限</li>
+<li><strong>-：</strong>给用户删除权限</li>
+<li><strong>=：</strong>表示将权限设置成具体的值</li>
+</ul>
+</li>
+<li>
+权限字符：
+<ul>
+<li><strong>r:</strong>可读</li>
+<li><strong>w:</strong>可写</li>
+<li><strong>x:</strong>可执行</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="./img/54.png" /></li>
+<li>
+数字形式：
+<ul>
+<li><img src="./img/55.png" /></li>
+<li>语法： <strong>chmod 选项 数字(777) 文档</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+注意事项
+<ul>
+<li>使用root权限创建一个文件夹的权限如下</li>
+<li><img src="./img/56.png" /></li>
+<li>然后在oo里创建a.txt，给a.txt777的权限</li>
+<li><img src="./img/57.png" /></li>
+</ul>
+</li>
+<li>
+属主与属组设置
+<ul>
+<li>属主：所属的主人(文件的主人)</li>
+<li>属组：所属的用户组</li>
+<li><img src="./img/58.png" /></li>
+<li>
+如果有时候要删除用户时，就要修改其对应的属主和属组信息
+<ul>
+<li>
+1.chown
+<ul>
+<li>作用： 更改文档的所属用户</li>
+<li>语法： <strong>chown -R username 文档路径</strong></li>
+<li><img src="./img/59.png" /></li>
+</ul>
+</li>
+<li>
+2.chgrp
+<ul>
+<li>作用： 更改文档所属用户组</li>
+<li>语法： <strong>chgrp -R groupname 文档路径</strong></li>
+<li><img src="./img/60.png" /></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>把两个命令合二为一： <strong>chown -R username：groupname 文档路径</strong></li>
+</ul>
+</li>
+<li>
+扩展
+<ul>
+<li><img src="./img/61.png" /></li>
+<li>Sudo配置文件路径： <strong>/etc/sudoers</strong></li>
+<li>a.配置sudo文件要使用<strong>visudo</strong>，使用方法和vim一致</li>
+<li>b.配置普通用户权限</li>
+<li><img src="./img/62.png" /></li>
+<li>
+<img src="./img/63.png" />
+<ul>
+<li>这里建议写指令的路径，查看指令路径的命令是： <strong>which 指令名称</strong></li>
+</ul>
+</li>
+<li><img src="./img/64.png" /></li>
+<li>然后切换用户asdf执行指令会报错原因是前面没有加<strong>sudo</strong></li>
+<li><img src="./img/65.png" /></li>
+<li>普通用户怎么查看自己可执行的指令： <strong>sudo -l</strong></li>
+<li><img src="./img/66.png" /></li>
+</ul>
+</li>
+</ul>
+<h1><strong>7.linux的网络基础</strong></h1>
+<h2><strong>1.网络相关命令</strong></h2>
+<ul>
+<li>
+<strong>ping：</strong>检测当前主机和目标主机之间的连通性(不是百分百准确)
+<ul>
+<li>语法： <strong>ping 主机地址(ip地址，主机名，域名)</strong></li>
+<li>测试与百度之间的通信</li>
+<li><img src="./img/67.png" /></li>
+</ul>
+</li>
+<li>
+<strong>netstat：</strong>查看网络的来连接信息
+<ul>
+<li>
+语法一： <strong>netstat -tnlp</strong>
+<ul>
+<li><strong>-t:</strong>表示tcp协议</li>
+<li><strong>-n:</strong>将字母转换成数字</li>
+<li><strong>-l:</strong>列出状态为监听</li>
+<li><strong>-p:</strong>显示进程相关信息</li>
+</ul>
+</li>
+<li>
+语法二： <strong>netstat -an</strong>
+<ul>
+<li><strong>-a:</strong>表示全部</li>
+<li><strong>-n:</strong>将字母转换成数字</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong>traceroute：</strong>查找当前主机和目标主机之间的所有网关
+<ul>
+<li>语法： <strong>traceroute 主机地址</strong></li>
+<li>window也有这个命令： <strong>tracert</strong></li>
+<li>在线工具网址： <strong>http://tool.chinaz.com/map.aspx</strong></li>
+</ul>
+</li>
+<li>
+<strong>arp：</strong>查看本地缓存mac表，在window下同样适用
+<ul>
+<li><img src="./img/68.png" /></li>
+<li>语法： <strong>arp -a</strong></li>
+<li>删除指定的缓存记录： <strong>arp -d 主机地址</strong></li>
+<li><img src="./img/69.png" /></li>
+</ul>
+</li>
+<li>
+<strong>tcpdump(了解)：</strong>用来抓包的
+<ul>
+<li><img src="./img/70.png" /></li>
+<li>
+语法：
+<ul>
+<li><strong>tcpdump 协议 port 端口</strong></li>
+<li><strong>tcpdump 协议 port 端口 host 地址</strong></li>
+<li><strong>tcpdump -i 网卡设备名</strong> </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><strong>2.shell基础</strong></h2>
+<h3>shell入门</h3>
+<ul>
+<li>
+<p>编写规范：</p>
+<pre><code>#!bin/bash:指定告知系统当前这个脚本要使用的shell(解释器)
+Shell相关指令
+</code></pre>
+
+</li>
+<li>文件命名规范：<strong>文件名.sh</strong>(.sh就是后缀)</li>
+<li>
+使用流程: 
+<ul>
+<li>1.先创建一个.sh文件： touch /vin.sh</li>
+<li>2.编写shell代码</li>
+<li>3.执行shell脚本: 要有执行权限</li>
+</ul>
+</li>
+<li>
+案例： 用shell简本输出hellow world
+<ul>
+<li>输出命令： <strong>echo 内容</strong>(内容就是要输出的文字)</li>
+<li>注意： 如果输出的内容种包含字母和数字，则需要用引号包起来</li>
+<li><img src="./img/71.png" /></li>
+<li><img src="./img/72.png" /></li>
+</ul>
+</li>
+<li>
+案例二：使用root用户创建并执行test2.sh，实现创建一个shelltest用户，并在其家目录中新建try.html
+<ul>
+<li><img src="./img/73.png" /></li>
+<li>脚本执行的另一种方式： <strong>/bin/bash 脚本的路径</strong></li>
+</ul>
+</li>
+</ul>
+<h3>shell进阶</h3>
+<ul>
+<li>
+变量：
+<ul>
+<li>定义： <strong>name=&quot;aaa&quot;</strong></li>
+<li>使用： <strong>echo $name</strong></li>
+<li><img src="./img/74.png" /></li>
+<li>双引号能识别变量和实现转义(例如*，加个\就变成了乘法的意思*)，单引号不行</li>
+<li>案例：定义一个变量，输出当前时间</li>
+<li><img src="./img/75.png" /></li>
+<li>反引号： <strong>`</strong>，当在脚本中需要执行外部命令并且赋值给变量时，要用反引号括起来</li>
+</ul>
+</li>
+<li>
+只读变量： <strong>readonly 变量名</strong>
+<ul>
+<li><img src="./img/76.png" /></li>
+</ul>
+</li>
+<li>
+接受用户输入：
+<ul>
+<li>语法： <strong>read -p 提示信息 变量名</strong></li>
+<li><img src="./img/77.png" /></li>
+</ul>
+</li>
+<li>
+删除变量：
+<ul>
+<li>语法： <strong>unset 变量名</strong></li>
+<li><img src="./img/78.png" /></li>
+</ul>
+</li>
+<li>
+<p>条件判断语句</p>
+<ul>
+<li>
+<p>语法一：<strong>单行写法：if [condition];then command;fi</strong></p>
+<pre><code>if condition(条件)
+then(表示Java中“(”)
+    command1(这里面写指令)
+    command2...
+else 
+    command3
+fi(表示Java中“)”)
+</code></pre>
+
+</li>
+<li>
+<p>语法二： </p>
+<pre><code>if condition1               if () {
+then                            command1
+    command1                } else if () {
+elif condition2                 command2
+then                        } else {
+    command2                    command3                            
+else                        }
+    command3
+fi  
+</code></pre>
+
+</li>
+</ul>
+</li>
+<li>
+运算符
+<ul>
+<li>
+<strong>算数运算符</strong>
+<ul>
+<li><img src="./img/79.png" /></li>
+<li><img src="./img/80.png" /></li>
+</ul>
+</li>
+<li>
+<strong>关系运算符</strong>
+<ul>
+<li><img src="./img/81.png" /></li>
+</ul>
+</li>
+<li>
+<strong>逻辑运算符</strong>
+<ul>
+<li><img src="./img/82.png" /></li>
+</ul>
+</li>
+<li>
+<strong>字符串运算符</strong>
+<ul>
+<li><img src="./img/83.png" /></li>
+</ul>
+</li>
+<li>
+<strong>文件测试运算符</strong>
+<ul>
+<li><img src="./img/84.png" /></li>
+</ul>
+</li>
+<li>
+<strong>shell脚本附带选项</strong>
+<ul>
+<li>
+问题描述： 怎么在shell中处理 tail -n 10 access.log这样的命令行选项？
+<ul>
+<li>1.调用tail指令</li>
+<li>2.系统把后续选项传递给tail</li>
+<li>3.tail先打开指定的文件</li>
+<li>4.然后取最后十行</li>
+</ul>
+</li>
+<li>
+问题：自定义指令
+<ul>
+<li>传递(就是在命令行输入)：<strong>./test.sh a b c</strong></li>
+<li>接受： 在脚本中可以用“$1”来表示a，“$2”表示b</li>
+</ul>
+</li>
+<li>测试： 编写一个shell脚本，传递a b c 并输出其值</li>
+<li><img src="./img/85.png" /></li>
+<li>练习</li>
+<li><img src="./img/86.png" /></li>
+<li><img src="./img/87.png" /></li>
+<li>然后自定义指令吧<strong>./test9.sh</strong>给个别名叫<strong>user</strong>就可以了</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1><strong>8.安装软件</strong></h1>
+<h3>安装ncurses</h3>
+<ul>
+<li>
+<img src="./img/88.png" />
+<ul>
+<li>1.先把软件压缩包上传到服务器</li>
+<li>2.解压</li>
+<li>3.切换到源码文件夹，然后执行后续操作</li>
+<li>
+配置(config/configure/bootstrap) =&gt; 编译(make/bootstrapd) =&gt; 安装(make install/bootstrapd install)
+<ul>
+<li>指定安装路径： <strong>--prefix=路径</strong></li>
+<li><img src="./img/89.png" /></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="./img/90.png" /></li>
+<li><img src="./img/91.png" /></li>
+</ul>
+<h3>安装mysql</h3>
+<ul>
+<li>使用yum安装：<strong>yum install mysql-server</strong></li>
+</ul>
+<h3>初始化mysql</h3>
+<ul>
+<li>1.<strong>service mysqld start</strong></li>
+<li>2.<strong>mysql _ secure _ installation</strong></li>
+<li>3.然后输入mysql中root用户的密码，如果没有就按回车</li>
+</ul>
+<h3>mysql的启动控制</h3>
+<ul>
+<li>语法： <strong>service mysqld start/stop/restart</strong></li>
+<li>进入mysql的方式：<strong>mysql -u用户名 -p</strong></li>
+<li>退出mysql： <strong>exit</strong>或者<strong>ctrl + c</strong></li>
+<li>远程连接mysql： <strong>flush privileges;</strong>(需要先把mysql库中的user表中user名为root的host改成“<strong>%</strong>”)</li>
+</ul>
+<h3>默认目录/文件位置</h3>
+<ul>
+<li>数据库储存目录： <strong>/var/lib/mysql</strong></li>
+<li>配置文件： <strong>/etc/my.cnf</strong></li>
+</ul>
+<h3>mysql基本操作</h3>
+<ul>
+<li><img src="./img/92.png" /></li>
+<li><img src="./img/93.png" /></li>
+</ul>
+<h3>安装nginx</h3>
+<ul>
+<li>官网： <strong>http://nginx.org/</strong></li>
+<li>
+在服务器直接下载： <strong>wget 下载连接</strong>
+<ul>
+<li>下载到/usr/local/pan</li>
+<li>指令： <strong>wget http://nginx.org/download/nginx-1.17.8.tar.gz</strong></li>
+</ul>
+</li>
+<li>然后解压： <strong>tar -zxvf nginx-1.17.8.tar.gz</strong></li>
+<li>
+配置编译安装的时候遇到报错：没有PCRE库
+<ul>
+<li><img src="./img/94.png" /></li>
+<li>解决： 直接yum安装pcre-devel。指令：<strong>yum install pcre-devel</strong></li>
+</ul>
+</li>
+<li>
+然后有报错说缺少zlib
+<ul>
+<li><img src="./img/95.png" /></li>
+<li>解决： <strong>yum install zlib-devel</strong></li>
+</ul>
+</li>
+<li>然后还要下载zlib的压缩包</li>
+<li>最终命令： <strong>./configure --prefix=/usr/local/nginx --with-pcre --with-zlib=/usr/lib</strong></li>
+<li>然后make 和 make install</li>
+<li><img src="./img/96.png" /></li>
+<li><img src="./img/97.png" /></li>
+<li>
+nginx的启动及重载指令
+<ul>
+<li>启动： <strong>安装路径+回车即可(/usr/local/nginx/sbin/nginx)</strong></li>
+<li>重载： <strong>安装路径 -s reload(/usr/local/nginx/sbin/nginx -s reload)</strong></li>
+</ul>
+</li>
+<li>卸载已经安装的软件时需要先停止服务，然后<strong>rm -rf 软件安装目录</strong></li>
+</ul>
+<h3>关于LAMP(Linux + Apache + Mysql + PHP)</h3>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
