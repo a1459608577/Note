@@ -15,7 +15,7 @@
 ##3.Linux系统的文件
 * **Linux一切皆文件**
 * 比较重要的文件夹
-![](./img/1.png)
+![](http://qn.qs520.mobi/76412b1a521d661143a1e21e2625808f.png)
 	* **bin:**全称是binary,含义是二级制，可以被运行
 	* **dev:**一般用于存放外接设备，但是不能直接运行，要先挂载(类似windows的分配盘符)
 	* **etc:**主要存储配置文件
@@ -45,7 +45,7 @@
 			* 常见语法： 
 				* **ls -l 路径:** 以列表的形式显示所有的文件/文件夹
 				* **ls -la路径:** 显示所有的文件/文件(包括隐藏的文件/文件夹)
-		![](./img/2.png)  
+		![](http://qn.qs520.mobi/13bbae74f3d0f0da6df446b57ea113ba.png)  
 
 		红线框起来的第一列表示文件的类型，**'-'表示是文件， 'd'表示是文件夹**，linux中以.开头的都是隐藏文件
 		* 用法四: **ls -lh(-lah) 路径**， 表示指定路径下的指定文件的大小以较高可读性显示 
@@ -57,7 +57,7 @@
 		* **cd ~:**这个命令直接切换到当前用户的家目录(root目录)
 	* **mkdir:**(make directory, 创建目录)，
 		* 语法一：**mkdir 路径**(路径可以包含文件夹名称)
-		* ![](./img/3.png)
+		* ![](http://qn.qs520.mobi/cc5659520f5820919cf19cdaa93b408f.png)
 			* 蓝色代表文件夹，黑色代表文件， 绿色代表所有权限都有
 		* 语法二: **mkdir -p 路径:**假如要在root目录下创建一个文件夹，mkdir /root/a/b/c,此时root中不包含a，b，c文件夹，使用**mkdir 路径**创建不了，加个-p就可以了，这个命令可以一次创建多个不存在的文件夹
 	* **touch:**创建文件
@@ -86,7 +86,7 @@
 * #**进阶指令**	
 	1. **df：**查看磁盘分区
 		* 语法： **df -h**
-		* ![](./img/4.png) 
+		* ![](http://qn.qs520.mobi/6924ae4a8cdb7fc675fd65e4af10583b.png) 
 			* filesystem: 文件系统
 			* size： 大小
 			* used： 使用情况
@@ -95,7 +95,7 @@
 			* mounted on： 挂载在哪里
 	* **free：**查看磁盘使用情况
 		* 语法： **free -m:**(-m表示以m为单位计算大小，不写-m则默认是以kb来计算，也可以使用-g)
-		* ![](./img/5.png) 
+		* ![](http://qn.qs520.mobi/c8c79add85143b2bab6264f89be65af6.png) 
 			* 要看第二行，free是可用内存，真是可用内存为439
 			* swap是临时内存
 	* **head:**作用是查看某个文件的前n行 
@@ -134,10 +134,10 @@
 	* **id：**
 		* 语法一： **id** 输出  
 		
-		![](./img/6.png) 
+		![](http://qn.qs520.mobi/020975ca029ea9e44a7aeff69e299ccf.png) 
 		* 语法二： **id 用户名**，是输出指定用户名的信息  
 		
-		![](./img/7.png)
+		![](http://qn.qs520.mobi/3bf1e65c3669280a02b2257b459829d5.png)
 		* uid是用户id， gid是用户组， 组就是附加组
 		* 验证用户信息： /etc/passwd
 		* 验证用户组信息： /etc/group
@@ -145,14 +145,14 @@
 	 	* 语法一： **whoami** 输出结果： root
 	* **ps -ef:**作用是查看服务器进程
 		* **-e(等价于-A)代表是查看全部进程，-f是显示进程的全字段(就是显示所有列)**
-		![](./img/9.png)
-		![](./img/8.png)
+		![](http://qn.qs520.mobi/eddc31e50a3e7bab76276ac0a6402c71.png)
+		![](http://qn.qs520.mobi/d275ef54c7a33ac8f8942eed867fdbed.png)
 		* 案例：在结果中过滤要找的， **命令：ps -ef|grep 进程名**
 	* **top：**作用是查看服务器进程占用的资源
 		* 语法： **top，按q键退出**
 		
-		![](./img/11.png)
-		![](./img/10.png)
+		![](http://qn.qs520.mobi/85f86809a0ec93871bc10f0664eecb7d.png)
+		![](http://qn.qs520.mobi/a9a65364dbbdedb140dffe95ee428d35.png)
 		* M:在top命令下按M键，根据MEM排序
 		* P:在top命令下按P键，根据%CPU排序
 		* 1:默认显示一个cpu，按1显示所有cpu的使用情况
@@ -251,14 +251,14 @@
 	* 末行模式中输入数字然后回车光标就到了指定的行数
 	
 #**2.模式之间的切换**	 
-* ![](./img/12.png)
+* ![](http://qn.qs520.mobi/ee683c0ec2b1c2090cd5757c2d8cc989.png)
 * 命令模式->末行模式
 	* 进入：**shift + ：**
 	* 退出：**按一下esc或者按两下或者删除末行中所有内容**
 
 #**3.编辑模式**	
 * 进入方式：
-	* ![](./img/14.png)
+	* ![](http://qn.qs520.mobi/5c57a1147f6fcbd16e4e5d2dae5ca2b2.png)
 	* 记住前两个**i，a。退出是按esc**
 
 #**4.末行模式**	
@@ -283,7 +283,7 @@
 	* 不显示行号： **set nonu**
 * 扩展
 	* 查看使用vim打开的多个文件： **files**
-		* ![](./img/13.png)
+		* ![](http://qn.qs520.mobi/db991a713759e336d3880c5a2b9c5987.png)
 		* **%a表示当前打开的文件**
 		* **#表示上一次打开的文件**
 	* 切换文件
@@ -296,7 +296,7 @@
 	* 打开代码着色：**syntzx(语法) on**	
 	* 关闭代码着色：**syntzx(语法) off**	
 * vim中计算器的使用
-	* ![](./img/15.png)
+	* ![](http://qn.qs520.mobi/2c484b02c4db11edec4cfdc7dcf84e09.png)
 
 #**6.扩展**
 * vim的配置有三种
@@ -309,7 +309,7 @@
 * 解决异常退出
 	* 把交换(临时)文件(ls -a命令中以.开头以.swp结尾的文件就是临时文件)删除即可
 * 别名机制：**作用是给命令起别名，类似创建自己的命令**
-	* ![](./img/16.png)
+	* ![](http://qn.qs520.mobi/ed1376241e85bc56a63e456b8573bc89.png)
 	* 先打开**~/.bashrc目录**，上面是格式，cls是自己写的别名，**要生效的话必须重新登录或重启**
 * 退出方式
 	* **:x(小写)**：融合了：q跟：wq的功能，也是保存退出
@@ -320,7 +320,7 @@
 * 介绍： 就是不用安装软件就能使用的(内置的)服务
 
 ##**1.运行模式(运行级别)**
-* ![](./img/17.png)
+* ![](http://qn.qs520.mobi/fc24b1d98c940e19c875c5639a1fc904.png)
 	* 上图是/etc/inittab文件中的主要内容，在centos6.5中有7种隔离级别(需要root权限)
 	* **0：**是关机级别(不要将默认运行级别设置成0)
 	* **1：**是单用户模式
@@ -336,7 +336,7 @@
 		* **init 6**：表示重启
 	* 其实都是调用init进程，然后传一个运行级别数字过去，然后执行
 * 运行init 3指令进入纯命令模式(临时切换，重启后有恢复到图形化界面)
-	* ![](./img/18.png)
+	* ![](http://qn.qs520.mobi/863bcd775a712db3252492c41e3311d5.png)
 	* 退回到图形化界面就是**init 5**
 * 设置为永久命令行模式
 	* 就是把**/etc/inittab**中的init5改成init3即可
@@ -356,10 +356,10 @@
 		* **-u:**就是uid(用户的标注)，用户的id
 		* **-c:**添加注释
 	* 案例： 创建用户张三并检测是否创建成功
-		* ![](./img/19.png)
+		* ![](http://qn.qs520.mobi/89960b38ae2c3a4457aefc3aa29b8908.png)
 		* 第二种方式是查看是否存在家目录，**ls /home/**(因为用户创建好会在家目录创建一个同名的文件夹)
 	* 扩展：了解一下passwd文件内容
-		* ![](./img/20.png)
+		* ![](http://qn.qs520.mobi/9dd49b3a3e842d554749de283ebe875a.png)
 			* zhangsan是用户名： 创建的新用户的名称，后期登录需要用到
 			* x是密码：表示密码的占位
 			* 第一个501是用户id：用户的识别符
@@ -368,7 +368,7 @@
 			* /home/zhangsan：这个家目录的路径
 			* /bin/bash是解释器 shell：收集用户的命令，传递给内核处理
 	* 案例： 创建一个用户组为501，用户id为666，用户附属组为500的名为lisi的用户
-		* ![](./img/21.png)
+		* ![](http://qn.qs520.mobi/d3dfaca86e37fa87f593b75415034d7e.png)
 * 修改用户
 	* 语法： **usermod 选项 用户名**
 	* 常用选项：
@@ -387,7 +387,7 @@
 		* 找到登录用户的进程，然后把父进程杀掉，**kill 父进程id**，然后在执行userdel
 * 用户组管理
 	* 作用：用来集中管理用户，对用户组进行添加，修改，删除等操作
-	* ![](./img/22.png)
+	* ![](http://qn.qs520.mobi/a6665a3b320337e9c578bcf5c531dbca.png)
 	* 文件结构：
 		* 用户组名：密码占位符：用户组id： 组内用户(asdf)
 	* 添加用户组
@@ -402,9 +402,9 @@
 		* 语法： **groupdel 用户组名**
 		* 细节： 当要删除的组中有用户，则不能删除，一定要删除就要先移除用户
 ##**3.网络设置**
-* ![](./img/23.png)
+* ![](http://qn.qs520.mobi/f14becdae759883c9c1b7967d88a1819.png)
 	* 上面是网卡配置文件的路径，这里面都是网卡，网卡的命名规范： **ifcfg-网卡名**
-	* ![](./img/24.png)
+	* ![](http://qn.qs520.mobi/994a1cd2789a4c0a00503cab37f67448.png)
 	* 扩展
 		* 重启网卡的两条命令(重启全部网卡)：
 			1. **service network restart**
@@ -417,7 +417,7 @@
 * ssh(secure shell，安全外壳协议)
 	* **有两个作用，远程连接协议(主要作用)，远程文件上传协议**
 	* **协议使用端口默认是22**，如需修改，则要修改ssh的配置文件(路径为：**/etc/ssh/ssh_config**)
-	* ![](./img/25.png)
+	* ![](http://qn.qs520.mobi/01a44c004ade2c349bfa9861c2f1c5e1.png)
 		* 上图中**prot就是端口号**，**取值范围： 0-65535(两位十六进制的最大值)**
 		* 端口的值不能占用别的服务已经占用的端口
 	* 服务的重启
@@ -426,61 +426,61 @@
 * 远程终端
 	* 用来远程连接的常用软件有，Xshell,Putty,secureCRT,以putty为例
 	* 1.先用**ifconfig**命令检查IP地址，然后顺手测试一下通不通   
-	* ![](./img/26.png)
+	* ![](http://qn.qs520.mobi/1c94641c1e3087860afbac6ec7def64e.png)
 	* 2. 打开putty，输入相关的信息
-	* ![](./img/27.png)
-	* ![](./img/28.png)
+	* ![](http://qn.qs520.mobi/d69f729a64b1a58bb2ce5e8c59539f06.png)
+	* ![](http://qn.qs520.mobi/07e658b98e89a7095a83d5d168ad2e4c.png)
 		* 这里也是一样输入root，密码不会显示，输入后回车即可
 * ssh服务文件传输
 	* 1. 要安装的软件： **FileZilla**
 	* 步骤1：选择文件->站点管理器
-	* ![](./img/29.png)
+	* ![](http://qn.qs520.mobi/b608f17b998717f3f7f91b27f9dfc1ff.png)
 	* 步骤2： 
-	* ![](./img/30.png)
+	* ![](http://qn.qs520.mobi/61486ca8398abf22113d6cc33875d275.png)
 	* 连接成功截图
-	* ![](./img/31.png)
+	* ![](http://qn.qs520.mobi/e6cc197a8078921472a9d2504eb6e1f3.png)
 	* 步骤三：从windows本低上传文件到linux中，直接在windows中把文拖拽到linux区域，也可以右键本地文件，然后点击上传，从linux下载也是一样，从linux推拽过来即可
 	* 扩展：通过命令行传输文件
 		* 工具： **PSCP(只能通过命令行打开)**，为了 使用方便，加入到环境变量，成功截图如下
-		* ![](./img/32.png)
+		* ![](http://qn.qs520.mobi/9f3bd252cc437fbfbe32fc7b3532f673.png)
 		* 用法
 			* **1. pscp 选项 用户名@ linux主机地址:资源路径 windows本地地址(下载到windows)**
 			* **2. pscp 选项 资源路径 用户名@linux主机地址：远程地址(上传到linux)**
 			* **3. pscp 选项 ls 用户名@linux主机地址(列出远程路径下结构)**
 		* 下载到本地windows(把linux中/etc下的所有文件下载到windows下的G：/tmp目录下)
 			* 命令：**pscp -r root@192.168.6.129:/etc/* G:\tmp**
-			* ![](./img/33.png) 
+			* ![](http://qn.qs520.mobi/3eb988328dde5a8a2828a2760c28b35a.png) 
 		* 上传文件到linux(把G：/tmp上传到linux中root目录下)
 			* 命令： **pscp -r G:\tmp root@192.168.6.129:/root**，如果路径中包含空格，则需要用**""**括起来
-			* ![](./img/34.png) 
+			* ![](http://qn.qs520.mobi/7ae4523bf92b66fe04c0ba1e9f08f09e.png) 
 ##**5.设置主机名**
 * 临时修改主机名的语法： **hostname 要设置的主机名**
 * 永久设置主机名(需要重启)：
 	* 主机名的配置文件路径： **/etc/sysconfig/network** ，修改其中的hostname即可
 	* 但是想让hostname -f命令生效还需要修改linux的hosts文件，让他指向本地(设置一个FQDN)，路径： **etc/hosts**
-		* ![](./img/35.png) 
+		* ![](http://qn.qs520.mobi/f2620f9691e9b3f23511db731965c4ec.png) 
 		* 把设置的aaa加到里面
 * 设置FQDN步骤总结： 先设置临时的-> 在设置永久的 (改配置文件) -> 添加一个只指向(修改/etc/hosts文件)
 ##**6.chkconfig**
 * 作用：用做开机启动项的管理
 * 1.查看开机启动项
 	* 语法： **chkconfig --list**，其中0-6代表运行级别，在哪个运行级别下是否启用(on)/关闭(off),为关闭则是开机不启动
-	* ![](./img/36.png) 
+	* ![](http://qn.qs520.mobi/abba7d6595b65f0a8e703063864127b5.png) 
 * 2.删除服务
 	* 命令： **chkconfig --del 服务名**，以删除httpd为例子
-	* ![](./img/37.png) 
+	* ![](http://qn.qs520.mobi/a94f86983dfb63320cbd88cbfb4dc3ab.png) 
 * 3. 添加开机启动服务
 	* 命令： **chkconfig --add 服务名**
-	* ![](./img/38.png) 
+	* ![](http://qn.qs520.mobi/b8bd15461c0ef1880962b469723d8995.png) 
 * 4.设置某个服务在某个运行级别下启动/关闭
 	* 命令： **chkconfig --level(级别的意思) 35 服务名 on/off(启动/不启动)**，35的意思是在运行级别3和5下启动服务
-	* ![](./img/39.png)
+	* ![](http://qn.qs520.mobi/85a134451dec47b790778ec67083a478.png)
 ##**7.ntp服务**
 * 作用： 对计算机的时间进行同步管理
 * 一次性同步时间(手动同步时间): 
 	* 命令： **ntpdate 上游服务器的 ip或域名**
 	* 上游时间服务器的网址： **http://ntp.org.cn/pool.php**
-	* ![](./img/40.png)
+	* ![](http://qn.qs520.mobi/e53a1e1e22228a6185ef7e3d17ad5ce4.png)
 * 自动设置时间同步(设置时间同步服务)
 	* 服务名： **ntpd**
 	* 启动服务： **service ntpd start**启动服务即可，然后设置成开机自启： **chkconfig --level 35 ntpd on**
@@ -488,13 +488,13 @@
 * 作用： 防止网络攻击
 * 当前centos系统中防火墙名称： **iptables**(centos7.x版本中名为:**firewalled**)
 * 1.查看是否开机自启
-	* ![](./img/41.png)
+	* ![](http://qn.qs520.mobi/644458fcaeb1f1a504eef900df20466f.png)
 * 2.对iptables进行启动/关闭操作
 	* 命令： **service iptables start/stop/restart**
-	* ![](./img/42.png)
+	* ![](http://qn.qs520.mobi/ae9add938f221f93d1122c28e2ff2e3d.png)
 * 3.查看iptables的状态(规则)
 	* 命令： **service iptables status**
-	* ![](./img/43.png)	
+	* ![](http://qn.qs520.mobi/1273c547978aa63c5fb8223700d1bc55.png)	
 * 4.查看防火墙规则的命令
 	* **iptables -L -n**
 	* **-L：**表示列出规则
@@ -508,7 +508,7 @@
 		* **--dport：**指定端口号
 		* **-j：**指定行为结果，允许(accept)/禁止(reject)
 	* 执行后需要保存命令： **/etc/init.d/itables save**
-	* ![](./img/44.png)	
+	* ![](http://qn.qs520.mobi/58e02281f6600fba8e2a963cf7f2fff8.png)	
 ##**9.rpm管理**
 * 作用： 对linux系统上的软件进行安装，卸载，查询
 * 1.查询
@@ -521,18 +521,18 @@
 		* **rpm -e 软件名称 --nodeps**
 * 3.安装
 	* 查看块状设备的信息： **lsblk(list block devices)** 
-	* ![](./img/45.png)
+	* ![](http://qn.qs520.mobi/00d62d56043d7750fd3efe70fbc71206.png)
 	* 扩展： 光盘的挂载与解挂
 		* 解挂：
 			* 命令： **umount**
 			* 语法： **umount 挂载路径**
-			* ![](./img/46.png)
+			* ![](http://qn.qs520.mobi/37eeaf014abf5137453d37a8dbeef99d.png)
 		* 挂载： 
 			* 命令： **mount**
 			* 语法： **mount 文件的原始路径 要挂载的位置**
 				* 设备原始地址： **/dev/sr0**
 				* 挂载的地址(一般情况都是这个)：**/mnt**
-		* ![](./img/47.png)
+		* ![](http://qn.qs520.mobi/22a90db77ab723da8ed65297870eb83e.png)
 	* 安装的命令： **rpm -ivh 软件的完整名称**
 		* **-i:**install，下载
 		* **-v:**显示进度条
@@ -547,7 +547,7 @@
 	* **-u：**user，不指定用户就代表是当前用户
 	* **-r：**remove，删除指定用户的计划列表
 * 查询有无计划列表
-	* ![](./img/48.png)
+	* ![](http://qn.qs520.mobi/b5feaed3420ea916b807e0ad613b48f5.png)
 * 修改计划列表(重点)
 	* 计划任务的规则语法格式： 以行为单位，一行就是一个计划
 	* **分 时 日 月 周 需要执行的命令**(格式)
@@ -572,8 +572,8 @@
 * crontab的权限问题
 	* 本身是任何用户都可以创建自己的计划任务，超级管理员可以设置不让某些用户创建计划任务
 	* 配置文件路径： **etc/cron.deny(黑名单)** ，在里面写用户名，一行一个，写了就没有权限了
-	* ![](./img/50.png)
-	* ![](./img/49.png)
+	* ![](http://qn.qs520.mobi/25714eb1d0a39c85389f82107ee01a54.png)
+	* ![](http://qn.qs520.mobi/a626a74a4a9702b52f8734e5931fb713.png)
 	* 另一个配置文件路径:**/etc/allow(白名单)**,（本身不存在，自己创建）
 	* 优先级： **白名单 > 黑名单**
 
@@ -597,8 +597,8 @@
 	* Root用户(超级管理员)
 * 权限介绍
 	* **ls -l(等价于ll)**
-	* ![](./img/51.png)
-	* ![](./img/52.png)
+	* ![](http://qn.qs520.mobi/b2b405b5db93bf64ccd54a1eaf2ff6da.png)
+	* ![](http://qn.qs520.mobi/a7148e6c9a70d1ca37c1f110cc9fd18b.png)
 	* 十位字符的含义(都是rwx三个参数的组合，且顺序不变)
 		* 第一位表示文档类型，”-“表示文件，”d“表示文件夹，”l“表示软连接，”s“表示套接字
 		* **2-4位表示文档所有者的权限情况(owner)**
@@ -620,7 +620,7 @@
 		* 权限模式： 就是该文件需要设置的文件信息
 		* 文档： 可以是文件或文件夹
 		* 注意点：如果要给文档设置权限，他必须是文档所有者 或者root用户
-	* ![](./img/53.png)
+	* ![](http://qn.qs520.mobi/c32085b23767744ad9188dec4ef114db.png)
 		* 给谁设置： 
 			* **u：**表示user，就是文件所有者(owner)
 			* **g:**表示所有者的同组用户(group)
@@ -634,49 +634,49 @@
 			* **r:**可读
 			* **w:**可写
 			* **x:**可执行
-	* ![](./img/54.png)
+	* ![](http://qn.qs520.mobi/9cb92494505c8f58346db32e28d4a01f.png)
 	* 数字形式：
-		* ![](./img/55.png)
+		* ![](http://qn.qs520.mobi/8fd01ffad6b1d04fabcb5ee9502f19be.png)
 		* 语法： **chmod 选项 数字(777) 文档**
 * 注意事项
 	* 使用root权限创建一个文件夹的权限如下
-	* ![](./img/56.png)
+	* ![](http://qn.qs520.mobi/8db6a0941d7cd5601c3cb304a34bfa94.png)
 	* 然后在oo里创建a.txt，给a.txt777的权限
-	* ![](./img/57.png)
+	* ![](http://qn.qs520.mobi/ae866d1c635a4d1220bcc1a7e6429d04.png)
 * 属主与属组设置
 	* 属主：所属的主人(文件的主人)
 	* 属组：所属的用户组
-	* ![](./img/58.png)
+	* ![](http://qn.qs520.mobi/75222bfda2f3d22e241808ca927ae133.png)
 	* 如果有时候要删除用户时，就要修改其对应的属主和属组信息
 		* 1.chown
 			* 作用： 更改文档的所属用户
 			* 语法： **chown -R username 文档路径**
-			* ![](./img/59.png)
+			* ![](http://qn.qs520.mobi/a0a37a9af4a541f4695342afc9afb17f.png)
 		* 2.chgrp
 			* 作用： 更改文档所属用户组
 			* 语法： **chgrp -R groupname 文档路径**
-			* ![](./img/60.png)
+			* ![](http://qn.qs520.mobi/dc73c05390ca59f0da3d49032efcc61c.png)
 	* 把两个命令合二为一： **chown -R username：groupname 文档路径**
 * 扩展
-	* ![](./img/61.png)
+	* ![](http://qn.qs520.mobi/2ae2f8accaddf2662fdfcf3ee7e4fec0.png)
 	* Sudo配置文件路径： **/etc/sudoers**
 	* a.配置sudo文件要使用**visudo**，使用方法和vim一致
 	* b.配置普通用户权限
-	* ![](./img/62.png)
-	* ![](./img/63.png)
+	* ![](http://qn.qs520.mobi/fae83316ebe5cc591d11f8846a89243c.png)
+	* ![](http://qn.qs520.mobi/573068830355a8681dba1badde7f779b.png)
 		* 这里建议写指令的路径，查看指令路径的命令是： **which 指令名称**
-	* ![](./img/64.png)
+	* ![](http://qn.qs520.mobi/cbd38e17c037017026faf7b9916c6ae3.png)
 	* 然后切换用户asdf执行指令会报错原因是前面没有加**sudo**
-	* ![](./img/65.png)
+	* ![](http://qn.qs520.mobi/ed9f219fa61afeeba59002d7bb376364.png)
 	* 普通用户怎么查看自己可执行的指令： **sudo -l**
-	* ![](./img/66.png)
+	* ![](http://qn.qs520.mobi/2c5fbdad247589bdd4549f5c3c1b6608.png)
 
 #**7.linux的网络基础**
 ##**1.网络相关命令**
 * **ping：**检测当前主机和目标主机之间的连通性(不是百分百准确)
 	* 语法： **ping 主机地址(ip地址，主机名，域名)**
 	* 测试与百度之间的通信
-	* ![](./img/67.png)
+	* ![](http://qn.qs520.mobi/41b3432c6514c3b0ec7672b86b18a0d4.png)
 * **netstat：**查看网络的来连接信息
 	* 语法一： **netstat -tnlp**
 		* **-t:**表示tcp协议
@@ -691,12 +691,12 @@
 	* window也有这个命令： **tracert**
 	* 在线工具网址： **http://tool.chinaz.com/map.aspx**
 * **arp：**查看本地缓存mac表，在window下同样适用
-	* ![](./img/68.png)
+	* ![](http://qn.qs520.mobi/283717a6072bc45e41b9080093019830.png)
 	* 语法： **arp -a**
 	* 删除指定的缓存记录： **arp -d 主机地址**
-	* ![](./img/69.png)
+	* ![](http://qn.qs520.mobi/e20d825b8b524e5bcb342e3726c59c85.png)
 * **tcpdump(了解)：**用来抓包的
-	* ![](./img/70.png)
+	* ![](http://qn.qs520.mobi/0cefc74efebd264b9dca4b36805166c2.png)
 	* 语法：
 		* **tcpdump 协议 port 端口**
 		* **tcpdump 协议 port 端口 host 地址**
@@ -715,28 +715,28 @@
 * 案例： 用shell简本输出hellow world
 	* 输出命令： **echo 内容**(内容就是要输出的文字)
 	* 注意： 如果输出的内容种包含字母和数字，则需要用引号包起来
-	* ![](./img/71.png)
-	* ![](./img/72.png)
+	* ![](http://qn.qs520.mobi/bc86c603874e16bee704fe3bff68d8c4.png)
+	* ![](http://qn.qs520.mobi/f2746eba415d1f7936623639255a3234.png)
 * 案例二：使用root用户创建并执行test2.sh，实现创建一个shelltest用户，并在其家目录中新建try.html
-	* ![](./img/73.png)
+	* ![](http://qn.qs520.mobi/5a9f1dbf83f05b62590921c8a4d6fb30.png)
 	* 脚本执行的另一种方式： **/bin/bash 脚本的路径**
 ###shell进阶
 * 变量：
 	* 定义： **name="aaa"**
 	* 使用： **echo $name**
-	* ![](./img/74.png)
+	* ![](http://qn.qs520.mobi/ebc65e6d6f37e09fd6088bd1162133c7.png)
 	* 双引号能识别变量和实现转义(例如*，加个\就变成了乘法的意思\*)，单引号不行
 	* 案例：定义一个变量，输出当前时间
-	* ![](./img/75.png)
+	* ![](http://qn.qs520.mobi/d5de985aa01b8ce0ebeede720d03597b.png)
 	* 反引号： **`**，当在脚本中需要执行外部命令并且赋值给变量时，要用反引号括起来
 * 只读变量： **readonly 变量名**
-	* ![](./img/76.png)
+	* ![](http://qn.qs520.mobi/a31457384fd67e02164a7d53462e0c7e.png)
 * 接受用户输入：
 	* 语法： **read -p 提示信息 变量名**
-	* ![](./img/77.png)
+	* ![](http://qn.qs520.mobi/0856efc561eedf4e9019a03665cfb3ed.png)
 * 删除变量：
 	* 语法： **unset 变量名**
-	* ![](./img/78.png)
+	* ![](http://qn.qs520.mobi/ba9f10a88b9acb48d5417248e50e96ed.png)
 * 条件判断语句
 	* 语法一：**单行写法：if [condition];then command;fi**
 	
@@ -760,16 +760,16 @@
 			fi	
 * 运算符
 	* **算数运算符**
-		* ![](./img/79.png)
-		* ![](./img/80.png)
+		* ![](http://qn.qs520.mobi/a31261fa6f4218b6ef63ef89f87d75a0.png)
+		* ![](http://qn.qs520.mobi/f5db4c3cf4387dcdbfa3eee4f33fcea8.png)
 	* **关系运算符**
-		* ![](./img/81.png)
+		* ![](http://qn.qs520.mobi/214dc877e180ecd3466c345f8d1b24c5.png)
 	* **逻辑运算符**
-		* ![](./img/82.png)
+		* ![](http://qn.qs520.mobi/2294140d06d3325bc1d2c70eae06f479.png)
 	* **字符串运算符**
-		* ![](./img/83.png)
+		* ![](http://qn.qs520.mobi/38ff0b8fe631e205896ad9f2defd5a42.png)
 	* **文件测试运算符**
-		* ![](./img/84.png)
+		* ![](http://qn.qs520.mobi/dd743f3d433752e13cb133c4289ffd5e.png)
 	* **shell脚本附带选项**
 		* 问题描述： 怎么在shell中处理 tail -n 10 access.log这样的命令行选项？
 			* 1.调用tail指令
@@ -780,22 +780,22 @@
 			* 传递(就是在命令行输入)：**./test.sh a b c**
 			* 接受： 在脚本中可以用“$1”来表示a，“$2”表示b
 		* 测试： 编写一个shell脚本，传递a b c 并输出其值
-		* ![](./img/85.png)
+		* ![](http://qn.qs520.mobi/fc08cda1d1fc54a6e1ce5a522e16141e.png)
 		* 练习
-		* ![](./img/86.png)
-		* ![](./img/87.png)
+		* ![](http://qn.qs520.mobi/d88c99af9c7ccaf9b7f3e68e60e5c51b.png)
+		* ![](http://qn.qs520.mobi/14d071e9618dd8915526fcfcd831b370.png)
 		* 然后自定义指令吧**./test9.sh**给个别名叫**user**就可以了
 #**8.安装软件**
 ###安装ncurses
-* ![](./img/88.png)
+* ![](http://qn.qs520.mobi/c68d20d1786c59ceb781b73434bfeaf4.png)
 	* 1.先把软件压缩包上传到服务器
 	* 2.解压
 	* 3.切换到源码文件夹，然后执行后续操作
 	* 配置(config/configure/bootstrap) => 编译(make/bootstrapd) => 安装(make install/bootstrapd install)
 		* 指定安装路径： **--prefix=路径**
-		* ![](./img/89.png)
-* ![](./img/90.png)
-* ![](./img/91.png)
+		* ![](http://qn.qs520.mobi/82a328c6cacd29040a90f6a7a4a8da7f.png)
+* ![](http://qn.qs520.mobi/36ff0435da108d342e74f9b9948dc639.png)
+* ![](http://qn.qs520.mobi/e8447db91b26eda4ac5809f5557dd1f1.png)
 ###安装mysql
 * 使用yum安装：**yum install mysql-server**
 ###初始化mysql
@@ -811,8 +811,8 @@
 * 数据库储存目录： **/var/lib/mysql**
 * 配置文件： **/etc/my.cnf**
 ###mysql基本操作
-* ![](./img/92.png)
-* ![](./img/93.png)
+* ![](http://qn.qs520.mobi/42a694f2d5f1307238ce6c6237bc1920.png)
+* ![](http://qn.qs520.mobi/6645911fc72b5e699f17b3fa91f17ae1.png)
 ###安装nginx
 * 官网： **http://nginx.org/**
 * 在服务器直接下载： **wget 下载连接**
@@ -820,16 +820,16 @@
 	* 指令： **wget http://nginx.org/download/nginx-1.17.8.tar.gz**
 * 然后解压： **tar -zxvf nginx-1.17.8.tar.gz**
 * 配置编译安装的时候遇到报错：没有PCRE库
-	* ![](./img/94.png)
+	* ![](http://qn.qs520.mobi/f14154d8c3a42248ad8f715beafd2dd8.png)
 	* 解决： 直接yum安装pcre-devel。指令：**yum install pcre-devel**
 * 然后有报错说缺少zlib
-	* ![](./img/95.png)
+	* ![](http://qn.qs520.mobi/756aba5bfb18741bf1036778e2658b0b.png)
 	* 解决： **yum install zlib-devel**
 * 然后还要下载zlib的压缩包
 * 最终命令： **./configure --prefix=/usr/local/nginx --with-pcre --with-zlib=/usr/lib**
 * 然后make 和 make install
-* ![](./img/96.png)
-* ![](./img/97.png)
+* ![](http://qn.qs520.mobi/c2e33963d9133927ecc68717cebc618e.png)
+* ![](http://qn.qs520.mobi/94749a2abe96001e8b5b068b384f96af.png)
 * nginx的启动及重载指令
 	* 启动： **安装路径+回车即可(/usr/local/nginx/sbin/nginx)**
 	* 重载： **安装路径 -s reload(/usr/local/nginx/sbin/nginx -s reload)**

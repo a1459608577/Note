@@ -36,19 +36,19 @@
 5. 在idea中配置
 	* 1.安装vue.js插件
 	* 2.配置HTML支持.vue后缀的文件。
-	* ![](./img/1.png)
+	* ![](http://qn.qs520.mobi/2b4f014e32e39b5c3de340513c43900e.png)
 	* 3.配置ECMAScript6
-	* ![](./img/2.png)
-	* ![](./img/6.png)
+	* ![](http://qn.qs520.mobi/5607803c9cddbb15346ba450b5f3ea2e.png)
+	* ![](http://qn.qs520.mobi/3654228bf32448875616687c32a6d29f.png)
 	* 然后点击+号，找到npm
-	* ![](./img/7.png)
+	* ![](http://qn.qs520.mobi/b03f3ff0816dac4ab3b0c914531a85ff.png)
 ###6.vue图形化页面搭建vue-cli
 * 1.打开命令行输入**vue ui**
 * 2.这个是第一步要选择的 
-* ![](./img/3.png)
-* ![](./img/4.png)
+* ![](http://qn.qs520.mobi/81d9ee90926fe7e3402b35fd10b5e4ba.png)
+* ![](http://qn.qs520.mobi/bfda0a41d85e852ad70a9573c3be35d9.png)
 * 安装element-ui：插件 => 添加插件 => 搜索element-ui => 点击安装
-	* ![](./img/5.png)
+	* ![](http://qn.qs520.mobi/7d25d430d81b4f0a4fb8c0f9a016e758.png)
 * 安装axios： 依赖 => 添加依赖 => 搜索axios => 点击安装
 ###7.vuex的简单使用
 * 先安装vuex： **npm i vuex -S**
@@ -79,7 +79,7 @@
 ###8.ssm聚合工程(注解方式)
 ####1.先建好工程，建好模块，把每一个工程的pom都依赖好，导入jar包，然后开始编写controller层
 ####2.编写controller
-* ![](./img/8.png)
+* ![](http://qn.qs520.mobi/d46a8534649c95b7e917818e8f45304b.png)
 * 1.在controller工程中建包：con.hnguigu.web和com.hnguigu.config
 * 2.在web下建一个web工程的启动类MyServletInitializer，相当于disparcatchServlet
 
@@ -189,9 +189,9 @@
 ###9.SpringBoot项目热部署
 ####方法1(SpringBoot项目)
 ####1.ctrl + shift + s 
-* ![](./img/9.png)
+* ![](http://qn.qs520.mobi/b2c77510778fdc94d2f415afa4203e6e.png)
 ####2.ctrl + shift + alt + /，选择Registry
-* ![](./img/10.png)
+* ![](http://qn.qs520.mobi/ea0f7ce6f78892547af1c9ce6b2ac022.png)
 ####3.在pom文件中导入依赖即可
 
 	<dependency>
@@ -221,9 +221,9 @@
         <optional>true</optional>
     </dependency>
 ###3. ctrl + shift + s 
-* ![](./img/19.png)
+* ![](http://qn.qs520.mobi/f3663db12482146b5f2cdfe59a6913fb.png)
 ###4. ctrl + shift + alt + /, 选择Registry
-* ![](./img/20.png)
+* ![](http://qn.qs520.mobi/5e7f5873564864e91451599d9e1c1595.png)
 ###10.@ControllerAdvice的应用场景
 ####1.全局异常处理
 * 使用 @ControllerAdvice 实现全局异常处理，只需要定义类，添加该注解即可定义方式如下：
@@ -269,7 +269,7 @@
 		}
 ###11.CentO6.5不能上网的情况
 * 可能是因为本机服务没有开，
-* ![](./img/11.png)
+* ![](http://qn.qs520.mobi/932593eb9d0d4490849ca2ea9f69b3b1.png)
 ###12.ssm+shiro项目搭建过程
 ####步骤1：导入相关依赖和编写web.xml文件
 
@@ -555,7 +555,7 @@
 ###把打包好的vue项目在nginx上跑起来
 * 安装nginx，直接解压，然后双击nginx.exe即可启动nginx，
 * 然后进入修改nginx的配置文件，/nginx/conf/nginx.conf
-* ![](./img/12.png)
+* ![](http://qn.qs520.mobi/995d22f828defbe2d94cc9960eb3b15e.png)
 * 然后重启nginx，nginx.exe -s reload，最后访问127.0.0.1：端口即可访问项目
 ###ssm+shiro+vue跨域问题
 * 首先在vue项目中main.js中加一句axios.defaults.withCredentials = true，这句话的意思是允许前端携带cookie
@@ -646,7 +646,7 @@
 
 		重启：/etc/init.d/docker restart
 ###解决低版本的MySQL客户端的“error 2059: Authentication plugin ‘caching_sha2_password’ cannot be loaded”错误
-* ![](./img/13.png)
+* ![](http://qn.qs520.mobi/afd74aafc076483cb75a56d784825048.png)
 	1. 用高版本的 MySQL，或者进入该 Docker 容器，登录 MySQL 服务器
 	2. 执行 MySQL shell 命令查看服务器的版本：
 	
@@ -704,9 +704,9 @@
 	* 因为SpringBoot在启动时，只有检测到spring.datasource.initialization-mode=ALWAYS配置，然后再检测spring.datasource.schema，且配置的sql角本命令不为空，才会去执行schema和spring.datasource.data。因此需要在scheme.sql中随便写一句sql语句。
 	所以在application.properties/application.yml文件中必须配置spring.datasource.initialization-mode=ALWAYS
 ###vue前后端分离实现文件上传
-* ![](./img/15.png)
+* ![](http://qn.qs520.mobi/80d6fbc42715920ceb26501304a6a74e.png)
 ###idea将web项目打包成war包
-* ![](./img/16.png)
+* ![](http://qn.qs520.mobi/f5e865d4f2cfec6cdaec02defce0842e.png)
 ###在nginx上挂载本地文件和本地nginx.conf文件
 * [参考文章](https://blog.csdn.net/qq_26614295/article/details/80505246)
 * 主要命令
@@ -761,7 +761,7 @@
 	    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 2. 配置完yml文件后还需要在主启动类加个扫描注解
-* ![](./img/17.png)
+* ![](http://qn.qs520.mobi/30cb392b07f567d6d67fc28edb1336d6.png)
 3. 编写配置类
 
 		@Configuration
@@ -774,7 +774,7 @@
 		    
 		}
 ###在日志中输出消息的方法
-* ![](./img/18.png)
+* ![](http://qn.qs520.mobi/bf14b910ce7df7aa6f256f025dc1a6f2.png)
 ###使用restTemplate进行远程调用
 ####1.导入spring相关依赖，
     <dependency>
@@ -854,7 +854,7 @@
 		ik_smart：这是/一个/分词器/测试
 		standard：这/是/一/个/对/分/词/器/的/测/试
 ###解决mybatis一级缓存导致数据不显示，前端显示ref问题
-* ![](./img/21.png)
+* ![](http://qn.qs520.mobi/8090950e987d06b1b2ccd6174a91d0da.png)
 * 解决方法： 
 
 		IPage<InsuranceServiceApplyInfoVo> insuranceServiceApplyInfoVoIPage = provider.selectPageVo(pageVo);
@@ -912,7 +912,7 @@
     	access_log  /home/hy/nginx_download/logs/download.log  main; 
     }
 	
-* ![](./img/22.png)
+* ![](http://qn.qs520.mobi/a41f61977c963b350505dfa1b93dd92c.png)
 
 
 

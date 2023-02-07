@@ -18,22 +18,22 @@
 ###1.2.核心类的介绍
 ####1.2.1 DefaultListableBeanFactory 
 ######它是注册和加载bean的默认实现，和它的子类XmlBeanFactory的区别就是XmlBeanFactory使用的是自定义的xml读取器---XmlBeanDefinitionReader，实现了个性化的读取。DefaultListableBeanFactory继承了AbstractAutowireCapableBeanFactory并实现了ConfigurableListableBeanFactory和BeanDefinitionRegistry
-![](./img/1.png)
+![](http://qn.qs520.mobi/bc4aa8d8a334318ca965c294950b80d1.png)
 ####1.2.2XmlBeanDefinitionReader
 ######这个类就是XmlBeanFactory用来读取xml配置文件的。继承了AbstractBeanDefinitionReader，使用ResourceLoader将资源路径转换成Resource文件，然后在通过DocumentLoader把Resource文件转换成Document文件，这个是一个接口，源码中是new了一个默认实现类。然后通过BeanDefinitionDocumentReader的DefaultBeanDefinitionDocumentReader解析Document。
 ####1.3容器的基础XmlBeanFactory
-![](./img/2.png)
+![](http://qn.qs520.mobi/794d383b79eebbc1272fc8eb2a855e73.png)
 ######1.3.1配置文件的封装
-![](./img/3.png)
+![](http://qn.qs520.mobi/96b0393c56f70490d07e3ffeafb6fa60.png)
 ######在XmlBeanFactory的构造函数中进行了资源的加载，在真正进行资源加载的之前，调用了父类的构造方法，一直追下去会发现AbstractAutowireCapableBeanFactory这个类的构造方法中使用了ignoreDependencyInterface方法，这个方法的作用是自动装配忽略指定类，为的是，例如a属性依赖b属性时，a初始化了，b还没有初始化，就会自动初始化b。当b继承了BeanNameAware就不会被自动装配
-![](./img/4.png)
+![](http://qn.qs520.mobi/6fe8542eec86bab9fa2e4fa08af72fcd.png)
 ######1.3.2加载Bean
-![](./img/5.png)
+![](http://qn.qs520.mobi/2f6c06973703685cf85804fff99a7650.png)
 ######doLoadBeanDefinitions()方法主要是做了三件事，第一是获取xml的校验模式，第二加载xml文件，得到Document对象，第三是根据返回的Document信息注册Bean信息。
 1. 获取检验模式：如果手动指定了就使用手动指定的，没有指定则使用自动的，自动的话会使用专门检验xml的类XmlValidationModeDetector来处理，这个类通过验证有没有DOCTYPE，来区分DTD还是XSD。
 2. 加载xml文件： 调用的是DocumentLoader接口的实现类DefaultDocumentLoader，其中有一个参数是entityResolver。这个接口接收publicId，systemId，返回InputSource对象。查看它的实现类DelegatingEntityResolver。不同的验证模式使用不同的解析器，解析dtd是BeansDtdResolver这个类干的，它截取systemId最后的xx.dtd，然后在当前路径下寻找。 解析xsd则是用PluggableSchemaResolver，它是默认到META-INF/Spring.schemas文件中找systemId对应的xsd文件。
 3. **解析以及注册BeanDefinition**：首先会解析profile属性，然后在DefaultBeanDefinitionDocumentReader类中解析前后都由两个方法执行preProcessXml，postProcessXml，但是两个方法中都没有代码。在面向对象设计方法学中常说的一句话：**一个类要么是面向继承设计的，要么就用final修饰。**这两个方法是为子类设计的，是模板方法模式。继承自DefaultBeanDefinitionDocumentReader的类想要在解析前后做处理，只需要重写这两个方法即可。继续深入会发现处理xml中bean标签时会有所差距，默认的标签就使用默认的处理，自定义的就需要另外处理，如下图黑色代码部分所示。
-![](./img/6.png)
+![](http://qn.qs520.mobi/321556704db31233b6e9b883aaff644e.png)
 ###1.4 默认标签的解析
 ######对四种(import, alias, bean, beans)默认标签做了不同的解析
 ####1.4.1 bean标签的解析及注册
@@ -57,7 +57,7 @@
 5. **通知监听器解析及注册完成：**当需要在注册BeanDefinition事件进行监听时可以通过注册监听器的方法将处理逻辑写入监听器，spring没有做逻辑处理。
 ####1.4.2 alias标签的解析
 ######跟1.4.1中第4.2里说的差不多
-![](./img/7.png)
+![](http://qn.qs520.mobi/7a9739cb59bb7de64bc290c608f38c4b.png)
 
 	protected void processAliasRegistration(Element ele) {
 		// 获取beanName
@@ -167,11 +167,11 @@
 		getReaderContext().fireImportProcessed(location, actResArray, extractSource(ele));
 	}
 ####1.4.4 嵌入式beans标签的解析
-![](./img/8.png)
+![](http://qn.qs520.mobi/d7bc638c8a4096629f20fa7b9953e1e8.png)
 ###1.5 自定义标签的解析(跳过)
 ##2. Bean的加载
 ###2.1FactoryBean的使用
-![](./img/9.png)
+![](http://qn.qs520.mobi/58da560cd1c0f21336681a3d5865cd7e.png)
 ###2.2缓存中获取单例bean
 	protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 		// Quick check for existing instance without full singleton lock 快速检查现有实例，而无需完全单例锁定

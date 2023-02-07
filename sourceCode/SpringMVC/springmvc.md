@@ -1,5 +1,5 @@
 #SpringMVC源码分析
-![](./img/1.png)
+![](http://qn.qs520.mobi/8d1a3130b03d2c3d5a563175ab396aeb.png)
 ##doDispatch()方法分析
 	protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpServletRequest processedRequest = request;
@@ -90,7 +90,7 @@
 			}
 		}
 	}
-![](./img/2.png)
+![](http://qn.qs520.mobi/d881825aaaf80630b7467d0069d7bbb5.png)
 
 ####1. getHandler()方法细节(处理映射器)
 ######返回的是Handler的执行链，循环所有的处理器映射，这里面就包含了每一个处理器能处理哪些方法的映射信息。每一个handlerMapping中都有一个handlerMap，里面存的数据是/book/update=com.ksn.controller.BookController这种格式的数据。 

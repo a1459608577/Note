@@ -85,7 +85,7 @@
 * Eviction服务剔除
 * **总的来说就是服务注册把微服务注册到eureka的注册中心，然后会建立一个心跳连接，每间隔三十秒发送一次心跳，如果超过九十秒没有发送心跳，注册中心就会把这个微服务剔除， eurekaclient从eurekaserver获取服务注册表信息，将其缓存在jvm中(用到了Ribbon)，然后进行远程连接，每隔30秒刷新一次，若由于某种原因导致注册表信息不能即使匹配，会重新获取整个注册表的信息，他们之间可以通过json或xml传输，一般是用的json，这个就是获取注册表信息，当eirekaclient在程序关闭时可以向server端发送下线请求，发送请求后将从注册中心将其删除，需要手动发请求**
 > DiscoveryManager. getinstance() .shutdownComponent(); 
-* ![](./img/1.png)
+* ![](http://qn.qs520.mobi/931fa1405f072059958e2fd805a848dc.png)
 ###单机版Eureka
 ##### 创建项目cloud-eureka-server7001
 * 改pom
@@ -95,7 +95,7 @@
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
 * 步骤还是和之前一样，，写yml， 建启动类有点不一样，要加一个注解
-* ![](./img/2.png)
+* ![](http://qn.qs520.mobi/8dcd27f233860931a32b83dfaf914006.png)
 #####修改cloud-payment8001项目
 * 先添加pom
 			
@@ -114,12 +114,12 @@
 		      defaultZone: http://localhost:7001/eureka  #表示这个要去那个地址注册
 * 步骤还是和之前一样，，写yml， 建启动类有点不一样，要加一个注解
 * 先启动eureka注册中心启动类，然后把刚这个启动，在eureka监控页面就能看到
-* ![](./img/3.png)
+* ![](http://qn.qs520.mobi/faaa67d9abfb6f77707cd404b0e7d141.png)
 ####然后把order80项目按照上面的样子修改，然后启动，结果如下
-* ![](./img/5.png)
-* ![](./img/4.png)
+* ![](http://qn.qs520.mobi/20434d097749d26b52c397d917b18734.png)
+* ![](http://qn.qs520.mobi/01ec660059ba1b8bd222745f284b8ec8.png)
 ###集群Eureka(高可用)
-* ![](./img/6.png)
+* ![](http://qn.qs520.mobi/6da71f094a1d0edbe5018591cda4f9f9.png)
 ####集群Eureka原理说明：互相注册，相互守望
 * 按照搭建项目的样子创建项目cloud-eureka-server7002，pom跟启动类都跟cloud-eureka-server7001一样，配置文件有点不同
 * **eureka7002.com**是因为两台机器不能都用localhost，需要在**C:\Windows\System32\drivers\etc**下修改host文件吧端口映射一下
@@ -147,15 +147,15 @@
 		service-url:
 	      #defaultZone: http://localhost:7001/eureka 单机版
 	      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka # 集群版
-* ![](./img/7.png)
+* ![](http://qn.qs520.mobi/442963b385eba1b32be5eed2b70a4422.png)
 ###支付服务提供者8001集群环境搭建
-* ![](./img/8.png)
+* ![](http://qn.qs520.mobi/685d79e88cb08a7024349ca28d6a2592.png)
 * 然后使用消费者访问端口不能写死
 > public static final String URL = "http://CLOUD-PAYMENT-SERVICE";
 
-* ![](./img/9.png)
+* ![](http://qn.qs520.mobi/f38373959483ab2e0c8c5578c27df0e9.png)
 * 使用**@LoadBalanced**注解让消费者实现负载均衡，在8001,8002两个端口中切换
-* ![](./img/10.png)
+* ![](http://qn.qs520.mobi/f24dcfe9983675bceeba140cbd86b8a5.png)
 * 修改在eureka注册信息表中的服务名称和访问信息有ip信息提示
 	* 只需要在yml文件中的eureka中添加如下配置
 
@@ -163,13 +163,13 @@
 			    instance-id: payment8001
 			    prefer-ip-address: true
 ###Eureka的自我保护
-* ![](./img/11.png)
+* ![](http://qn.qs520.mobi/7efcbca8ae9e92373f9cafa45c5db357.png)
 ####原因：
 * 某个时候某一个微服务不能用了不会被立即删除，依旧会对他进行保存**属于CAP中的AP分支**
-* ![](./img/12.png)
+* ![](http://qn.qs520.mobi/130a1f54d642e29353a98b45d5a3601c.png)
 ####禁用自我保护机制
 * 先把7001和8001变成单机版，然后修改yml配置，然后关闭8001的服务，会发现立即被删除了，之前是不会立即删除的
-* ![](./img/13.png)
+* ![](http://qn.qs520.mobi/888acb8fc8ba33d330202083b09ea262.png)
 ###2. Zookeeper作为注册中心
 ####还是建工程，改pom， 写yml
 * pom文件的差别
@@ -229,8 +229,8 @@
 	}
 ###3. Consul
 ###介绍
-* ![](./img/14.png)
-* ![](./img/15.png)
+* ![](http://qn.qs520.mobi/571a571b674d04b65581a3e875c03daf.png)
+* ![](http://qn.qs520.mobi/a09e83fdbd8abc2feff23866cd287257.png)
 ###创建项目
 ####1. 改pom，新增如下pom依赖就可
 
@@ -258,9 +258,9 @@
 	      #hostname: 127.0.0.1
 ####3. 其他还跟之前一样
 ###三个注册中心的异同
-* ![](./img/16.png)
-* ![](./img/18.png)
-* ![](./img/17.png)
+* ![](http://qn.qs520.mobi/693a352508ae5525006b016d10f34430.png)
+* ![](http://qn.qs520.mobi/1e8be7179adb8ecb6b3c85aaa14a7c26.png)
+* ![](http://qn.qs520.mobi/cae0cdfc472c34008756269efa15c7b2.png)
 ##3. Ribbon负载均衡服务调用
 ###简介
 ####是什么
@@ -268,9 +268,9 @@
 * Ribbon是Netflix发布的开源项目，主要功能是提供客户端的软件负载均衡算法，将Netflix的中间层服务连接在一起。Ribbon客户端组件提供一系列完善的配置项如连接超时，重试等。简单的说，就是在配置文件中列出Load Balancer（简称LB）后面所有的机器，Ribbon会自动的帮助你基于某种规则（如简单轮询，随即连接等）去连接这些机器。我们也很容易使用Ribbon实现自定义的负载均衡算法。
 ####LB方案分类
 * 目前主流的LB方案可分成两类：一种是**集中式LB**, 即在服务的消费方和提供方之间使用独立的LB设施(可以是硬件，如F5, 也可以是软件，如nginx), 由该设施负责把访问请求通过某种策略转发至服务的提供方；另一种是**进程内LB**，将LB逻辑集成到消费方，消费方从服务注册中心获知有哪些地址可用，然后自己再从这些地址中选择出一个合适的服务器。Ribbon就属于后者，它只是一个类库，集成于消费方进程，消费方通过它来获取到服务提供方的地址
-* ![](./img/19.png)
+* ![](http://qn.qs520.mobi/c0b404f3f6f060ec8c0dd028d89c834e.png)
 ###Ribbon负载均衡演示
-* ![](./img/20.png)
+* ![](http://qn.qs520.mobi/13d70a04500928f65dab4f7b9634d51c.png)
 
 	    //使用getEntry
 	    @GetMapping("/payment/getEntity/{id}")
@@ -283,13 +283,13 @@
 	        }
 	    }
 ###Ribbon核心组件IRule
-* ![](./img/21.png)
+* ![](http://qn.qs520.mobi/a47c121c5096899157a5971a862900d4.png)
 ####如何替换
-* ![](./img/22.png)
+* ![](http://qn.qs520.mobi/c1da0982f845b8eb97a7c28ffd0a4ab9.png)
 ###Ribbon负载均衡算法
 ####原理
-* ![](./img/24.png)
-* ![](./img/23.png)
+* ![](http://qn.qs520.mobi/54516331e7cadd5847b796ee0c4c1fa0.png)
+* ![](http://qn.qs520.mobi/30573e59073a0dca6c16b6f266d92e0f.png)
 * **就是RestTemplate发起一个请求，这个请求被LoadBalancerInterceptor给拦截了，拦截后将请求的地址中的服务逻辑名转为具体的服务地址，然后继续执行请求，就是这么一个过程。**
 ####源码
 
@@ -364,9 +364,9 @@
 ####是什么
 * Feign是一个声明式的Web Service客户端。它的出现使开发Web Service客户端变得很简单。使用Feign只需要创建一个接口加上对应的注解，比如：@FeignClient注解。
 ####能干嘛
-* ![](./img/25.png)
+* ![](http://qn.qs520.mobi/1d67c53a1a6b5083b352885a3810ab90.png)
 ####Feign跟OpenFeign的区别
-* ![](./img/26.png)
+* ![](http://qn.qs520.mobi/b62ea4a95ed762bf623ef1a885ba515f.png)
 ###使用步骤
 ####1. 接口加注解： 微服务调用接口 + @FeignClient
 ####2. 新建cloud-consumer-feign-order80项目： Feign在消费端使用
@@ -419,7 +419,7 @@
 		        return  paymentFeignService.queryById(id);
 		    }
 		}
-* ![](./img/27.png)
+* ![](http://qn.qs520.mobi/7d4bf96e9d1950c602b27d273282080f.png)
 ####7. 测试： Feign自带负载均衡规则
 ###超时控制
 ####超过一秒钟就会报错
@@ -431,9 +431,9 @@
 	  ConnectTimeout: 5000 # 指的是建立连接后从服务器读取到可用资源所用的时间
 ###日志打印功能
 ####是什么
-* ![](./img/28.png)
+* ![](http://qn.qs520.mobi/feefc82c00ece7d798492073e0599c15.png)
 ####日止级别
-* ![](./img/29.png)
+* ![](http://qn.qs520.mobi/224a2227b56932c1512615c66f1de08f.png)
 ####配置日志bean
 
 	@Configuration
@@ -452,7 +452,7 @@
 ####后台日志查看
 ##5. 服务降级，Hystrix断路器
 ###概述
-* ![](./img/30.png)
+* ![](http://qn.qs520.mobi/1a707d63af40416a17fc3de17ff719ce.png)
 ####能干嘛：服务降级，服务熔断，接近实时的监控
 ###Hystrix重要概念
 ####服务降级
@@ -526,15 +526,15 @@
 			feign:
 			  hystrix:
 			    enabled: true
-* ![](./img/31.png)
+* ![](http://qn.qs520.mobi/ded67be182b2424575db2510be52ea68.png)
 ####服务熔断
-* ![](./img/32.png)
-* ![](./img/33.png)
-* ![](./img/34.png)
+* ![](http://qn.qs520.mobi/bb406184aa8e778dfd3ed6bcfb1ad35e.png)
+* ![](http://qn.qs520.mobi/77a8f1a80becc11b91bbdf63ca3e62f8.png)
+* ![](http://qn.qs520.mobi/191e6d542e97ec4989e2ac28e39e8221.png)
 ####服务限流
 * 高级篇Sentinel讲
 ###Hystrix工作流程
-* ![](./img/35.png)
+* ![](http://qn.qs520.mobi/c7a77555f2a34a59e85f7b3a0d87fe7a.png)
 
 		1请求进来,首先查询缓存,如果缓存有,直接返回
 		  	如果缓存没有,--->2
@@ -551,8 +551,8 @@
 		        如果处理成功,判断处理是否超时,如果超时了,也进入降级方法
 		        最后,没有超时,则本次请求处理成功,将结果返回给controller
 ###服务监控HystrixDashboard
-* ![](./img/36.png)
-* ![](./img/37.png)
+* ![](http://qn.qs520.mobi/c3f4943a8a092addbf2d446ff64ec5fb.png)
+* ![](http://qn.qs520.mobi/0a85cf94e0db98ce42e0b5633c3942d8.png)
 ####断路器演示
 
 	需要在被监控的工程的主启动类里加如下代码
@@ -572,34 +572,34 @@
         return registrationBean;
     }
 
-* ![](./img/38.png)
+* ![](http://qn.qs520.mobi/9c130b51d36e340bf50a84ca8c31d4df.png)
 ##6. 服务网关gateway
 ###简介
 ####SpringCloud Gateway使用的Webflex中的reactor-netty响应式编程组件， 底层使用了netty通讯框架
-* ![](./img/39.png)
+* ![](http://qn.qs520.mobi/fd7671a28c66ae75bcb2e46a846c0298.png)
 ####能干嘛： 反向代理，鉴权， 流量控制， 熔断， 日志监控
-* ![](./img/40.png)
+* ![](http://qn.qs520.mobi/59ce3c68c98662e5387b7a2a5a81c30a.png)
 ###三大核心概念
 ####路由：构建网关的基本模块，它是由ID， 目标URI， 一系列断言和过滤器组成，如果断言为true则匹配该路由
 ####Predicate(断言)：参考的是Java8的java.util.function.Predicate,开发人员可以匹配HTTP请求中的所有内容(例如请求头或请求参数)，如果请求与断言相匹配则进行路由
 ####Filter(过滤):指的是Spring框架中GatewayFilter的实例，使用过滤器，可以在请求被路由前或者之后对请求进行修改。
 ####总体
-* ![](./img/41.png)
+* ![](http://qn.qs520.mobi/c70e41ce5d38d0310863631fc6869df5.png)
 ###Gateway工作流程
-* ![](./img/42.png)
+* ![](http://qn.qs520.mobi/b6d0bf5f4513b255a2d44d18ba425f62.png)
 ###入门配置
-* ![](./img/43.png)
+* ![](http://qn.qs520.mobi/6d31e620dfec2fa8c1c39ca0d237e861.png)
 ###通过微服务名实现动态路由
-* ![](./img/44.png)
+* ![](http://qn.qs520.mobi/a50b6b7334c129b5ce0acd6b2529970c.png)
 ###Predicate的使用 
-* ![](./img/45.png)
+* ![](http://qn.qs520.mobi/8dfe7d070f29b9bccec299e31baa5986.png)
 ###Filter的使用
 ####自定义Filter
-* ![](./img/46.png)
+* ![](http://qn.qs520.mobi/6e7951e7f1363641a4420f111572b508.png)
 ##7. 分布式配置中心SpringCloud Config
 ###概述
 ####是什么
-* ![](./img/47.png)
+* ![](http://qn.qs520.mobi/a098ec24da3dd5361b87143f28066e10.png)
 ###Config服务端配置与测试
 ####先使用git命令吧仓管clone到本地
 * git addr .
@@ -643,29 +643,29 @@
 ####增加映射 127.0.0.1 config-3344.com
 ####从git上获取内容
 ####配置的读取规则
-* ![](./img/48.png)
+* ![](http://qn.qs520.mobi/5968113321226eb18b9700a3d9f94bb2.png)
 ###Config客户端配置与测试
 ####其他配置都一样，不一样的写在下面
-* ![](./img/49.png)
+* ![](http://qn.qs520.mobi/14d80cba4015febe19e533c9c44fbe99.png)
 ###Config客户端之动态刷新
-* ![](./img/50.png)
+* ![](http://qn.qs520.mobi/15d52b18c852fd6df6d828a28e025fe1.png)
 ##8. SpringCloud Bus消息总线
 ###概述
-* ![](./img/51.png)
+* ![](http://qn.qs520.mobi/7870b542dd77a4158f9be6b84d3eae60.png)
 ###SpringCloud Bus动态刷新全局广播
-* ![](./img/52.png)
+* ![](http://qn.qs520.mobi/8454e969af4ce43e96918dfdb68c8fad.png)
 ###SpringCloud Bud动态刷新定点通知
-* ![](./img/53.png)
+* ![](http://qn.qs520.mobi/792dfbdd14d5e70036e840621f1bd33e.png)
 ##9. SpringCloud Stream消息驱动
 ###概述
 ####是什么：屏蔽底层消息中间件的差异，降低切换成本， 统一消息的编程模型
-* ![](./img/54.png)
+* ![](http://qn.qs520.mobi/e08a949e50417396fa77a7bc83404c60.png)
 ####设计思想
-* ![](./img/56.png)
+* ![](http://qn.qs520.mobi/bec493bc21ddb00cb77ba377102e91ad.png)
 ####SpringCloud Stream标准流程套路
-* ![](./img/57.png)
+* ![](http://qn.qs520.mobi/6ebf1bfc82ef38c902a6f5bed73afbe6.png)
 ####常用api和常用注解
-* ![](./img/55.png)
+* ![](http://qn.qs520.mobi/6022caa2487b0fc0190b223689adc26b.png)
 ###消息驱动之生产者
 ####pom
 	<!--stream rabbit -->
@@ -771,20 +771,20 @@
 ###分组消费与持久化
 ####消费：存在重复消费的问题，就是一个订单被两个人获取到造成重复消费，原因是两个消费者不是同一个组，默认分组的group不同，组流水号不同，所以可以重复消费，在同一个组的话就不能重复消费了
 ####分组(解决重复消费)
-* ![](./img/58.png)
+* ![](http://qn.qs520.mobi/75455b5798c94945360d6d2ce9188345.png)
 ####持久化
-* ![](./img/59.png)
+* ![](http://qn.qs520.mobi/99ad94d4fe1b5cdddee03a02231a8e65.png)
 ##10. SpringCloud Sleuth分布式请求链路跟踪
-* ![](./img/60.png)
+* ![](http://qn.qs520.mobi/d76870ac1a68f12b5b03fcd5a7614ace.png)
 ###概述
 ####在分布式系统中提供追踪解决方案并兼容支持了zipkin
 ####[官网](https://cloud.spring.io/spring-cloud-sleuth/reference/html/#features)
-* ![](./img/61.png)
+* ![](http://qn.qs520.mobi/fcb2a8ea2826f1b2d8430f969477bb1c.png)
 ###搭建链路监控步骤
-* ![](./img/62.png)
+* ![](http://qn.qs520.mobi/6aa4cb279a999e9c6bd9372096268bc6.png)
 ##11. SpringCloud Alibaba Nacos服务注册和配置中心，[官方文档](https://spring-cloud-alibaba-group.github.io/github-pages/greenwich/spring-cloud-alibaba.html)
 ###Nacos简介，[官网](https://nacos.io/zh-cn/)
-* ![](./img/63.png)
+* ![](http://qn.qs520.mobi/a76d0ae50971e3da853621a78e4e0e8d.png)
 ###安装并运行Nacos，[下载地址](https://github.com/alibaba/nacos/releases)
 ####解压后直接运行bin下的startup.cmd命令，运行成功后访问http://localhost:8848/nacos即可，默认账号密码都是nacos
 ###Nacos作为服务注册中心演示
@@ -821,84 +821,84 @@
 	        include: *
 ####启动类跟之前一样，业务类随便写个能访问的就行
 #### 投机取巧的方法，虚拟映射
-* ![](./img/64.png)
+* ![](http://qn.qs520.mobi/a3a77d0c08f55bed3a21f9a638b30dc5.png)
 ####消费者配置
-* ![](./img/65.png)
-* ![](./img/66.png)
+* ![](http://qn.qs520.mobi/122a4aab64d5277b51230956f2e4df2d.png)
+* ![](http://qn.qs520.mobi/09ad1a28959256c9b4292d0ce7f5bee1.png)
 ###Nacos作为服务配置中心演示
 ####Nacao作为配置中心-基础配置
-* ![](./img/68.png)
-* ![](./img/67.png)
+* ![](http://qn.qs520.mobi/bc3d8f113453912281acbc635525259e.png)
+* ![](http://qn.qs520.mobi/ad40dfe73e26c6419f35f71ccaf3d8e4.png)
 ####Nacao作为配置中心-分类配置
-* ![](./img/69.png)
+* ![](http://qn.qs520.mobi/a4d5377c5087d6302868846db8b30c82.png)
 ###Nacos集群和持久化配置
 ####官网说明
-* ![](./img/70.png)
+* ![](http://qn.qs520.mobi/ce0faff8f8091f4b13020617aafa1f6d.png)
 ####Nacos持久化配置解释
-* ![](./img/71.png)
+* ![](http://qn.qs520.mobi/f23a9beb50d9dae3de4aae97b10bc62a.png)
 ####Linux版Nacos + MySql生产环境配置
-* ![](./img/72.png)
+* ![](http://qn.qs520.mobi/65ebf7bc4115079833c065a513dd6660.png)
 ##12. SpringCloud Alibaba Sentinel实现熔断和限流
 ###Sebtinel
 ####[官方文档](https://github.com/alibaba/Sentinel/wiki/%E4%BB%8B%E7%BB%8D)，[下载链接](https://github.com/alibaba/Sentinel/releases)
-* ![](./img/73.png)
-* ![](./img/74.png)
+* ![](http://qn.qs520.mobi/0149e1917b258737e8941987ec8c8074.png)
+* ![](http://qn.qs520.mobi/5c293f72d9d3c32af9d5756a75bd182d.png)
 ###初始化演示工程
-* ![](./img/75.png)
+* ![](http://qn.qs520.mobi/704ac86f570835af34bd9497ead488d1.png)
 ###流控规则
 ####基本介绍
-* ![](./img/76.png)
+* ![](http://qn.qs520.mobi/af55632578736ee930ff249711d74d43.png)
 ####流控模式
 #####直接(默认)
-* ![](./img/77.png)
+* ![](http://qn.qs520.mobi/07c22c7e39f8d30897053adfa893e4f3.png)
 #####关联
-* ![](./img/79.png)
-* ![](./img/78.png)
+* ![](http://qn.qs520.mobi/f2e89ff73e3ee275b827d49c47ced504.png)
+* ![](http://qn.qs520.mobi/1736ab8ef5be786f55fbd0d8e3cd1e7e.png)
 #####链路
 ####流控效果
-* ![](./img/80.png)
+* ![](http://qn.qs520.mobi/e14c54af981e690be94abecb397eaeba.png)
 ###降级规则
-* ![](./img/81.png)
+* ![](http://qn.qs520.mobi/d4f13b81290f9c4e36f36b6f369069bc.png)
 ####降级策略实战
 #####1. RT(平均响应时间)
-* ![](./img/82.png)
+* ![](http://qn.qs520.mobi/7e72a562f70133d035419e25e72a65ac.png)
 #####2. 异常比例
-* ![](./img/83.png)
+* ![](http://qn.qs520.mobi/e74c64c1da3cac32a4adc6fe456ce8f3.png)
 #####3. 异常数
-* ![](./img/84.png)
+* ![](http://qn.qs520.mobi/f6a1b4494ee1d0f569f14c21ccb4053d.png)
 ###热点key限流
 ####使用热点规则
-* ![](./img/85.png)
+* ![](http://qn.qs520.mobi/48abfe13cef88a67e0f74d428f53eabe.png)
 ####参数例外项
-* ![](./img/86.png)
+* ![](http://qn.qs520.mobi/a662a77cc36cdb2ffb2e7ca581c3fbd7.png)
 ###系统规则(系统自适应限流)
-* ![](./img/87.png)
+* ![](http://qn.qs520.mobi/72c94f4fd0894a1c13eb3adc3a98d97b.png)
 ###@SentinelResource
-* ![](./img/88.png)
+* ![](http://qn.qs520.mobi/b58865e05be1efb31f9926e697620348.png)
 ###服务熔断功能，sentinel整合ribbon + openfeign + fallback
 ####Ribbon系列
-* ![](./img/89.png)
+* ![](http://qn.qs520.mobi/7aa241a703c7751f9a250c720829ca30.png)
 ####Feign系列
-* ![](./img/90.png)
+* ![](http://qn.qs520.mobi/d58fd3264fbcd3530119a616a2dc03e0.png)
 ####熔断框架比较
-* ![](./img/91.png)
+* ![](http://qn.qs520.mobi/e8c8a5152075a1c9379d0df55fd2bfb5.png)
 ###规则持久化
-* ![](./img/92.png)
+* ![](http://qn.qs520.mobi/aacbcaa5f43b9acc47a6875b54e67372.png)
 ##13. SpringCloud Alibaba Seata处理分布式事务
 ###分布式事务问题
 ####打个比方，淘宝下单有订单库，有金融库，这两个库看似没有关系，实则是一个事务里的，要么一起成功，要么一起失败，订单失败金额不减少，订单成功金额减少，所以就有了分布式事务的问题
 ###Seata简介， [官网](http://seata.io/zh-cn/)
 ####1. Seata是用来解决分布式事务的一个解决方案
-* ![](./img/93.png)
+* ![](http://qn.qs520.mobi/ba3c1ed2676c4a09f98b5e80ecb211d6.png)
 ###Seata-Server安装
-* ![](./img/94.png)
+* ![](http://qn.qs520.mobi/8c319c13e9162fcd3e5d64bfc649315f.png)
 ###订单/库存/账户业务数据库准备
-* ![](./img/95.png)
+* ![](http://qn.qs520.mobi/dbf5d6c3149e50bff75310e18480d20f.png)
 ###订单/库存/账户业务微服务准备
-* ![](./img/96.png)
+* ![](http://qn.qs520.mobi/8b0b4022f859a0e526f9d166c196e9e1.png)
 ###Test
 ###补充
-* ![](./img/97.png)
+* ![](http://qn.qs520.mobi/2ffef8f2a55a4603a0371907a6ca8f0c.png)
 
 
 

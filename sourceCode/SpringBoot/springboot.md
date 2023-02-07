@@ -1,6 +1,6 @@
 #Spring Boot源码
 ##run方法解析
-![](./img/1.png)
+![](http://qn.qs520.mobi/b8eb6a2bed63ff2d76b20e6927629e82.png)
 
 	public ConfigurableApplicationContext run(String... args) {
 		StopWatch stopWatch = new StopWatch();
@@ -48,11 +48,11 @@
 ####总结： springboot内置了spring原有的启动类，在启动的时候启动和刷新，只是吧context换成了AnnotationConfigWebApplicationContext
 ##@SpringBootApplication注解
 ###1. starter的自动配置原理
-![](./img/2.png)
+![](http://qn.qs520.mobi/72fe89ebc6ea29ae7cbb13fa452bc7c0.png)
 ####spring.factories的加载
-![](./img/3.png)
+![](http://qn.qs520.mobi/8877a9e377d34d3edebf2fc36defd6ca.png)
 ####factories调用时序图
-![](./img/4.png)
+![](http://qn.qs520.mobi/fb8b629c4936f477f631928c43ad5105.png)
 ####配置类的解析
 * ConfigurationClassPostProcessor作为Spring扩展点是Spring Boot一系列功能的基础入口。
 * ConfigurationClassParser作为解析职责的基本处理类,涵盖了各种解析处理的逻辑,如@lmport.@Bean.@ImportResource 、@PropertySource、@ComponentScan等注解都是在这个注解类中完成的,而这个类对外开放的函数入口就是parse方法。对应时序图中的步骤3。
@@ -142,10 +142,10 @@
 		return null;
 	}
 
-![](./img/5.png)
+![](http://qn.qs520.mobi/8ad43322ea9e16c009836dda2292e7f9.png)
 ###2. Conditional机制实现
 ####Conditional使用
-![](./img/6.png)
+![](http://qn.qs520.mobi/1509c897275c3eb16037aaf2a72b2eac.png)
 ####Conditional原理
 	@Override
 	public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeMetadata metadata) {

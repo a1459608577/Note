@@ -8,7 +8,7 @@
 ###安装（没有gcc就要先装gcc）
 ######1.检查虚拟机中是否已经安装了gcc
 > gcc -v
-> ![](./img/41.png)
+> ![](http://qn.qs520.mobi/e96aee7dca66af20d97b65d79adc8afd.png)
 > 否则就安装gcc：yum install gcc
 ######2.下载redis.tar.gz放到/usr/下然后解压
 > tar -zxvf redis.tar.gz
@@ -46,8 +46,8 @@
 ###[redis的命令手册](http://redisdoc.com/)
 ###redis的五大数据类型
 ####String(字符串)：单值单value
-* ![](./img/1.png)
-* ![](./img/7.png)
+* ![](http://qn.qs520.mobi/b129c7424b652a2bcd7f2d35a586b115.png)
+* ![](http://qn.qs520.mobi/c2d9eb708922985b10bcfeee47b450ca.png)
 * **set/get/del/append/strlen**(设置值/获取值/删除key/追加值/值的长度)，例如：strlen k1
 * **Incr/decr/incrby/decrby**(一定要是数字才能加减)：+1/-1/+给定值/-给定值，例如incr k1,incrby k1 3
 * **getrange/setrange**
@@ -62,10 +62,10 @@
 	* msetnx： 当key不存在或为nil时批量设置值，例如： **msetnx k1 v1 k2 v2**，其中有一个存在就不能设置
 * **getset(先get再set)**
 ####Hash(哈希，类似java里的map)：KV模式不变，但V是键值对
-* ![](./img/2.png)
-* ![](./img/13.png)
+* ![](http://qn.qs520.mobi/182e4e6011225b3497612594c5a08abc.png)
+* ![](http://qn.qs520.mobi/27101d6c4e2111d39503b58484631a00.png)
 * **hset/hget/hmset/hmget/hgetall/hdel**
-	* ![](./img/14.png)
+	* ![](http://qn.qs520.mobi/ce4292224ac127be29d7cbf93b0537f0.png)
 * **hlen key:**获取hash里键的个数
 * **hexists key 某个值：**判断这个key里有没有这个值
 * **hkeys/hvals key：**获取这个key里的所有键/获取这个key里的所有值
@@ -83,8 +83,8 @@
 		(integer) 1
 
 ####List(列表)：单值多value
-* ![](./img/3.png)
-* ![](./img/8.png)
+* ![](http://qn.qs520.mobi/54ae0ddc19b9c00a4d1d0048f3ed7722.png)
+* ![](http://qn.qs520.mobi/8fb0d0547c435e67a18f3071733887b1.png)
 * **LPUSH/rpush/lrange:**从左边开始添加/从右边开始添加，例如：**Lpush mylist 0 1 2**
 	* lrange： 查看list的值，例如： **lrange mylist01 0 2**，0到-1表示查看全部
 * **lpop/rpop：**把最外层的值移出list/把最里层的值移出list
@@ -95,33 +95,33 @@
 * **rpoplpush：**源列表，目的列表，例如：**rpoplpush list01 list02**，就是把list01最下面的值放到list02的第一个值
 * **lset key index value：**再指定key的指定索引用指定值替换
 * **linsert key before/after list中的值 要插入的值：**再指定list中指定值的前或者后插入一个值
-* ![](./img/9.png)
+* ![](http://qn.qs520.mobi/83b2e82606f8401e0bee38483229b973.png)
 ####Set(集合)：单值多value
-* ![](./img/4.png)
-* ![](./img/10.png)
+* ![](http://qn.qs520.mobi/8ad6bc53308f09553e104b45de5a3ee6.png)
+* ![](http://qn.qs520.mobi/92900f7d7fe40eaf46c2c0b6e001800c.png)
 * **sadd/smembers/sismember**
-	* ![](./img/11.png)
+	* ![](http://qn.qs520.mobi/708f9c19356bd0fc833235d36bb424a7.png)
 * **scard：**获取set里有几个值
 * **srem key value：**删除set中指定的值
 * **SRANDMEMBER key i：**随机从key中抽取i个值
 * **spop key：**随机出栈
 * **SMOVE key1 key2 在key1中的某个值：**把在可以key1中的某个值赋给key2
-* ![](./img/12.png)
+* ![](http://qn.qs520.mobi/3e0ac2ed228080a64de3c9d30796e8a0.png)
 ####Zset(sorted set)(有序集合)
-* ![](./img/5.png)
-* ![](./img/15.png)
+* ![](http://qn.qs520.mobi/8054920bf765feae9b0de24d27687d13.png)
+* ![](http://qn.qs520.mobi/65960174fd849ccfa2b06aff885c6f4d.png)
 * **sorted set：**
-	* ![](./img/16.png)
+	* ![](http://qn.qs520.mobi/429a57a9584f2762baf0f96f02174d73.png)
 * **zadd/zrange/**
-	* ![](./img/17.png)
+	* ![](http://qn.qs520.mobi/2ba9dcf1128f826c2bfc5ff5402fb895.png)
 * **ZRANGEBYSCORE key s1 s2:**
-	* ![](./img/18.png)
+	* ![](http://qn.qs520.mobi/3b8704626ffb0017a5eb2b1ce66d3fcf.png)
 * **zrem key key中某个score对应的值：**删除，例如：**zrem zset01 v5**
 * **ZCARD/ZCOUNT/ZRANK/ZSCORE**
-	* ![](./img/19.png)
+	* ![](http://qn.qs520.mobi/5d38fe0c6d78a4c77cecf06baef43964.png)
 * **ZREVRANK key 值：**反向获取这个值的索引，例如：**ZREVRANK zset01 v4**，zrank获取到v4的索引是3，这边反向获取的就是0
 * **ZREVRANGE：**反向获取所有的值
-	* ![](./img/20.png)
+	* ![](http://qn.qs520.mobi/3a1d8bfe79c9a3f363b007e002fcd4c6.png)
 ###redis中的key
 * keys *：显示库中所有的key的名称
 * **EXISTS 某个key的名称：**判断库中有没有这个key
@@ -129,13 +129,13 @@
 * **expire key 秒钟数：**为给定的 key设置过期时间
 * **ttl key：**查看这个key还有多久过期，-1表示永不过期，-2表示已经过期
 * **type key：**查看这个key是什么类型的
-* ![](./img/6.png)
+* ![](http://qn.qs520.mobi/053cac9d1da6c1f56c84b49c6d6efa51.png)
 ##redis的配置文件redis.conf
 ###配置文件路径：/opt/redis/redis.conf
 ###Units单位
-* ![](./img/21.png)
+* ![](http://qn.qs520.mobi/94b3a6c465541d9ab72e0281c257ef68.png)
 ###INCLUDES包含
-* ![](./img/22.png)
+* ![](http://qn.qs520.mobi/76ada7dc85578f48791b80173d8e3457.png)
 ###GENERAL通用
 ###SNAPSHOTTING快照
 * **save**
@@ -175,35 +175,35 @@
 * auto-aof-rewrite-percentage：设置重写的基准值，100%，就是一倍，默认为100
 * auto-aof-rewrite-min-size： 64M，默认为64mb
 ###常见配置介绍
-![](./img/23.png)
+![](http://qn.qs520.mobi/6170b58942dea88df22c6a31538be4e3.png)
 ##redis的持久化
 ###RDB(redis database)
 * 介绍
-	* ![](./img/24.png)
+	* ![](http://qn.qs520.mobi/59e7c1cc2b2337988b9d4333b0411d1f.png)
 * Fork：
-	* ![](./img/25.png)
+	* ![](http://qn.qs520.mobi/4b539eabef5030e7def26a9c91b96425.png)
 * rdb保存的是dump.rdb文件
 * 配置位置：对应上面的SNAPSHOTTING快照
 * 如何触发rdb快照:使用save或者bgsave快速备份，save相当于同步，bgsave相当于异步
 * 如何恢复：把备份文件(dump.rdb)放到redis安装目录即可
 * 如何停止：动态停止所有RDB保存规则的方法：**redis-cli config set save ""**
-* ![](./img/26.png)
+* ![](http://qn.qs520.mobi/a74c73eb7084ad12e83bc967e76652ec.png)
 ###AOF(append only file)
 * 介绍
-	* ![](./img/27.png)
+	* ![](http://qn.qs520.mobi/c8ade25a14573417de54ec43117675d3.png)
 * AOF保存的是appendonly.aof文件
 * 配置位置：对应上面的APPEND ONLY MODE追加
 * AOF启动/修复/恢复:**把appendonly改成yes/修复就是redis-check-aof --fix 文件路径**
 * Rewrite
 	* 是什么
-	* ![](./img/28.png)
+	* ![](http://qn.qs520.mobi/059b316ab8419fef10589dd6fc2a794d.png)
 	* 重写原理：
-	* ![](./img/29.png)
+	* ![](http://qn.qs520.mobi/8b803659ff244df47a3e32d996a2476b.png)
 	* 触发机制：Redis会记录上次重写时AOF的大小，默认配置是当AOF文件大小是上次rewrite后大小的一倍且文件大于64M时触发
-* ![](./img/30.png)
+* ![](http://qn.qs520.mobi/15f76210642632d09d065d8cf9723d15.png)
 ##redis的事务
 ###是什么
-* ![](./img/31.png)
+* ![](http://qn.qs520.mobi/dafacccf3d5f806f937767f4b447fba9.png)
 ###能干嘛：一个队列中，一次性，顺序性，排他性的执行一系列命令
 ###怎么用
 * 正常执行：**MULTI...EXEC**
@@ -221,18 +221,18 @@
 		* unwatch(使用unwatch取消监控，在重新watch)
 		* 一旦执行exec之前的监控锁都会被取消
 ###常用命令
-![](./img/32.png)
+![](http://qn.qs520.mobi/329e37cc8385ae87d479ce7686931a28.png)
 ###3阶段
-![](./img/33.png)
+![](http://qn.qs520.mobi/031ae90847a6a2e70473c8ae224e2ca1.png)
 ###3特性
-![](./img/34.png)
+![](http://qn.qs520.mobi/00c5b9ba6a3d4db115639b366531c37d.png)
 ##redis的发布和订阅
 ###是什么：
 * 进程中的一种消息通信模式：发送者(pub)发送消息，订阅者(sub)收到消息
 ###命令
-![](./img/35.png)
+![](http://qn.qs520.mobi/c58bc63efb4f02393204118e66ed670c.png)
 ###案例
-![](./img/36.png)
+![](http://qn.qs520.mobi/24ff53db8fa1af0c3d8a2e69e4e60239.png)
 ##redis的复制(Master/Slave)
 ###是什么
 * 是我们所说的主从复制，主机数据更新后根据配置和策略，自动同步到备机的master/slave机制，master以写为主，slave以读为主
@@ -258,17 +258,17 @@
 		* 日志查看
 		* 主从问题演示，使用**info replication**查看当前库的身份
 	* 薪火相传
-		* ![](./img/37.png)
+		* ![](http://qn.qs520.mobi/ddbfced572c49dc267c395fa8a3fbcd9.png)
 	* 反客为主： **SLAVEOF no one：**是当前库停止与其他库的同步，转变成主库master
 ###复制原理
-![](./img/38.png)
+![](http://qn.qs520.mobi/b2f0b9676f12c6e111ca935d882a2da1.png)
 ###哨兵模式(sintinel)
 * 是什么：反客为主的自动版，监控后台主机是否故障，故障了就根据投票数把一个从库变成主库
 * 怎么用(使用步骤)
-	* ![](./img/39.png)
+	* ![](http://qn.qs520.mobi/a82ec04cd996de8981fde9851bbba993.png)
 * 一组sintinel能监控多个master
 ###复制的缺点
-![](./img/40.png)
+![](http://qn.qs520.mobi/0b8ced1977a08eea4d4917cc3830fdcd.png)
 
 
 

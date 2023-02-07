@@ -42,22 +42,22 @@ methods: {
 
    * 1.安装vue.js插件
    * 2.配置HTML支持.vue后缀的文件。
-   * ![](img/1-1632814598215.png)
+   * ![](http://qn.qs520.mobi/1-1632814598215.png)
    * 3.配置ECMAScript6
-   * ![](img/2-1632814598214.png)
-   * ![](img/6-1632814598215.png) 
+   * ![](http://qn.qs520.mobi/2-1632814598214.png)
+   * ![](http://qn.qs520.mobi/6-1632814598215.png) 
    * 然后点击+号，找到npm
-   * ![](img/7-1632814598215.png)
+   * ![](http://qn.qs520.mobi/7-1632814598215.png)
 
 ## vue图形化页面搭建vue-cli
 
 * 1.打开命令行输入**vue ui**
 * 2.这个是第一步要选择的 
-* ![](img/3-1632814598215.png) 
-* ![](img/4-1632814598215.png)
+* ![](http://qn.qs520.mobi/3-1632814598215.png) 
+* ![](http://qn.qs520.mobi/4-1632814598215.png)
 * 安装element-ui：插件 => 添加插件 => 搜索element-ui => 点击安装 
 
-* ![](img/5-1632814598215.png) 
+* ![](http://qn.qs520.mobi/5-1632814598215.png) 
 * 安装axios： 依赖 => 添加依赖 => 搜索axios => 点击安装
 
 ## vuex的简单使用
@@ -98,7 +98,7 @@ methods: {
 
 #### 2.编写controller
 
-* ![](img/8-1632814598215.png) 
+* ![](http://qn.qs520.mobi/8-1632814598215.png) 
 
 * 1.在controller工程中建包：con.hnguigu.web和com.hnguigu.config
 
@@ -230,11 +230,11 @@ methods: {
 
 #### 		1.ctrl + shift + s 
 
-* ![](img/9-1632814598215.png)
+* ![](http://qn.qs520.mobi/9-1632814598215.png)
 
   #### 2.ctrl + shift + alt + /，选择Registry
 
-* ![](img/10-1632814598215.png)
+* ![](http://qn.qs520.mobi/10-1632814598215.png)
 
 #### 3.在pom文件中导入依赖即可
 
@@ -277,11 +277,11 @@ methods: {
 
 #### 3.ctrl + shift + s 
 
-* ![](img/19-1632814598215.png) 
+* ![](http://qn.qs520.mobi/19-1632814598215.png) 
 
 #### 4.ctrl + shift + alt + /, 选择Registry
 
-* ![](img/20-1632814598215.png) 
+* ![](http://qn.qs520.mobi/20-1632814598215.png) 
 
 ## @ControllerAdvice的应用场景
 
@@ -342,7 +342,7 @@ methods: {
 ## CentO6.5不能上网的情况
 
 * 可能是因为本机服务没有开，
-* ![](img/11-1632814598215.png) 
+* ![](http://qn.qs520.mobi/11-1632814598215.png) 
 
 ## vue-cli3项目打包
 
@@ -391,7 +391,7 @@ module.exports = {
 
 * 安装nginx，直接解压，然后双击nginx.exe即可启动nginx，
 * 然后进入修改nginx的配置文件，/nginx/conf/nginx.conf
-* ![](img/12-1632814598215.png)
+* ![](http://qn.qs520.mobi/12-1632814598215.png)
 * 然后重启nginx，nginx.exe -s reload，最后访问127.0.0.1：端口即可访问项目
 
 ## ssm+shiro+vue跨域问题
@@ -495,7 +495,7 @@ yum install -y 需要的包
 
 ## 解决低版本的MySQL客户端的“error 2059: Authentication plugin ‘caching_sha2_password’ cannot be loaded”错误
 
-* ![](img/13-1632814598215.png) 
+* ![](http://qn.qs520.mobi/13-1632814598215.png) 
 
   1. 用高版本的 MySQL，或者进入该 Docker 容器，登录 MySQL 服务器
 
@@ -570,11 +570,11 @@ yum install -y 需要的包
 
 ## Vue前后端分离实现文件上传
 
-* ![](img/15-1632814598215.png)
+* ![](http://qn.qs520.mobi/15-1632814598215.png)
 
 ## idea将web项目打包成war包
 
-* ![](img/16-1632814598215.png)
+* ![](http://qn.qs520.mobi/16-1632814598215.png)
 
 ## 在nginx上挂载本地文件和本地nginx.conf文件
 
@@ -636,7 +636,7 @@ mybatis-plus:
 
 1. 配置完yml文件后还需要在主启动类加个扫描注解
 
-* ![](img/17-1632814598215.png)  
+* ![](http://qn.qs520.mobi/17-1632814598215.png)  
 
 2. 编写配置类
 
@@ -801,7 +801,7 @@ location /model {
 }
 ```
 
-* ![](img/22-1632814598215.png) 
+* ![](http://qn.qs520.mobi/22-1632814598215.png) 
 
 
 ## 查找进程号命令
@@ -1319,7 +1319,7 @@ mybatis-plus:
 
 ### Tomcat的结构
 
-![](img/29-1632814598215.png)
+![](http://qn.qs520.mobi/29-1632814598215.png)
 
 * 一个service中可以有多个connector，和一个container，container又包含Engine(引擎)，Host，Context， Wrapper。 Connector负责接收请求，主要是由ProtocolHandler来处理socket，然后用Processer转成request，然后使用Adapter交给具体的Container来处理，ProtocolHandler要处理socket所以使用的TCP/IP协议，Processor转换request使用的HTTP协议，tomcat可以根据不同的请求协议使用不同的请求处理器，比如Http11Protocol使用普通socket连接，Http11NioProtocol使用NioSocket连接。这些组件全部实现了一个接口就是Lifecycle，这个是一个顶层接口，用来控制组件的生命周期，最顶级的组件就是Server，因此启动了Server其他组件也会一起启动。
 
@@ -1335,7 +1335,7 @@ mybatis-plus:
 
 #### Tomcat中Container是怎么处理请求的
 
-![](img/30-1632814598215.png) 
+![](http://qn.qs520.mobi/30-1632814598215.png) 
 
 * Container有四个组件，分别对应的BaseValve是StandardEngineValue、StandardHostValue、StandardContextValue、StandardWrapperValue。处理请求 的时候首先是由EnginePipeline来处理，然后EnginePipline执行到最后会执行StandardEngineValue，然后执行getNext().invoke(request, response);来调用StandardHostValue，以此类推，执行到StandardWrapperValue的时候，会创建一条过滤链(FilterChain)，并调用service()方法来处理请求。
 
@@ -1346,17 +1346,17 @@ mybatis-plus:
 2. 责任链模式：Tomcat中的ApplicationFilterChain实现了filter拦截和实际Servlet请求，典型的责任链模式。 还有就是pipline-valve机制，从Engine到Wrapper是通过一条链传递请求的，也是责任链模式。
 
 3. 观察者模式： Tomcat通过LifecycleListener监听组件的Lifecycle，组件的各种行为都会触发相应的时事件，在init和start的时候会出现大量的`fireLifecycleEvent(CONFIGURE_START_EVENT, null);`这就是对某一类型事件的触发。
-   ![](img/26-1632814598215.png)
+   ![](http://qn.qs520.mobi/26-1632814598215.png)
 
    
 
    #### Tomcat请求概述
 
-   ![](img/27-1632814598215.png)
+   ![](http://qn.qs520.mobi/27-1632814598215.png)
 
    #### Tomcat文件解释
 
-   ![](img/28-1632814598215.png)
+   ![](http://qn.qs520.mobi/28-1632814598215.png)
 
 
 ## Java中的位操作 << 和 >> 和 >>> 详细分析
@@ -1492,7 +1492,7 @@ public class ReaderObserver implements Observer {
 
 #### redis的pub/sub模式
 
-![](img/31-1632814598215.png) 
+![](http://qn.qs520.mobi/31-1632814598215.png) 
 
 ###### 当redis中的key失效的时候会发送一些通知(这个通知是redis内部的事件处理机制)，可以通过订阅这个内部的主体来收到key过期的信息
 
@@ -1500,7 +1500,7 @@ public class ReaderObserver implements Observer {
 2. 需要订阅的主体名称: __keyevent@dbindex__:expired
    1. dbindex: redis有16个库，从0开始，这就是数据库的索引
    2. 所以订阅的主体应该是： `__keyevent@0__:expired`
-      ![](img/32-1632814598215.png)
+      ![](http://qn.qs520.mobi/32-1632814598215.png)
 
 ## Spring源码从ClassPathXmlApplicationContext入手，然后看refresh的12个方法。springmvc源码从DispatcherServlet的doDispatch开始入手
 
@@ -1630,7 +1630,7 @@ public class UserApp extends SpringBootServletInitializer {
 
 ## 微信登录
 
-![](img/33-1632814598215.png)
+![](http://qn.qs520.mobi/33-1632814598215.png)
 
 #### 具体实现分三步
 
@@ -1700,7 +1700,7 @@ public class UserApp extends SpringBootServletInitializer {
    一号和二号选手准备就绪，裁判发枪：2021-06-03 10:24:12.669
    ```
 
-![](img/34-1632814598216.png) 
+![](http://qn.qs520.mobi/34-1632814598216.png) 
 
 2. #### CyclicBarrier(同步屏障)
 
@@ -1909,7 +1909,7 @@ B的视角：A和B数据是否一致：false，A录入的是：银行流水100�
 #### 原理:
 
 主从复制是通过重放binlog实现主库数据的异步复制。即当主库执行了一条sql命令，那么在从库同样的执行一遍，从而达到主从复制的效果。在这个过程中，master对数据的写操作记入二进制日志文件中(binlog)，生成一个 log dump 线程，用来给从库的 i/o线程传binlog。而从库的i/o线程去请求主库的binlog，并将得到的binlog日志写到中继日志（relaylog）中，从库的sql线程，会读取relaylog文件中的日志，并解析成具体操作，通过主从的操作一致，而达到最终数据一致。
-![](img/37-1632814598216.png)
+![](http://qn.qs520.mobi/37-1632814598216.png)
 
 #### 配置：
 
@@ -1930,7 +1930,7 @@ B的视角：A和B数据是否一致：false，A录入的是：银行流水100�
       ```
 
    3. 复制账号需要REPLICATION SLAVE权限才能正常使用，复制用户可以通过`show master status;`和`show slave status;`来查看复制状态；
-      ![](img/35-1632814598216.png) 
+      ![](http://qn.qs520.mobi/35-1632814598216.png) 
 
    4. 然后在配置my.ini文件，在[mysqld]下加上如下配置然后重启mysql
 
@@ -1967,7 +1967,7 @@ B的视角：A和B数据是否一致：false，A录入的是：银行流水100�
    4. 出现Slave_IO_Running: Connecting的问题，先看能不能远程连接上主服务器，在navicat中试一下，不能就给主服务器远程授权即可。
 
    5. 查询同步状态在命令行输入：show slave status\G
-      ![](img/36-1632814598216.png)
+      ![](http://qn.qs520.mobi/36-1632814598216.png)
 
 ## Mysql新建用户远程授权
 
@@ -1993,7 +1993,7 @@ B的视角：A和B数据是否一致：false，A录入的是：银行流水100�
 gcc -v
 ```
 
-![](img/41-1632814598216.png) 
+![](http://qn.qs520.mobi/41-1632814598216.png) 
 否则就安装gcc：`yum install gcc`
 
 ###### 2.下载redis.tar.gz放到/usr/下然后解压
@@ -2172,7 +2172,7 @@ public class RedisConfig {
 
 ## springboot加载自定义配置文件
 
-![image-20210814141754082](img/image-20210814141754082-1632814598216.png) 
+![image-20210814141754082](http://qn.qs520.mobi/image-20210814141754082-1632814598216.png) 
 
 ## 腾讯cos文件上传
 
@@ -2180,7 +2180,7 @@ public class RedisConfig {
 
 #### 首先登陆`https://console.cloud.tencent.com/`然后找到对象存储，新建一个存储桶。然后获取APPID，SecretId， SecretKey。地址： `https://console.cloud.tencent.com/cam/capi`
 
-![image-20210814151339774](img/image-20210814151339774-1632814598216.png)
+![image-20210814151339774](http://qn.qs520.mobi/image-20210814151339774-1632814598216.png)
 
 #### 然后引入依赖
 
@@ -2353,7 +2353,7 @@ secret：WGLhLdIuS21swxBlncyVayeIDTDWG7f0ANlhCz6Q5myr2o5ZfTB+YvC4a/rv9Fd5
 
 #### 然后在配置文件中进行配置然后照常运行即可
 
-![image-20210818193343994](img/image-20210818193343994-1632814598216.png)
+![image-20210818193343994](http://qn.qs520.mobi/image-20210818193343994-1632814598216.png)
 
 ## SpringBoot + Redis布隆过滤器
 
@@ -2366,7 +2366,7 @@ cd RedisBloom-2.2.5
 make					#编译
 ```
 
-![image-20210915135412518](../../../学习笔记/Note/study/img/image-20210915135412518.png) 
+![image-20210915135412518](http://qn.qs520.mobi/image-20210915135412518.png) 
 
 让Redis启动的时候加载布隆过滤器有两种方式
 
@@ -2374,7 +2374,7 @@ make					#编译
 
 > 自动：在配置文件中加入`loadmodule /soft/redisbloom/redisbloom.so`然后重启redis   如图：
 >
-> ![image-20210915140004774](../../../学习笔记/Note/study/img/image-20210915140004774.png) 
+> ![image-20210915140004774](http://qn.qs520.mobi/image-20210915140004774.png) 
 
 bloom filter基本命令
 
@@ -2465,11 +2465,27 @@ bf.exists ksn 135486457  // 判断布隆过滤器中是否包含这个元素  �
 
 4. 然后在方法上添加`@GlobalTransactional`注解即可
 
+## Linux禁止密码登录只能试用sshkey登录方法
+
+首先在本地`.ssh`目录下找到自己的公钥`id_rsa.pub` 然后复制里面的内容到linux机器上`/root/.ssh/authorized_keys`文件中。然后修改`/etc/ssh/sshd_config`文件。修改或新增内容：
+
+```SHELL
+RSAAuthentication yes 
+PubkeyAuthentication yes 
+AuthorizedKeysFile %h/.ssh/authorized_keys
+```
+
+然后重启sshd服务`systemctl restart sshd（centos7）`或者`service sshd restart(centos6)`。此时看看试用sshkey能不能登录，可以的话还是修改`/etc/ssh/sshd_config`文件。然后再重启sshd服务即可
+
+```
+PasswordAuthentication yes  改成  PasswordAuthentication no (这个是禁止密码登录)
+```
+
 ## 远程Debug
 
 1. 首先在idea中配置如下： 
 
-![image-20211126122542796](../img/image-20211126122542796.png) 
+![image-20211126122542796](http://qn.qs520.mobi/image-20211126122542796.png) 
 
 #### 参数说明：
 
@@ -2825,7 +2841,7 @@ bf.exists ksn 135486457  // 判断布隆过滤器中是否包含这个元素  �
   parser.parseExpression("#root.name").getValue(person); // 这种是表示直接从对象中获取
   ```
 
-  ![image-20220115123747557](../img/image-20220115123747557.png) 
+  ![image-20220115123747557](http://qn.qs520.mobi/image-20220115123747557.png) 
 
 ## 阿里开源TransmittableThreadLocal基本使用
 
@@ -2876,7 +2892,7 @@ public static void main(String[] args) {
 
 demo1源码解析：
 
-![image-20220121180757956](../img/image-20220121180757956.png) 
+![image-20220121180757956](http://qn.qs520.mobi/image-20220121180757956.png) 
 
 demo2：
 
@@ -2940,11 +2956,11 @@ private TtlRunnable(@NonNull Runnable runnable, boolean releaseTtlValueReference
 }
 ```
 
-![image-20220121152638969](../img/image-20220121152638969.png)  
+![image-20220121152638969](http://qn.qs520.mobi/image-20220121152638969.png)  
 
-![image-20220121152734812](../img/image-20220121152734812.png) 
+![image-20220121152734812](http://qn.qs520.mobi/image-20220121152734812.png) 
 
-![image-20220121174257478](../img/image-20220121174257478.png) 
+![image-20220121174257478](http://qn.qs520.mobi/image-20220121174257478.png) 
 
 ```java
 // 这个方法是在run方法的前置方法，用于备份数据，就是上面从
@@ -3222,7 +3238,7 @@ private final class Worker extends AbstractQueuedSynchronizer implements Runnabl
 } 
 ```
 
-![image-20220124183058881](../img/image-20220124183058881.png) 
+![image-20220124183058881](http://qn.qs520.mobi/image-20220124183058881.png) 
 
 ```java
 // 核心代码
@@ -3280,7 +3296,7 @@ final void runWorker(Worker w) {
 }
 ```
 
-![image-20220125154445183](../img/image-20220125154445183.png) 
+![image-20220125154445183](http://qn.qs520.mobi/image-20220125154445183.png) 
 
 (不在状态 停止继续)
 

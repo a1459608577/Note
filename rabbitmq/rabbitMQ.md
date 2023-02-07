@@ -3,10 +3,10 @@
 ##[rabbitMQ笔记](https://blog.csdn.net/hellozpc/article/details/81436980)
 ##安装，启动
 ###安装Erlang(类似rabbitmq开发环境)
-![](./img/1.png)
+![](http://qn.qs520.mobi/480c4136378d3163c930ec08ac025f00.png)
 ###启动
 * 刚安装好进入安装rabbitMQ的目录，
-![](./img/2.png)
+![](http://qn.qs520.mobi/316147b2f9435f02a3be505db279be70.png)
 * 输入启动命令就可以在127.0.0.1：15672进入官网，使用**guest/guest**登录： 
 	> 第一次启动命令： rabbitmq-plugins enable rabbitmq_management 
 	> 
@@ -15,7 +15,7 @@
 	> 启动：net start RabbitMQ
 ##添加用户
 ###添加admin用户
-![](./img/3.png)
+![](http://qn.qs520.mobi/ebc7b0ecae1313dc1d0d57f063aedd2a.png)
 ###用户角色
 * 1、超级管理员(**administrator**):可登陆管理控制台，可查看所有的信息，并且可以对用户，策略(policy)进行操作。
 * 2、监控者(**monitoring**)
@@ -27,17 +27,17 @@
 * 5、其他
 无法登陆管理控制台，通常就是普通的生产者和消费者。
 ###创建Virtual Hosts(相当于mysql的db数据库)
-![](./img/4.png)
+![](http://qn.qs520.mobi/7c9d99ca9a1f70fbdcc8771dbfae6b84.png)
 -
-![](./img/5.png)
+![](http://qn.qs520.mobi/f9c79b9724b110c960fa1c1602dd2a8e.png)
 -
-![](./img/6.png)
+![](http://qn.qs520.mobi/dab2cdda78f1bfc4523fa6a4d1960222.png)
 ###管理界面中的功能
-![](./img/7.png)
+![](http://qn.qs520.mobi/b3cb954290fc5f964105b788ebf78050.png)
 -
-![](./img/8.png)
+![](http://qn.qs520.mobi/4a526ccf5d558c6cfd4994d24f53c175.png)
 ##学习五种队列
-![](./img/9.png)
+![](http://qn.qs520.mobi/18ce34be17011e37663a77f6f29c12b9.png)
 ###新建maven项目，导入依赖
 	<dependency>
         <groupId>com.rabbitmq</groupId>
@@ -63,7 +63,7 @@
         <version>1.2.17</version>
     </dependency>
 ###1.简单队列(simple queue)
-![](./img/10.png)
+![](http://qn.qs520.mobi/1b5481ea8db13652752757ee415c1419.png)
 #####导入依赖
 	<dependency>
 	   <groupId>com.rabbitmq</groupId>
@@ -104,7 +104,7 @@
     }
 
 #####管理工具中查看消息
-![](./img/11.png)
+![](http://qn.qs520.mobi/1324a73651fd49c03047f9ee8376a896.png)
 #####消费者从队列中获取消息
 * java老的api
 
@@ -147,7 +147,7 @@
 	        channel.basicConsume(QUEUE_NAME,true,  consumer);
 	    }
 ###2.工作队列(work queue)
-![](./img/12.png)
+![](http://qn.qs520.mobi/d1f70e8515d67ecb984a80c726861950.png)
 #####消费者1
 
 	private static final String QUEUE_NAME = "workQueue";
@@ -228,7 +228,7 @@ basicQos 方法设置了当前信道最大预获取（prefetch）消息数量为
 * 为了解决这个问题，我们使用basicQos( prefetchCount = 1)方法，来限制RabbitMQ只发不超过1条的消息给同一个消费者。当消息处理完毕后，有了反馈，才会进行第二次发送。
 还有一点需要注意，使用公平分发，必须关闭自动应答，改为手动应答。
 #####解决方法:work queue的能者多劳模式
-* ![](./img/13.png)
+* ![](http://qn.qs520.mobi/6b77cb14096407ffa415f8d71e0a8f07.png)
 * 消费者
 
 		private static final String QUEUE_NAME = "workQueue";
@@ -271,7 +271,7 @@ basicQos 方法设置了当前信道最大预获取（prefetch）消息数量为
     channel.queueDeclare(QUEUE_NAME, durable, false, false, null);
 * 将程序中的durable改成true是不可以的，rabbitmq不允许修改一个已经声明的队列
 ###3.订阅模式(publish/subscribe)
-* ![](./img/14.png)
+* ![](http://qn.qs520.mobi/1d2dc7f79e22b4431cae371d033eeeb0.png)
 * 解读:
 	1. 一个生产者，多个消费者
 	2. 每一个消费者都有自己的队列
@@ -294,7 +294,7 @@ basicQos 方法设置了当前信道最大预获取（prefetch）消息数量为
         connection.close();
     }
 
-* ![](./img/15.png)
+* ![](http://qn.qs520.mobi/225add1cb441fb2251badd25b5bc2232.png)
 * 交换机生成了，，但是数据丢失，原因是：交换机咩没有存储能力，只有队列才有，还没有把队列跟交换机绑定，所以消息没了
 #####消费者1(消费者2同下)
 	private static final String QUEUE_NAME = "test_queue_fanout_email";
@@ -320,13 +320,13 @@ basicQos 方法设置了当前信道最大预获取（prefetch）消息数量为
 #####测试结果：同一个消息被多个消费者获取。一个消费者队列可以有多个消费者实例，只有其中一个消费者实例会消费到消息。
 ###Exchange(交换机)
 - 一方面接受生产者的消息，一方面把消息推送给队列
-* ![](./img/16.png)
+* ![](http://qn.qs520.mobi/ec86bfbdd7937277bb05000b0231c51e.png)
 #####Fanout(不处理路由键)
-* ![](./img/17.png)
+* ![](http://qn.qs520.mobi/fd3522574bdb151016ca05ebf711cb0b.png)
 #####Direct处理路由键)
-* ![](./img/18.png)
+* ![](http://qn.qs520.mobi/ed79877304581234c2b7a7bd9b585619.png)
 ###4.路由模式
-* ![](./img/19.png)
+* ![](http://qn.qs520.mobi/925527a9abb43a9c459ccbf387562031.png)
 #####生产者
 	private static final String EXCHANGE_NAME = "test_exchange_direct";
     public static void main(String[] args) throws Exception {
@@ -360,7 +360,7 @@ basicQos 方法设置了当前信道最大预获取（prefetch）消息数量为
         channel.basicConsume(QUEUE_NAME, false, consumer);
     }
 ###5. 主题模式（通配符模式）
-* ![](./img/20.png)
+* ![](http://qn.qs520.mobi/661583f9ad8eaa94491317b7a19a5752.png)
 #####topic exchange：将路由键与某模式匹配
 * **#：**匹配一个或者多个，可以零个
 * ***:**匹配一个
@@ -476,9 +476,9 @@ basicQos 方法设置了当前信道最大预获取（prefetch）消息数量为
         connection.close();
     }
 #####confirm异步模式
-* ![](./img/22.png)
+* ![](http://qn.qs520.mobi/7e5f941ca2ee30fc467cc6e4116938c5.png)
 ####生产者端Confirm模式的实现原理
-* ![](./img/21.png)
+* ![](http://qn.qs520.mobi/1701c8a2e81760d94fc5e85f17ffe6b4.png)
 ##spring整合rabbitMQ
 ####配置文件
 	<beans xmlns="http://www.springframework.org/schema/beans"

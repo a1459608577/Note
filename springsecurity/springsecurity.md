@@ -1,13 +1,13 @@
 #Spring Security
 
 ##1. CAS整合 Spring Security(一)
-![](./img/1.png)
+![](http://qn.qs520.mobi/b185fcd059cfbd57da417066ec82237d.png)
 ###三个概念
 * **TGT**：TGT 全称叫做 Ticket Granting Ticket，这个相当于我们平时所见到的 HttpSession 的作用，用户登录成功后，用户的基本信息，如用户名、登录有效期等信息，都将存储在此。
 * **TGC**：TGC 全称叫做 Ticket Granting Cookie，TGC 以 Cookie 的形式保存在浏览器中，根据 TGC 可以帮助用户找到对应的 TGT，所以这个 TGC 有点类似与会话 ID。
 * **ST**：ST 全称是 Service Ticket，这是 CAS Sever 通过 TGT 给用户发放的一张票据，用户在访问其他服务时，发现没有 Cookie 或者 ST ，那么就会 302 到 CAS Server 获取 ST，然后会携带着 ST 302 回来，CAS Client 则通过 ST 去 CAS Server 上获取用户的登录状态。
 ###CAS登录流程
-![](./img/2.png)
+![](http://qn.qs520.mobi/75e0c095deface08147cd54fbb7bba14.png)
 #
 1. 用户通过浏览器访问应用1，应用1 发现用户没有登录，于是返回 302，并且携带上一个 service 参数，让用户去 CAS Server 上登录。
 2. 浏览器自动重定向到 CAS Server 上，CAS Server 获取用户 Cookie 中携带的 TGC，去校验用户是否已经登录，如果已经登录，则完成身份校验（此时 CAS Server 可以根据用户的 TGC 找到 TGT，进而获取用户的信息）；如果未登录，则重定向到 CAS Server 的登录页面，用户输入用户名/密码，CAS Server 会生成 TGT，并且根据 TGT 签发一个 ST，再将 TGC 放在用户的 Cookie 中，完成身份校验。
@@ -22,20 +22,20 @@
 ####2. 生成HTTPS证书，云服务申请，或者去买，或者jdk自带的keytool工具
 > keytool -genkey -alias casserver -keyalg RSA -keystore ./keystore
 
-![](./img/3.png)
+![](http://qn.qs520.mobi/795830344accc2d1d158002d31673762.png)
 ####3. 配置并启动
 ######1. 首先进入cas-overlay-template下，打开cmd，输入mvn clean package，在新建目录src/main/resource，再把verlays/org.apereo.cas.cas-server-webapp-tomcat-5.3.14/WEB-INF/classes/application.properties文件跟生成的keystore放到resources下，如图：
-![](./img/4.png)
+![](http://qn.qs520.mobi/da7c295cbc2c20ff231b278d63e8656f.png)
 ######2. 更改application.properties配置文件，配置keystore的地址和password
-![](./img/5.png)
+![](http://qn.qs520.mobi/58b267ea26250c7f946df2e5906cbfbd.png)
 ######3. 在当前项目下执行`build.cmd run`，第一次会有点久，成功后如图： 
-![](./img/6.png)
+![](http://qn.qs520.mobi/7406b485e6832ac7e26390bd883932b6.png)
 ######4. 输入`https://127.0.0.1:8443/cas/login`,访问成功即可。默认的用户名是 casuser，密码是 Mellon。可以再配置文件中修改,改完重启即可
 > cas.authn.accept.users=casuser::Mellon
 
-![](./img/7.png)
+![](http://qn.qs520.mobi/d7f8b70b41e739a9b51e3157459d3e59.png)
 ######5. 配置用户从数据库读取，打开https://github.com/javalanxiongwei/cas-overlay-template-master/blob/master/cas.sql，拿到cas.sql文件并执行。此时会多出一张用户表sys_user
-![](./img/8.png)
+![](http://qn.qs520.mobi/acc53a215f47314e9856dd0ce91d5415.png)
 ######6. 在pom.xml中新增依赖
 
 	<!--新增支持jdbc验证-->
@@ -82,7 +82,7 @@
 		#Query Database Authentication 数据库查询校验用户名结束
 		#jdbc验证配置
 ######8. 分别使用admin/admin, wolfcode/wolfcode, lanxw/666 登录效果如下：
-![](./img/9.png)
+![](http://qn.qs520.mobi/5721c3252dd22366344457c80ea563d5.png)
 ######9. 其他
 * 我们已经把CAS Server端的验证变成使用JDBC的方式认证,而且在数据库中也已经对明文密码使用md5进行加密,但是只是用md5加密安全性不够高.所以一般我们会对密码使用md5+盐加密来增加密码管理的安全性.我们需要修改application.properties,在配置文件中指定盐值和加密次数:
 对应的sys_user_encode的脚本也是从上面的github地址获取.
@@ -289,8 +289,8 @@
 	链接二：
 	localhost:8080/oauth/token?client_id=ksn_client&grant_type=authorization_code&redirect_uri=
 	http://www.baidu.com&client_secret=ksn_secret&code=h3pZrO
-![](./img/10.png)
-![](./img/11.png)
+![](http://qn.qs520.mobi/dccad0771f1d1537129ed5d54a91d0f9.png)
+![](http://qn.qs520.mobi/30f57514af54bff46bbc2a13817eba04.png)
 ##简单模式
 ####1. 在上面的基础上，修改authorizedGrantTypes，加上implicit即可。然后访问链接一，登录后选择通过就跳转到redirect_uri了。跳转后的链接如链接二，后面的access_token就是token。
 	
@@ -299,7 +299,7 @@
 
 	链接二：
 	https://www.baidu.com/#access_token=b9da9cd7-4498-4859-8b41-ecf497050bc9&token_type=bearer&expires_in=7199
-![](./img/12.png)
+![](http://qn.qs520.mobi/17237c61de9d68e9646e1f0b0429dacc.png)
 ##密码模式
 ####1. 首先在SecurityConfig中实现authenticationManager方法并交给容器管理
 
@@ -331,11 +331,11 @@
 ####1. 在之前的基础上修改authorizedGrantTypes，加上client_credentials,然后访问如下链接即可。
 	http://localhost:8080/oauth/token?grant_type=client_credentials&client_id=ksn_client&client_secret=ksn_secret
 
-![](./img/13.png)
+![](http://qn.qs520.mobi/25a3164168113e3bfc5a2888d1798eb5.png)
 ##刷新token
-![](./img/14.png)
+![](http://qn.qs520.mobi/0bf2b45ba71c1de7d02d9a63fbe40d21.png)
 ####各个接口
-![](./img/15.png)
+![](http://qn.qs520.mobi/e3d732977013f666ddb1746528913f3e.png)
 ##把token存入redis，从数据库读取token信息
 ###1. 把token存入redis
 ######1.1 首先导入redis依赖，配置redis
@@ -355,10 +355,10 @@
     TokenStore tokenStore() {
         return new RedisTokenStore(redisConnectionFactory);
     }
-![](./img/16.png)
+![](http://qn.qs520.mobi/3faef4bba4657be5eb9c9e6b034611e0.png)
 ###2. 从数据库读取token信息
 ######2.1 通过查看ClientDetailsService，它有两个实现类，从数据库中读数据是使用了JdbcClientDetailsService这个类，又通过查看这个类推断出数据库的表结构并且导入数据库依赖，配置数据源
-![](./img/17.png)
+![](http://qn.qs520.mobi/4eb549ef5bdcbb141330568c5b92a89e.png)
 ######2.2 修改配置类即可，如果想要自定义规则就可以实现ClientDetailsService，然后实现其中的方法即可。
 	@Autowired
 	DataSource dataSource;
@@ -481,7 +481,7 @@
 	}
 ##接入Github第三方登录
 ###github新建一个应用
-![](./img/18.png)
+![](http://qn.qs520.mobi/9d0b7da7d77098e31c0d9fe51ec2756f.png)
 ###新建一个boot工程导入web，thymeleaf依赖，新建index.html，注意a标签的地址是获取授权码的.client_id是创建应用时的id，state随意，是用来防篡改的。
 >https://github.com/login/oauth/authorize?client_id=xxxxxx&state=ksn
 
@@ -524,4 +524,4 @@
     }
 ##SpringSecurity的异常处理流程
 ######SpringSecurity是由一串过滤链组成的，典型的责任链模式。处理异常的过滤器在倒数第二个，叫ExceptionTranslationFilter。它继承了GenericFilterBean，所以查看它的doFilter方法会发现只有一句`chain.doFilter(request, response);`。而最后一个过滤器是FilterSecurityInterceptor。FilterSecurityInterceptor专门处理授权问题，然后抛出异常被ExceptionTranslationFilter捕捉到，调用catch块中的`throwableAnalyzer.getFirstThrowableOfType`，判断异常类型是认证异常还是授权异常，如果都不是就走ServletException 异常类型的处理逻辑，然后调用`handleSpringSecurityException(request, response, chain, ase);`。
-![](./img/19.png)
+![](http://qn.qs520.mobi/c59b6b7e2247fbe92702bfc4b16f7a89.png)

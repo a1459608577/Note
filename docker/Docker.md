@@ -18,7 +18,7 @@
 
 * 启动docker： **service docker start/stop/restart**
 
-  ![](./img/1.png) 
+  ![](http://qn.qs520.mobi/f042f34ec0919f52417eb4205808059b.png) 
 
   ## 2.配置阿里云镜像加速器
 
@@ -51,9 +51,9 @@
 
 * 运行**docker run hello-world**
 
-* ![](./img/2.png) 
+* ![](http://qn.qs520.mobi/f7563498023c08ce7aad4fc73259d32e.png) 
 
-* ![](./img/3.png)
+* ![](http://qn.qs520.mobi/8f74f6e85ee11fe3eab6ca2bf26b9972.png)
 
   ## CentOS7安装Docker
 
@@ -127,7 +127,7 @@
 ### 镜像命令
 
 * **docker images：**查看本地仓库中的镜像
-	* ![](./img/4.png)
+	* ![](http://qn.qs520.mobi/7811e8a5a2657d57e109470209a346ac.png)
 		* REPOSITORY: 镜像的仓库源
 		* TAG: 镜像版本标签，这个就是ubuntu:latest，可以指定，如果不指定就是:latest
 		* IMAGE ID: 镜像ID
@@ -190,7 +190,7 @@
 	* 查看容器内部细节(以json字符串的形式)： **docker inspect 容器id**
 	* 进入正在运行的 容器并以命令行交互：
 		* **docker exec -it 容器id linux命令：**在容器中打开新的终端，并启动新的进程，就直接执行命令了
-		* ![](./img/5.png)
+		* ![](http://qn.qs520.mobi/67f5304234df5bdd622db9be1bf3aaf8.png)
 		* **docker attach 容器id：**直接进入容器启动的命令终端，不启动新的进程
 	* 从容器内拷贝文件到主机上： **docker cp 容器id：容器内路径 主机路径**
 
@@ -209,7 +209,7 @@
 			* -P： 随机分配端口
 		* 如果访问出现404，[参考文章](https://blog.csdn.net/qq_29752857/article/details/104996514)
 	* 故意删除上一步镜像生产tomcat容器的文档
-	* ![](./img/6.png)
+	* ![](http://qn.qs520.mobi/529eb16da6eb2743cbcb5e760f028cb8.png)
 	* 以这个为模板commit一个新的镜像tomcat2
 		* 命令： **docker commit -m "ksn的tomcat" -a="ksn" fe0a652e0c2d hnguigu/mytomcat:1.0**
 		* -m: 描述信息
@@ -228,7 +228,7 @@
 #### 用命令添加
 * 命令： **docker run -it -v /宿主机绝对路径目录:/容器内目录 镜像名**
 * 查看数据卷是否挂载成功，使用inspect命令如下即绑定成功
-* ![](./img/7.png) 
+* ![](http://qn.qs520.mobi/1016cc23d19fe131d39d41e7b8599a22.png) 
 * 容器和宿主机之间的数据共享，两边修改文件会直接同步
 * 容器停止退出后，主机修改数据是否同步，容器停止后主机做的修改，容器依旧同步
 * 命令(带权限)： **docker run -it -v /宿主机绝对目录:/容器目录:ro 镜像名**(readonly,只读)
@@ -245,7 +245,7 @@
 * build后生成镜像： **docker build -f /mydocker/Dockerfile -t hnguigu/mycentos .**
 * run容器： **docker run -it 新建的镜像**
 * 主机默认对应地址
-* ![](./img/8.png)
+* ![](http://qn.qs520.mobi/bce5f941ff2cb63868b69f875c7244ba.png)
 
 ### 数据卷容器
 
@@ -301,7 +301,7 @@
 	* 注意： dockerfile中可以有多个CMD命令，但是只有最后一个生效，CMD会被docker run之后的参数替换
 * **ENTRYPOINT:** 和CMD作用一样，都是在指定容器启动程序和参数
 * **ONBUILD:** 当构建一个被继承的Dockerfile时运行命令，父镜像在被子镜像继承后父镜像的onbuild被触发
-* ![](./img/9.png) 
+* ![](http://qn.qs520.mobi/36192fc10d9720c2721cfaa9592d05ce.png) 
 
 ### 案例
 #### Base镜像(scratch)
@@ -312,7 +312,7 @@
 1. 编写
 	* Hub默认的centos镜像时什么情况(WORKDIR是/，没有vim，ifconfig等命令)
 	* 准备编写Dockerfile文件
-	* ![](./img/10.png) 
+	* ![](http://qn.qs520.mobi/17e8e99ce163de8d9565bdc68a1f1aa4.png) 
 	* mycentos内容DockerFile
 2. 构建: **docker build -f DockerFile路径 -t 镜像名称:版本号 .**
 3. 运行: **docker run -it 新镜像名字:版本号**
@@ -322,11 +322,11 @@
 #### CMD/ENTRYPOINT镜像案例
 
 * CMD命令是会覆盖的 ，只执行最后一个，带参数的话就会执行参数;ENTRYPOINT是追加，不会覆盖
-* ![](./img/11.png)
+* ![](http://qn.qs520.mobi/3a684359bff7ed8025315378c3e43edd.png)
 * CMD方式
-* ![](./img/13.png) 
+* ![](http://qn.qs520.mobi/23e0cfa7af9387dabd931046701f4e56.png) 
 * ENTRYPOINT方式
-* ![](./img/12.png) 
+* ![](http://qn.qs520.mobi/5532b3af0d240372a122c0dbdb2c8009.png) 
 
 #### 自定义tomcat9
 
@@ -343,7 +343,7 @@
 * 拉取：**docker pull mysql:5.6**
 * 运行：
 	
-	* ![](./img/14.png)
+	* ![](http://qn.qs520.mobi/a5c0c5410ce65d5859863f6f2fe58f41.png)
 * 交互： **docker exec -it mysql容器id /bin/bash**
 
 ### 安装redis
@@ -368,7 +368,7 @@
 
 ## 7.本地镜像发布到阿里云
 
-* ![](./img/15.png)
+* ![](http://qn.qs520.mobi/823822e4750e1113df349307c0f0e568.png)
 
 * 然后登录进去创建镜像仓库什么的 
 
@@ -381,7 +381,7 @@
 
 * docker pull registry.cn-hangzhou.aliyuncs.com/ksnkk/mycentos:1.1.1(这个网址是阿里云上搜索仓库搜到的公网地址)
 
-* ![](./img/16.png)
+* ![](http://qn.qs520.mobi/eaaa780331a3a63f655d08fb9a319685.png)
 
 * 然后运行即可
 
@@ -410,7 +410,7 @@ rm /usr/local/docker-compose/docker-compose
 
 可以使用`docker-compose -h` 查看
 
-![](./img/17.png) 
+![](http://qn.qs520.mobi/6f77564fd89f1cf1bde1f91247101cee.png) 
 
 #### 命令模板：`docker-compose [-f <arg>...] [options] [COMMAND] [ARGS...]`
 
@@ -910,9 +910,9 @@ services:
 
 ##### 使用`docker-compose up`运行容器
 
-![](img/19.png)
+![](http://qn.qs520.mobi/e6924839e60d6d904df82b913733db57.png)
 
-![](img/18.png)
+![](http://qn.qs520.mobi/b2272a77b2de0ac4d95036d845923220.png)
 
 #### 修改docker-compose.yml
 

@@ -216,16 +216,16 @@ ssh-keygen -t rsa -C "邮箱" //然后一直按回车就行
 
 #### （可以解决jenkins从github拉取代码不下来的问题）
 
-![](./img/23.png)
+![](http://qn.qs520.mobi/48d6d0b0b4b2cbcc7dc1f34148a32dc2.png)
 
-![](./img/24.png)
+![](http://qn.qs520.mobi/edf8894540f7943fd00c1a6d3fc50340.png)
 
 #### 4.创建一个jenkins项目
 
 * [参考链接1](https://blog.csdn.net/weixin_44747933/article/details/107118059?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-10&spm=1001.2101.3001.4242)
 * [参考链接2](https://blog.csdn.net/weixin_40400410/article/details/82148335)
 
-![](./img/25.png)
+![](http://qn.qs520.mobi/5968df2c70f4eddd94190038cd2a312f.png)
 
 #### 5. 注意事项
 

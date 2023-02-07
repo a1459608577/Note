@@ -69,9 +69,9 @@
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 * spring-boot-starter: 是springboot场景启动器(就是导入了web模块正常运行的组件
-* ![](./img/1.png)
+* ![](http://qn.qs520.mobi/85167abf58720afe1a932576041325c9.png)
 ### 3.主程序类，主入口类(main)
-* ![](./img/2.png)
+* ![](http://qn.qs520.mobi/e355662d022ea1cc5eec8c87626eb533.png)
 
 		@Target({ElementType.TYPE})
 		@Retention(RetentionPolicy.RUNTIME)
@@ -187,17 +187,17 @@
 		user.dog.name=qwer
 		user.dog.age=5
 ###4.使用@Value和@ConfiguretionProterties获取值的区别
-* ![](./img/20.png)
+* ![](http://qn.qs520.mobi/282171f85b85f0a2d475c2dd05237dc7.png)
 * **松散语法**： 支持的话lastName和last-name两种写法都可以，不支持就只能lastName
 	* 大写的就是last-name，小写的就是last_name
 * **spEL表达式**：就是用@Value注入可以@value(${2*11}),但是使用@ConfiguretionProterties注解在yml文件中就不能使用
 * **JSR303:**数据验证规范，使用前要在类上加**@Vilidatded**注解**验证规范：https://www.ibm.com/developerworks/cn/java/j-lo-jsr303/index.html**
-* ![](./img/3.png)
+* ![](http://qn.qs520.mobi/88a42e8812fc65aa63ded80b1eba6a89.png)
 ###5.@PropertySource和@ImportResource
 * **@PropertySource：**加载指定的配置文件，先从全局配置文件中查找，在从指定文件中找
-* ![](./img/4.png)
+* ![](http://qn.qs520.mobi/0c9fdbeffb9860cb9da82e2f21ec75f3.png)
 * **@ImportResource：**导入spring的配置文件，让配置文件里的内容生效
-* ![](./img/5.png)
+* ![](http://qn.qs520.mobi/cfa3f1f7fdde9b360f679deac4d63890.png)
 * **SpringBoot中推荐给容器中添加组件的方式：使用全注解**
 	* 1.类似spring配置文件(不推荐)
 	* 2.配置类(推荐)
@@ -207,7 +207,7 @@
 		        return new HelloService();
 		    }
 ###6.配置文件占位符
-* ![](./img/6.png)
+* ![](http://qn.qs520.mobi/f9d21ff58a47e21bd7de4d41a4d5b1aa.png)
 * **随机数**
 
 		${random.value}、${random.int}、${random.long} //可以通过这些获取数值
@@ -216,16 +216,16 @@
 * 1.多Profile文件
 	* 创建多个properties配置文件，格式：application-{profile}.properties,默认读取的是application.properties
 * 2.yml支持多文档块方式
-* ![](./img/7.png)
+* ![](http://qn.qs520.mobi/2703823e32493cf96542fa980366fd8b.png)
 * 3.激活指定Profile
 	* 1.切换读取其他配置文件： **spring.profiles.active = {profile}**(这个就是上面指定的值，这个是在配置文件中指定，直接下写在配置文件中即可)
 	* 2.命令行： **--spring.profiles.active = bb**(这个bb是图片上的的bb)
-	* ![](./img/8.png)
+	* ![](http://qn.qs520.mobi/f0d703e5341a09c71f98388fb3fb5a12.png)
 	* 3.虚拟机参数：**-Dspring.profiles.active = bb**
-	* ![](./img/9.png)
+	* ![](http://qn.qs520.mobi/1b000d3044cea09f260768e60dbafdce.png)
 ###8.配置文件位置加载顺序
-* ![](./img/10.png)
-* ![](./img/11.png)
+* ![](http://qn.qs520.mobi/c444a0cb47452531676397bb7823d1e3.png)
+* ![](http://qn.qs520.mobi/d24d5c6ad68bf49986670c636f205394.png)
 * springboot会从高往低加载，而且会**互补配置**
 ###9.外部配置的加载顺序
 - **SpringBoot也可以从以下位置加载配置； 优先级从高到低；高优先级的配置覆盖低优先级的配置，所有的配置会形成互补配置**
@@ -272,7 +272,7 @@
 			//这个注解是判断配置文件中是否有这个配置，在"spring.http.encoding"是否有"enabled"属性
 			public class HttpEncodingAutoConfiguration {
 	* **所有配置文件中的属性都在xxxxProperties类中被封装，根据配置类中的条件是否被满足，满足则配置类生效**
-	* ![](./img/12.png)
+	* ![](http://qn.qs520.mobi/eee77c1d0caad481f951e638dd3cb5f3.png)
 	* 精髓： 
 		* 1.springboot启动会加载大量自动配置类
 		* 2.然后看我们需要的功能springboot有没有默认写好的配置类
@@ -285,13 +285,13 @@
 				查看方法：找到任意一个xxxAutoConfidyretion类，点进去@EnableConfigurationProperties({xxx.class})，然后就能看到了
 * 细节：
 	* 1. **@Conditional注解：**必须是@Conditional指定的条件成立，配置类才生效
-	* ![](./img/21.png)
+	* ![](http://qn.qs520.mobi/f937046f126be92355514157a240f490.png)
 	* 2.可以通过配置属性debug=true让springboot在控制台打印自动配置报告
-	* ![](./img/13.png)
+	* ![](http://qn.qs520.mobi/87b155e65631e678f65c5c7a6ee91772.png)
 ##5.日志
 ###1.日志框架
 * 市面上的日志框架：JUL、JCL、Jboss-logging、logback、log4j、log4j2、slf4j....
-* ![](./img/22.png)
+* ![](http://qn.qs520.mobi/ce10e9549b93cdec9c274ae6a24a2dba.png)
 * 左边选一个门面（抽象层）、右边来选一个实现；
 	* 日志门面：  SLF4J；
 	* 日志实现：Logback；
@@ -310,8 +310,8 @@
 		    logger.info("Hello World");
 		  }
 		}
-* ![](./img/14.png)
-* ![](./img/15.png)
+* ![](http://qn.qs520.mobi/6bb96ecd65231dea0406fcb053068b45.png)
+* ![](http://qn.qs520.mobi/6f56f9daa320f97c73019214b1288d29.png)
 * 如何让系统中所有的日志都统一到slf4j
 	* 1、将系统中其他日志框架先排除出去；
 	* 2、用中间包来替换原有的日志框架；
@@ -325,7 +325,7 @@
 	      <version>2.2.5.RELEASE</version>
 	      <scope>compile</scope>
 	    </dependency>
-* ![](./img/16.png)
+* ![](http://qn.qs520.mobi/238a5cd244d42bfac3bb60b410faeb5b.png)
 * 总结：
 	* SpringBoot底层也是使用slf4j+logback的方式进行日志记录
 	* SpringBoot也把其他的日志都替换成了slf4j；
@@ -334,8 +334,8 @@
 ###3.日志的使用
 ####1.默认配置
 * SpringBoot已经默认配置好了
-* ![](./img/17.png)
-* ![](./img/18.png)
+* ![](http://qn.qs520.mobi/4a2b1f743e9d9bd809638018ae0fad20.png)
+* ![](http://qn.qs520.mobi/a31857238ab4744d6a7418d43867e687.png)
 * **日志输出格式例子： %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n**
 	* **%d**表示日期时间，
 	* **%thread**表示线程名，
@@ -344,7 +344,7 @@
 	* **%msg**：日志消息
 	* **%n**是换行符
 ####2.指定配置
-* ![](./img/23.png)
+* ![](http://qn.qs520.mobi/23cf84733a929fec98ce04b34ae446bd.png)
 * 直接用logback.xml:会被日志框架直接识别
 * 使用logback-spring.xml:就会交给springboot来处理​
 
@@ -353,7 +353,7 @@
 		  	可以指定某段配置只在某个环境下生效
 		</springProfile>
 
-* ![](./img/19.png)
+* ![](http://qn.qs520.mobi/6c88829bf30f46aacfef3903b46548c4.png)
 ###4.切换日志框架
 * 可以按照日志结构图来切换
 * 切换slf4j + log4j
@@ -417,7 +417,7 @@
     }
 ####1.所有**/webjars/****都去**"classpath:/META-INF/resources/webjars/"**下找资源
 * **/webjars/**：**就是以jar包的方式引入静态资源，[webjars官网](https://www.webjars.org/ "webjars官网")
-* ![](./img/24.png)
+* ![](http://qn.qs520.mobi/f5e4f151a70062ffee2481880965e1a2.png)
 
 		//WebMvcAutoConfiguration => this.resourceProperties 
 		//这里可以设置和静态资源相关的参数，如缓存时间等
@@ -440,7 +440,7 @@
     }
 * 例如访问locahost://8080/时会去所有静态资源文件夹中找index.html然后显示
 ###4.模板引擎
-####![](./img/25.png)
+####![](http://qn.qs520.mobi/8b4c03594389065d382332ac4b4c417f.png)
 ####thymeleaf
 * **1.引入thymeleaf**
 
@@ -456,7 +456,7 @@
 			<!-- thymeleaf2   layout1-->
 			<thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
 	  	</properties>
-* ![](./img/26.png)
+* ![](http://qn.qs520.mobi/dc5a285a3c50f8d32829b546dd80a32c.png)
 * **2.在html文件中导入thymeleaf的命名空间**
 
 		<html lang="en" xmlns:th="http://www.thymeleaf.org">
@@ -475,7 +475,7 @@
 		</html>
 * **4.thymeleaf的语法规则**
 	* **1.  th：任意html属性，可以替换原来的值**比如： <div id="aa" th:id="${bb}"></div>结果： id=bb
-* ![](./img/27.png)
+* ![](http://qn.qs520.mobi/153b8eddd4e55e90a78151f54b43f042.png)
 	* **2.表达式语法**
 
 			Simple expressions(表达式语法):
@@ -543,7 +543,7 @@
 				Default: (value) ?: (defaultvalue)
 			Special tokens:()
 				No-Operation: _
-* ![](./img/28.png)
+* ![](http://qn.qs520.mobi/c7d76f783cda36f89b34322350e5b50d.png)
 ###5.SpringMVC自动配置
 ####[SpringMVC自动配置官方文档](https://docs.spring.io/spring-boot/docs/1.5.10.RELEASE/reference/htmlsingle/#boot-features-developing-web-applications)
 ####1.Spring MVC auto-configuration
@@ -778,7 +778,7 @@ If you want to take complete control of Spring MVC, you can add your own `@Confi
                         .excludePathPatterns("/index","/", "/login");
             }
 * 5.CRUD员工列表
-* ![](./img/29.png)
+* ![](http://qn.qs520.mobi/392f38c01d93eb277991ca8038459ce3.png)
 * thymeleaf页面公共元素抽取
 
 		1、抽取公共片段
@@ -825,18 +825,18 @@ If you want to take complete control of Spring MVC, you can add your own `@Confi
 			<div th:replace="commons/bar::#sidebar(activeUri='emps')"></div>
 
 	* **修改form表单的提交方式**
-	* ![](./img/30.png)
+	* ![](http://qn.qs520.mobi/4f70a70fb6bbb5497db75d815dcdbebc.png)
 ### 8.错误处理机制
 ####1.SpringBoot默认的错误处理机制
 #####默认效果
 * 1.返回一个默认的页面
-	* ![](./img/31.png)
+	* ![](http://qn.qs520.mobi/b85e02acc8300f6b2ad73a59563e05b3.png)
 	* 浏览器发请求的时候
-	* ![](./img/33.png)
+	* ![](http://qn.qs520.mobi/ad2dd860714b64005cb7825519c46efe.png)
 * 2.用其他客户端访问，返回的错误页面是json数据
-	* ![](./img/32.png)
+	* ![](http://qn.qs520.mobi/05774527471ec725e9fbda969b0db776.png)
 	* 其他客户端发请求时
-	* ![](./img/34.png)
+	* ![](http://qn.qs520.mobi/f32eb3ad51f821ac3db85d8c4932e22d.png)
 * 原理：**可以参照ErrorMVCAutoConfiguretion**错误的自动配置
 * 给容器中添加的组件
 	* **DefaultErrorAttributes**
@@ -993,7 +993,7 @@ If you want to take complete control of Spring MVC, you can add your own `@Confi
 			* 最终的效果：响应是自适应的，可以通过定制ErrorAttributes改变需要返回的内容，
 ##7.配置嵌入式Servlet容器
 * SpringBoot默认使用Tomcat作为嵌入式的Servlet容器；
-* ![](./img/35.png)
+* ![](http://qn.qs520.mobi/55a8d568a41ec2bd7d33734f93655a7d.png)
 ###1）、如何定制和修改Servlet容器的相关配置；
 ####1.修改和server有关的配置(在ServerProperties中可以看到)
 
@@ -1062,7 +1062,7 @@ If you want to take complete control of Spring MVC, you can add your own `@Confi
 		   return registration;
 		}
 ### 3）、切换为其他嵌入式Servlet容器
-* ![](./img/36.png)
+* ![](http://qn.qs520.mobi/00bbb573a42171e1d66adf733c2262fc.png)
 * 默认支持：
 	* Tomcat(默认使用)
 
@@ -1135,7 +1135,7 @@ If you want to take complete control of Spring MVC, you can add your own `@Confi
 	}
 
 * EmbeddedServletContainerFactory（嵌入式Servlet容器工厂）
-* ![](./img/36.png)
+* ![](http://qn.qs520.mobi/00bbb573a42171e1d66adf733c2262fc.png)
 
 		public interface EmbeddedServletContainerFactory {
 		
@@ -1145,7 +1145,7 @@ If you want to take complete control of Spring MVC, you can add your own `@Confi
 		
 		}
 * EmbeddedServletContainer：（嵌入式的Servlet容器）
-* ![](./img/38.png)
+* ![](http://qn.qs520.mobi/44c962d0939eaad3c66d75c4d5bab1fb.png)
 * 以**TomcatEmbeddedServletContainerFactory**为例
 
 		@Override
@@ -1323,7 +1323,7 @@ If you want to take complete control of Spring MVC, you can add your own `@Confi
 ​		缺点：默认不支持JSP、优化定制比较复杂（使用定制器【ServerProperties、自定义EmbeddedServletContainerCustomizer】，自己编写嵌入式Servlet容器的创建工厂【EmbeddedServletContainerFactory】）；
 ###快速生成webapp及web.xml文件
 * ctrl +shift + alt +s 进入项目结构目录
-* ![](./img/39.png)
+* ![](http://qn.qs520.mobi/087390e731eb73d0788c67e0cb20eda8.png)
 ###步骤
 ####1. 必须创建一个war项目；（创建springboot项目时选择war）
 ####2.将嵌入式的Tomcat指定为provided；(生成项目就配置好了)
@@ -1363,7 +1363,7 @@ servlet3.0
 	* Spring的web模块里面有这个文件：**org.springframework.web.SpringServletContainerInitializer**
 	* 3）、SpringServletContainerInitializer将@HandlesTypes(WebApplicationInitializer.class)标注的所有这个类型的类都传入到onStartup方法的Set<Class<?>>；为这些WebApplicationInitializer类型的类创建实例；
 	* 4）、每一个WebApplicationInitializer都调用自己的onStartup；
-	* ![](./img/37.png)
+	* ![](http://qn.qs520.mobi/3d24ee43898413b56dec2c2ddde5790b.png)
 	* 5）、相当于我们的SpringBootServletInitializer的类会被创建对象，并执行onStartup方法
 	* 6）、SpringBootServletInitializer实例执行onStartup的时候会createRootApplicationContext；创建容器
 

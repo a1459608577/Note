@@ -4,11 +4,12 @@
 
 ​	[下载链接](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-![image-20210928161325216](./img/image-20210928161325216.png) 
+![image-20210928161325216](http://qn.qs520.mobi/image-20210928161325216.png) 
 
 1. 上传到linux上，解压压缩包
 
    ```
+   安装java11 wget https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_linux-x64_bin.tar.gz
    tar -zxvf jdk-8u301-linux-x64.tar.gz -C /usr/local/java/
    ```
 
@@ -17,17 +18,22 @@
    ```
    1. 打开文件： vi /etc/profile
    2. 在末尾加上： 
-       export JAVA_HOME=/usr/local/java/jdk1.8.0_301
-       export JRE_HOME=${JAVA_HOME}/jre
-       export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-       export PATH=${JAVA_HOME}/bin:$PATH
+   // java11环境变量
+   export JAVA_HOME=/usr/local/java
+   export PATH=$PATH:$JAVA_HOME/bin
+   export CLASSPATH=$JAVA_HOME/lib
+   // java8环境变量
+   export JAVA_HOME=/usr/local/java/jdk1.8.0_301
+   export JRE_HOME=${JAVA_HOME}/jre
+   export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+   export PATH=${JAVA_HOME}/bin:$PATH
    3. 刷新环境变量：source /etc/profile
    4. 添加软链接： ln -s /usr/local/java/jdk1.8.0_301/bin/java /usr/bin/java
    ```
 
 3. 查看是否安装好：`java -version`
 
-   ![image-20210928161831587](./img/image-20210928161831587.png) 
+   ![image-20210928161831587](http://qn.qs520.mobi/image-20210928161831587.png) 
 
    
 
@@ -59,7 +65,7 @@
    mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '1234';
    ```
 
-3. ![image-20210928192059917](./img/image-20210928192059917.png) 
+3. ![image-20210928192059917](http://qn.qs520.mobi/image-20210928192059917.png) 
 
 4. 配置Mysql
 
@@ -92,7 +98,7 @@
 
 1. 首先查看gcc是否安装, 没有安装则执行：`yum -y install gcc`
 
-   ![image-20210928164130887](../img/image-20210928164130887.png)
+   ![image-20210928164130887](http://qn.qs520.mobi/image-20210928164130887.png)
 
 2. 下载并解压安装包
 
@@ -117,17 +123,17 @@
 
    * 前台启动：./redis-server
    * 后台启动需要修改配置文件，no修改成yes。然后指定配置文件启动`./redis-server ../redis-5.0.3/redis.conf`
-     * ![image-20220711142406376](../img/image-20220711142406376.png) 
+     * ![image-20220711142406376](http://qn.qs520.mobi/image-20220711142406376.png) 
 
 5. 设置远程访问
 
    * 修改配置文件，把bind注释掉
 
-     ![image-20220711143103889](../img/image-20220711143103889.png) 
+     ![image-20220711143103889](http://qn.qs520.mobi/image-20220711143103889.png) 
 
 6. 设置密码
 
-   ![image-20220722182941522](../img/image-20220722182941522.png) 
+   ![image-20220722182941522](http://qn.qs520.mobi/image-20220722182941522.png) 
 
 ## 安装Minio
 
@@ -198,7 +204,7 @@
 
 1. 首先查看gcc是否安装, 没有安装则执行：`yum -y install gcc`
 
-   ![image-20210928164130887](./img/image-20210928164130887.png) 
+   ![image-20210928164130887](http://qn.qs520.mobi/image-20210928164130887.png) 
 
 2. 安装插件：pcre，pcre-devel，zlib，openssl
 
@@ -358,6 +364,8 @@
 
    ```
    wget https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+   下载失败的话再后面加上--no-check-certificate
+   例如：wget https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz --no-check-certificate
    tar -zxvf apache-maven-3.6.3-bin.tar.gz -C /usr/local/
    ```
 
@@ -372,7 +380,7 @@
 
 3. 查看是否安装好，执行`which mvn`出现如下图即安装成功
 
-   ![image-20210928174715442](./img/image-20210928174715442.png) 
+   ![image-20210928174715442](http://qn.qs520.mobi/image-20210928174715442.png) 
 
 ## 安装Git
 
@@ -404,7 +412,7 @@
    source /etc/profile
    ```
 
-   ![image-20220428153306406](../img/image-20220428153306406.png) 
+   ![image-20220428153306406](http://qn.qs520.mobi/image-20220428153306406.png) 
 
 ##  安装Nacos集群
 
@@ -416,15 +424,15 @@
 
  2. nacos如果想要单机模式就要修改application.properties文件，默认是集群模式  （win10环境）
 
-    ![image-20220322181432922](../img/image-20220322181432922.png) 
+    ![image-20220322181432922](http://qn.qs520.mobi/image-20220322181432922.png) 
 
  3. 新建nacos_config数据库，导入nacos脚本
 
-    ![image-20210928195050121](./img/image-20210928195050121.png) 
+    ![image-20210928195050121](http://qn.qs520.mobi/image-20210928195050121.png) 
 
  4. 修改nacos数据源配置
 
-    ![image-20210928195220424](./img/image-20210928195220424.png) 
+    ![image-20210928195220424](http://qn.qs520.mobi/image-20210928195220424.png) 
 
  5. 修改集群文件
 
@@ -490,11 +498,11 @@
 
 3. 配置seata，修改file.conf文件如下：
 
-   ![image-20210929154151419](img/image-20210929154151419.png) 
+   ![image-20210929154151419](http://qn.qs520.mobi/image-20210929154151419.png) 
 
 4. 修改registry.conf文件改成nacos配置以及配置nacos==(application改成serverAddr的详细解释看bug.md)==
 
-   ![image-20211001160509508](img/image-20211001160509508.png)  
+   ![image-20211001160509508](http://qn.qs520.mobi/image-20211001160509508.png)  
 
 5. 初始化配置信息，config.txt文件在[github](https://github.com/seata/seata/blob/1.2.0/script/config-center/config.txt)上有，下面是做的修改的
 
@@ -597,7 +605,7 @@
    * -h 指定seata server所绑定的主机。
    * -m 事务日志、事务执行信息存储的方式，目前支持file（文件方式）、db（数据库方式，建表语句请查看config/db_store.sql、config/db_undo_log.sql）
 
-   ![image-20210930115545313](img/image-20210930115545313.png) 
+   ![image-20210930115545313](http://qn.qs520.mobi/image-20210930115545313.png) 
 
 8. 集群启动
 
@@ -619,7 +627,16 @@
    jenkins就安装到/usr/lib/jenkins下了
    ```
 
-3. 启动jenkins
+3. 修改端口以及用户
+
+   ```
+   vim /etc/sysconfig/jenkins
+   修改：
+   JENKINS_USER="root"
+JENKINS_PORT="8888"
+   ```
+
+4. 启动jenkins
 
    ```
    cd /usr/lib/jenkins
@@ -628,26 +645,110 @@
 
    访问ip:8080即可看到jenkins安装成功，默认8080端口，可以通过修改配置文件改变（位置：/etc/sysconfig/jenkins）
 
-4. 登录jenkins，获取初始化密码
+5. 登录jenkins，获取初始化密码
 
    ```
    cd /var/lib/jenkins/secrets
    cat initialAdminPassword
    ```
 
-   ![image-20220428155250895](../img/image-20220428155250895.png) 
+   ![image-20220428155250895](http://qn.qs520.mobi/image-20220428155250895.png) 
 
-5. 然后点左边的按钮安装插件，安装失败就跳过。然后创建用户。如果出现白屏则刷新jenkins`http://54.179.88.51:8080/restart`即可
+6. 然后点左边的按钮安装插件，安装失败就跳过。然后创建用户。如果出现白屏则刷新jenkins`http://54.179.88.51:8080/restart`即可
 
-6. 插件安装失败，更换下载源。步骤：找到插件管理 => Advanced => 更换url为：`http://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json`，然后submit， 还要check now就能安装成功了
+7. 插件安装失败，更换下载源。步骤：找到插件管理 => Advanced => 更换url为：`http://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json`，然后submit， 还要check now就能安装成功了
 
-7. 然后配置jdk，maven，git的环境。找到Global Tool Configuration，在这里面配置
+8. 然后配置jdk，maven，git的环境。找到Global Tool Configuration，在这里面配置
 
-   ![image-20220428180859139](../img/image-20220428180859139.png) 
+   ![image-20220428180859139](http://qn.qs520.mobi/image-20220428180859139.png) 
 
+## 安装GitLab
 
+[参考链接](https://help.aliyun.com/document_detail/52857.html)
 
+1. 安装依赖包
 
+   ```
+   sudo yum install -y curl policycoreutils-python openssh-server
+   ```
+
+2. 配置ssh服务
+
+   ```
+   //启动SSH服务
+   sudo systemctl start sshd
+   //设置SSH服务为开机自启动。
+   sudo systemctl enable sshd
+   ```
+
+3. 配置Postfix来发送通知邮件。
+
+   ```
+   //安装Postfix
+   sudo yum install postfix
+   //设置Postfix开机自启动。
+   sudo systemctl enable postfix
+   ```
+
+4. 启动Postfix服务
+
+   ```
+   //打开main.cf文件
+   vim /etc/postfix/main.cf
+   找到inet_interfaces = localhost 修改成 inet_interfaces = all，然后保存 退出
+   // 启动服务
+   sudo systemctl start postfix
+   ```
+
+5. 添加GitLab软件包仓库
+
+   ```
+   curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
+   ```
+
+6. 安装GitLab。
+
+   ```javascript
+   sudo EXTERNAL_URL="GitLab服务器的公网IP地址" yum install -y gitlab-ce
+   ```
+
+7. 使用浏览器访问GitLab服务器的公网IP地址。出现如下图即安装成功（高版本可能不太一样，需要在控制台重新设置密码）
+
+   ![](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9512649951/p92789.png) 
+
+8. 设置新密码
+
+   ```shell
+   cd /opt/gitlab/bin
+   #进入控制台
+   gitlab-rails console
+   #查找root(root默认为1)
+   u=User.where(id:1).first
+   #修改密码
+   u.password='12345678'
+   #修改确认密码
+   u.password_confirmation='12345678'
+   #确认，保存结束
+   u.save
+   #退出
+   exit
+   ```
+
+9. 安装git
+
+   ```
+   yum install git
+   // 使用如下命令生成密钥文件.ssh/id_rsa。
+   ssh-keygen
+   // 使用如下命令查看公钥文件id_rsa.pub中的内容。在下一步操作中，您需要粘贴该内容到GitLab服务器的SSH-key的配置文件中。
+   cat .ssh/id_rsa.pub
+   ```
+
+10. 添加SSH key
+
+    ![image-20221009111608078](http://qn.qs520.mobi/image-20221009111608078.png) 
+
+    
 
 
 

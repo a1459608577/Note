@@ -4,26 +4,26 @@
 
 ### BIO（同步阻塞）
 
-### ![image-20220212141512351](../img/image-20220212141512351.png)  
+### ![image-20220212141512351](http://qn.qs520.mobi/image-20220212141512351.png)  
 
 ### NIO（同步非阻塞）
 
-![image-20220212143748902](../img/image-20220212143748902.png)  
+![image-20220212143748902](http://qn.qs520.mobi/image-20220212143748902.png)  
 
 ### AIO（异步非阻塞）
 
-![image-20220212144633429](../img/image-20220212144633429.png) 
+![image-20220212144633429](http://qn.qs520.mobi/image-20220212144633429.png) 
 
 ## NIO基本介绍
 
 * 有三大核心部分：==Channel(通道)， Buffer(缓冲区)， Selector(选择器)==
 * nio是面向缓冲区，或者面向 块编程的。数据读取到一个它稍后处理的缓冲区，需要时可在缓冲区中前后移动，这就增加了处理过程中的灵活性，使用它可以提供非阻塞式的高伸缩性网络
-* ![image-20220212165445552](../img/image-20220212165445552.png) 
+* ![image-20220212165445552](http://qn.qs520.mobi/image-20220212165445552.png) 
 
 ## Buffer
 
 * 描述：缓冲区本质是一个可以读写数据的内存块，可以理解成内部包含一个数组的容器对象。它提供了一些方法可以更好的去使用内存块，缓冲区对象内置了一些机制，能够跟踪和记录缓冲区的状态变化情况，Channel提供从文件网络读取数据的渠道，但是读取和写入的数据都必须经由Buffer
-* ![image-20220212170548309](../img/image-20220212170548309.png) 
+* ![image-20220212170548309](http://qn.qs520.mobi/image-20220212170548309.png) 
 
 ```java
 // Buffer部分代码
@@ -52,9 +52,9 @@ public abstract class Buffer {
 | limit    | buffer的最大大小，可以改变                                   |
 | capacity | buffer的容量，不可以改变                                     |
 
-![image-20220214105030653](../img/image-20220214105030653.png) 
+![image-20220214105030653](http://qn.qs520.mobi/image-20220214105030653.png) 
 
-![image-20220214105639689](../img/image-20220214105639689.png) 
+![image-20220214105639689](http://qn.qs520.mobi/image-20220214105639689.png) 
 
 ## Channel
 
@@ -66,7 +66,7 @@ public abstract class Buffer {
 
   ### 案例一
 
-  ![image-20220214124101663](../img/image-20220214124101663.png) 
+  ![image-20220214124101663](http://qn.qs520.mobi/image-20220214124101663.png) 
 
   ```java
   public static void main(String[] args) throws Exception {
@@ -90,7 +90,7 @@ public abstract class Buffer {
 
   ### 案例二
 
-  ![image-20220214123647059](../img/image-20220214123647059.png) 
+  ![image-20220214123647059](http://qn.qs520.mobi/image-20220214123647059.png) 
 
   ```java
   public static void main(String[] args) throws Exception {
@@ -110,7 +110,7 @@ public abstract class Buffer {
 
   ### 案例三
 
-  ![image-20220214162652476](../img/image-20220214162652476.png) 
+  ![image-20220214162652476](http://qn.qs520.mobi/image-20220214162652476.png) 
 
   ```java
   public static void main(String[] args) throws Exception {
@@ -241,7 +241,7 @@ public abstract class Buffer {
 
 * #### NIO非阻塞网络编程原理图
 
-  * ![image-20220216103946849](../img/image-20220216103946849.png) 
+  * ![image-20220216103946849](http://qn.qs520.mobi/image-20220216103946849.png) 
 
   * ##### 流程说明
 
@@ -317,31 +317,31 @@ public abstract class Buffer {
 
 * 传统阻塞性IO服务模型
 
-* ![image-20220223103710895](../img/image-20220223103710895.png) 
+* ![image-20220223103710895](http://qn.qs520.mobi/image-20220223103710895.png) 
 
 * Reactor模式，Reactor又分为三种：
 
   1. ##### 单Reactor单线程
 
-     ![image-20220223105629235](../img/image-20220223105629235.png) 
+     ![image-20220223105629235](http://qn.qs520.mobi/image-20220223105629235.png) 
 
-     ![image-20220223110152026](../img/image-20220223110152026.png) 
+     ![image-20220223110152026](http://qn.qs520.mobi/image-20220223110152026.png) 
 
   2. #### 单Reactor多线程
 
-     ![image-20220223110851788](../img/image-20220223110851788.png) 
+     ![image-20220223110851788](http://qn.qs520.mobi/image-20220223110851788.png) 
 
-     ![image-20220223111358139](../img/image-20220223111358139.png) 
+     ![image-20220223111358139](http://qn.qs520.mobi/image-20220223111358139.png) 
 
   3. #### 主从Reactor多线程（Netty模型）
 
-     ![image-20220223113410373](../img/image-20220223113410373.png) 
+     ![image-20220223113410373](http://qn.qs520.mobi/image-20220223113410373.png) 
 
-      ![image-20220223113728079](../img/image-20220223113728079.png) 
+      ![image-20220223113728079](http://qn.qs520.mobi/image-20220223113728079.png) 
 
 * ## Netty使用的模型
 
-* ![image-20220223151134182](../img/image-20220223151134182.png) 
+* ![image-20220223151134182](http://qn.qs520.mobi/image-20220223151134182.png) 
 
 * #### netty使用的任务队列
 

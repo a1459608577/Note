@@ -1,0 +1,1343 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>软考</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+
+
+:root {
+  --mermaid-theme: night;
+  --node-fill: #BDD5EA;
+}
+
+[lang='mermaid'] .label {
+  color: #333;
+}
+
+/* CSS Document */
+
+/** code highlight */
+
+.cm-s-inner .cm-variable,
+.cm-s-inner .cm-operator,
+.cm-s-inner .cm-property {
+    color: #b8bfc6;
+}
+
+.cm-s-inner .cm-keyword {
+    color: #C88FD0;
+}
+
+.cm-s-inner .cm-tag {
+    color: #7DF46A;
+}
+
+.cm-s-inner .cm-attribute {
+    color: #7575E4;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 1px solid #b8bfc6;
+    z-index: 3;
+}
+
+.cm-s-inner .cm-string {
+    color: #D26B6B;
+}
+
+.cm-s-inner .cm-comment,
+.cm-s-inner.cm-comment {
+    color: #DA924A;
+}
+
+.cm-s-inner .cm-header,
+.cm-s-inner .cm-def,
+.cm-s-inner.cm-header,
+.cm-s-inner.cm-def {
+    color: #8d8df0;
+}
+
+.cm-s-inner .cm-quote,
+.cm-s-inner.cm-quote {
+    color: #57ac57;
+}
+
+.cm-s-inner .cm-hr {
+    color: #d8d5d5;
+}
+
+.cm-s-inner .cm-link {
+    color: #d3d3ef;
+}
+
+.cm-s-inner .cm-negative {
+    color: #d95050;
+}
+
+.cm-s-inner .cm-positive {
+    color: #50e650;
+}
+
+.cm-s-inner .cm-string-2 {
+    color: #f50;
+}
+
+.cm-s-inner .cm-meta,
+.cm-s-inner .cm-qualifier {
+    color: #b7b3b3;
+}
+
+.cm-s-inner .cm-builtin {
+    color: #f3b3f8;
+}
+
+.cm-s-inner .cm-bracket {
+    color: #997;
+}
+
+.cm-s-inner .cm-atom,
+.cm-s-inner.cm-atom {
+    color: #84B6CB;
+}
+
+.cm-s-inner .cm-number {
+    color: #64AB8F;
+}
+
+.cm-s-inner .cm-variable {
+    color: #b8bfc6;
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: #9FBAD5;
+}
+
+.cm-s-inner .cm-variable-3 {
+    color: #1cc685;
+}
+
+.CodeMirror-selectedtext,
+.CodeMirror-selected {
+    background: #4a89dc;
+    color: #fff !important;
+    text-shadow: none;
+}
+
+.CodeMirror-gutters {
+    border-right: none;
+}
+
+/* CSS Document */
+
+/** markdown source **/
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property
+{
+    color: #cebcca;
+}
+
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor{
+    border-left: 3px solid #b8bfc6;
+}
+
+.cm-s-typora-default .cm-comment {
+    color: #9FB1FF;
+}
+
+.cm-s-typora-default .cm-string {
+    color: #A7A7D9
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+    color: #848695;
+    font-style: italic;
+}
+
+.cm-s-typora-default .cm-link {
+    color: #95B94B;
+}
+
+.cm-s-typora-default .CodeMirror-activeline-background {
+    background: rgba(51, 51, 51, 0.72);
+}
+
+.cm-s-typora-default .cm-comment, .cm-s-typora-default .cm-code {
+	color: #8aa1e1;
+}@import "";
+@import "";
+@import "";
+
+:root {
+    --bg-color:  #363B40;
+    --side-bar-bg-color: #2E3033;
+    --text-color: #b8bfc6;
+
+    --select-text-bg-color:#4a89dc;
+
+    --item-hover-bg-color: #0a0d16;
+    --control-text-color: #b7b7b7;
+    --control-text-hover-color: #eee;
+    --window-border: 1px solid #555;
+
+    --active-file-bg-color: rgb(34, 34, 34);
+    --active-file-border-color: #8d8df0;
+
+    --primary-color: #a3d5fe;
+
+    --active-file-text-color: white;
+    --item-hover-bg-color: #70717d;
+    --item-hover-text-color: white;
+    --primary-color: #6dc1e7;
+
+    --rawblock-edit-panel-bd: #333;
+
+    --search-select-bg-color: #428bca;
+}
+
+html {
+    font-size: 16px;
+}
+
+html,
+body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    background: #363B40;
+    background: var(--bg-color);
+    fill: currentColor;
+    line-height: 1.625rem;
+}
+
+#write {
+    max-width: 914px;
+}
+
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea,
+div.code-tooltip-content {
+    color: #b8bfc6;
+    border-color: transparent;
+}
+
+div.code-tooltip,
+.md-hover-tip .md-arrow:after {
+    background: #333;
+}
+
+.popover.bottom > .arrow:after {
+    border-bottom-color: #333;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+hr {
+    height: 2px;
+    border: 0;
+    margin: 24px 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lucida Grande", "Corbel", sans-serif;
+    font-weight: normal;
+    clear: both;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    color: #DEDEDE
+}
+
+h1 {
+    font-size: 2.5rem;
+    /* 36px */
+    line-height: 2.75rem;
+    /* 40px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1.5px;
+}
+
+h2 {
+    font-size: 1.63rem;
+    /* 24px */
+    line-height: 1.875rem;
+    /* 30px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.17rem;
+    /* 18px */
+    line-height: 1.5rem;
+    /* 24px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.12rem;
+    /* 16px */
+    line-height: 1.375rem;
+    /* 22px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    color: white;
+}
+
+h5 {
+    font-size: 0.97rem;
+    /* 16px */
+    line-height: 1.25rem;
+    /* 22px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    font-weight: bold;
+}
+
+h6 {
+    font-size: 0.93rem;
+    /* 16px */
+    line-height: 1rem;
+    /* 16px */
+    margin-bottom: 0.75rem;
+    color: white;
+}
+
+@media (min-width: 980px) {
+    h3.md-focus:before,
+    h4.md-focus:before,
+    h5.md-focus:before,
+    h6.md-focus:before {
+        color: #ddd;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        position: absolute;
+        left: -1.642857143rem;
+        top: .357142857rem;
+        float: left;
+        font-size: 9px;
+        padding-left: 2px;
+        padding-right: 2px;
+        vertical-align: bottom;
+        font-weight: normal;
+        line-height: normal;
+    }
+
+    h3.md-focus:before {
+        content: 'h3';
+    }
+
+    h4.md-focus:before {
+        content: 'h4';
+    }
+
+    h5.md-focus:before {
+        content: 'h5';
+        top: 0px;
+    }
+
+    h6.md-focus:before {
+        content: 'h6';
+        top: 0px;
+    }
+}
+
+a {
+    text-decoration: none;
+    outline: 0;
+}
+
+a:hover {
+    outline: 0;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+sup.md-footnote {
+    background-color: #555;
+    color: #ddd;
+}
+
+p {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+p,
+ul,
+dd,
+ol,
+hr,
+address,
+pre,
+table,
+iframe,
+.wp-caption,
+.wp-audio-shortcode,
+.wp-video-shortcode {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    /* 24px */
+}
+
+audio:not([controls]) {
+    display: none;
+}
+
+[hidden] {
+    display: none;
+}
+
+::-moz-selection {
+    background: #4a89dc;
+    color: #fff;
+    text-shadow: none;
+}
+
+*.in-text-selection,
+::selection {
+    background: #4a89dc;
+    color: #fff;
+    text-shadow: none;
+}
+
+ul,
+ol {
+    padding: 0 0 0 1.875rem;
+    /* 30px */
+}
+
+ul {
+    list-style: square;
+}
+
+ol {
+    list-style: decimal;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+    margin: 0;
+}
+
+b,
+th,
+dt,
+strong {
+    font-weight: bold;
+}
+
+i,
+em,
+dfn,
+cite {
+    font-style: italic;
+}
+
+blockquote {
+    padding-left: 1.875rem;
+    margin: 0 0 1.875rem 1.875rem;
+    border-left: solid 2px #474d54;
+    padding-left: 30px;
+    margin-top: 35px;
+}
+
+pre,
+code,
+kbd,
+tt,
+var {
+    font-size: 0.875rem;
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+code,
+tt,
+var {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #fff;
+    background-color: #333;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+}
+
+pre.md-fences {
+    padding: 10px 10px 10px 30px;
+    margin-bottom: 20px;
+    background: #333;
+}
+
+.CodeMirror-gutters {
+    background: #333;
+    border-right: 1px solid transparent;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -2.2em;
+    right: 4px;
+}
+
+code,
+kbd,
+tt,
+var {
+    padding: 2px 5px;
+}
+
+table {
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th,
+td {
+    padding: 5px 10px;
+    vertical-align: top;
+}
+
+a {
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+hr {
+    background: #474d54;
+    /* variable */
+}
+
+h1 {
+    margin-top: 2em;
+}
+
+a {
+    color: #e0e0e0;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.md-inline-math script {
+    color: #81b1db;
+}
+
+b,
+th,
+dt,
+strong {
+    color: #DEDEDE;
+    /* variable */
+}
+
+mark {
+    background: #D3D40E;
+}
+
+blockquote {
+    color: #9DA2A6;
+}
+
+table a {
+    color: #DEDEDE;
+    /* variable */
+}
+
+th,
+td {
+    border: solid 1px #474d54;
+    /* variable */
+}
+
+.task-list {
+    padding-left: 0;
+}
+
+.md-task-list-item {
+    padding-left: 1.25rem;
+}
+
+.md-task-list-item > input {
+    top: auto;
+}
+
+.md-task-list-item > input:before {
+    content: "";
+    display: inline-block;
+    width: 0.875rem;
+    height: 0.875rem;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #b8bfc6;
+    background-color: #363B40;
+    margin-top: -0.4rem;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before {
+    content: '\221A';
+    /*◘*/
+    font-size: 0.625rem;
+    line-height: 0.625rem;
+    color: #DEDEDE;
+}
+
+/** quick open **/
+.auto-suggest-container {
+    border: 0px;
+    background-color: #525C65;
+}
+
+#typora-quick-open {
+    background-color: #525C65;
+}
+
+#typora-quick-open input{
+    background-color: #525C65;
+    border: 0;
+    border-bottom: 1px solid grey;
+}
+
+.typora-quick-open-item {
+    background-color: inherit;
+    color: inherit;
+}
+
+.typora-quick-open-item.active,
+.typora-quick-open-item:hover {
+    background-color: #4D8BDB;
+    color: white;
+}
+
+.typora-quick-open-item:hover {
+    background-color: rgba(77, 139, 219, 0.8);
+}
+
+.typora-search-spinner > div {
+  background-color: #fff;
+}
+
+#write pre.md-meta-block {
+    border-bottom: 1px dashed #ccc;
+    background: transparent;
+    padding-bottom: 0.6em;
+    line-height: 1.6em;
+}
+
+.btn,
+.btn .btn-default {
+    background: transparent;
+    color: #b8bfc6;
+}
+
+.ty-table-edit {
+    border-top: 1px solid gray;
+    background-color: #363B40;
+}
+
+.popover-title {
+    background: transparent;
+}
+
+.md-image>.md-meta {
+    color: #BBBBBB;
+    background: transparent;
+}
+
+.md-expand.md-image>.md-meta {
+    color: #DDD;
+}
+
+#write>h3:before,
+#write>h4:before,
+#write>h5:before,
+#write>h6:before {
+    border: none;
+    border-radius: 0px;
+    color: #888;
+    text-decoration: underline;
+    left: -1.4rem;
+    top: 0.2rem;
+}
+
+#write>h3.md-focus:before {
+    top: 2px;
+}
+
+#write>h4.md-focus:before {
+    top: 2px;
+}
+
+.md-toc-item {
+    color: #A8C2DC;
+}
+
+#write div.md-toc-tooltip {
+    background-color: #363B40;
+}
+
+.dropdown-menu .btn:hover,
+.dropdown-menu .btn:focus,
+.md-toc .btn:hover,
+.md-toc .btn:focus {
+    color: white;
+    background: black;
+}
+
+#toc-dropmenu {
+    background: rgba(50, 54, 59, 0.93);
+    border: 1px solid rgba(253, 253, 253, 0.15);
+}
+
+#toc-dropmenu .divider {
+    background-color: #9b9b9b;
+}
+
+.outline-expander:before {
+    top: 2px;
+}
+
+#typora-sidebar {
+    box-shadow: none;
+    border-right: 1px dashed;
+    border-right: none;
+}
+
+.sidebar-tabs {
+    border-bottom:0;
+}
+
+#typora-sidebar:hover .outline-title-wrapper {
+    border-left: 1px dashed;
+}
+
+.outline-title-wrapper .btn {
+    color: inherit;
+}
+
+.outline-item:hover {
+    border-color: #363B40;
+    background-color: #363B40;
+    color: white;
+}
+
+h1.md-focus .md-attr,
+h2.md-focus .md-attr,
+h3.md-focus .md-attr,
+h4.md-focus .md-attr,
+h5.md-focus .md-attr,
+h6.md-focus .md-attr,
+.md-header-span .md-attr {
+    color: #8C8E92;
+    display: inline;
+}
+
+.md-comment {
+    color: #5a95e3;
+    opacity: 1;
+}
+
+.md-inline-math svg {
+    color: #b8bfc6;
+}
+
+#math-inline-preview .md-arrow:after {
+    background: black;
+}
+
+.modal-content {
+    background: var(--bg-color);
+    border: 0;
+}
+
+.modal-title {
+    font-size: 1.5em;
+}
+
+.modal-content input {
+    background-color: rgba(26, 21, 21, 0.51);
+    color: white;
+}
+
+.modal-content .input-group-addon {
+    color: white;
+}
+
+.modal-backdrop {
+    background-color: rgba(174, 174, 174, 0.7);
+}
+
+.modal-content .btn-primary {
+    border-color: var(--primary-color);
+}
+
+.md-table-resize-popover {
+    background-color: #333;
+}
+
+.form-inline .input-group .input-group-addon {
+    color: white;
+}
+
+#md-searchpanel {
+    border-bottom: 1px dashed grey;
+}
+
+/** UI for electron */
+
+.context-menu,
+#spell-check-panel,
+#footer-word-count-info {
+    background-color: #42464A;
+}
+
+.context-menu.dropdown-menu .divider,
+.dropdown-menu .divider {
+    background-color: #777777;
+}
+
+footer {
+    color: inherit;
+}
+
+@media (max-width: 1000px) {
+    footer {
+        border-top: none;
+    }
+    footer:hover {
+        color: inherit;
+    }
+}
+
+#file-info-file-path .file-info-field-value:hover {
+    background-color: #555;
+    color: #dedede;
+}
+
+.megamenu-content,
+.megamenu-opened header {
+    background: var(--bg-color);
+}
+
+.megamenu-menu-panel h2,
+.megamenu-menu-panel h1,
+.long-btn {
+    color: inherit;
+}
+
+.megamenu-menu-panel input[type='text'] {
+    background: inherit;
+    border: 0;
+    border-bottom: 1px solid;
+}
+
+#recent-file-panel-action-btn {
+    background: inherit;
+    border: 1px grey solid;
+}
+
+.megamenu-menu-panel .dropdown-menu > li > a {
+    color: inherit;
+    background-color: #2F353A;
+    text-decoration: none;
+}
+
+.megamenu-menu-panel table td:nth-child(1) {
+    color: inherit;
+    font-weight: bold;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(1) {
+    color: white;
+}
+
+.modal-footer .btn-default, 
+.modal-footer .btn-primary,
+.modal-footer .btn-default:not(:hover) {
+    border: 1px solid;
+    border-color: transparent;
+}
+
+.btn-primary {
+    color: white;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    color: white;
+    border: 1px solid #ddd;
+    background-color: inherit;
+}
+
+.modal-header {
+    border-bottom: 0;
+}
+
+.modal-footer {
+    border-top: 0;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+    border: 1px solid #eee;
+    background: transparent;
+}
+
+.mouse-hover .toolbar-icon.btn:hover,
+#w-full.mouse-hover,
+#w-pin.mouse-hover {
+    background-color: inherit;
+}
+
+.typora-node::-webkit-scrollbar {
+    width: 5px;
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical {
+    background: rgba(250, 250, 250, 0.3);
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical:active {
+    background: rgba(250, 250, 250, 0.5);
+}
+
+#w-unpin {
+    background-color: #4182c4;
+}
+
+#top-titlebar, #top-titlebar * {
+    color: var(--item-hover-text-color);
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+#footer-word-count:hover,
+.ty-show-word-count #footer-word-count {
+    background: #333333;
+}
+
+#toggle-sourceview-btn:hover {
+    color: #eee;
+    background: #333333;
+}
+
+/** focus mode */
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+    color: #686868 !important;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus) img,
+.on-focus-mode .md-task-list-item:not(.md-focus-container)>input {
+    opacity: #686868 !important;
+}
+
+.on-focus-mode li[cid]:not(.md-focus-container){
+    color: #686868;
+}
+
+.on-focus-mode .md-fences.md-focus .CodeMirror-code>*:not(.CodeMirror-activeline) *,
+.on-focus-mode .CodeMirror.cm-s-inner:not(.CodeMirror-focused) * {
+    color: #686868 !important;
+}
+
+.on-focus-mode .md-focus,
+.on-focus-mode .md-focus-container {
+    color: #fff;
+}
+
+.on-focus-mode #typora-source .CodeMirror-code>*:not(.CodeMirror-activeline) * {
+    color: #686868 !important;
+}
+
+
+/*diagrams*/
+#write .md-focus .md-diagram-panel {
+    border: 1px solid #ddd;
+    margin-left: -1px;
+    width: calc(100% + 2px);
+}
+
+/*diagrams*/
+#write .md-focus.md-fences-with-lineno .md-diagram-panel {
+    margin-left: auto;
+}
+
+.md-diagram-panel-error {
+    color: #f1908e;
+}
+
+.active-tab-files #info-panel-tab-file,
+.active-tab-files #info-panel-tab-file:hover,
+.active-tab-outline #info-panel-tab-outline,
+.active-tab-outline #info-panel-tab-outline:hover {
+    color: #eee;
+}
+
+.sidebar-footer-item:hover,
+.footer-item:hover {
+    background: inherit;
+    color: white;
+}
+
+.ty-side-sort-btn.active,
+.ty-side-sort-btn:hover,
+.selected-folder-menu-item a:after {
+    color: white;
+}
+
+#sidebar-files-menu {
+    border:solid 1px;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.79);
+    background-color: var(--bg-color);
+}
+
+.file-list-item {
+    border-bottom:none;
+}
+
+.file-list-item-summary {
+    opacity: 1;
+}
+
+.file-list-item.active:first-child {
+    border-top: none;
+}
+
+.file-node-background {
+    height: 32px;
+}
+
+.file-library-node.active>.file-node-content,
+.file-list-item.active {
+    color: white;
+    color: var(--active-file-text-color);
+}
+
+.file-library-node.active>.file-node-background{
+    background-color: rgb(34, 34, 34);
+    background-color: var(--active-file-bg-color);
+}
+.file-list-item.active {
+    background-color: rgb(34, 34, 34);
+    background-color: var(--active-file-bg-color);
+}
+
+#ty-tooltip {
+    background-color: black;
+    color: #eee;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: 0.3rem;
+    -webkit-appearance: none;
+}
+
+.md-mathjax-midline {
+    background-color: #57616b;
+    border-bottom: none;
+}
+
+footer.ty-footer {
+    border-color: #656565;
+}
+
+.ty-preferences .btn-default {
+    background: transparent;
+}
+.ty-preferences .btn-default:hover {
+    background: #57616b;
+}
+
+.ty-preferences select {
+    border: 1px solid #989698;
+    height: 21px;
+}
+
+.ty-preferences .nav-group-item.active {
+    background: var(--item-hover-bg-color);
+}
+
+.ty-preferences input[type="search"] {
+    border-color: #333;
+    background: #333;
+    line-height: 22px;
+    border-radius: 6px;
+    color: white;
+}
+
+.ty-preferences input[type="search"]:focus {
+    box-shadow: none;
+}
+
+[data-is-directory="true"] .file-node-content {
+    margin-bottom: 0;
+}
+
+.file-node-title {
+    line-height: 22px;
+}
+
+.html-for-mac .file-node-open-state, .html-for-mac .file-node-icon {
+    line-height: 26px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgba(230, 230, 230, 0.50);
+}
+
+#typora-sidebar:hover div.sidebar-content-content::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+.nav-group-item:active {
+    background-color: #474d54;
+}
+
+.md-search-hit {
+    background: rgba(199, 140, 60, 0.81);
+    color: #eee;
+}
+
+.md-search-hit * {
+    color: #eee;
+}
+
+#md-searchpanel input {
+    color: white;
+}
+
+.export-detail,
+.export-item.active,
+.export-items-list-control {
+    background: #d6d6d4
+}
+
+.modal-backdrop.in {
+    opacity: 1;
+    backdrop-filter: blur(1px);
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><h1><a name="系统分析师" class="md-header-anchor"></a><span>系统分析师</span></h1><h2><a name="1计算机组成结构" class="md-header-anchor"></a><span>1.计算机组成结构</span></h2><h3><a name="计算机系统基础知识" class="md-header-anchor"></a><span>计算机系统基础知识</span></h3><h4><a name="计算机硬件组成" class="md-header-anchor"></a><span>计算机硬件组成</span></h4><ul><li><p><span>运算器:</span><code>算数逻辑单元ALU(实现对数据的算术和逻辑运算)，累加寄存器AC(运算结果或源操作数的存放区), 数据缓冲寄存器DR(暂时存放内存的指令或数据), 状态条件寄存器PSW(保存指令运行结果的条件码内容，如溢出标志等)，</code></p><ul><li><span>数据处理：算数运算 逻辑运算</span></li></ul></li><li><p><span>控制器(和运算器统称为cpu)：</span><code>指令寄存器DR(暂存cpu执行命令),程序计数器PC(存放指令执行地址)，地址寄存器AR(保存cpu所访问的内存地址)， 指令译码器ID(分析指令操作码)</code></p><ul><li><span>程序控制：cpu通过执行指令来控制程序的执行顺序，这是CPU的重要功能</span></li><li><span>操作控制：一条指令功能的实现需要若干操作信号配合来完成，CPU产生每条指令的操作信号并将操作信号送往对应的部件，控制相应的部件按指令的功能要求进行操作</span></li><li><span>时间控制：CPU对各种操作进行时间上的控制，即指令执行过程中操作信号的出现时间、持续时间及出现的时间顺序都需要进行严格控制。</span></li></ul></li><li><p><span>存储器</span></p><ul><li><span>内部存储器(内存)</span></li><li><span>外部存储器(磁盘)</span></li></ul></li><li><p><span>输入设备</span></p></li><li><p><span>输出设备</span></p></li><li><h4><a name="中央处理单元-运算器和控制器" class="md-header-anchor"></a><span>中央处理单元: 运算器和控制器</span></h4></li><li><h4><a name="数据表示所有进制之间不能直接转换要通过十进制但是下面两种除外" class="md-header-anchor"></a><span>数据表示(所有进制之间不能直接转换，要通过十进制。但是下面两种除外)</span></h4><ul><li><p><span>二进制转八进制：每三位二进制数转换为一位八进制数，二进制数位个数不是三的倍数，则在前面补0(原则是数值不变)如二进制数01101有五位，前面补一个0就有六位，为001 101，每三位转换为一位八进制数001=1,101=1+4=5，也即01101=15。</span></p></li><li><p><span>二进制转十六进制：每四位二进制数转换为一位十六进制数，二进制数位个数不是四的倍数，则在前面补0，如二进制数101101有六位，前面补两个0就有八位，为00101101，每四位转换为一位十六进制数，0010=2,1101=13=D，也即101101=2D。</span></p></li><li><p><span>机器数：使用二进制存放，正数负数的区别是</span><mark><span>正数符号位是0，负数是1</span></mark></p></li><li><p><span>带符号数有下列编码方式，当真值为-45时:</span></p><ul><li><span>原码:一个数的正常二进制表示，最高位表示符号，数值0的源码有两种形式+0(0 0000000)和-0 (10000000) 。-45对应原码为10101101</span></li><li><span>反码:</span><mark><span>正数的反码即原码</span></mark><span>，负数的反码是在原码的基础上，</span><mark><span>除符号位外，其他各位按位取反</span></mark><span>。数值0的反码也有两种形式:+(0 0000000)-0(11111111)。-45对应反码为11010010</span></li><li><span>补码:</span><mark><span>正数的补码即原码</span></mark><span>，负数的补码是在原码的基础上，</span><mark><span>除符号位外，其他各位按位取反，而后末位+1</span></mark><span>，若有进位则产生进位。因此数值0的补码只有一种形式+0=-0=00000000。-45对应补码为11010011</span></li><li><span>移码:用作浮点运算的阶码，</span><mark><span>无论正数负数，都是将该原码的补码的首位(符号位)取反</span></mark><span>得到移码。-45对应移码为01010011</span></li></ul></li><li><p><span>机器字长为n时各种码制表示的带符号数的取值范围(差别在于0的表示，原码和反码分+0和-0，补码只有一个0，因此可以多表示一个。) :</span></p><ul><li><figure><table><thead><tr><th><span>码制</span></th><th><span>定点整数</span></th><th><span>定点小数</span></th></tr></thead><tbody><tr><td><span>原码</span></td><td><span>-(2^n-1 - 1)  ~  +(2^n-1 - 1)</span></td><td><span>-(1 - 2^-(n-1))  ~  +(1 - 2^-(n-1))</span></td></tr><tr><td><span>反码</span></td><td><span>-(2^n-1 - 1)  ~  +(2^n-1 - 1)</span></td><td><span>-(1 - 2^-(n-1))  ~  +(1 - 2^-(n-1))</span></td></tr><tr><td><span>补码</span></td><td><span>-2^n-1 ~  +(2^n-1 - 1)</span></td><td><span>-1 ~  +(1 - 2^-(n-1))</span></td></tr><tr><td><span>移码</span></td><td><span>-2^n-1 ~  +(2^n-1 - 1)</span></td><td><span>-1 ~  +(1 - 2^-(n-1))</span></td></tr></tbody></table></figure></li></ul></li><li><p><span>浮点数</span></p></li><li><p><img src="http://qn.qs520.mobi/image-20230203155056442.png" referrerpolicy="no-referrer" alt="image-20230203155056442"><span> </span></p></li></ul></li><li><h4><a name="校验码" class="md-header-anchor"></a><span>校验码</span></h4></li><li><p><span>码距：单个编码A: 00码距为1，因为其只需要改变一位就变成另个编码。</span><strong><span>在两个编码中，从A码到B码转换所需要改变的位数称为码距</span></strong><span>，如A:00要转换为B:11，码距为2。一般来说，码距越大，越利于纠错和检错。</span></p></li><li><p><strong><span>奇偶校验码</span></strong><span>: </span><mark><span>在编码中增加1位校验位来使编码中1的个数为奇数 (奇校验或者偶数(偶校验)</span></mark><span>，从而使码距变为2。例如:</span></p><ul><li><span>奇校验:编码中，</span><mark><span>含有奇数个1</span></mark><span>，发送给接收方，接收方收到后，会计算收到的编码有多少个1，如果是奇数个，则无误，是偶数个，则有误。</span></li><li><span>偶校验同理，</span><mark><span>只是编码中有偶数个1</span></mark><span>，由上述，奇偶校验只能检1位错，并且无法纠错。</span></li></ul></li><li><p><strong><span>循环冗余校验码(CRC)</span></strong><span>：</span><mark><span>CRC只能检错，不能纠错</span></mark><span>。使用CRC 编码，需要先约定一个生成多项式G(x).生成多项式的最高位和最低位必须是1。假设原始信息有m位，则对应多项式M(x)。生成校验码思想就是在原始信息位后追加若干校验位，使得追加的信息能被G(x)整除。接收方接收到带校验位的信息，然后用G(x)整除。余数为0，则没有错误;反之则发生错误。</span></p></li><li><p><span>例:假设原始信息串为10110，CRC的生成多项式为G(x)=x4+x+1，求CRC校验码</span></p><ul><li><span>在原始信息位后面添0，假设生成多项式的阶为r，则在原始信息位后添加r个0，本题中，G(x)阶为4，则在原始信息串后加4个0，得到的新串为101100000作为被除数。</span></li><li><span>(2)由多项式得到除数，多项中x的幂指数存在的位置1，不存在的位置0。本题中，x的幂指数为0,1,4的变量都存在，而幂指数为2,3的不存在，因此得到串10011</span></li><li><span>(3)生成CRC校验码，将前两步得出的被除数和除数进行模2除法运算 (即不进位也不借位的除法运算)。除法过程如下图所示。</span></li><li><img src="http://qn.qs520.mobi/image-20230203175247425.png" referrerpolicy="no-referrer" alt="image-20230203175247425"><span> </span></li></ul></li><li><p><strong><span>海明码</span></strong><span>:本质也是利用</span><mark><span>奇偶性</span></mark><span>来检错和纠错的检验方法，构成方法是在数据位之间的确定位置上插入k个校验位，通过扩大码距实现检错和纠错设</span><mark><span>数据位是n位，校验位是k位，则n和k必须满足以下关系: 2^k-1&gt;=n+k。</span></mark></p></li><li><p><img src="http://qn.qs520.mobi/image-20230203181224459.png" referrerpolicy="no-referrer" alt="image-20230203181224459"><span> </span></p></li><li><p><img src="http://qn.qs520.mobi/image-20230203181349586.png" referrerpolicy="no-referrer" alt="image-20230203181349586"><span> </span></p></li></ul><h3><a name="计算机体系结构" class="md-header-anchor"></a><span>计算机体系结构</span></h3><h4><a name="体系结构分类" class="md-header-anchor"></a><span>体系结构分类</span></h4><ul><li><p><strong><span>按处理机的数量进行分类</span></strong><span>:</span></p><ul><li><span>单处理系统(一个处理单和其他设备集成)</span></li><li><span>并行处理系统(两个以上的处理机互联)</span></li><li><span>分布式处理系统((物理上远距离且松耦合的多计算机系统)</span></li></ul></li><li><p><strong><span>Flynn分类法</span></strong><span>:分类有两个因素，即</span><mark><span>指令流和数据流</span></mark><span>，</span><mark><span>指令流由控制部分处理</span></mark><span>，每一个控制部分处理一条指令流，多指令流就有多个控制部分;</span><mark><span>数据流由处理器来处理</span></mark><span>，每一个处理器处理一条数据流，多数据流就有多个处理器;至于</span><mark><span>主存模块，是用来存储的，存储指令流或者数据流</span></mark><span>，因此，无论是多指令流还是多数据流，都需要多个主存模块来存储，对于主存模块，指令和数据都一样。</span></p></li><li><p><strong><span>依据计算机特性</span></strong><span>：是由指令来控制数据的传输，因此，一条指令可以控制一条或多条数据流，但一条数据流不能被多条指令控制，否则会出错，就如同上级命令太多还互相冲突不知道该执行哪个，因此多指令单数据MISD不可能</span></p></li><li><figure><table><thead><tr><th><span>体系结构类型</span></th><th><span>结构</span></th><th><span>关键特性</span></th><th><span>代表</span></th></tr></thead><tbody><tr><td><span>单指令流单数据流SISD</span></td><td><span>控制部分:一个   处理器:一个         主存模块:一个</span></td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>单指令流多数据流SIMD</span></td><td><span>控制部分:一个   处理器:多个         主存模块:多个</span></td><td><span>各处理器以异步的形式执行同一条指令</span></td><td><span>1并行处理机   2阵列处理机   3超级向量处理机</span></td></tr><tr><td><span>多指令流单数据流MISD</span></td><td><span>控制部分:多个   处理器:一个         主存模块:多个</span></td><td><span>被证明不可能至少是不实际</span></td><td><span>目前没有，有文献称流水线计算机为此类</span></td></tr><tr><td><span>多指令流多数据流MIMD</span></td><td><span>控制部分:多个   处理器:多个         主存模块:多个</span></td><td><span>能够实现作业、任务、指令等各级全面并行</span></td><td><span>1多处理机系统   2多计算机</span></td></tr></tbody></table></figure></li></ul><h4><a name="指令系统" class="md-header-anchor"></a><span>指令系统</span></h4><ul><li><p><strong><span>计算机指令的组成</span></strong><span>:一条指令由</span><mark><span>操作码和操作数</span></mark><span>两部分组成，操作码决定要完成的操作，操作数指参加运算的数据及其所在的单元地址。在计算机中，操作要求和操作数地址都由二进制数码表示，分别称作</span><strong><span>操作码和地址码</span></strong><span>，整条指令以二进制编码的形式存放在存储器中。</span></p></li><li><p><strong><span>计算机指令执行过程</span></strong><span>: </span><mark><span>取指令-一分析指令-一执行指令</span></mark><span>三个步骤，首先将程序计数器PC中的指令地址取出，送入地址总线，CPU依据指令地址去内存中取出指令内容存入指令寄存器IR，而后由指令译码器进行分析，分析指令操作码;最后执行指令，取出指令执行所需的源操作数。</span></p></li><li><p><mark><span>指令寻址方式</span></mark></p><ul><li><strong><span>顺序寻址方式</span></strong><span>:当执行一段程序时，是一条指令接着一条指令地顺序执行。</span></li><li><strong><span>跳跃寻址方式</span></strong><span>:指下一条指令的地址码不是由程序计数器给出，而是由本条指令直接给出。程序跳跃后，按新的指令地址开始顺序执行。因此，程序计数器的内容也必须相应改变，以便及时跟踪新的指令地址。</span></li></ul></li><li><p><mark><span>指令操作数的寻址方式：</span></mark></p><ul><li><strong><span>立即寻址方式</span></strong><span>:指令的地址码字段指出的不是地址，而是操作数本身</span></li><li><strong><span>直接寻址方式</span></strong><span>:在指令的地址字段中直接指出操作数在主存中的地址。</span></li><li><strong><span>间接寻址方式</span></strong><span>:指令地址码字段所指向的存储单元中存储的是操作数的地址。</span></li><li><strong><span>寄存器寻址方式</span></strong><span>:指令中的地址码是寄存器的编号。</span></li><li><span>基址寻址方式:将基址寄存器的内容加上指令中的形式地址而形成操作数的有效地址，其优点是可以扩大寻址能力。</span></li><li><span>变址寻址方式:变址寻址方式计算有效地址的方法与基址寻址方式很相似，它是将变址寄存器的内容加上指令中的形式地址而形成操作数的有效地址。</span></li></ul></li><li><p><strong><span>CISC</span></strong><span>是</span><mark><span>复杂指令系统</span></mark><span>兼容性强，指令繁多、长度可变，由微程序实现;</span></p></li><li><p><strong><span>RISC</span></strong><span>是</span><mark><span>精简指令系统</span></mark><span>指令少，使用频率接近，主要依靠硬件实现(通用寄存器硬布线逻辑控制),区别如下：</span></p></li></ul><figure><table><thead><tr><th><span>指令系统类型</span></th><th><span>指令</span></th><th><span>寻址方式</span></th><th><span>实现方式</span></th><th><span>其他</span></th></tr></thead><tbody><tr><td><span>CISC(复杂)</span></td><td><span>数量多，使用频率差别大可变长格式</span></td><td><span>支持多种</span></td><td><strong><span>微程序控制技术(微码)</span></strong></td><td><span>研制周期长</span></td></tr><tr><td><span>RISC(精简)</span></td><td><span>数量少，使用频率接近，定长格式，大部分为单周期指令，操作寄存器，只有Load/Store操作内存</span></td><td><span>支持方式少</span></td><td><strong><span>增加了通用寄存器，硬布线逻辑控制为主，适合采用流水线</span></strong></td><td><span>优化编译，有效支持高级语言</span></td></tr></tbody></table></figure><ul><li><p><strong><span>指令流水线原理</span></strong><span>: 将</span><mark><span>指令分成不同段，每段由不同的部分去处理</span></mark><span>，因此可以产生叠加的效果，所有的部件去处理指令的不同段</span></p></li><li><p><span>RISC中的流水线技术:</span></p><ol start='' ><li><mark><span>超流水线 (Super Pipe Line) 技术</span></mark><span>。它通过细化流水、增加级数和提高主频，使得在每个机器周期内能完成一个甚至两个浮点操作。其实质是以</span><mark><span>时间换取空间。</span></mark></li><li><mark><span>超标量 (super Scalar) 技术</span></mark><span>。它通过内装多条流水线来同时执行多个处理，其时钟频率虽然与一般流水接近，却有更小的CPI。其实质是以</span><mark><span>空间换取时间</span></mark><span>。</span></li><li><mark><span>超长指令字 (Very Long Instruction Word，VLIW) 技术</span></mark><span>VLIW 和超标量都是20 世纪80 年代出现的概念，其共同点是要同时执行多条指令，其不同在于超标量依靠硬件来实现并行处理的调度，VLIW 则充分发挥</span><mark><span>软件的作用</span></mark><span>，而使硬件简化性能提高。</span></li></ol><p><img src="http://qn.qs520.mobi/image-20230206112638624.png" referrerpolicy="no-referrer" alt="image-20230206112638624"><span> </span></p></li><li><p><mark><span>流水线时间计算(考点)</span></mark></p><ul><li><p><strong><span>流水线周期</span></strong><span>:指令分成不同执行段，其中执行时间最长的段为流水线周期</span></p></li><li><p><strong><span>流水线执行时间:</span></strong><span>1条指令总执行时间+ (总指令条数-1)*流水线周期</span></p></li><li><p><strong><span>流水线吞吐率计算</span></strong><span>:吞吐率即单位时间内执行的指令条数。</span></p><blockquote><p><mark><span>公式: 指令条数/流水线执行时间。</span></mark></p></blockquote></li><li><p><strong><span>流水线的加速比计算</span></strong><span>:加速比即使用流水线后的效率提升度，即比不使用流水线快了多少倍，越高表明流水线效率越高，</span></p><blockquote><p><mark><span>公式:不使用流水线执行时间/使用流水线执行时间</span></mark></p></blockquote></li></ul></li></ul><h4><a name="存储系统cache" class="md-header-anchor"></a><span>存储系统(cache)</span></h4><ul><li><p><span>计算机采用分级存储体系的主要目的是为了解决存储容量、成本和速度之间的矛盾问题。</span></p><p><img src="http://qn.qs520.mobi/image-20230206121708114.png" referrerpolicy="no-referrer" alt="image-20230206121708114"><span> </span></p></li><li><p><span>两级存储: Cache-主存、主存-辅存(虚拟存储体系)</span></p></li><li><p><span>局部性原理:总的来说，在CPU运行时，所访问的数据会趋向于一个较小的局部空间地址内，包括下面两个方面:</span></p><ul><li><strong><span>时间局部性原理</span></strong><span>:如果一个数据项正在被访问，那么在近期它很可能会被再次访问，即在</span><mark><span>相邻的时间里会访问同一个数据项</span></mark></li><li><strong><span>空间局部性原理</span></strong><span>:在最近的将来会用到的数据的地址和现在正在访问的数据地址很可能是相近的，</span><mark><span>即相邻的空间地址会被连续访问</span></mark></li></ul></li><li><p><span>高速缓存Cache用来存储当前最活跃的程序和数据，</span><mark><span>直接与CPU交互，位于CPU和主存之间</span></mark><span>，容量小，速度为内存的5-10倍，由半导体材料构成。其内容是主存内存的副本拷贝，对于程序员来说是透明的。</span></p></li><li><p><span>Cache由</span><mark><span>控制部分和存储器组成</span></mark><span>，存储器存储数据，控制部分判断CPU要访问的数据是否在Cache中，在则命中，不在则依据一定的算法从主存中替换。</span></p></li><li><p><span>地址映射:在CPU工作时，送出的是主存单元的地址，而应从Cache存储器中读/写信息。这就需要将主存地址转换为Cache存储器地址，这种地址的转换称为地址映像，由</span><mark><span>硬件自动完成映射</span></mark><span>，分为下列三种方法:</span></p><ul><li><p><span>直接映像: </span><mark><span>将Cache存储器等分成块，主存也等分成块并编号</span></mark><span>, 主存中的块与Cache中的块的对应关系是固定的，也即</span><mark><span>二者块号相同才能命中</span></mark><span>。地址变换简单但不灵活，容易造成资源浪费。 (如图所示)</span></p><p><img src="http://qn.qs520.mobi/image-20230206142606135.png" referrerpolicy="no-referrer" alt="image-20230206142606135"><span> </span></p></li><li><p><span>全相联映像: 同样都等分成块并编号。</span><mark><span>主存中任意一块都与Cache中任意一块对应</span></mark><span>。因此可以随意调入Cache任意位置，但地址变换复杂，速度较慢。因为主存可以随意调入Cache任意块，只有当Cache满了才会发生块冲突，</span><mark><span>是最不容易发生块冲突的映像方式</span></mark></p><p><img src="http://qn.qs520.mobi/image-20230206142622296.png" referrerpolicy="no-referrer" alt="image-20230206142622296"><span> </span></p></li><li><p><span>组组相连映像:</span><mark><span>前面两种方式的结合</span></mark><span>，将Cache存储器先分块再分组，主存也同样先分块再分组，</span><mark><span>组间采用直接映像，即主存中组号与Cache中组号相同的组才能命中，但是组内全相联映像，也即组号相同的两个组内的所有块可以任意调换</span></mark><span>。</span></p></li></ul></li><li><p><strong><span>替换算法</span></strong><span>的目标就是使</span><mark><span>Cache 获得尽可能高的命中率</span></mark><span>。常用算法有如下几种。</span></p><ul><li><mark><strong><span>随机替换算法</span></strong></mark><span>：就是用随机数发生器产生一个要替换的块号，将该块替换出去</span></li><li><mark><strong><span>先进先出算法</span></strong></mark><span>：就是将最先进入Cache 的信息块替换出去</span></li><li><mark><strong><span>近期最少使用算法</span></strong></mark><span>：这种方法是将近期最少使用的Cache 中的信息块替换出去</span></li><li><mark><strong><span>优化替换算法</span></strong></mark><span>：这种方法必须先执行一次程序，统计Cache 的替换情况有了这样的先验信息，在第二次执行该程序时便可以用最有效的方式来替换。</span></li></ul></li><li><p><span>命中率及平均时间</span></p><ul><li><p><span>Cache有一个命中率的概念，即当</span><mark><span>CPU所访问的数据在Cache中时，命中，直接从Cache中读取数据</span></mark><span>，设读取一次Cache时间为1ns，若CPU访问的数据</span><mark><span>不在Cache中则需要从内存中读取</span></mark><span>，设读取一次内存的时间为1000ns，若在CPU多次读取数据过程中，有90%命中Cache，则CPU读取一次的平均时间为(90%</span><em><span>1 +10%</span></em><span>1000)ns  就是90% x 1ns 加上10% x 1000ns</span></p><p><img src="http://qn.qs520.mobi/image-20230206143314200.png" referrerpolicy="no-referrer" alt="image-20230206143314200"><span> </span></p></li></ul></li></ul><h4><a name="存储系统磁盘" class="md-header-anchor"></a><span>存储系统(磁盘)</span></h4><ul><li><p><span>磁盘结构和参数</span></p><ul><li><mark><span>磁盘有正反两个盘面，每个盘面有多个同心圆每个同心圆是一个磁道，每个同心圆又被划分为多个扇区，数据就被存放在一个个扇区中</span></mark><span>。</span></li><li><mark><span>磁头首先要寻找到对应的磁道</span></mark><span>，然后等待磁盘进行周期旋转，旋转到指定的扇区，才能读取到对应的数据，因此，会产生寻道时间和等待时间。公式为:</span><strong><span>存取时间=寻道时间+等待时间 (平均定位时间+转动延迟)</span></strong></li><li><span>注意:</span><strong><span>寻道时间是指磁头移动到磁道所需的时间:等待时间为等待读写的扇区转到磁头下方所用的时间</span></strong></li></ul></li><li><p><span>磁盘调度算法，之前已经说过，磁盘数据的读取时间分为寻道时间+旋转时间，也即先找到对应的磁道，而后再旋转到对应的扇区才能读取数据，其中</span><mark><span>寻道时间耗时最长</span></mark><span>，需要重点调度，有如下调度算法:</span></p><ul><li><mark><span>先来先服务FCFS</span></mark><span>:根据进程请求访问磁盘的先后顺序进行调度。</span></li><li><mark><span>最短寻道时间优先SSTF</span></mark><span>: 请求访问的磁道与当前磁道最近的进程优先调度，使得每次的寻道时间最短。会产生“饥饿”现象，即远处进程可能永远无法访问。</span></li><li><mark><span>扫描算法SCAN:又称“电梯算法</span></mark><span>: 磁头在磁盘上双向移动，其会选择离磁头当前所在磁道最近的请求访问的磁道，并且与磁头移动方向一致，磁头永远都是从里向外或者从外向里一直移动完才掉头，与电梯类似。</span></li><li><mark><span>单向扫描调度算法CSCAN</span></mark><span>: 与SCAN不同的是，其只做单向移动，即只能从里向外或者从外向里。</span></li></ul></li></ul><h4><a name="输入输出技术io技术" class="md-header-anchor"></a><span>输入/输出技术(I/O技术)</span></h4><ul><li><p><span>计算机系统中存在多种内存与接口地址的编址方法，常见的是下面两种:</span></p><ol start='' ><li><mark><span>内存与接口地址</span><strong><span>独立</span></strong><span>编址方法</span></mark><span>: 内存地址和接口地址是</span><strong><span>完全独立的两个地址空间</span></strong><span>。访问数据时所使用的指令也完全不同，用于接口的指令只用于接口的读/写，其余的指令全都是用于内存的因此，在编程序或读程序时很易使用和辨认。这种编址方法的</span><mark><span>缺点是用于接口的指令太少、功能太弱。</span></mark></li><li><mark><span>内存与接口地址</span><strong><span>统一</span></strong><span>编址方法</span></mark><span>: 内存地址和接口地址</span><strong><span>统一在一个公共的地址空间里</span></strong><span>，即内存单元和接口共用地址空间。</span><mark><span>优点是原则上用于内存的指令全都可以用于接口</span></mark><span>，这就大大地增强了对接口的操作功能，而且在指令上也不再区分内存或接口指令。该编址方法的</span><mark><span>缺点就在于整个地址空间被分成两部分</span></mark><span>，其中一部分分配给接口使用，剩余的为内存所用，这经常会导致内存地址不连续。</span></li></ol></li><li><p><span>计算机和外设间的数据交互方式:</span></p><ul><li><p><strong><span>程序控制(查询)方式</span></strong><mark><span>: CPU主动查询外设是否完成数据传输，效率极低</span></mark></p></li><li><p><strong><span>程序中断方式</span></strong><span>:外设完成数据传输后，</span><mark><span>向CPU发送中断</span></mark><span>，等待CPU处理数据效率相对较高。中断响应时间指的是从发出中断请求到开始进入中断处理程序中断处理时间指的是从中断处理开始到中断处理结束。中断向量提供中断服务程序的入口地址。多级中断嵌套，使用堆栈来保护断点和现场。</span></p></li><li><p><strong><span>DMA方式(直接主存存取)</span></strong><span> : </span><mark><span>CPU只需完成必要的初始化等操作，数据传输的整个过程都由DMA控制器来完成，在主存和外设之间建立直接的数据通路效率很高。</span></mark></p></li><li><p><mark><span>在一个总线周期结束后，CPU会响应DMA请求开始读取数据;CPU响应程序中断方式请求是在一条指令执行结束时</span></mark></p><p><img src="http://qn.qs520.mobi/image-20230206173006650.png" referrerpolicy="no-referrer" alt="image-20230206173006650"><span> </span></p></li></ul></li></ul><h4><a name="总线结构" class="md-header-anchor"></a><span>总线结构</span></h4><ul><li><p><span>总线 (Bus)，是指</span><mark><span>计算机设备和设备之间传输信息的公共数据通道</span></mark><span>。总线是连接计算机硬件系统内多种设备的通信线路，它的一个重要特征是由总线上的所有设备共享，因此可以将计算机系统内的多种设备连接到总线上</span></p></li><li><p><span>从广义上讲，任何连接两个以上电子元器件的导线都可以称为总线，通常分为以下三类:</span></p><ul><li><span>内部总线:内部芯片级别的总线，芯片与处理器之间通信的总线。</span></li><li><span>系统总线:是板级总线，用于计算机内各部分之间的连接，具体分为</span><mark><span>数据总线地址总线(系统可管理的内存空间的大小)、控制总(并行数据传输位数)、线 (传送控制命令)</span></mark><span>。代表的有ISA总线、EISA总线、PCI总线。</span></li><li><span>外部总线:设备一级的总线，微机和外部设备的总线。代表的有RS232(串行总线)、SCS!(并行总线)、USB (通用串行总线，即插即用，支持热插拔)</span></li></ul></li></ul><h3><a name="计算机可靠性" class="md-header-anchor"></a><span>计算机可靠性</span></h3><h4><a name="可靠性指标" class="md-header-anchor"></a><span>可靠性指标：</span></h4><ul><li><span>平均无故障时间MTTF=1/失效率。</span></li><li><span>平均故障修复时间MTTR=1/修复率。</span></li><li><span>平均故障间隔时间MTBF=MTTF+MTTR。</span></li><li><span>系统可用性=MTTF/(MTTF+MTTR)</span><em><span>100%。</span></em></li></ul><h4><a name="串并联系统可靠性" class="md-header-anchor"></a><span>串并联系统可靠性</span></h4><ul><li><p><span>无论什么系统，都是由多个设备组成的,协同工作，而这多个设备的组合方式假设每个设备的可靠性为R1，R2.....Rn,可以是串联、并联，也可以是混合模式则不同的系统的可靠性公式如下:</span></p><blockquote><p><span>串联系统，一个设备不可靠，整个系统崩溃，整个系统可靠性</span><mark><span>R=R1 *  R2</span><em><span>。。。</span></em><span>Rn</span></mark></p><p><img src="http://qn.qs520.mobi/image-20230206175803095.png" referrerpolicy="no-referrer" alt="image-20230206175803095"><span> </span></p><p><span>并联系统，所有设备都不可靠，整个系统才崩溃，整个系统可靠性</span><mark><span>R=1-(1-R1) * (1-R2) *(1-Rn)</span></mark><span>， 如下图左1</span></p><p><img src="http://qn.qs520.mobi/image-20230206175936764.png" referrerpolicy="no-referrer" alt="image-20230206175936764"><span> </span></p><p><span>N模冗余系统: N 模余系统由</span><mark><span>N 个 (N=2n+1)</span></mark><span> </span><mark><span>相同的子系统和一个表决器组成</span></mark><span>，表决器把N 个子系统中占多数相同结果的输出作为输出系统的输出，如上图右所示。在N 个子系统中，只要有</span><mark><span>n+1 个或n+1个以上</span></mark><span>子系统能正常工作，系统就能正常工作，输出正确的结果。</span></p></blockquote></li></ul><h2><a name="2系统配置与性能评价" class="md-header-anchor"></a><span> 2.系统配置与性能评价</span></h2><h3><a name="性能指标" class="md-header-anchor"></a><span>性能指标</span></h3><h4><a name="计算机" class="md-header-anchor"></a><span>计算机</span></h4><ul><li><span>对计算机评价的主要性能指标有: </span><mark><span>时钟频率(主频) ;运算速度，运算精度内存的存储容量;存储器的存取周期;数据处理速率PDR (processingdatarate)吞吐率;各种响应时间;各种利用率RASIS特性 (即: 可靠性Reliability、可用性Availability、可维护性Sericeability、完整性和安全性Integraity and Security)平均故障响应时间;兼容性，可扩充性;性能价格比</span></mark><span>。</span></li></ul><h4><a name="路由器" class="md-header-anchor"></a><span>路由器</span></h4><ul><li><span>对路由器评价的主要性能指标有:</span><mark><span>设备吞吐量、端口吞吐量</span></mark><span>全双工线速转发能力、背靠背帧数、路由表能力、背板能力、</span><mark><span>丢包率、时延、时延抖动</span></mark><span>、VPN支持能力、内部时钟精度、队列管理机制、端口硬件队列数、分类业务带宽保证.RSVP、IP Diff Serv、CAR支持、几余、热插拔组件、路由器余协议、网管、基于Web的管理、网管类型、带外网管支持、网管粒度、计费能力/协议、分组语音支持方式、协议支持、语音压缩能力、端口密度、信令支持。</span></li></ul><h4><a name="交换机" class="md-header-anchor"></a><span>交换机</span></h4><ul><li><span>对交换机评价的主要性能指标有:交换机类型、配置、支持的网络类型、最大ATM端口数、最大SONET端口数、最大FDDI端口数、背板吞吐量、缓冲区大小最大MAC地址表大小、最大电源数、支持协议和标准、路由信息协议RIP、RIP2开放式最短路径优先第2版、边界网关协议BGP、 无类域间路由CIDR、互联网成组管理协议IGMP、距离矢量多播路由协议DVMRP、开放式最短路径优先多播路由协议MOSPF、协议无关的多播协议PIM、资源预留协议RSVP、802.1p优先级标记，多队列、路由、支持第3层交换、支持多层 (4到7层交换、支持多协议路由支持路由缓存、可支持 最大路由表数、VLAN、最大VLAN数量、网管、支持网管类型、支持端口镜像、Qos、支持基于策 略的第2层交换、每端口最大优先级队列数、支持基于策略的第3层交换、支持基于策略的应用级 Qos、支持最小/最大带宽分配、冗余、热交换组件 (管理卡，交换结构，接口模块，电源，冷却系统、支持端口链路聚集协议、负载均衡。</span></li></ul><h4><a name="网络" class="md-header-anchor"></a><span>网络</span></h4><ul><li><span>评价网络的性能指标有: </span><mark><span>设备级性能指标，网络级性能指标;应用级性能指标用户级性能指标; 吞吐量。</span></mark></li></ul><h4><a name="操作系统" class="md-header-anchor"></a><span>操作系统</span></h4><ul><li><span>评价操作系统的性能指标有: </span><mark><span>系统的可靠性、系统响应系统的吞吐率 (量)时间、系统资源利用率、可移植性</span></mark></li></ul><h4><a name="数据库管理系统" class="md-header-anchor"></a><span>数据库管理系统</span></h4><ul><li><span>衡量数据库管理系统的主要性能指标包括</span><mark><span>数据库本身和管理系统</span></mark><span>两部分，有:</span><mark><span>数据库的大小、数据库中表的数量、单个表的大小、表中允许的记录 (行)数量、单个记录 (行) 的大小、表上所允许的索引数量、数据库所允许的索引数量、最大并发事务处理能力、!负载均衡能力、最大连接数等等</span></mark></li></ul><h4><a name="web服务器" class="md-header-anchor"></a><span>WEB服务器</span></h4><ul><li><span>评价Web服务器的主要性能指标有: </span><mark><span>最大并发连接数、响应延迟、吞吐量</span></mark></li></ul><h3><a name="性能评价方法" class="md-header-anchor"></a><span>性能评价方法</span></h3><h4><a name="性能评测的常用方法" class="md-header-anchor"></a><span>性能评测的常用方法</span></h4><ul><li><p><span>时钟频率一般来讲，主频越高，速度越快。</span></p></li><li><p><span>指令执行速度。计量单位KIPS、MIPS</span></p></li><li><p><span>等效指令速度法。统计各类指令在程序中所占比例，并进行折算，是一种固定比例法。</span></p></li><li><p><span>数据处理速率(Processing Data Rate，PDR) 法。采用计算PDR 值的方法来衡量机器性能，PDR 值越大，机器性能越好。PDR 与每条指令和每个操作数的平均位数以及每条指令的平均运算速度有关。</span></p></li><li><p><strong><span>基准程序法 (Benchmark)</span></strong><span>: </span><mark><span>把应用程序中用得最多最频繁的那部分核心程序作为评价计算机性能的标准程序，称为基准测试程序</span></mark><span>是目前被(benchmark)用户一致承认的测试性能的较好方法，有多种多样的基准程序，包括:</span></p><ul><li><mark><span>整数测试程序</span></mark><span>：同厂家的机器，采用相同的体系结构，用相同的基准程序测试，得到的MIPS 值越大，一般说明机器速度越快。</span></li><li><mark><span>浮点测试程序</span></mark><span>：指标MFLOPS (理论峰值浮点速度)</span></li><li><mark><span>SPEC 基准程序(SPEC Benchmark)</span></mark><span>：重点面向处理器性能的基准程序集，将被测计算机的执行时间标准化，即将被测计算机的执行时间除以一个参考处理器的执行时间</span></li><li><mark><span>TPC 基准程序</span></mark><span>：用于评测计算机在事务处理、数据库处理、企业管理与决策支持系统等方面的性能。其中，</span><mark><span>TPC-C 是在线事务处理 (On-line TransactionProcessing，OLTP) 的基准程序，TPC-D 是决策支持的基准程序。TPC-E 作为大型企业信息服务的基准程序</span></mark></li></ul></li><li><p><span>大多数情况下，为测试新系统的性能，用户必须依靠评价程序来评价机器的性能。下面列出了4种评价程序，它们评测的</span><mark><span>准确程度依次递减: 真实的程序、核心程序、小型基准程序、合成基准程序</span></mark></p></li></ul><h3><a name="阿姆达尔解决方案" class="md-header-anchor"></a><span>阿姆达尔解决方案</span></h3><ul><li><p><span>阿姆达尔(Amdahl)定律主要用于系统性能改进的计算中。阿姆达尔定律是指</span><mark><span>计算机系统中对某一部件采用某种更快的执行方式所获得的系统性能改变程度取决于这种方式被使用的频率，或所占总执行时间的比例。</span></mark>
+<span>阿姆达尔定律定义了采用特定部件所取得的加速比。假定我们使用某种增强部件，计算机的性能就会得到提高，那么加速比就是下式所定义的比率:</span></p><p><img src="http://qn.qs520.mobi/image-20230207114440684.png" referrerpolicy="no-referrer" alt="image-20230207114440684"><span> </span></p></li></ul><h2><a name="3操作系统知识" class="md-header-anchor"></a><span>3.操作系统知识</span></h2><h4><a name="操作系统概述" class="md-header-anchor"></a><span>操作系统概述</span></h4><ul><li><p><span>定义：</span></p><ul><li><span>操作系统定义:能有效地组织和管理系统中的各种软/硬件资源，合理地组织计算机系统工作流程，控制程序的执行，并且向用户提供一个良好的工作环境和友好的接口。</span></li><li><span>操作系统有两个重要的作用:</span><mark><span>第一，通过资源管理提高计算机系统的效率第二，改善人机界面向用户提供友好的工作环境</span></mark><span>。</span></li><li><span>操作系统的4 个特征是</span><mark><span>并发性、共享性、虚拟性和不确定性</span></mark></li></ul></li><li><p><span>操作系统的功能：</span></p><ul><li><mark><span>进程管理</span></mark><span>：实质上是对处理机的执行“时间”进行管理，采用多道程序等技术将CPU的时间合理地分配给每个任务，主要包括进程控制、进程同步、进程通信和进程调度。</span></li><li><mark><span>文件管理</span></mark><span>：主要包括文件存储空间管理、目录管理、文件的读/写管理和存取控制。</span></li><li><mark><span>存储管理</span></mark><span>：存储管理是对主存储器“空间”进行管理，主要包括存储分配与回收、存储保护、地址映射(变换) 和主存扩充。</span></li><li><mark><span>设备管理</span></mark><span>：实质是对硬件设备的管理，包括对输入/输出设备的分配、启动、完成和回收。</span></li><li><mark><span>作业管理</span></mark><span>：包括任务、界面管理、人机交互、图形界面、语音控制和虚拟现实等。</span></li></ul></li><li><p><span>操作系统的分类</span></p><ul><li><mark><span>批处理操作系统</span></mark><span>：单道批处理和多道批处理 (主机与外设可并行)</span></li><li><mark><span>分时操作系统</span></mark><span>：一个计算机系统与多个终端设备连接。将CPU 的工作时间划分为许多很短的时间片，轮流为各个终端的用户服务。</span></li><li><mark><span>实时操作系统</span></mark><span>：实时是指计算机对于外来信息能够以足够快的速度进行处理并在被控对象允许的时间范围内做出快速反应。实时系统对交互能力要求不高但要求可靠性有保障。</span></li><li><mark><span>网络操作系统</span></mark><span>：是使联网计算机能方便而有效地共享网络资源，为网络用户提供各种服务的软件和有关协议的集合。三种模式:集中模式、客户端/服务器模式、对等模式。</span></li><li><mark><span>分布式操作系统</span></mark><span>：分布式计算机系统是由多个分散的计算机经连接而成的计算机系统，系统中的计算机无主、次之分，任意两台计算机可以通过通信交换信息。</span></li><li><mark><span>微型计算机操作系统</span></mark><span>：简称微机操作系统，常用的有Windows、Mac os.，linux。</span></li></ul></li><li><p><span>嵌入式操作系统特点</span></p><ul><li><mark><span>微型化</span></mark><span>：从性能和成本角度考虑，希望占用的资源和系统代码量少，如内存少、字长短、运行速度有限、能源少 (用微小型电池)</span></li><li><mark><span>可定制</span></mark><span>：从减少成本和缩短研发周期考虑，要求嵌入式操作系统能运行在不同的微处理器平台上，能针对硬件变化进行结构与功能上的配置，以满足不同应用需要。</span></li><li><mark><span>实时性</span></mark><span>：嵌入式操作系统主要应用于过程控制、数据采集、传输通信、多媒体信息及关键要害领域需要迅速响应的场合，所以对实时性要求较高。</span></li><li><mark><span>可靠性</span></mark><span>：系统构件、模块和体系结构必须达到应有的可靠性，对关键要害应用还要提供容错和防故障措施。</span></li><li><mark><span>易移植性</span></mark><span>：为了提高系统的易移植性，通常采用硬件抽象层和板级支撑包的底层设计技术</span></li></ul></li><li><p><span>嵌入式系统初始化过程按照自底向上、从硬件到软件的次序依次为:</span><mark><span>片级初始化板级初始化&gt;系统初始化</span></mark></p></li></ul><h3><a name="进程管理" class="md-header-anchor"></a><span>进程管理</span></h3><h4><a name="进程组成和状态" class="md-header-anchor"></a><span>进程组成和状态</span></h4><ul><li><p><strong><span>进程的组成</span></strong><span>: 进程控制块PCB(唯一标志)、程序(描述进程要做什么)、数据(存放进程执行时所需数据)</span></p></li><li><p><span>进程基础的状态是下左图中的三态图。需要熟练掌握下图中的进程三态之间的转换</span></p><p><img src="http://qn.qs520.mobi/image-20230207150137955.png" referrerpolicy="no-referrer" alt="image-20230207150137955"><span> </span></p></li></ul><h4><a name="前趋图" class="md-header-anchor"></a><span>前趋图</span></h4><ul><li><p><span>用来表示哪些任务可以并行执行，哪些任务之间有顺序关系，具体如下图:可知，A B C可以并行执行，但是必须A B C都执行完后，才能执行D，这就确定了两点: </span><mark><span>任务间的并行、任务间的先后顺序</span></mark></p><p><img src="http://qn.qs520.mobi/image-20230207151359315.png" referrerpolicy="no-referrer" alt="image-20230207151359315"><span> </span></p></li></ul><h5><a name="进程资源图" class="md-header-anchor"></a><span>进程资源图</span></h5><ul><li><p><span>用来表示</span><mark><span>进程和资源之间的分配和请求关系</span></mark><span>如下图所示:</span></p><p><img src="http://qn.qs520.mobi/image-20230207151806577.png" referrerpolicy="no-referrer" alt="image-20230207151806577"><span> </span></p></li><li><p><mark><span>P代表进程，R代表资源</span></mark><span>，R方框中有几个圆球就表示有几个这种资源，在上图中，R1指向P1，表示R1有一个资源已经分配给了P1，P1指向R2，表示P1还需要请求一个R2资源才能执行。</span></p></li><li><p><strong><span>阻塞节点</span></strong><span>:某进程</span><mark><span>所请求的资源已经全部分配完毕</span></mark><span>，无法获取所需资源，该进程被阻塞了无法继续。如上图中P2。</span><strong><span>非阻寨节点</span></strong><span>: </span><mark><span>某进程所请求的资源还有剩余</span></mark><span>，可以分配给该进程继续运行如上图中P1、P3。</span></p></li><li><p><span>当一个进程资源图中</span><mark><span>所有进程都是阻寨节点时，即陷入死锁状态</span></mark></p></li></ul><h4><a name="进程同步与互斥" class="md-header-anchor"></a><span>进程同步与互斥</span></h4><ul><li><p><span>临界资源: </span><mark><span>各进程间需要以互斥方式</span></mark><span>对其进行访问的资源。</span></p></li><li><p><span>临界区: 指进程中对临界资源实施操作的那段程序。本质是一段程序代码</span></p></li><li><p><span>互斥: 某资源(即临界资源) </span><mark><span>在同一时间内只能由一个任务单独使用</span></mark><span>，使用时需要加锁，使用完后解锁才能被其他任务使用;如打印机。</span></p></li><li><p><span>同步: </span><mark><span>多个任务可以并发执行，只不过有速度上的差异</span></mark><span>, 在一定情况下停下等待, 不存在资源是否单独或共享的问题;如自行车和汽车。</span></p></li><li><p><span>互斥信号量: 对临界资源采用互斥访问，使用互斥信号量后其他进程无法访问，</span><mark><span>初值为1</span></mark><span>。</span></p></li><li><p><span>同步信号量: 对共享资源的访问控制，</span><mark><span>初值一般是共享资源的数量</span></mark></p></li><li><p><span>P</span><mark><span>操作: 申请资源S=S-1</span></mark><span>，若S&gt;=0，则执行P操作的进程继续执行;若S&lt;0，则置该进程为阻塞状态(因为无可用资源)，并将其插入阻塞队列。</span></p></li><li><p><mark><span>V操作: 释放资源，S=S+1</span></mark><span>，若S&gt;0，则执行V操作的进程继续执行;若S&lt;=0则从阻塞状态唤醒一个进程，并将其插入就绪队列(此时因为缺少资源被P操作阻塞的进程可以继续执行)，然后执行V操作的进程继续</span></p><p><img src="http://qn.qs520.mobi/image-20230207154254344.png" referrerpolicy="no-referrer" alt="image-20230207154254344"><span> </span></p></li></ul><h4><a name="进程调度" class="md-header-anchor"></a><span>进程调度</span></h4><ul><li><p><span>进程调度方式是指</span><mark><span>当有更高优先级的进程到来时如何分配CPU</span></mark><span>。</span><mark><span>分为可剥夺和不可剥夺两种</span></mark><span>，可剥夺指当有更高优先级进程到来时，强行将正在运行进程的CPU分配给高优先级进程;不可剥夺是指高优先级进程必须等待当前进程自动释放CPU。</span></p></li><li><p><strong><span>在某些操作系统中，一个作业从提交到完成需要经历高、中、低三级调度</span></strong></p><ul><li><span>高级调度。高级调度又称“长调度”“作业调度”或“接纳调度”，它决定</span><mark><span>处于输入池中的哪个后备作业可以调入主系统做好运行的准备</span></mark><span>，成为一个或组就绪进程。在系统中一个作业只需经过一次高级调度。</span></li><li><span>中级调度。中级调度又称“中程调度”或“对换调度”，它决定</span><mark><span>处于交换区中的哪个就绪进程可以调入内存</span></mark><span>，以便直接参与对CPU 的竞争。</span></li><li><span> 低级调度。低级调度又称“短程调度”或“进程调度”，它决定</span><mark><span>处于内存中的哪个就绪进程可以占用CPU</span></mark><span>。低级调度是操作系统中最活跃、最重要的调度程序，对系统的影响很大。</span></li></ul></li><li><p><strong><span>调度算法</span></strong></p></li><li><p><mark><span>先来先服务FCFS</span></mark><span>:先到达的进程优先分配CPU。用于宏观调度。</span></p></li><li><p><mark><span>时间片轮转</span></mark><span>:分配给每个进程CPU时间片，轮流使用CPU，每个进程时间片大小相同，很公平，用于微观调度。</span></p></li><li><p><mark><span>优先级调度</span></mark><span>:每个进程都拥有一个优先级，优先级大的先分配CPU。</span></p></li><li><p><mark><span>多级反馈调度</span></mark><span>:时间片轮转和优先级调度结合而成，设置多个就绪队列1,2,3...n，每个队列分别赋予不同的优先级，分配不同的时间片长度:新进程先进入队列1的末尾，按FCFS原则，执行队列1的时间片;若未能执行完进程，则转入队列2的末尾，如此重复。</span></p><p><img src="http://qn.qs520.mobi/image-20230207171622813.png" referrerpolicy="no-referrer" alt="image-20230207171622813"><span> </span></p></li></ul><h4><a name="死锁" class="md-header-anchor"></a><span>死锁</span></h4><ul><li><span>当一个进程在等待永远不可能发生的事件时，就会产生死锁，若系统中有多个进程处于死锁状态，就会造成系统死锁。死锁产生的四个必要条件: </span><mark><span>资源互斥、每个进程占有资源并等待其他资源系统不能剥夺进程资源、进程资源图是一个环路</span></mark></li><li><span>死锁产生后，解决措施是打破四大条件，有下列方法:</span></li><li><strong><span>死锁预防</span></strong><span>:采用某种策略限制并发进程对于资源的请求，破坏死锁产生的四个条件之一，使系统任何时刻都不满足死锁的条件。</span></li><li><strong><span>死锁避免</span></strong><span>:一般采用银行家算法来避免，银行家算法，就是提前计算出一条不会死锁的资源分配方法，才分配资源，否则不分配资源，相当于借贷，考虑对方还得起才借钱，提前考虑好以后，就可以避免死锁。</span></li><li><strong><span>死锁检测</span></strong><span>:允许死锁产生，但系统定时运行一个检测死锁的程序，若检测到系统中发生死锁，则设法加以解除。</span></li><li><strong><span>死锁解除</span></strong><span>:即死锁发生后的解除方法，如强制剥夺资源，撤销进程等。</span></li><li><mark><span>死锁资源计算</span></mark><span>:系统内有n个进程，每个进程都需要R个资源，那么其</span><mark><span>发生死锁的最大资源数为n</span><em><span>(R-1)。其不发生死锁的最小资源数为n</span></em><span>(R-1)+1.</span></mark></li></ul><h4><a name="线程" class="md-header-anchor"></a><span>线程</span></h4><ul><li><span>传统的进程有两个属性: </span><mark><span>可拥有资源的独立单位;可独立调度和分配的基本单位</span></mark><span>。</span></li><li><span>引入线程的原因是进程在创建、撤销和切换中，系统必须为之付出较大的时空开销，故在系统中设置的</span><mark><span>进程数目不宜过多</span></mark><span>，进程切换的频率不宜太高，这就限制了并发程度的提高。引入线程后，将传统进程的两个基本属性分开，</span><mark><span>线程作为调度和分配的基本单位，进程作为独立分配资源的单位</span></mark><span>。用户可以通过创建线程来完成任务，以减少程序并发执行时付出的时空开销。</span></li><li><span>线程是进程中的一个实体，是被系统独立分配和调度的基本单位。</span><mark><span>线程基本上不拥有资源，只拥有一点运行中必不可少的资源(如程序计数器、一组寄存器和栈)，它可与同属一个进程的其他线程共享进程所拥有的全部资源</span></mark><span>，例如进程的公共数据、全局变量、代码、文件等资源，但</span><mark><span>不能共享线程独有的资源</span></mark><span>如线程的栈指针等标识数据。</span></li></ul><h3><a name="存储管理" class="md-header-anchor"></a><span>存储管理</span></h3><h4><a name="分区存储管理" class="md-header-anchor"></a><span>分区存储管理</span></h4><ul><li><p><span>所谓分区存储组织，就是</span><mark><span>整存，将某进程运行所需的内存整体一起分配</span></mark><span>给它，然后再执行。有三种分区方式:</span></p></li><li><p><strong><span>固定分区</span></strong><span>:静态分区方法，将主存分为若千个固定的分区，将要运行的作业装配进去，由于分区固定，大小和作业需要的大小不同，会产生内部碎片</span></p></li><li><p><strong><span>可变分区</span></strong><span>:动态分区方法，主存空间的分区是在作业转入时划分，正好划分为作业需要的大小，这样就不存在内部碎片，但容易将整片主存空间切割成许多块，会产生外部碎片。可变分区的算法如下:系统分配内存的算法有很多，如下图所示，根据分配前的内存情况，还需要分配9K空间，对不同算法的结果介绍如下:</span></p><ul><li><p><span>首次适应法:按内存地址顺序从头查找，找到第一个&gt;=9K空间的空闲块，即切割9K空间分配给进程。</span></p></li><li><p><span>最佳适应法:将内存中所有空闲内存块按从小到大排序，找到第一个&gt;=9K空间的空闲块，切割分配，这个将会找到与9K空间大小最相近的空闲块。</span></p></li><li><p><span>最差适应法:和最佳适应法相反，将内存中空闲块空间最大的，切割9K空间分配给进程，这是为了预防系统中产生过多的细小空闲块。</span></p></li><li><p><span>循环首次适应法: 按内存地址顺序查找，找到第一个&gt;=9K空间的空闲块，而后若还需分配，则找下一个，不用每次都从头查找，这是与首次适应法不同的</span></p><p><img src="http://qn.qs520.mobi/image-20230207194709272.png" referrerpolicy="no-referrer" alt="image-20230207194709272"><span> </span></p></li></ul></li><li><p><strong><span>可重定位分区</span></strong><span>:可以解决碎片问题，移动所有已经分配好的区域，使其成为一个连续的区域，这样其他外部细小的分区碎片可以合并为大的分区，满足作业要求。只在外部作业请求空间得不到满足时进行。</span></p></li></ul><h4><a name="分页存储管理" class="md-header-anchor"></a><span>分页存储管理</span></h4><ul><li><p><mark><span>逻辑页分为页号和页内地址</span></mark><span>，页内地址就是物理偏移地址，而页号与物理块号并非按序对应的，需要查询页表，才能得知页号对应的物理块号，再用物理块号加上偏移地址才得出了真正运行时的物理地址。优点:利用率高，碎片小，分配及管理简单缺点:增加了系统开销，可能产生抖动现象</span></p><p><img src="http://qn.qs520.mobi/image-20230207195500403.png" referrerpolicy="no-referrer" alt="image-20230207195500403"><span> </span></p></li><li><p><strong><span>页面置换算法</span></strong></p><ul><li><span>最优算法:OPT，理论上的算法，无法实现，是在进程执行完后进行的最佳效率计算，用来让其他算法比较差距。原理是选择未来最长时间内不被访问的页面置换，这样可以保证未来执行的都是马上要访问的。</span></li><li><span>先进先出算法:FIFO，先调入内存的页先被置换淘汰，会产生</span><strong><span>抖动现象</span></strong><span>，即分配的页数越多，缺页率可能越多 (即效率越低)</span></li><li><span>最近最少使用:LRU，在最近的过去，进程执行过程中，过去最少使用的页面被置换淘汰，根据局部性原理，这种方式效率高，且不会产生抖动现象，使用大量计数器，但是没有LFU多。</span></li><li><span>淘汰原则:优先淘汰最近未访问的，而后淘汰最近未被修改的页面</span></li></ul></li><li><p><span>快表(快速页表，存放在cache中)</span></p></li><li><p><span>是</span><mark><span>一块小容量的相联存储器</span></mark><span>，由快速存储器组成，</span><mark><span>按内容访问，速度快</span></mark><span>，并且可以从硬件上保证按内容并行查找，一般用来</span><mark><span>存放当前访问最频繁的少数活动页面的页号</span></mark></p></li><li><p><span>快表是将页表</span><mark><span>存于Cache</span></mark><span>中;慢表是将页表存于内存上。慢表需要访问两次内存才能取出页，而快表是访问一次Cache和一次内存，因此更快。</span></p></li></ul><h4><a name="分段存储管理" class="md-header-anchor"></a><span>分段存储管理</span></h4><ul><li><p><span>将进程空间分为一个个段，</span><mark><span>每段也有段号和段内地址</span></mark><span>,与页式存储不同的是</span><mark><span>每段物理大小不同，分段是根据逻辑整体分段的</span></mark><span>，因此，段表也与页表的内容不同，页表中直接是逻辑页号对应物理块号，而下图所示，</span><mark><span>段表有段长和基址两个属性</span></mark><span>，才能确定一个逻辑段在物理段中的位置。</span></p><p><img src="http://qn.qs520.mobi/image-20230207201820654.png" referrerpolicy="no-referrer" alt="image-20230207201820654"><span> </span></p></li></ul><h4><a name="段页式存储管理" class="md-header-anchor"></a><span>段页式存储管理</span></h4><ul><li><p><span>对进程空间</span><mark><span>先分段，后分页</span></mark><span>，具体原理图和优缺点如下:优点:空间浪费小、存储共享容易、存储保护容易、能动态链接。缺点:由于管理软件的增加，复杂性和开销也随之增加，需要的硬件以及占用的内容也有所增加，使得执行速度大大下降</span></p><p><img src="http://qn.qs520.mobi/image-20230207202333191.png" referrerpolicy="no-referrer" alt="image-20230207202333191"><span> </span></p></li></ul><h3><a name="设备管理" class="md-header-anchor"></a><span>设备管理</span></h3><h4><a name="设备管理概述" class="md-header-anchor"></a><span>设备管理概述</span></h4><h4><a name="io软件" class="md-header-anchor"></a><span>I/O软件</span></h4><h4><a name="设备管理技术" class="md-header-anchor"></a><span>设备管理技术</span></h4><h3><a name="文件管理" class="md-header-anchor"></a><span>文件管理</span></h3><h4><a name="文件管理概述" class="md-header-anchor"></a><span>文件管理概述</span></h4><h4><a name="索引文件结构" class="md-header-anchor"></a><span>索引文件结构</span></h4><h4><a name="文件目录" class="md-header-anchor"></a><span>文件目录</span></h4><h4><a name="文件存储空间管理" class="md-header-anchor"></a><span>文件存储空间管理</span></h4><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div>
+</body>
+</html>

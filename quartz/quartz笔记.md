@@ -11,7 +11,7 @@
 #### JobDetail：用来描述Job实现类和其他静态信息，如名字，关联监听器等。在spring中有JobDetailFactoryBean和 MethodInvokingJobDetailFactoryBean两种实现，如果任务调度中要执行某个类的某个方法就可以通过MethodInvokingJobDetailFactoryBean来调用
 ####Quartz体系结构
 ####监听器： JobListener,TriggerListener,SchedulerListener,对JobDetail,Trigger, Scheduler进行监听
-![](./img/1.png)
+![](http://qn.qs520.mobi/d217930963555f0588b9a6fc3da5874c.png)
 ##Hello Quartz例子
 <details style='background-color:#f9f2f4'>
 <summary><font color='#c7254e' size='3px'> view code</font></summary>
@@ -130,7 +130,7 @@
 ######priority： trigger的优先级。当有多个trigger，但是线程数量很少时，就会有多个trigger同时执行。这时候就可以设置优先级，默认值是5。只有同时执行的trigger才会比较优先级
 ######misfire： 错过触发，如果控制器关闭或者线程池没有空闲线程，此时持久性trigger就会错过触发时间就是错过触发。不同类型的trigger的misfire机制不同，默认使用的都是“智能机制(smart policy)”，即根据trigger的类型和配置动态调整行为。当控制器重启时查询所有错过触发的trigger再更新trigger的信息
 ######calendar： 日历示例。Calendar用于从trigger的调度计划中排除时间段，
-![](./img/2.png)
+![](http://qn.qs520.mobi/26fa07fa9e401ce512f229d9d38ad222.png)
 ###Simple Trigger
 #####可以在具体的时间点执行一次或者在具体的时间点执行，并以指定间隔重复执行若干次。包括开始时间，结束时间，重复次数，间隔时间
 ######指定时间开始触发，不重复:
@@ -252,7 +252,7 @@
 
 ##Quartz配置参考
 ####默认情况下会从quartz.properties里面加在配置信息，如果加载失败就从org/quartz包里加载默认的。如果想使用除了 这些默认的可以配置org.quartz.properties属性指向所需的文件
-![](./img/3.png)
+![](http://qn.qs520.mobi/9ca44beb9c039c612d4334549d5fe88d.png)
 ### 主配置调度器设置 ###
 	// 指定任务名称
 	org.quartz.scheduler.instanceName
